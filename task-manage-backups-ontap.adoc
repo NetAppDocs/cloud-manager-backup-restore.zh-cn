@@ -1,0 +1,331 @@
+---
+sidebar: sidebar 
+permalink: task-manage-backups-ontap.html 
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
+summary: 您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Cloud Volumes ONTAP 和内部 ONTAP 系统的备份。 
+---
+= 管理 ONTAP 系统的备份
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Cloud Volumes ONTAP 和内部 ONTAP 系统的备份。
+
+
+CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
+
+
+
+== 查看要备份的卷
+
+您可以在备份信息板中查看当前正在备份的所有卷的列表。
+
+.步骤
+. 单击 * 备份和还原 * 选项卡。
+. 单击 * 卷 * 选项卡可查看 Cloud Volumes ONTAP 和内部 ONTAP 系统的卷列表。
++
+image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
+
+
+
+如果要在某些工作环境中查找特定卷，您可以按工作环境和卷细化列表，也可以使用搜索筛选器。
+
+
+
+== 编辑现有备份策略
+
+您可以更改当前应用于工作环境中卷的备份策略的属性。更改备份策略会影响正在使用此策略的所有现有卷。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了卷选项卡中的备份设置按钮。"]
+
+. 从 _Backup Settings_ 页面中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更改设置的工作环境，请选择 * 管理策略 * 。
++
+image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页面中的管理策略选项。"]
+
+. 在 _Manage Policies_ 页面中，为要在该工作环境中更改的备份策略单击 * 编辑策略 * 。
++
+image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
+
+. 在 _Edit Policy_ 页面中，更改计划和备份保留，然后单击 * 保存 * 。
++
+image:screenshot_backup_edit_policy.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
+
++
+如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。。
+
++
+image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
+
++
+请注意，如果您停止将备份分层到归档存储，则已分层到归档存储的所有备份文件都会保留在该层中，而这些备份不会自动移回标准层。
+
+
+
+
+
+== 启用和禁用卷备份
+
+如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
++
+image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
+
+. 选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。
++
+image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在其中选择或取消选择卷。"]
+
++
+通过使用 " 自动备份未来卷 ..." 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。
+
+. 单击 * 保存 * 以提交更改。
+
+
+* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <<Deleting backups,删除备份>>。
+
+
+
+== 正在添加新备份策略
+
+在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
+
+如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<Changing the policy assigned to existing volumes,将此策略应用于该工作环境中的卷>>。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了卷选项卡中的备份设置按钮。"]
+
+. 从 _Backup Settings_ 页面中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要添加新策略的工作环境，请选择 * 管理策略 * 。
++
+image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页面中的管理策略选项。"]
+
+. 在 _Manage Policies_ 页面中，单击 * 添加新策略 * 。
++
+image:screenshot_backup_manage_policy_page_add.png["屏幕截图显示了 \" 管理策略 \" 页面中的 \" 添加新策略 \" 按钮。"]
+
+. 在 _Add New Policy_ 页面中，定义计划和备份保留，然后单击 * 保存 * 。
++
+image:screenshot_backup_add_new_policy.png["显示备份策略设置的屏幕截图，您可以在其中添加备份计划和备份保留设置。"]
+
++
+如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。。
+
++
+image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
+
+
+
+
+
+== 更改分配给现有卷的策略
+
+如果要更改备份频率或更改保留值，则可以更改分配给现有卷的备份策略。
+
+请注意，要应用于卷的策略必须已存在。 <<Adding a new backup policy,请参见如何为工作环境添加新的备份策略>>。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于存在卷的工作环境，请选择 * 管理卷 * 。
++
+image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
+
+. 选中要更改策略的一个或多个卷对应的复选框，然后单击 * 更改策略 * 。
++
+image:screenshot_backup_manage_volumes_page_change.png["管理卷页面，您可以在其中选择或取消选择卷。"]
+
+. 在 _Change Policy_ 页面中，选择要应用于卷的策略，然后单击 * 更改策略 * 。
++
+image:screenshot_backup_change_policy.png["显示如何选择要应用于选定卷的新策略的屏幕截图。"]
+
+. 单击 * 保存 * 以提交更改。
+
+
+
+
+== 随时创建手动卷备份
+
+您可以随时创建按需备份，以捕获卷的当前状态。如果对卷进行了非常重要的更改，而您不希望等待下一次计划备份来保护该数据，或者如果卷当前未进行备份，而您希望捕获其当前状态，则此功能将非常有用。
+
+备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
+
+
+NOTE: 数据保护卷不支持按需卷备份。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择 * 立即备份 * 。
++
+image:screenshot_backup_now_button.png["屏幕截图显示了立即备份按钮，您可以在选择卷后使用该按钮。"]
+
+
+
+在创建备份之前，该卷的备份状态列会显示 " 正在进行 " 。
+
+
+
+== 查看每个卷的备份列表
+
+您可以查看每个卷的所有备份文件的列表。此页面显示有关源卷，目标位置和备份详细信息，例如上次执行的备份，当前备份策略，备份文件大小等。
+
+您还可以通过此页面执行以下任务：
+
+* 删除卷的所有备份文件
+* 删除卷的单个备份文件
+* 下载卷的备份报告
+
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
++
+image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+
++
+此时将显示所有备份文件的列表以及有关源卷，目标位置和备份详细信息。
+
++
+image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+
+
+
+
+== 删除备份
+
+通过 Cloud Backup ，您可以删除单个备份文件，删除卷的所有备份，或者删除工作环境或 Kubernetes 集群中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。
+
+
+CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。删除系统时， Cloud Backup 不会自动删除备份，并且用户界面当前不支持在删除系统后删除这些备份。对于任何剩余备份，您仍需支付对象存储成本费用。
+
+
+
+=== 删除工作环境中的所有备份文件
+
+删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<Disabling Cloud Backup for a working environment,如此处所述>>。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境或 Kubernetes 集群，要删除所有备份并选择 * 删除所有备份 * 。
++
+image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工作环境中所有备份的屏幕截图。"]
+
+. 在确认对话框中，输入工作环境的名称，然后单击 * 删除 * 。
+
+
+
+
+=== 删除卷的所有备份文件
+
+删除卷的所有备份也会禁用该卷的未来备份。
+
+您可以 <<Starting and stopping backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
++
+image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+
++
+此时将显示所有备份文件的列表。
+
++
+image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+. 单击 * 操作 * > * 删除所有备份 * 。
++
+image:screenshot_delete_we_backups.png["显示如何删除卷的所有备份文件的屏幕截图。"]
+
+. 在确认对话框中，输入卷名称并单击 * 删除 * 。
+
+
+
+
+=== 删除卷的单个备份文件
+
+您可以删除单个备份文件。只有在使用 ONTAP 9.8 或更高版本的系统创建卷备份时，此功能才可用。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
++
+image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+
++
+此时将显示所有备份文件的列表。
+
++
+image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要删除的卷备份文件，然后单击 * 删除 * 。
++
+image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的屏幕截图。"]
+
+. 在确认对话框中，单击 * 删除 * 。
+
+
+
+
+== 为工作环境禁用 Cloud Backup
+
+禁用工作环境的 Cloud Backup 会禁用系统上每个卷的备份，同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
+
+请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<Deleting all backup files for a working environment,删除备份>>。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要禁用备份的工作环境或 Kubernetes 集群，请选择 * 停用备份 * 。
++
+image:screenshot_disable_backups.png["工作环境的停用备份按钮的屏幕截图。"]
+
+. 在确认对话框中，单击 * 停用 * 。
+
+
+
+NOTE: 在禁用备份的情况下，系统将为此工作环境显示一个 * 激活备份 * 按钮。如果要为该工作环境重新启用备份功能，可以单击此按钮。
+
+
+
+== 为工作环境取消注册 Cloud Backup
+
+如果您不想再使用备份功能，而希望在工作环境中不再需要为备份付费，则可以取消注册适用于此工作环境的 Cloud Backup 。通常，如果您计划删除工作环境并要取消备份服务，则会使用此功能。
+
+如果要更改存储集群备份的目标对象存储，也可以使用此功能。在为工作环境取消注册 Cloud Backup 后，您可以使用新的云提供商信息为此集群启用 Cloud Backup 。
+
+在注销 Cloud Backup 之前，必须按以下顺序执行以下步骤：
+
+* 为工作环境停用 Cloud Backup
+* 删除该工作环境的所有备份
+
+
+只有在这两个操作完成后，取消注册选项才可用。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要取消注册备份服务的工作环境，请选择 * 取消注册 * 。
++
+image:screenshot_backup_unregister.png["适用于工作环境的取消注册备份按钮的屏幕截图。"]
+
+. 在确认对话框中，单击 * 取消注册 * 。
+

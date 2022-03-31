@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: task-monitor-backup-jobs.html 
+keywords: cloud backup, cloud backup service, backup, restore, status, monitor 
+summary: 您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。 
+---
+= 监控备份和还原作业的状态
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。
+
+
+
+== 查看备份和还原作业的状态
+
+您可以查看所有备份和还原操作及其当前状态的列表。其中包括从 Cloud Volumes ONTAP ，内部 ONTAP 和 Kubernetes 系统执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：
+
+* 成功
+* 正在进行中
+* 已排队
+* 警告
+* 失败
+
+
+.步骤
+. 单击 * 备份和还原 * 选项卡。
+. 单击 * 作业监控 * 选项卡。
++
+image:screenshot_backup_job_monitor.png["显示作业监控信息板中备份和还原作业的屏幕截图。"]
+
+
+
+您可以单击作业名称以查看与该操作对应的详细信息。
+
+如果您要查找特定作业，则可以：
+
+* 使用页面顶部的时间选择器查看特定时间范围的作业
+* 在搜索字段中输入部分作业名称
+* 在每个列标题中使用筛选器对结果进行排序
+

@@ -1,0 +1,242 @@
+---
+sidebar: sidebar 
+permalink: task-backup-onprem-private-cloud.html 
+keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, StorageGRID 
+summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 NetApp StorageGRID 系统中的对象存储。 
+---
+= 将内部 ONTAP 数据备份到 StorageGRID
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+完成几个步骤，开始将数据从内部 ONTAP 系统备份到 NetApp StorageGRID 系统中的对象存储。
+
+请注意， " 内部 ONTAP 系统 " 包括 FAS ， AFF 和 ONTAP Select 系统。
+
+
+
+== 快速入门
+
+按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
+
+.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
+* 您已发现内部集群并将其添加到 Cloud Manager 中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
++
+** 此集群运行的是 ONTAP 9.7P5 或更高版本。
+** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
+** 集群必须与 StorageGRID 和 Connector 建立所需的网络连接。
+
+
+* 您的内部安装了一个 Connector 。
++
+** 通过为连接器建立网络，可以与 ONTAP 集群和 StorageGRID 建立出站 HTTPS 连接。
+
+
+* 您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您的 StorageGRID 安装了 10.3 或更高版本，并且访问密钥具有 S3 权限。
+
+
+[role="quick-margin-para"]
+选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+
+[role="quick-margin-para"]
+选择 StorageGRID 作为提供程序，然后输入 StorageGRID 服务器和服务帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
+
+[role="quick-margin-para"]
+image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP 集群备份到 StorageGRID 时云提供商详细信息的屏幕截图。"]
+
+[role="quick-margin-para"]
+默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+
+[role="quick-margin-para"]
+在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
+
+[role="quick-margin-para"]
+系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。
+
+
+
+== 要求
+
+在开始将内部卷备份到 StorageGRID 之前，请阅读以下要求，以确保您的配置受支持。
+
+下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：
+
+image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+
+请注意，此图中未显示云还原实例，因为当前使用 StorageGRID 时不支持单文件还原。
+
+
+
+=== 准备 ONTAP 集群
+
+您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+
+ONTAP 要求::
++
+--
+* ONTAP 9.7P5 及更高版本。
+* SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
++
+* 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
+
++
+请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
+
+* 已正确设置时间和时区。
++
+请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
+
+
+
+--
+集群网络连接要求::
++
+--
+* ONTAP 集群通过用户指定的端口从集群间 LIF 启动 HTTPS 连接到 StorageGRID ，以执行备份和还原操作。此端口可在备份设置期间进行配置。
++
+ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会启动，而只是响应。
+
+* ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器必须位于您的内部。
+* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["了解有关 IP 空间的更多信息"^]。
++
+设置 Cloud Backup 时，系统会提示您使用 IP 空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
+
+* 节点的集群间 LIF 能够访问对象存储。
+* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
+* 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
+* 如有必要，请更新防火墙规则，以允许通过您指定的端口（通常为端口 443 ）从 ONTAP 到对象存储的 Cloud Backup Service 连接，并允许通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
+
+
+--
+
+
+
+
+=== 正在准备 StorageGRID
+
+StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/sgws-115/index.jsp["StorageGRID 文档"^] 有关详细信息 ...
+
+支持的 StorageGRID 版本:: 支持 StorageGRID 10.3 及更高版本。
+S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为服务帐户输入 S3 访问密钥和机密密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的 StorageGRID 存储分段进行身份验证和访问。这些密钥是必需的，以便 StorageGRID 知道是谁发出请求。
++
+--
+这些访问密钥必须与具有以下权限的用户相关联：
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+对象版本控制:: 不能在对象存储分段上启用 StorageGRID 对象版本控制。
+
+
+
+
+=== 创建或切换连接器
+
+将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
+
+
+
+
+=== 为连接器准备网络连接
+
+确保此连接器具有所需的网络连接。
+
+.步骤
+. 确保安装 Connector 的网络启用以下连接：
++
+** 通过端口 443 与 StorageGRID 建立 HTTPS 连接
+** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
+** 通过端口 443 与 Cloud Backup 建立出站 Internet 连接
+
+
+
+
+
+
+=== 许可证要求
+
+在 30 天免费试用 Cloud Backup 到期之前，您需要从 NetApp 购买并激活 Cloud Backup BYOL 许可证。此许可证适用于帐户，可在多个系统中使用。
+
+您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+
+
+TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
+
+集群上需要 SnapMirror 许可证。请注意，使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
+
+
+
+== 启用云备份到 StorageGRID
+
+可随时直接从内部工作环境启用 Cloud Backup 。
+
+.步骤
+. 在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
++
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+
+. 选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：
++
+.. StorageGRID 服务器的 FQDN 以及 ONTAP 与 StorageGRID 进行 HTTPS 通信时应使用的端口；例如： `s3.eng.company.com:8082`
+.. 用于访问存储备份的存储分段的访问密钥和机密密钥。
+.. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
++
+选择正确的 IP 空间可确保 Cloud Backup 可以设置从 ONTAP 到 StorageGRID 对象存储的连接。
+
++
+image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从内部集群备份到 StorageGRID 存储时云提供商详细信息的屏幕截图。"]
+
++
+请注意，服务启动后，您无法更改此信息。
+
+
+
+. 在 _Define Policy_ 页面中，选择默认备份计划和保留值，然后单击 * 下一步 * 。
++
+image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+
++
+请参见 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["现有策略的列表"^]。
+
+. 在选择卷页面中，使用默认备份策略选择要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于这些卷。
++
+** 要备份所有卷，请选中标题行（image:button_backup_all_volumes.png[""]）。
+** 要备份单个卷，请选中每个卷对应的框（image:button_backup_1_volume.png[""]）。
++
+image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
+
+
+
++
+如果您希望将来添加到此集群的所有卷都启用备份，只需选中 " 自动备份未来卷 ..." 复选框即可。如果禁用此设置，则需要手动为未来的卷启用备份。
+
+. 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
+
+
+系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。
+
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  到内部 ONTAP 系统上的新卷。

@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: concept-kubernetes-backup-to-cloud.html 
+keywords: backing up, restoring, back up, backup, restore, aws, azure, s3, blob, google cloud, back up volumes, cloud backup, restore volumes, billing, cost, kubernetes 
+summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernetes 集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
+---
+= 使用 Cloud Backup 保护 Kubernetes 集群数据
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernetes 集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+
+如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。
+
+
+
+== 功能
+
+备份功能：
+
+* 将永久性卷的独立副本备份到低成本对象存储。
+* 将单个备份策略应用于集群中的所有卷，或者将不同的备份策略分配给具有唯一恢复点目标的卷。
+* 使用 AES-256 位空闲加密和正在传输的 TLS 1.2 HTTPS 连接保护备份数据。
+* 一个卷最多支持 4 ， 000 个备份。
+
+
+还原功能：
+
+* 从特定时间点还原数据。
+* 将卷还原到源系统或其他系统。
+* 还原块级别的数据，将数据直接放置在您指定的位置，同时保留原始 ACL 。
+
+
+
+
+== 支持的 Kubernetes 工作环境和对象存储提供程序
+
+通过 Cloud Backup ，您可以将 Kubernetes 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：
+
+[cols="40,40"]
+|===
+| 源工作环境 | 备份文件目标 
+
+
+| AWS 中的 Kubernetes 集群 | Amazon S3 
+
+
+| Azure 中的 Kubernetes 集群 | Azure Blob 
+
+
+| Google 中的 Kubernetes 集群 | Google Cloud 存储 
+|===
+您可以将卷从 Kubernetes 备份文件还原到以下工作环境：
+
+[cols="40,40"]
+|===
+| 备份文件位置 | 目标工作环境 
+
+
+| Amazon S3 | AWS 中的 Kubernetes 集群 
+
+
+| Azure Blob | Azure 中的 Kubernetes 集群 
+
+
+| Google Cloud 存储 | Google 中的 Kubernetes 集群 
+|===
+
+
+== 成本
+
+使用 Cloud Backup 会产生两种成本：资源费用和服务费用。
+
+* 资源费用 *
+
+资源费用将支付给云提供商，用于支付云中的对象存储容量。由于云备份会保留源卷的存储效率，因此您需要为云提供商的对象存储成本支付 data_after_ ONTAP 效率（适用于应用重复数据删除和数据压缩后少量的数据）。
+
+* 服务费用 *
+
+服务费用将支付给 NetApp ，用于支付这些备份的 _creation_backup_ 和 _restor_ 卷的费用。您只需为所保护的数据付费，该数据是通过备份到对象存储的卷的源逻辑已用容量（ ONTAP 效率）计算得出的。此容量也称为前端 TB （前端 TB ）。
+
+有两种方式可以为备份服务付费。第一种选择是从云提供商订阅，这样您可以按月付费。第二种选择是直接从 NetApp 购买许可证。阅读 <<Licensing,许可>> 部分以了解详细信息。
+
+
+
+== 许可
+
+Cloud Backup 有两种许可选项：按需购买（ PAYGO ）和自带许可证（ BYOL ）。如果您没有许可证，可以免费试用 30 天。
+
+
+
+=== 免费试用
+
+使用 30 天免费试用版时，系统会通知您剩余的免费试用天数。在免费试用版结束时，备份将停止创建。您必须订阅此服务或购买许可证才能继续使用此服务。
+
+禁用此服务后，不会删除备份文件。除非删除备份，否则云提供商会继续为您的备份所使用的容量收取对象存储成本。
+
+
+
+=== 按需购买订阅
+
+Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后，您需要为备份的数据按 GB 付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
+
+即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：
+
+* 订阅可确保在免费试用结束后不会中断服务。
++
+试用结束后，系统会根据您备份的数据量按小时收取费用。
+
+* 如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。
++
+例如，如果您拥有 10 TB BYOL 许可证，则超过 10 TB 的所有容量均通过 PAYGO 订阅付费。
+
+
+
+在免费试用期间，或者如果您未超过 BYOL 许可证，则不会从按需购买订阅中收取费用。
+
+link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["了解如何设置按需购买订阅"]。
+
+
+
+=== 自带许可证
+
+BYOL 基于期限（ 12 ， 24 或 36 个月）和容量，以 1 TB 为增量递增。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，并支付最大容量（如 10 TB ）的费用。
+
+您将收到一个序列号，您可以在 Cloud Manager 数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["Cloud Manager 帐户"^]。
+
+link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+
+
+
+== Cloud Backup 的工作原理
+
+在 Kubernetes 系统上启用 Cloud Backup 后，此服务将对您的数据执行完整备份。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
+
+
+CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
+
+下图显示了每个组件之间的关系：
+
+image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
+
+
+
+=== 支持的存储类或访问层
+
+* 在 AWS 中，备份从 _Standard_ 存储类开始，并在 30 天后过渡到 _Standard-Infrequent Access_ 存储类。
+* 在 Azure 中，备份与 _cool_ 访问层关联。
+* 在 GCP 中，备份默认与 _Standard_ 存储类相关联。
+
+
+
+
+=== 每个集群可自定义的备份计划和保留设置
+
+在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
+
+您可以选择对所有卷进行每小时，每天，每周和每月备份的组合。
+
+达到某个类别或间隔的最大备份数后，较早的备份将被删除，以便始终拥有最新的备份。
+
+
+
+== 支持的卷
+
+Cloud Backup 支持永久性卷（ PV ）。
+
+
+
+== 限制
+
+* 在创建或编辑备份策略时，如果没有为该策略分配任何卷，则保留的备份数最多可以为 1018 。作为临时解决策 ，您可以减少备份数量以创建策略。然后，在为策略分配卷后，您可以编辑此策略以创建多达 4000 个备份。
+* Kubernetes 卷不支持使用 * 立即备份 * 按钮进行临时卷备份。
+

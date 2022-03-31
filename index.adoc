@@ -1,0 +1,15 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: Cloud Backup provides backup and restore capabilities for protection and long-term archive of your data. 
+summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档数据。 
+---
+= Cloud Backup 文档
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

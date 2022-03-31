@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: reference-aws-backup-tiers.html 
+keywords: aws, amazon, s3, storage classes, archive 
+summary: Cloud Backup 支持两个 S3 归档存储类以及大多数地区。 
+---
+= AWS S3 归档存储类和还原检索时间
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup 支持两个 S3 归档存储类以及大多数地区。
+
+
+
+== 支持 Cloud Backup 的 S3 归档存储类
+
+首次创建备份文件时，这些备份文件会存储在 S3 _Standard_ 存储中。此层已针对存储不常访问的数据进行了优化，但也允许您立即访问。30 天后，备份将过渡到 S3 _Standard-Infrequent Access_ 存储类以节省成本。
+
+如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以便进一步优化成本。这些层中的数据无法在需要时立即访问，并且需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见关于一节 <<Restoring data from archival storage,从归档存储还原数据>>。
+
+请注意，使用此类生命周期规则配置 Cloud Backup 时，在 AWS 帐户中设置存储分段时，不能配置任何生命周期规则。
+
+https://aws.amazon.com/s3/storage-classes/["了解 S3 存储课程"^]。
+
+
+
+== 从归档存储还原数据
+
+虽然将旧备份文件存储在归档存储中的成本要比标准存储或标准 IA 存储低得多，但从归档存储中的备份文件访问数据以执行还原操作将需要较长的时间，并需要较多的成本。
+
+从 Amazon S3 Glacier 和 Amazon S3 Glacier Deep Archive 还原数据的成本是多少？:: 在从 Amazon S3 Glacier 检索数据时，您可以选择 3 个恢复优先级，在从 Amazon S3 Glacier 深度归档检索数据时，可以选择 2 个恢复优先级。S3 Glacier 深度归档成本低于 S3 Glacier ：
++
+--
+[cols="25,25,25,25"]
+|===
+| 归档层 3+| 还原优先级和成本 
+
+
+|  | * 高 * | * 标准 * | * 低 * 
+
+
+| * S3 Glacer* | 检索速度最快，成本最高 | 检索速度较慢，成本较低 | 检索速度最慢，成本最低 
+
+
+| * S3 Glacier 深度归档 * |  | 检索速度更快，成本更高 | 检索速度较慢，成本最低 
+|===
+每种方法的每 GB 检索费用和每次请求费用不同。有关按 AWS 地区列出的 S3 Glacier 详细定价，请访问 https://aws.amazon.com/s3/pricing/["Amazon S3 定价页面"^]。
+
+--
+还原在 Amazon S3 Glacier 中归档的对象需要多长时间？:: 总还原时间由两部分组成：
++
+--
+* * 检索时间 * ：从归档中检索备份文件并将其置于标准存储中的时间。这有时称为 " 再融合 " 时间。检索时间因您选择的还原优先级而异。
++
+[cols="25,20,20,20"]
+|===
+| 归档层 3+| 还原优先级和检索时间 
+
+
+|  | * 高 * | * 标准 * | * 低 * 
+
+
+| * S3 Glacer* | 3-5 分钟 | 3-5 小时 | 5-12 小时 
+
+
+| * S3 Glacier 深度归档 * |  | 12 小时 | 48 小时 
+|===
+* * 还原时间 * ：从标准存储中的备份文件还原数据的时间。此时间与直接从标准存储执行的典型还原操作并无不同，因为此时不使用归档层。
+
+
+有关 Amazon S3 Glacier 和 S3 Glacier 深度归档检索选项的详细信息，请参见 https://aws.amazon.com/s3/faqs/#Amazon_S3_Glacier["有关这些存储类的 Amazon 常见问题解答"^]。
+
+--
+

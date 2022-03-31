@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: task-backup-app-data-to-cloud.html 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SnapCenter Server, register 
+summary: 完成几个步骤，将应用程序数据从 ONTAP 备份到云服务。 
+---
+= 将内部应用程序数据备份到云
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCenter 集成来将应用程序数据从 ONTAP 备份到云。
+
+
+
+== 注册 SnapCenter 服务器
+
+只有具有 SnapCenterAdmin 角色的用户才能注册运行 SnapCenter Server 4.6 的主机。您可以注册多个 SnapCenter 服务器主机，但一旦注册，便无法删除 SnapCenter 服务器主机。
+
+* 步骤 *
+
+. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 从 * 设置 * 下拉列表中，单击 * SnapCenter Servers* 。
+. 单击 * 注册 SnapCenter Server* 。
+. 指定以下详细信息：
++
+.. 在 SnapCenter 服务器字段中，指定 SnapCenter 服务器主机的 FQDN 或 IP 地址。
+.. 在端口字段中，指定运行 SnapCenter 服务器的端口号。
++
+您应确保此端口已打开，以便在 SnapCenter 服务器与适用于应用程序的云备份之间进行通信。
+
+.. 在标记字段中，指定要标记 SnapCenter 服务器的站点名称，城市名称或任何自定义名称。
++
+这些标记以逗号分隔。
+
+.. 在用户名和密码字段中，指定具有 SnapCenterAdmin 角色的用户的凭据。
+
+
+. 单击 * 注册 * 。
+
+
+* 完成后 *
+
+单击 * 备份和还原 * > * 应用程序 * 可查看使用注册的 SnapCenter 服务器主机保护的所有应用程序。
+
+
+NOTE: 对于 SQL Server 数据库，应用程序名称列会以 _application_name （主机名） _ 格式显示名称。如果您通过提供 _application_name （主机名） _ 格式的名称进行搜索，则不会显示 SQL Server 数据库详细信息。
+
+支持的应用程序及其配置包括：
+
+* Oracle 数据库：使用至少一个每日，每周或每月计划创建完整备份（数据 + 日志）。
+* Microsoft SQL Server 数据库：
++
+** 独立，故障转移集群实例和可用性组
+** 已创建完整备份，其中至少包含一个每日，每周或每月计划
+
+
+
+
+不会显示以下 Oracle 和 SQL Server 数据库：
+
+* 没有备份的数据库
+* 仅具有按需或每小时策略的数据库
+* 位于 RDM 或 VMDK 上的数据库
+
+
+
+
+== 备份应用程序数据
+
+您可以使用一个策略同时将一个或多个应用程序保护到云中。只能分配默认的预制策略来保护应用程序。
+
+
+IMPORTANT: 如果使用的是 Cloud Manager GUI ，则一次只能保护一个应用程序。但是，如果您使用的是 REST API ，则可以同时保护多个应用程序。
+
+如果要保护 SQL Server 实例，则会为该实例中符合条件的数据库的所有卷配置云保护。如果要保护 SQL Server 可用性组，则会为该可用性组中数据库的所有卷配置云保护。但是，根据备份首选项， Snapshot 将从相应的卷中复制。
+
+* 步骤 *
+
+. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 激活备份 * 。
+. 添加工作环境。
++
+配置托管运行应用程序的 SVM 的 ONTAP 集群。为其中一个应用程序添加工作环境后，可以对驻留在同一 ONTAP 集群上的所有其他应用程序重复使用该环境。
+
++
+.. 选择 SVM ，然后单击添加工作环境。
+.. 在添加工作环境向导中：
++
+... 指定 ONTAP 集群的 IP 地址。
+... 指定管理员凭据。
++
+Cloud Backup for Applications 仅支持集群管理。
+
+
+
+.. 单击 * 添加工作环境 * 。
+
+
+. 选择并配置云提供商。
++
+[role="tabbed-block"]
+====
+.配置 Amazon Web Services
+--
+.. 指定 AWS 帐户。
+.. 在 AWS 访问密钥字段中，指定密钥。
+.. 在 AWS 机密密钥字段中，指定密码。
+.. 选择要创建备份的区域。
+.. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
+
+
+--
+.配置 Microsoft Azure
+--
+.. 指定 Azure 订阅 ID 。
+.. 选择要创建备份的区域。
+.. 创建新资源组或使用现有资源组。
+.. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
+
+
+--
+====
+
+
+. 在分配策略页面中，选择策略并单击 * 下一步 * 。
+. 查看详细信息并单击 * 激活备份 * 。
+

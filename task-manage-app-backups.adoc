@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: task-manage-app-backups.html 
+keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs 
+summary: 您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。 
+---
+= 管理应用程序的保护
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。
+
+
+
+== 查看策略
+
+您可以查看所有默认预制策略。在查看每个策略的详细信息时，系统都会列出所有关联的 Cloud Backup for Applications 策略以及所有关联的应用程序。
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 从 * 设置 * 下拉列表中，单击 * 策略 * 。
+. 单击与要查看其详细信息的策略对应的 * 查看详细信息 * 。
++
+此时将列出关联的 Cloud Backup for Applications 策略和所有应用程序。
+
++
+
+NOTE: 您不应删除适用于应用程序的 Cloud Backup 策略。
+
+
+
+您也可以运行 `Get-SmResources` SnapCenter cmdlet 来查看云扩展 SnapCenter 策略。有关可与 cmdlet 结合使用的参数及其说明的信息，可通过运行 get-help command_name 来获取。或者，您也可以参考 https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["《 SnapCenter 软件 cmdlet 参考指南》"]。
+
+
+
+== 查看云上的备份
+
+您可以在 Cloud Manager UI 中查看云上的备份。
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 查看详细信息 * 。
+
+
+
+IMPORTANT: 列出备份所需的时间取决于 ONTAP 的默认复制计划（最长 1 小时）和 Cloud Manager （最长 6 小时）。
+
+* 对于 Oracle 数据库，系统会列出数据备份和日志备份，每个备份的 SCN 编号，每个备份的结束日期。您只能选择数据备份并将数据库还原到内部 SnapCenter 服务器。
+* 对于 Microsoft SQL Server 数据库，仅会列出完整备份和每个备份的结束日期。您可以选择备份并将数据库还原到内部 SnapCenter 服务器。
+* 对于 Microsoft SQL Server 实例，不会列出备份，而是仅列出该实例下的数据库。
+
+
+
+NOTE: 在启用云保护之前创建的备份不会列出进行还原。
+
+您也可以通过运行 `Get-SmBackup` SnapCenter cmdlet 来查看这些备份。有关可与 cmdlet 结合使用的参数及其说明的信息，可通过运行 get-help command_name 来获取。或者，您也可以参考 https://library.netapp.com/ecm/ecm_download_file/ECMLP2880726["《 SnapCenter 软件 cmdlet 参考指南》"]。
+
+
+
+== 数据库布局更改
+
+将卷添加到数据库后， SnapCenter 服务器将根据策略和计划自动为新卷上的快照添加标签。这些新卷不会具有对象存储端点，您应执行以下步骤进行刷新：
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 从 * 设置 * 下拉列表中，单击 * SnapCenter Servers* 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于托管应用程序的 SnapCenter 服务器，然后单击 * 刷新 * 。
++
+此时将发现新卷。
+
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 刷新保护 * 为新卷启用云保护。
+
+
+如果在配置云服务后从应用程序中删除存储卷，则对于新备份， SnapCenter 服务器将仅标记应用程序所在的快照。如果删除的卷未被任何其他应用程序使用，则应手动删除对象存储关系。如果您更新应用程序清单，它将包含应用程序的当前存储布局。
+
+
+
+== 策略或资源组更改
+
+如果 SnapCenter 策略或资源组发生更改，则应刷新保护。
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 刷新保护 * 。
+
+
+
+
+== 监控作业
+
+系统会为所有 Cloud Backup 操作创建作业。您可以监控在每个任务中执行的所有作业和所有子任务。
+
+. 单击 * 备份和还原 * > * 作业监控 * 。
++
+启动操作时，将显示一个窗口，指出作业已启动。您可以单击此链接来监控作业。
+
+. 单击主任务可查看每个子任务的子任务和状态。
+
+
+
+
+== 配置 CA 证书
+
+如果您拥有 CA 证书，则应手动将根 CA 证书复制到连接器计算机。
+
+但是，如果您没有 CA 证书，则无需配置 CA 证书即可继续操作。
+
+* 步骤 *
+
+. 将证书复制到可从 Docker 代理访问的卷。
++
+** `cd /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/mkdir sc_certs`
+** `chmod 777 SC_certs`
+
+
+. 将 RootCA 证书文件复制到连接器计算机上的上述文件夹。
++
+`cp <path on connector>/<filename> /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/sc_certs`
+
+. 将此 CRL 文件复制到可从 Docker 代理访问的卷。
++
+** `cd /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/mkdir SC_CRL`
+** `chmod 777 SC_CRL`
+
+
+. 将此 CRL 文件复制到连接器计算机上的上述文件夹。
++
+`cp <path on connector>/<filename> /var/lib/docker/volumes/cloudmanager_snapcenter_volume/_data/sc_ll`
+
+. 复制证书和 CRL 文件后，重新启动 Cloud Backup for Apps 服务。
++
+** `sUdo Docker exec cloudmanager_snapcenter sed -I s/skipSCCertValidation ： true/skipSCCertValidation ： false/g' /opt/netapp/cloudmanager-snapcenter-agent/config/config.yml`
+** `s使用 Docker 重新启动 cloudmanager_snapcenter`
+
+
+

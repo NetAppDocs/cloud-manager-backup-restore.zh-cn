@@ -1,0 +1,156 @@
+---
+sidebar: sidebar 
+permalink: task-backup-to-gcp.html 
+keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, gcp, google cloud, back up volumes, cloud backup 
+summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Google Cloud 存储。 
+---
+= 将 Cloud Volumes ONTAP 数据备份到 Google 云存储
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Google 云存储。
+
+
+
+== 快速入门
+
+按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
+
+.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
+* 您正在 GCP 中运行 Cloud Volumes ONTAP 9.7P5 或更高版本。
+* 您已为备份所在的存储空间订阅了有效的 GCP 。
+* 您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。
+* 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Cloud Manager Marketplace Backup 产品"^]或您已购买 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
+
+
+.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt-twe"></span> 在新系统或现有系统上启用 Cloud Backup
+* 新系统：完成新的工作环境向导后，可以启用 Cloud Backup 。
+* 现有系统：选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
++
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
+
+
+
+[role="quick-margin-para"]
+选择要在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。
+
+[role="quick-margin-para"]
+image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装的 Cloud Volumes ONTAP 系统备份到 Google 云存储分段时云提供商详细信息的屏幕截图。"]
+
+[role="quick-margin-para"]
+默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
+
+[role="quick-margin-para"]
+在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
+
+
+
+== 要求
+
+在开始将卷备份到 Google Cloud 存储之前，请阅读以下要求，以确保您的配置受支持。
+
+下图显示了每个组件以及需要在它们之间准备的连接：
+
+image:diagram_cloud_backup_cvo_google.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+
+支持的 ONTAP 版本:: Cloud Volumes ONTAP 9.7P5 及更高版本。
+支持的 GCP 区域:: 所有 GCP 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
+许可证要求:: 对于 Cloud Backup PAYGO 许可，可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"] 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。。
++
+--
+对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["了解如何管理 BYOL 许可证"]。
+
+您需要为备份所在的存储空间订阅 Google 。
+
+--
+GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^]。
+
+
+
+
+== 在新系统上启用 Cloud Backup
+
+完成工作环境向导以创建新的 Cloud Volumes ONTAP 系统时，可以启用云备份。
+
+您必须已配置服务帐户。如果在创建 Cloud Volumes ONTAP 系统时未选择服务帐户，则需要关闭系统并从 GCP 控制台将服务帐户添加到 Cloud Volumes ONTAP 。
+
+请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["在 GCP 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
+
+.步骤
+. 在工作环境页面上，单击 * 添加工作环境 * 并按照提示进行操作。
+. * 选择位置 * ：选择 * Google Cloud Platform* 。
+. * 选择类型 * ：选择 * Cloud Volumes ONTAP * （单节点或高可用性）。
+. * 详细信息和凭据 * ：输入以下信息：
++
+.. 单击 * 编辑项目 * ，如果要使用的项目与默认项目（ Cloud Manager 所在的项目）不同，请选择一个新项目。
+.. 指定集群名称。
+.. 启用 * 服务帐户 * 开关，然后选择具有预定义的存储管理员角色的服务帐户。要启用备份和分层，必须执行此操作。
+.. 指定凭据。
++
+确保已订阅 GCP Marketplace 。
+
++
+image:screenshot_backup_to_gcp_new_env.png["屏幕截图，显示如何在工作环境向导中启用服务帐户。"]
+
+
+
+. * 服务 * ：保持 Cloud Backup Service 处于启用状态，然后单击 * 继续 * 。
++
+image:screenshot_backup_to_gcp.png["显示了工作环境向导中的 Cloud Backup 选项。"]
+
+. 完成向导中的页面以部署系统，如中所述 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["在 GCP 中启动 Cloud Volumes ONTAP"^]。
+
+
+Cloud Backup 在系统上启用，并备份您每天创建的卷，并保留最近 30 个备份副本。
+
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+
+
+
+== 在现有系统上启用 Cloud Backup
+
+您可以随时直接从工作环境启用 Cloud Backup 。
+
+.步骤
+. 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
++
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 选择要为备份创建 Google Cloud Storage 存储分段的 Google Cloud Project 和区域，然后单击 * 下一步 * 。
++
+image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装的 Cloud Volumes ONTAP 系统备份到 Google 云存储分段时云提供商详细信息的屏幕截图。"]
+
++
+请注意，项目必须具有具有预定义的存储管理员角色的服务帐户。
+
+. 在 _Define Policy_ 页面中，选择默认备份计划和保留值，然后单击 * 下一步 * 。
++
+image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
+
++
+请参见 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["现有策略的列表"^]。
+
+. 在选择卷页面中，使用默认备份策略选择要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于这些卷。
++
+image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
+
++
+** 要备份所有卷，请选中标题行（image:button_backup_all_volumes.png[""]）。
+** 要备份单个卷，请选中每个卷对应的框（image:button_backup_1_volume.png[""]）。
+
+
+. 如果希望将来添加的所有卷都启用备份，只需选中 " 自动备份未来卷 ..." 复选框即可。如果禁用此设置，则需要手动为未来的卷启用备份。
+. 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
+
+
+Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。
+
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。

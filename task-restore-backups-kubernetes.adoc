@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: task-restore-backups-kubernetes.html 
+keywords: restoring, restore, restore volumes, cloud backup, volume restore, persistent volume 
+summary: 备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从已保存的备份文件还原整个 Kubernetes 永久性卷。 
+---
+= 从备份文件还原 Kubernetes 数据
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从已保存的备份文件还原整个 Kubernetes 永久性卷。
+
+您可以将永久性卷（作为新卷）还原到同一工作环境或使用同一云帐户的不同工作环境。
+
+
+
+== 支持的工作环境和对象存储提供程序
+
+您可以将卷从 Kubernetes 备份文件还原到以下工作环境：
+
+[cols="40,40"]
+|===
+| 备份文件位置 | 目标工作环境 
+
+
+| Amazon S3 | AWS 中的 Kubernetes 集群 
+
+
+| Azure Blob | Azure 中的 Kubernetes 集群 
+
+
+| Google Cloud 存储 | Google 中的 Kubernetes 集群 
+|===
+
+
+== 从 Kubernetes 备份文件还原卷
+
+从备份文件还原永久性卷时， Cloud Manager 会使用备份中的数据创建 _new_ 卷。您可以将数据还原到同一 Kubernetes 集群中的卷或与源 Kubernetes 集群位于同一云帐户中的其他 Kubernetes 集群。
+
+开始之前，您应知道要还原的卷的名称以及要用于创建新还原的卷的备份文件的日期。
+
+.步骤
+. 选择 * 备份和还原 * 服务。
+. 单击 * Kubernetes * 选项卡，此时将显示 Kubernetes 信息板。
++
+image:screenshot_backup_view_k8s_backups_button.png["Kubernetes 信息板的屏幕截图，其中列出了要备份的所有 Kubernetes 集群和卷。"]
+
+. 找到要还原的卷，然后单击 image:screenshot_horizontal_more_button.gif["更多图标"]，然后是 * 卷详细信息 * 。
++
+此时将显示该卷的所有备份文件列表以及有关源卷，目标位置和备份详细信息。
+
++
+image:screenshot_backup_view_k8s_backups.png["一个源卷的所有可用备份的屏幕截图。"]
+
+. 根据日期 / 时间戳找到要还原的特定备份文件，然后单击 image:screenshot_horizontal_more_button.gif["更多图标"]，然后是 * 还原 * 。
+. 在 _Select Destination_ 页面中，选择要还原卷的 _Kubernetes cluster_ ， _Namespaces_ ， _Storage Class_ 以及新的 _Persistent 卷名称 _ 。
++
+image:screenshot_restore_k8s_volume.png["有关要还原永久性卷的目标信息的屏幕截图。"]
+
+. 单击 * 还原 * ，您将返回到 Kubernetes 信息板，以便查看还原操作的进度。
+
+
+Cloud Manager 会根据您选择的备份在 Kubernetes 集群中创建一个新卷。您可以 link:task-manage-backups-kubernetes.html["管理此新卷的备份设置"] 根据需要。

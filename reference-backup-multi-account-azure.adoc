@@ -1,0 +1,134 @@
+---
+sidebar: sidebar 
+permalink: reference-backup-multi-account-azure.html 
+keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup 
+summary: 您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，此帐户与源 Cloud Volumes ONTAP 卷所在位置不同，并且与 Cloud Manager Connector 所在帐户不同。 
+---
+= 在 Azure 中配置用于多帐户访问的备份
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 Azure 帐户中创建备份文件。这两个帐户都可以与 Cloud Manager Connector 所在的帐户不同。
+
+只有在您使用时，才需要执行这些步骤 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储"^]。
+
+只需按照以下步骤以这种方式设置您的配置即可。
+
+
+
+== 在帐户之间设置 vNet 对等关系
+
+请注意，如果您希望 Cloud Manager 在其他帐户 / 区域管理您的 Cloud Volumes ONTAP 系统，则需要设置 vNet 对等关系。存储帐户连接不需要建立 vNet 对等关系。
+
+. 登录到 Azure 门户，然后从主页选择 Virtual Networks 。
+. 选择要用作订阅 1 的订阅，然后单击要设置对等关系的 vNet 。
++
+image:screenshot_azure_peer1.png[""]
+
+. 选择 * cbsnetwork* ，然后从左侧面板中单击 * 产品 * ，然后单击 * 添加 * 。
++
+image:screenshot_azure_peer2.png[""]
+
+. 在对等页面上输入以下信息，然后单击 * 添加 * 。
++
+** 此网络的对等链路名称：您可以提供任何名称来标识对等连接。
+** 远程虚拟网络对等链路名称：输入一个名称以标识远程 vNet 。
+** 将所有选择保留为默认值。
+** 在订阅下，选择订阅 2.
+** 虚拟网络，请在订阅 2 中选择要设置对等关系的虚拟网络。
++
+image:screenshot_azure_peer3.png[""]
+
+
+
+. 在 subscription 2 vNet 中执行相同的步骤，并指定 subscription 1 的订阅和远程 vNet 详细信息。
++
+image:screenshot_azure_peer4.png[""]
+
++
+此时将添加对等设置。
+
++
+image:screenshot_azure_peer5.png[""]
+
+
+
+
+
+== 为存储帐户创建私有端点
+
+现在，您需要为此存储帐户创建一个专用端点。在此示例中，存储帐户在订阅 1 中创建， Cloud Volumes ONTAP 系统在订阅 2 中运行。
+
+
+NOTE: 要执行以下操作，您需要网络贡献者权限。
+
+[source, json]
+----
+{
+  "id": "/subscriptions/d333af45-0d07-4154-943dc25fbbce1b18/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7",
+  "properties": {
+    "roleName": "Network Contributor",
+    "description": "Lets you manage networks, but not access to them.",
+    "assignableScopes": [
+      "/"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Network/*",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+----
+. 转到存储帐户 > 网络 > 专用端点连接，然后单击 * + 专用端点 * 。
++
+image:screenshot_azure_networking1.png[""]
+
+. 在 Private Endpoint _Basics 页面中：
++
+** 选择订阅 2 （部署 Cloud Manager Connector 和 Cloud Volumes ONTAP 系统的位置）和资源组。
+** 输入端点名称。
+** 选择区域。
++
+image:screenshot_azure_networking2.png[""]
+
+
+
+. 在 _Resources_ 页面中，选择目标子资源为 * BLOB * 。
++
+image:screenshot_azure_networking3.png[""]
+
+. 在配置页面中：
++
+** 选择虚拟网络和子网。
+** 单击 * 是 * 单选按钮以 " 与专用 DNS 区域集成 " 。
++
+image:screenshot_azure_networking4.png[""]
+
+
+
+. 在专用 DNS 区域列表中，确保从正确的区域中选择了专用区域，然后单击 * 查看 + 创建 * 。
++
+image:screenshot_azure_networking5.png[""]
+
++
+现在，存储帐户（在订阅 1 中）可以访问在订阅 2 中运行的 Cloud Volumes ONTAP 系统。
+
+. 请重试在 Cloud Volumes ONTAP 系统上启用云备份，此时应成功启用。
+
