@@ -55,9 +55,7 @@
   <block id="08c19771a6ca4c9d29ee89345a0e2d51" category="list-text">集群必须与 Blob 存储和 Connector 建立所需的网络连接。</block>
   <block id="c6ec39d27710723c8e240515b4b8d58e" category="list-text">Connector 必须具有与 Blob 存储和集群的所需网络连接以及所需权限。</block>
   <block id="4f7dddcefc072dbdfbfc21f597fc974b" category="list-text">您已为备份所在的对象存储空间订阅有效的 Azure 。</block>
-  <block id="aec3f107e722aa43f3d2fe7191720a9c" category="paragraph">选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * ，然后按照设置向导进行操作。</block>
   <block id="0f7e4422c0388f7a13cf4e817e63f2d4" category="inline-image-macro">屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。</block>
-  <block id="86a833c12958f07575d29f3d5d9926a6" category="paragraph"><block ref="e36987e16d256e466a9acd794b4b3498" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4eca8ae29d6382b6861e8829b6bf68ae" category="paragraph">选择 Microsoft Azure 作为您的提供程序，然后输入提供程序详细信息。您需要选择 Azure 订阅以及要创建备份的区域。您还可以选择自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。</block>
   <block id="ff770750d70b14ff6900cb0710825fe9" category="inline-image-macro">显示将卷从内部集群备份到 Azure Blob 存储时云提供商详细信息的屏幕截图。</block>
   <block id="2693919e968f9faed51d6bab8e6770a8" category="paragraph"><block ref="2693919e968f9faed51d6bab8e6770a8" category="inline-image-macro-rx" type="image"></block></block>
@@ -141,7 +139,6 @@
   <block id="2197d8918b3cd72ff2ee47970d6be4ce" category="list-text">如果您希望通过公有 Internet 从内部数据中心更安全地连接到 vNet ，可以在激活向导中选择配置 Azure 私有端点。在这种情况下，您需要了解此连接的 vNet 和子网。<block ref="816f1de3134aa8b527c6ee03dddc7a42" category="inline-link-rx"></block>。</block>
   <block id="89096417437822e0dc275ea833d99200" category="section-title">启用 Cloud Backup</block>
   <block id="0903ab68c41a6bc55309dd47297a38bb" category="paragraph">可随时直接从内部工作环境启用 Cloud Backup 。</block>
-  <block id="5bf0ca4cfe23ac32e3d45a286b91b311" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
   <block id="ebe4f193aa506c0c1049c27186059dfe" category="list-text">选择 Microsoft Azure 作为提供程序，然后单击 * 下一步 * 。</block>
   <block id="41dbe3b7f6d524699c5ef0fbb6cf023d" category="list-text">输入提供程序详细信息并单击 * 下一步 * 。</block>
   <block id="17562ce11955e298b8f53b0cd2666472" category="list-text">用于备份的 Azure 订阅以及要存储备份的 Azure 区域。</block>
@@ -406,14 +403,11 @@
   <block id="4add3b76588efda22443faf65d7b33b8" category="list-text">对于使用 " 浏览和还原 " 进行文件还原的情况，只有在还原实例运行时，您才需要为云提供商的计算成本付费。</block>
   <block id="2e8e31cde916a3195214336332198f1d" category="paragraph">此实例与 Connector 位于同一子网中，只有在浏览备份文件以查找要还原的各个文件时，它才会运行。不使用实例时，该实例将关闭以节省成本。</block>
   <block id="61c85306674ea0662e30c30a451e8bb6" category="inline-link">m5n.xlarge 实例</block>
-  <block id="3e75e13e53d4c5c1d22207efcaa0e783" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和仅限 EBS 的实例存储。操作系统映像为 Amazon Linux 2 。</block>
   <block id="8eee98a18c217036ccb07ef6bed307a3" category="paragraph">在 m5n.xlarge 实例不可用的区域中， Restore 会在 m5.xlarge 实例上运行。</block>
   <block id="8d63888e8805c64f266bdd3b3aae561b" category="inline-link">标准 D4s_v3 虚拟机</block>
-  <block id="9cd257410791914582184188f35f06ac" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
   <block id="ffc6e434091ae2664cbbe027fc45747f" category="paragraph">此实例名为 _Cloud-Restore-instance_ ，您的帐户 ID 与此实例连接在一起。例如： _Cloud-Restore-instance-MyAccount_ 。</block>
   <block id="c44bf8d814d25bd36e966009ffe7c778" category="list-text">对于使用 " 浏览和还原 " 进行卷还原，不需要任何成本，因为不需要单独的实例或虚拟机。</block>
   <block id="019995fe578c139f5c7879d1c512272e" category="list-text">对于使用搜索和还原的卷或文件还原，需要 Amazon Athena 和 AWS 粘附资源。还原卷和文件时，这些资源会产生成本。目前，只支持使用 AWS A3 进行搜索和还原。</block>
-  <block id="b6c807b6705175334b42f88a1227e051" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">* 服务费用 *</block>
   <block id="da7eba6ba6d65c47401a65d01a2b5be6" category="paragraph">服务费用支付给 NetApp ，用于支付这些备份的 _creation_backup_ 和 _restor_ 卷或文件的费用。您只需为所保护的数据付费，该数据是通过备份到对象存储的 ONTAP 卷的源逻辑已用容量（ _before_ONTAP 效率）计算得出的。此容量也称为前端 TB （前端 TB ）。</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="inline-xref">许可</block>
@@ -423,12 +417,10 @@
   <block id="150d0b73810898f0438b1126fa9d43d2" category="paragraph">使用 30 天免费试用版时，系统会通知您剩余的免费试用天数。在免费试用版结束时，备份将停止创建。您必须订阅此服务或购买许可证才能继续使用此服务。</block>
   <block id="853139cb08e7b4134237475a52139c44" category="paragraph">禁用此服务后，不会删除备份文件。除非删除备份，否则云提供商会继续为您的备份所使用的容量收取对象存储成本。</block>
   <block id="d1517db071086971f3453ded8278c7a1" category="section-title">按需购买订阅</block>
-  <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</block>
   <block id="a287e316989c25a2ee988a3e9950bf89" category="paragraph">即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：</block>
   <block id="54a99e6398e2bfa4f64af1dd12d262b1" category="list-text">订阅可确保在免费试用结束后不会中断服务。</block>
   <block id="b3f388e1a16fd3e59bedb612f48c8ad3" category="paragraph">试用结束后，系统会根据您备份的数据量按小时收取费用。</block>
   <block id="b594600c67397c7ded920bf1b801d79a" category="list-text">如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。</block>
-  <block id="8fbd59a133dcfda8cee282a5de58e452" category="paragraph">例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
   <block id="0f00cbe3f53cc394d366dd2245df4f68" category="paragraph">在免费试用期间，或者如果您未超过 BYOL 许可证，则不会从按需购买订阅中收取费用。</block>
   <block id="09c7ee4be0db4e9240de27e931212553" category="inline-link-macro">了解如何设置按需购买订阅</block>
   <block id="13dbf2396212f27f4ed228794c13aab3" category="paragraph"><block ref="18ef702a22368a8691d9e75de2c9af13" category="inline-link-macro-rx"></block>。</block>
@@ -441,7 +433,6 @@
   <block id="8e155f8961f122c438c0a9d2c3cd06cf" category="inline-link-macro">了解如何设置年度 AWS 合同</block>
   <block id="89b33222aaf7ca5c202beb8e5f2178a8" category="paragraph"><block ref="cbf33a87dffdf2d824930f7597f518f2" category="inline-link-macro-rx"></block>。</block>
   <block id="fce5aebaf837d23e27b8a9d6a54a6467" category="section-title">自带许可证</block>
-  <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="e16a54724535e5ca80b7bd9cdc34c0cb" category="inline-link">Cloud Manager 帐户</block>
   <block id="72a8e3c445f54a8d00cbfd21bc6cb130" category="paragraph">您将收到一个序列号，您可以在 Cloud Manager 数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统<block ref="2dc87f4e9d0582da785b906aa7c5f318" category="inline-link-rx"></block>。</block>
   <block id="fa24c33f6d9b710b74d3f95ce0efeab9" category="paragraph"><block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
@@ -535,8 +526,6 @@
   <block id="44eb910aad595ba9500cebcb52445bcf" category="paragraph">备份和还原可用于：</block>
   <block id="02fe91ecafd3cfc37675f0776294605f" category="inline-link-macro">请参见此处的详细功能</block>
   <block id="ef288ee793660dc823a897c059e4319e" category="list-text">从 Cloud Volumes ONTAP 和内部 ONTAP 系统备份和还原 ONTAP 卷。 <block ref="3033f928f79d30b4398dcd6d1b71f659" category="inline-link-macro-rx"></block>。</block>
-  <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">备份和还原 Kubernetes 永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
-  <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
   <block id="b5f2f8ae72382a141b81a0a0040bdad2" category="section-title">备份在午夜进行</block>
   <block id="9d4d346f8d68a04c07546d05864bce31" category="list-text">每小时备份从每小时 5 分钟开始。</block>
   <block id="07704c3b46fd42d29ebe46644d5f6447" category="list-text">每天的备份在每天午夜后开始。</block>
@@ -1169,16 +1158,13 @@
   <block id="d106fcaf30ac3fffe7a077d64962b14d" category="paragraph">这些访问密钥必须与具有以下权限的用户相关联：</block>
   <block id="a1b7de43a5472d2ba57c5f863040eec2" category="list-text">对象版本控制</block>
   <block id="aa4788e27cdbd61e4d722970587d99c5" category="list-text">不能在对象存储分段上启用 StorageGRID 对象版本控制。</block>
-  <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。</block>
   <block id="f9e3fe9bcf87b917aee79601ec31e206" category="inline-link">在可访问 Internet 的 Linux 主机上安装 Connector</block>
   <block id="c406c8943ff98e7dc5d56f37428c9410" category="list-text"><block ref="c406c8943ff98e7dc5d56f37428c9410" category="inline-link-rx"></block></block>
   <block id="a3049b761ff526799f3b1881932b1c8c" category="list-text">通过端口 443 与 StorageGRID 建立 HTTPS 连接</block>
-  <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接</block>
   <block id="d6617315ed6f993cc74e424eb0566b60" category="paragraph">在 30 天免费试用 Cloud Backup 到期之前，您需要从 NetApp 购买并激活 Cloud Backup BYOL 许可证。此许可证适用于帐户，可在多个系统中使用。</block>
   <block id="971cb541767606cd3faa97135df94e68" category="paragraph">您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="60a2dc1fd82db84a092db92c95942712" category="admonition">将文件备份到 StorageGRID 时不支持 PAYGO 许可。</block>
   <block id="528fb0026f2e5c72059a493302f53861" category="section-title">启用云备份到 StorageGRID</block>
-  <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
   <block id="293e3556f1041c0ecd0f2d1427b2521d" category="list-text">选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：</block>
   <block id="f7589765b5ce02397beee9c13ffa0380" category="list-text">StorageGRID 服务器的 FQDN 以及 ONTAP 与 StorageGRID 进行 HTTPS 通信时应使用的端口；例如： `s3.eng.company.com:8082`</block>
   <block id="483b51851b68c242f5f73afff135794f" category="list-text">用于访问存储备份的存储分段的访问密钥和机密密钥。</block>
@@ -1576,7 +1562,6 @@
   <block id="cb365723ea49a8e0727d9887fcd819ad" category="list-text">如果您有备份许可证序列号并且知道您的 NSS 帐户，请选择 * 输入序列号 * 选项并输入该信息。</block>
   <block id="f154773445f5f4ed354ad1d6b1458de0" category="inline-link">将 NSS 帐户添加到 Cloud Manager</block>
   <block id="f1532eb975cadb53a7b9ac3d19205000" category="paragraph">如果下拉列表中没有您的 NetApp 支持站点帐户，<block ref="6ee42390f038b7658fb8dfbbc6c21b14" category="inline-link-rx"></block>。</block>
-  <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
   <block id="b91c77235ab93af32b475ca05ffa1ab2" category="inline-image-macro">显示用于添加 Cloud Backup BYOL 许可证的页面的屏幕截图。</block>
   <block id="78364824176e311173787bc994b841d4" category="paragraph"><block ref="78364824176e311173787bc994b841d4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="40628dc1a3d5f90ad5b224a66553710f" category="paragraph">Cloud Manager 会添加许可证，以便 Cloud Backup 处于活动状态。</block>
@@ -1588,7 +1573,6 @@
   <block id="0610d6a0d5b019d242dcba568ff5a30c" category="paragraph">您可以在 Cloud Backup 许可证到期之前对其进行更新，以便备份和还原数据的能力不会中断。</block>
   <block id="4c4e11102c4a5605e31bb1f8c1eacf19" category="list-text">单击 Cloud Manager 右下角的聊天图标或联系支持部门，请求延长您的期限或为特定序列号申请 Cloud Backup 许可证的额外容量。</block>
   <block id="2c03e04d86836c39240387af58347149" category="paragraph">在您为许可证付费并将其注册到 NetApp 支持站点后， Cloud Manager 会自动在数字电子邮件中更新许可证，并且数据服务许可证页面将在 5 到 10 分钟内反映此更改。</block>
-  <block id="5cd8f01849080c583021a91f23942914" category="list-text">如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</block>
   <block id="b2b168bd64a341a85c749cb61bba40cb" category="inline-xref">从 NetApp 支持站点获取许可证文件</block>
   <block id="7b46f8498e7e640e89cf46f3638c9c87" category="list-text">您可以 <block ref="c45c4605dd048b13a9751ade254a9716" category="inline-xref-macro-rx"></block>。</block>
   <block id="f0542d3d118535e2d706a4502f615735" category="list-text">在数字电子邮件页面 _Data Services Licenses_ 选项卡上，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更新的服务序列号，请单击 * 更新许可证 * 。</block>
@@ -1605,7 +1589,6 @@
   <block id="b02a15fbd7729c5f87ea7b28e29e6fd5" category="list-text">如果您使用的帐户具有 Marketplace 帐户，则备份服务将继续运行，但您将转移到 PAYGO 许可模式。您需要为备份所使用的容量付费。</block>
   <block id="57a9806c18273b6b677bcfd90ea119ce" category="list-text">如果您的帐户没有 Marketplace 帐户，备份服务将继续运行，但您仍会看到警告。</block>
   <block id="1fc1233733d1833b4337f4dc4a0d2a4f" category="inline-link-macro">如何更新 Cloud Backup 许可证</block>
-  <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
   <block id="8ba575f26ecd638cf1581bb1af908037" category="paragraph">已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统在未获得许可证的情况下运行，则会停止显示警告，并因许可证过期期间发生的备份活动而收取费用。</block>
   <block id="6bf80475cfcaeeaa5036e79e644302f5" category="summary">完成几个步骤，开始将数据从 GKEKubernetes 集群上的永久性卷备份到 Google Cloud 存储。</block>
   <block id="9cb5c4f70a9ab55a2786587a76bd9009" category="doc">将 Kubernetes 永久性卷数据备份到 Google Cloud 存储</block>
@@ -1714,4 +1697,29 @@
   <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central 博客</block>
   <block id="cc81b1698333ba727fd5bde305c3cf08" category="sidebar">Cloud Central 用例</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">云网络研讨会</block>
+  <block id="4df59f7befec5641cbd23c7c2de66898" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。</block>
+  <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">支持无 Internet 连接的站点</block>
+  <block id="efaf181f0d299232aec81cf3f68107e5" category="paragraph">Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。在这种情况下，您需要在非公开站点中部署 Cloud Manager Connector （最低版本为 3.9.17 ）。请参见 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 了解详细信息。</block>
+  <block id="78ee31aa6084ca014f28f54f0814761d" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GiB 内存和仅 EBS 实例存储。操作系统映像为 Amazon Linux 2 。</block>
+  <block id="5f52ec281a76649957a0dfdacd639035" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GiB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
+  <block id="e621552afd0a73685484fbf246a9c9a9" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GB 检索费用和每请求费用。</block>
+  <block id="ac11eaded3ecffdd4c6dfc8be7899471" category="list-text">如果 Connector 安装在无法访问 Internet 的站点（非公开站点）上，则不支持文件级还原。</block>
+  <block id="3668e1055d37d84a42c52661410fdc85" category="list-text">备份和还原 Kubernetes 永久性卷。<block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
+  <block id="cac9390dfdbebf24e9f9367402f700ce" category="list-text">备份应用程序数据<block ref="f77464b1f4b97b383d8185feb66c2497" category="inline-link-macro-rx"></block>。</block>
+  <block id="0868f24313a597293d06e71f7f63fd1e" category="list-text">无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
+  <block id="97a9760662f83584b35ab92e7aad1071" category="paragraph">如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。</block>
+  <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。</block>
+  <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
+  <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">在无法访问 Internet 的 Linux 主机上安装 Connector</block>
+  <block id="d2c6281fb2bfdd80b1c106c90e21e78b" category="list-text"><block ref="d2c6281fb2bfdd80b1c106c90e21e78b" category="inline-link-rx"></block></block>
+  <block id="31f0caf11b57fb7cb77368268e368d75" category="inline-link-macro">Cloud Backup 新增功能</block>
+  <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">升级 Connector 软件</block>
+  <block id="8f5ad70f613db3fef827b6862d3afcf5" category="admonition">Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作<block ref="fe297b4d3dd6fcd6173c290370c7c0fe" category="inline-link-rx"></block> 希望使用新功能时。</block>
+  <block id="1ad501aca706aedda73a497f3e05cad4" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接（在 " 非公开 " 站点中安装 Connector 时不需要）</block>
+  <block id="74e26b1121eba490765797db5416f15d" category="list-text">在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。</block>
+  <block id="7213734d8950b4641631fa35737ef55d" category="list-text">要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。</block>
+  <block id="540ca524a7005910a6d9020f7c627d95" category="paragraph">如果您在无法访问 Internet 的内部站点上运行 Cloud Backup ，这意味着您已在脱机内部站点的主机上部署 Cloud Manager Connector ，则需要从已连接 Internet 的系统获取许可证文件。使用序列号和 NSS 帐户激活许可证不可用于脱机（非公开站点）安装。</block>
+  <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
+  <block id="5db79377894ec784205c3c0fad010171" category="list-text">如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。</block>
+  <block id="665ddb058923583228dc01a98438f1fa" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件（例如，安装在非公开站点时），您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
 </blocks>

@@ -39,10 +39,10 @@ TIP: 在大多数情况下，您将使用 Cloud Manager 执行所有备份和还
 
 
 [role="quick-margin-para"]
-选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
+选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 [role="quick-margin-para"]
 选择 Microsoft Azure 作为您的提供程序，然后输入提供程序详细信息。您需要选择 Azure 订阅以及要创建备份的区域。您还可以选择自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。
@@ -202,9 +202,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 可随时直接从内部工作环境启用 Cloud Backup 。
 
 .步骤
-. 在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
+. 在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。
 +
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择 Microsoft Azure 作为提供程序，然后单击 * 下一步 * 。
 . 输入提供程序详细信息并单击 * 下一步 * 。

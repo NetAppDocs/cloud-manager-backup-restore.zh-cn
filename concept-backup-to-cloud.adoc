@@ -22,8 +22,8 @@ link:https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup �
 备份和还原可用于：
 
 * 从 Cloud Volumes ONTAP 和内部 ONTAP 系统备份和还原 ONTAP 卷。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
-* 备份和还原 Kubernetes 永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
+* 备份和还原 Kubernetes 永久性卷。link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
+* 备份应用程序数据link:.html["请参见此处的详细功能"]。
 
 
 

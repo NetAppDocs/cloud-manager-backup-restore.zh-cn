@@ -77,6 +77,8 @@ BYOL Cloud Backup 许可证是一种浮动许可证，总容量在与您的 Clou
 
 购买 Cloud Backup 许可证后，您可以通过输入 Cloud Backup 序列号和 NSS 帐户或上传 NLF 许可证文件在 Cloud Manager 中激活此许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。
 
+如果您在无法访问 Internet 的内部站点上运行 Cloud Backup ，这意味着您已在脱机内部站点的主机上部署 Cloud Manager Connector ，则需要从已连接 Internet 的系统获取许可证文件。使用序列号和 NSS 帐户激活许可证不可用于脱机（非公开站点）安装。
+
 .步骤
 . 登录到 https://mysupport.netapp.com["NetApp 支持站点"^] 然后单击 * 系统 > 软件许可证 * 。
 . 输入 Cloud Backup 许可证序列号。
@@ -108,7 +110,7 @@ image:screenshot_cloud_backup_license_step2.gif["屏幕截图显示了获取许�
 +
 如果下拉列表中没有您的 NetApp 支持站点帐户， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html["将 NSS 帐户添加到 Cloud Manager"^]。
 
-** 如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。
+** 如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。
 +
 image:screenshot_services_license_add2.png["显示用于添加 Cloud Backup BYOL 许可证的页面的屏幕截图。"]
 
@@ -133,7 +135,9 @@ image:screenshot_services_license_expire.png["在 \" 数字电子钱包 \" 页�
 +
 在您为许可证付费并将其注册到 NetApp 支持站点后， Cloud Manager 会自动在数字电子邮件中更新许可证，并且数据服务许可证页面将在 5 到 10 分钟内反映此更改。
 
-. 如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。
+
+
+. 如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。
 +
 .. 您可以 <<Obtain your Cloud Backup license file,从 NetApp 支持站点获取许可证文件>>。
 .. 在数字电子邮件页面 _Data Services Licenses_ 选项卡上，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更新的服务序列号，请单击 * 更新许可证 * 。
@@ -165,6 +169,6 @@ Cloud Manager 会更新许可证，以便 Cloud Backup 继续处于活动状态�
 * 如果您的帐户没有 Marketplace 帐户，备份服务将继续运行，但您仍会看到警告。
 
 
-续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 link:task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license["如何更新 Cloud Backup 许可证"]。
+续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件（例如，安装在非公开站点时），您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 link:task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license["如何更新 Cloud Backup 许可证"]。
 
 已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统在未获得许可证的情况下运行，则会停止显示警告，并因许可证过期期间发生的备份活动而收取费用。
