@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head class="at-element-marker">
+  <title>Cloud Backup 的新增功能 | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Cloud Backup 的新增功能 | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/whats-new.html" />
+	<meta property="og:description" content="了解 Cloud Backup 中的新增功能。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="了解 Cloud Backup 中的新增功能。">
+  <meta name="keywords" content=" what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore"><!-- Icons -->
+  <link rel="icon" href="/zh-cn/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-backup-restore/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/cloud-manager-backup-restore/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/cloud-manager-backup-restore/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/cloud-manager-backup-restore/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-cn/cloud-manager-backup-restore/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-cn/cloud-manager-backup-restore/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-cn/cloud-manager-backup-restore/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/tabbed-blocks.css" type="text/css">
+  <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><link rel="stylesheet" href='/zh-cn/cloud-manager-backup-restore/css/product-family.css' type="text/css">
+  <script src='/zh-cn/cloud-manager-backup-restore/js/product-family.js'></script><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/cloud-manager-backup-restore/js/na-search.js'></script><script src='/zh-cn/cloud-manager-backup-restore/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-cn/cloud-manager-backup-restore/js/na-utility.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/toc.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/version-dropdown.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/FileSaver.min.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/jszip-utils.min.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/jszip.min.js'></script>
+  <script src='/zh-cn/cloud-manager-backup-restore/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Backup 的新增功能](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">产品和解决方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支持和培训</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">云中心</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社区</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">日志</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客户案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-cn/cloud-manager-backup-restore/search.html"
+          data-type="widget" 
+          data-placeholder="搜索文档" 
+          data-no-results-found="未找到与 {query} 匹配的结果。" 
+          data-did-you-mean="搜索 {suggestion}。" 
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
+          data-results-found="找到 {hitCount} 个结果"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">简体中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_文档.pdf" >
+          <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
+
+
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/whats-new.pdf" >
+    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/入门.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            入门
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_ONTAP_数据.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            备份和还原 ONTAP 数据
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_Kubernetes_数据.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            备份和还原 Kubernetes 数据
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原内部应用程序数据.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            备份和还原内部应用程序数据
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/还原应用程序数据.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            还原应用程序数据
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/参考.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            参考
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/跨帐户和跨区域配置.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            跨帐户和跨区域配置
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/知识和支持.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            知识和支持
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-cn/cloud-manager-backup-restore/images/pdf-zip.png" width="16" height="16"/>
+      <pre>收集单独的 PDF 文档<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
+        所有 Cloud Manager 文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
+        Cloud Backup 文档
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/whats-new.html">
+        发行说明
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 入门</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-backup-to-cloud.html">
+        了解 Cloud Backup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-licensing-cloud-backup.html">
+        设置许可
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-monitor-backup-jobs.html">
+        监控备份和还原作业的状态
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 备份和还原 ONTAP 数据</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html">
+        保护 ONTAP 数据
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html">
+        将 Cloud Volumes ONTAP 备份到 Amazon S3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-azure.html">
+        将 Cloud Volumes ONTAP 备份到 Azure Blob
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html">
+        将 Cloud Volumes ONTAP 备份到 Google Cloud
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html">
+        将内部 ONTAP 备份到 Amazon S3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html">
+        将内部 ONTAP 备份到 Azure Blob
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html">
+        将内部 ONTAP 备份到 Google Cloud
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html">
+        将内部 ONTAP 备份到 StorageGRID
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html">
+        管理 ONTAP 备份
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html">
+        从 ONTAP 备份还原
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 备份和还原 Kubernetes 数据</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-kubernetes-backup-to-cloud.html">
+        保护您的 Kubernetes 数据
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html">
+        备份到 Amazon S3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html">
+        备份到 Azure Blob
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">
+        备份到 Google Cloud
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html">
+        管理 Kubernetes 备份
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html">
+        从 Kubernetes 备份还原
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 备份和还原内部应用程序数据</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html">
+        保护内部应用程序数据
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-app-data-to-cloud.html">
+        将内部应用程序数据备份到云
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-app-backups.html">
+        管理应用程序的保护
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 还原应用程序数据</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-oracle-data.html">
+        还原 Oracle 数据库
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-sql-data.html">
+        还原 SQL Server 数据库
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 参考</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
+        支持的 AWS 归档存储层
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
+        支持的 Azure 归档访问层
+      </a></li><li class="subfolders "><a href="/zh-cn/cloud-manager-backup-restore/reference-cross-account.html">
+        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
+        在 AWS 中配置备份以实现多帐户访问
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
+        在 Azure 中配置备份以实现多帐户访问
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 知识和支持</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-support-registration.html">
+        注册以获得支持
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-get-help.html">
+        获取帮助
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/legal-notices.html">
+        法律声明
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/zh-cn/cloud/">云文档</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-cn/cloud-manager-backup-restore/">Cloud&nbsp;Backup</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 简体中文版经机器翻译而成，仅供参考。如与英语版出现任何冲突，应以英语版为准。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Cloud Backup 的新增功能</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-03-31 17:43:29 +0000">03/31/2022</time>
+    
+  
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>了解 Cloud Backup 中的新增功能。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022-年-4-月-3-日">2022 年 4 月 3 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="支持-cloud-backup-for-applications-1-1-0">支持 Cloud Backup for Applications 1.1.0</h3>
+<div class="paragraph">
+<p>您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。</p>
+</div>
+<div class="paragraph">
+<p>您可以将内部 ONTAP 中的 Oracle 和 Microsoft SQL 应用程序数据备份到 Amazon Web Services 或 Microsoft Azure 。</p>
+</div>
+<div class="paragraph">
+<p><a href="concept-protect-app-data-to-cloud.html">"了解有关保护内部应用程序数据到云的更多信息"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="增加了对在无法访问-internet-的站点中备份内部-ontap-集群数据的支持">增加了对在无法访问 Internet 的站点中备份内部 ONTAP 集群数据的支持。</h3>
+<div class="paragraph">
+<p>如果您的内部 ONTAP 集群位于无法访问 Internet 的站点中，也称为非公开站点或脱机站点，则现在您可以使用 Cloud Backup 将卷数据备份到同一站点中的 NetApp StorageGRID 系统。此功能要求在脱机站点中部署 Cloud Manager Connector （ 3.9.17 或更高版本）。 <a href="task-backup-onprem-private-cloud.html">"了解如何备份脱机站点中的数据"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="新的搜索和还原功能可在所有-ontap-备份文件中搜索卷或文件">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件。</h3>
+<div class="paragraph">
+<p>现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 <a href="task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore">"了解如何使用搜索和放大；还原"</a>。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022-年-3-月-3-日">2022 年 3 月 3 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="能够将永久性卷从-gkekubernetes-集群备份到-google-cloud-存储">能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储。</h3>
+<div class="paragraph">
+<p>如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。 <a href="task-backup-kubernetes-to-gcp.html">"有关详细信息，请访问此处"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="此版本已停止使用-cloud-data-sense-扫描-cloud-backup-文件的测试版功能">此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能。</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022-年-2-月-14-日">2022 年 2 月 14 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="现在您可以将备份策略分配给单个集群中的各个卷">现在，您可以将备份策略分配给单个集群中的各个卷。</h3>
+<div class="paragraph">
+<p>过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 <a href="task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes">"请参见如何为集群创建新的备份策略并将其分配给选定卷"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="通过一个新选项您可以自动将默认备份策略应用于新创建的卷">通过一个新选项，您可以自动将默认备份策略应用于新创建的卷。</h3>
+<div class="paragraph">
+<p>过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在，无论卷是在 Cloud Manager ， System Manager ， CLI 中创建的，还是使用 API 创建的， Cloud Backup 都将发现卷并应用您选择作为默认策略的备份策略。</p>
+</div>
+<div class="paragraph">
+<p>如果在新的工作环境中启用备份，或者从 <em>Manage Volumes</em> 页面为现有工作环境启用备份，则可以使用此选项。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="新的作业监控器可用于查看所有备份和还原作业的正在处理状态">新的作业监控器可用于查看所有备份和还原作业的正在处理状态。</h3>
+<div class="paragraph">
+<p>如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 <a href="task-monitor-backup-jobs.html">"请参见如何使用作业监控器"</a>。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022-年-1-月-2-日">2022 年 1 月 2 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="能够将永久性卷从-aks-kubernetes-集群备份到-azure-blob-存储">能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储。</h3>
+<div class="paragraph">
+<p>如果您的 AKS 集群安装了 NetApp Astra Trident ，并且使用适用于 Azure 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将卷备份到 Azure Blob 存储以及从 Azure Blob 存储还原卷。 <a href="task-backup-kubernetes-to-azure.html">"有关详细信息，请访问此处"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="此版本中更改了-cloud-backup-service-费用以便与行业标准更加一致">此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致。</h3>
+<div class="paragraph">
+<p>现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-11-月-28-日">2021 年 11 月 28 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="能够将-eks-kubernetes-集群中的永久性卷备份到-amazon-s3">能够将 EKS Kubernetes 集群中的永久性卷备份到 Amazon S3 。</h3>
+<div class="paragraph">
+<p>如果您的 EKS 集群安装了 NetApp Astra Trident ，并且使用 Cloud Volumes ONTAP for AWS 作为集群的后端存储，则可以将卷备份到 Amazon S3 或从 Amazon S3 还原卷。 <a href="task-backup-kubernetes-to-s3.html">"有关详细信息，请访问此处"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="用于备份-dp-卷的增强功能">用于备份 DP 卷的增强功能。</h3>
+<div class="paragraph">
+<p>现在， Cloud Backup 支持为 SVM-DR 关系中目标 ONTAP 系统上的 DP 卷创建备份。存在一些限制，请参见 <a href="concept-ontap-backup-to-cloud.html#limitations">"限制"</a> 了解详细信息。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-11-月-5-日">2021 年 11 月 5 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="可以在将卷还原到内部-ontap-系统时选择专用端点">可以在将卷还原到内部 ONTAP 系统时选择专用端点。</h3>
+<div class="paragraph">
+<p>从 Amazon S3 或 Azure Blob 上的备份文件将卷还原到内部 ONTAP 系统时，现在您可以选择一个私有端点，用于以私密方式安全地连接到内部系统。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在您可以在数天后将旧备份文件分层到归档存储以节省成本">现在，您可以在数天后将旧备份文件分层到归档存储，以节省成本。</h3>
+<div class="paragraph">
+<p>如果集群运行的是 ONTAP 9.10.1 或更高版本，而您使用的是 AWS 或 Azure 云存储，则可以将备份分层到归档存储。请参见有关的详细信息 <a href="reference-aws-backup-tiers.html">"AWS S3 归档存储类"</a> 和 。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-backup-byol-许可证已移至-数字电子钱包-中的-数据服务许可证-选项卡">Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡。</h3>
+<div class="paragraph">
+<p>Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud Manager Digital Wallet 中的 Data Services Licenses 选项卡。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-10-月-4-日">2021 年 10 月 4 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="现在在执行卷或文件还原时备份文件大小将显示在备份页面中">现在，在执行卷或文件还原时，备份文件大小将显示在备份页面中。</h3>
+<div class="paragraph">
+<p>如果您要删除不必要的大型备份文件，或者您可以比较备份文件大小，以确定可能因恶意软件攻击而导致的任何异常备份文件，则此功能非常有用。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tco-计算器可用于比较-cloud-backup-成本">TCO 计算器可用于比较 Cloud Backup 成本。</h3>
+<div class="paragraph">
+<p>总拥有成本计算器可帮助您了解 Cloud Backup 的总拥有成本，并将这些成本与传统备份解决方案进行比较，并估算潜在节省量。请查看https://cloud.netapp.com/cloud-backup-service-tco-calculator["此处"^]。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="能够为工作环境取消注册-cloud-backup">能够为工作环境取消注册 Cloud Backup 。</h3>
+<div class="paragraph">
+<p>现在，您可以轻松地完成这项工作 <a href="task_managing_backups.html#unregistering-cloud-backup-for-a-working-environment">"为工作环境取消注册 Cloud Backup"</a> 如果您不想再对该工作环境使用备份功能（或需要付费），</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-9-月-2-日">2021 年 9 月 2 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="能够为卷创建按需备份">能够为卷创建按需备份。</h3>
+<div class="paragraph">
+<p>现在，您可以随时创建按需备份来捕获卷的当前状态。如果对卷进行了重要更改，而您不想等待下一次计划的备份来保护该数据，则此功能非常有用。</p>
+</div>
+<div class="paragraph">
+<p><a href="task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-time">"了解如何创建按需备份"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="可以定义专用接口连接以便安全地备份到-amazon-s3">可以定义专用接口连接，以便安全地备份到 Amazon S3 。</h3>
+<div class="paragraph">
+<p>在配置从内部 ONTAP 系统到 Amazon S3 的备份时，现在您可以在激活向导中定义与专用接口端点的连接。这样，您就可以使用一个网络接口，将内部系统以私密和安全的方式连接到由 AWS PrivateLink 提供支持的服务。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"查看有关此选项的详细信息"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在您可以在将数据备份到-amazon-s3-时选择自己由客户管理的数据加密密钥">现在，您可以在将数据备份到 Amazon S3 时选择自己由客户管理的数据加密密钥。</h3>
+<div class="paragraph">
+<p>为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在从内部 ONTAP 系统或 AWS 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在您可以从文件数超过-30-000-的目录还原文件">现在，您可以从文件数超过 30 ， 000 的目录还原文件。</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-8-月-1-日">2021 年 8 月 1 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="可以定义专用端点连接以便安全地备份到-azure-blob">可以定义专用端点连接，以便安全地备份到 Azure Blob 。</h3>
+<div class="paragraph">
+<p>在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以在激活向导中定义与 Azure 私有端点的连接。这样，您就可以使用一个网络接口，将您以私密方式安全地连接到由 Azure Private Link 提供支持的服务。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在支持每小时备份策略">现在支持每小时备份策略。</h3>
+<div class="paragraph">
+<p>此新策略是对现有每日，每周和每月策略的补充。每小时备份策略可提供最小恢复点目标（ RPO ）。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-7-月-7-日">2021 年 7 月 7 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="现在您可以使用不同的帐户在不同的区域创建备份">现在，您可以使用不同的帐户在不同的区域创建备份。</h3>
+<div class="paragraph">
+<p>现在，您可以使用与 Cloud Volumes ONTAP 系统不同的帐户 / 订阅创建备份。您还可以在部署 Cloud Volumes ONTAP 系统的区域以外的其他区域创建备份文件。</p>
+</div>
+<div class="paragraph">
+<p>在使用 AWS 或 Azure 时可以使用此功能，并且只有在现有工作环境上启用备份时才可使用此功能—在创建新的 Cloud Volumes ONTAP 工作环境时，此功能不可用。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在您可以在将数据备份到-azure-blob-时选择自己由客户管理的数据加密密钥">现在，您可以在将数据备份到 Azure Blob 时选择自己由客户管理的数据加密密钥。</h3>
+<div class="paragraph">
+<p>为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Microsoft 管理的加密密钥。在从内部 ONTAP 系统或从 Azure 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在在使用单文件还原时一次最多可以还原-100-个文件">现在，在使用单文件还原时，一次最多可以还原 100 个文件。</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-6-月-7-日">2021 年 6 月 7 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="使用-ontap-9-8-或更高版本时对-dp-卷取消了限制">使用 ONTAP 9.8 或更高版本时对 DP 卷取消了限制。</h3>
+<div class="paragraph">
+<p>已解决备份数据保护（ DP ）卷的两个已知限制：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>以前，只有当 SnapMirror 关系类型为镜像存储或存储时，级联备份才起作用。现在，如果关系类型为 MirrorAllSnapshots ，则可以进行备份。</p>
+</li>
+<li>
+<p>现在，只要在 SnapMirror 策略中配置了 Cloud Backup ，它就可以使用任何备份标签。不再要求标签每天，每周或每月都包含名称。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2021-年-5-月-5-日">2021 年 5 月 5 日</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="将内部集群数据备份到-google-cloud-storage-或-netapp-storagegrid-系统">将内部集群数据备份到 Google Cloud Storage 或 NetApp StorageGRID 系统。</h3>
+<div class="paragraph">
+<p>现在，您可以创建从内部 ONTAP 系统到 Google 云存储或 NetApp StorageGRID 系统的备份。请参见 <a href="task-backup-onprem-to-gcp.html" target="_blank" rel="noopener">"备份到 Google Cloud Storage"</a> 和  了解详细信息。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="现在您可以使用-system-manager-执行-cloud-backup-操作">现在，您可以使用 System Manager 执行 Cloud Backup 操作。</h3>
+<div class="paragraph">
+<p>通过 ONTAP 9.9.1 中的一项新功能，您可以使用 System Manager 将内部 ONTAP 卷的备份发送到您通过云备份设置的对象存储。 <a href="https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html" target="_blank" rel="noopener">"了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="备份策略已通过一些增强功能进行了改进">备份策略已通过一些增强功能进行了改进。</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>现在，您可以创建一个自定义策略，其中包括每日，每周和每月备份。</p>
+</li>
+<li>
+<p>更改备份策略时，会使用原始备份策略将适用场景 all new backups * 和 * 更改为所有卷。过去，此更改仅应用于新的卷备份。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="其他备份和还原改进功能">其他备份和还原改进功能。</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>现在，在为备份文件配置云目标时，您可以选择与 Cloud Volumes ONTAP 系统所在区域不同的区域。</p>
+</li>
+<li>
+<p>可以为单个卷创建的备份文件数量已从 1 ， 019 个增加到 4 ， 000 个。</p>
+</li>
+<li>
+<p>除了先前删除单个卷的所有备份文件的功能之外，现在您只能删除一个卷的单个备份文件，也可以根据需要删除整个工作环境的所有备份文件。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/cloud-manager-backup-restore/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
+  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-cn/cloud-manager-backup-restore/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-cn/cloud-manager-backup-restore/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-cn/cloud-manager-backup-restore/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-cn/cloud-manager-backup-restore/js/www-ntap.js'></script>
+    <script src='/zh-cn/cloud-manager-backup-restore/js/tabbed-blocks.js'></script>
+  </body></html>
