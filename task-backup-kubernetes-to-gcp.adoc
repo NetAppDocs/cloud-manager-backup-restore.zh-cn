@@ -66,7 +66,7 @@ Kubernetes 集群要求::
 +
 --
 * 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-gke.html["了解如何发现 Kubernetes 集群"^]。
-* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或。
+* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["如何升级 Trident 版本"]。
 * 集群的后端存储必须使用 GCP 上的 Cloud Volumes ONTAP 。
 * Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 GCP 区域，并且必须运行 ONTAP 9.7P5 或更高版本。
 +
@@ -126,7 +126,7 @@ spec:
 
 --
 支持的 GCP 区域:: 所有 GCP 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
-许可证要求:: 对于 Cloud Backup PAYGO 许可，可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"] 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。。
+许可证要求:: 对于 Cloud Backup PAYGO 许可，可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"] 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["了解如何管理 BYOL 许可证"]。
@@ -171,4 +171,4 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的卷的屏幕�
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
-您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以  作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
+您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。

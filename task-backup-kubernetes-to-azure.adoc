@@ -65,7 +65,7 @@ Kubernetes 集群要求::
 +
 --
 * 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-azure.html["了解如何发现 Kubernetes 集群"^]。
-* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或。
+* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["如何升级 Trident 版本"]。
 * 集群必须使用 Azure 上的 Cloud Volumes ONTAP 作为其后端存储。
 * Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 Azure 区域，并且必须运行 ONTAP 9.7P5 或更高版本。
 +
@@ -169,4 +169,4 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的卷的屏幕�
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
-您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以  作为 Azure 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
+您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 Azure 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。

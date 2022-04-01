@@ -115,7 +115,7 @@ image:screenshot_backup_to_gcp.png["显示了工作环境向导中的 Cloud Back
 
 Cloud Backup 在系统上启用，每天备份卷，并保留最近 30 个备份副本。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  连接到 Azure 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷或单个文件"^] 连接到 Azure 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
 
 
 
@@ -166,4 +166,4 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  连接到 Azure 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷或单个文件"^] 连接到 Azure 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。

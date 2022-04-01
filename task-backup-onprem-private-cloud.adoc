@@ -33,7 +33,6 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 
 * 您的内部安装了一个 Connector 。
 +
-** 无论是否可访问 Internet ，均可将 Connector 安装在站点中。
 ** 通过为连接器建立网络，可以与 ONTAP 集群和 StorageGRID 建立出站 HTTPS 连接。
 
 
@@ -42,10 +41,10 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 
 
 [role="quick-margin-para"]
-选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
+选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 [role="quick-margin-para"]
 选择 StorageGRID 作为提供程序，然后输入 StorageGRID 服务器和服务帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
@@ -74,8 +73,6 @@ image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕�
 下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：
 
 image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
-
-如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。
 
 请注意，此图中未显示云还原实例，因为当前使用 StorageGRID 时不支持单文件还原。
 
@@ -117,7 +114,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 +
 设置 Cloud Backup 时，系统会提示您使用 IP 空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
 
-* 节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。
+* 节点的集群间 LIF 能够访问对象存储。
 * 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
 * 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
 * 如有必要，请更新防火墙规则，以允许通过您指定的端口（通常为端口 443 ）从 ONTAP 到对象存储的 Cloud Backup Service 连接，并允许通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
@@ -155,16 +152,12 @@ S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为�
 
 === 创建或切换连接器
 
-将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
+将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在无法访问 Internet 的 Linux 主机上安装 Connector"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
 
-
-
-NOTE: Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
 
 
 
@@ -177,7 +170,7 @@ NOTE: Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无
 +
 ** 通过端口 443 与 StorageGRID 建立 HTTPS 连接
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
-** 通过端口 443 与 Cloud Backup 建立出站 Internet 连接（在 " 非公开 " 站点中安装 Connector 时不需要）
+** 通过端口 443 与 Cloud Backup 建立出站 Internet 连接
 
 
 
@@ -202,15 +195,15 @@ TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
 可随时直接从内部工作环境启用 Cloud Backup 。
 
 .步骤
-. 在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。
+. 在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
 +
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：
 +
 .. StorageGRID 服务器的 FQDN 以及 ONTAP 与 StorageGRID 进行 HTTPS 通信时应使用的端口；例如： `s3.eng.company.com:8082`
 .. 用于访问存储备份的存储分段的访问密钥和机密密钥。
-.. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。
+.. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
 +
 选择正确的 IP 空间可确保 Cloud Backup 可以设置从 ONTAP 到 StorageGRID 对象存储的连接。
 
@@ -246,4 +239,4 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以  到内部 ONTAP 系统上的新卷。
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷"^] 到内部 ONTAP 系统上的新卷。

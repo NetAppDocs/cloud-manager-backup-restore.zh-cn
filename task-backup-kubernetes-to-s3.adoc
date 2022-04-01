@@ -31,7 +31,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 
 
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和或您已购买 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
 * 为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
 
 
@@ -66,7 +66,7 @@ Kubernetes 集群要求::
 +
 --
 * 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-aws.html["了解如何发现 Kubernetes 集群"^]。
-* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或。
+* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"] 或 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["如何升级 Trident 版本"]。
 * 集群必须使用 AWS 上的 Cloud Volumes ONTAP 作为其后端存储。
 * Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 AWS 区域，并且必须运行 ONTAP 9.7P5 或更高版本。
 +
@@ -128,7 +128,7 @@ spec:
 许可证要求:: 对于 Cloud Backup PAYGO 许可， AWS Marketplace 中提供了 Cloud Manager 订阅，用于部署 Cloud Volumes ONTAP 和 Cloud Backup 。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此 Cloud Manager 订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
 +
 --
-对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后。
+对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["将订阅与您的 AWS 凭据关联"^]。
 
 对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
 
@@ -208,4 +208,4 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的卷的屏幕�
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
-您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以  作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
+您可以 link:task-managing-backups.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。

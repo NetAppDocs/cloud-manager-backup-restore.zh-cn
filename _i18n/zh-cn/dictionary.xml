@@ -713,12 +713,8 @@
   <block id="53a177bd3753cd5dd3160eb23ae27ae3" category="section-title">支持 Cloud Backup for Applications 1.1.0</block>
   <block id="9793a7606042d0fe65c3a7569fe10e8a" category="inline-link-macro">了解有关保护内部应用程序数据到云的更多信息</block>
   <block id="01f2ae9bea9fe30701f09beb6db8263f" category="paragraph"><block ref="a674deae71d4abae6a5e9726f531eb11" category="inline-link-macro-rx"></block>。</block>
-  <block id="02562ead34e4a0353f0f92e3366faa1c" category="section-title">增加了对在无法访问 Internet 的站点中备份内部 ONTAP 集群数据的支持。</block>
-  <block id="10c89de9ba4c8a3df31e793349496ac9" category="inline-link-macro">了解如何备份脱机站点中的数据</block>
-  <block id="ef5989356ac419271262fce42048e855" category="paragraph">如果您的内部 ONTAP 集群位于无法访问 Internet 的站点中，也称为非公开站点或脱机站点，则现在您可以使用 Cloud Backup 将卷数据备份到同一站点中的 NetApp StorageGRID 系统。此功能要求在脱机站点中部署 Cloud Manager Connector （ 3.9.17 或更高版本）。 <block ref="c04bc5d7f80e78a735ab4454822b7a2a" category="inline-link-macro-rx"></block>。</block>
   <block id="03a4b55a53bde0dfb397461371884e8e" category="section-title">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件。</block>
   <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">了解如何使用搜索和放大；还原</block>
-  <block id="e79c82afc7e8dbb9474d9cf400e28a61" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>。</block>
   <block id="c94a7fd1550e4a8904300b181c98caaf" category="section-title">2022 年 3 月 3 日</block>
   <block id="4164f4229952724961b18ee1aba05107" category="section-title">能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储。</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">有关详细信息，请访问此处</block>
@@ -1697,29 +1693,22 @@
   <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central 博客</block>
   <block id="cc81b1698333ba727fd5bde305c3cf08" category="sidebar">Cloud Central 用例</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">云网络研讨会</block>
-  <block id="4df59f7befec5641cbd23c7c2de66898" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。</block>
-  <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">支持无 Internet 连接的站点</block>
-  <block id="efaf181f0d299232aec81cf3f68107e5" category="paragraph">Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。在这种情况下，您需要在非公开站点中部署 Cloud Manager Connector （最低版本为 3.9.17 ）。请参见 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 了解详细信息。</block>
-  <block id="78ee31aa6084ca014f28f54f0814761d" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GiB 内存和仅 EBS 实例存储。操作系统映像为 Amazon Linux 2 。</block>
-  <block id="5f52ec281a76649957a0dfdacd639035" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GiB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
-  <block id="e621552afd0a73685484fbf246a9c9a9" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GB 检索费用和每请求费用。</block>
-  <block id="ac11eaded3ecffdd4c6dfc8be7899471" category="list-text">如果 Connector 安装在无法访问 Internet 的站点（非公开站点）上，则不支持文件级还原。</block>
-  <block id="3668e1055d37d84a42c52661410fdc85" category="list-text">备份和还原 Kubernetes 永久性卷。<block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
-  <block id="cac9390dfdbebf24e9f9367402f700ce" category="list-text">备份应用程序数据<block ref="f77464b1f4b97b383d8185feb66c2497" category="inline-link-macro-rx"></block>。</block>
-  <block id="0868f24313a597293d06e71f7f63fd1e" category="list-text">无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
-  <block id="97a9760662f83584b35ab92e7aad1071" category="paragraph">如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。</block>
-  <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。</block>
-  <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
-  <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">在无法访问 Internet 的 Linux 主机上安装 Connector</block>
-  <block id="d2c6281fb2bfdd80b1c106c90e21e78b" category="list-text"><block ref="d2c6281fb2bfdd80b1c106c90e21e78b" category="inline-link-rx"></block></block>
-  <block id="31f0caf11b57fb7cb77368268e368d75" category="inline-link-macro">Cloud Backup 新增功能</block>
-  <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">升级 Connector 软件</block>
-  <block id="8f5ad70f613db3fef827b6862d3afcf5" category="admonition">Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作<block ref="fe297b4d3dd6fcd6173c290370c7c0fe" category="inline-link-rx"></block> 希望使用新功能时。</block>
-  <block id="1ad501aca706aedda73a497f3e05cad4" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接（在 " 非公开 " 站点中安装 Connector 时不需要）</block>
-  <block id="74e26b1121eba490765797db5416f15d" category="list-text">在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。</block>
-  <block id="7213734d8950b4641631fa35737ef55d" category="list-text">要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。</block>
-  <block id="540ca524a7005910a6d9020f7c627d95" category="paragraph">如果您在无法访问 Internet 的内部站点上运行 Cloud Backup ，这意味着您已在脱机内部站点的主机上部署 Cloud Manager Connector ，则需要从已连接 Internet 的系统获取许可证文件。使用序列号和 NSS 帐户激活许可证不可用于脱机（非公开站点）安装。</block>
-  <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
-  <block id="5db79377894ec784205c3c0fad010171" category="list-text">如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。</block>
-  <block id="665ddb058923583228dc01a98438f1fa" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件（例如，安装在非公开站点时），您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
+  <block id="aec3f107e722aa43f3d2fe7191720a9c" category="paragraph">选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * ，然后按照设置向导进行操作。</block>
+  <block id="86a833c12958f07575d29f3d5d9926a6" category="paragraph"><block ref="e36987e16d256e466a9acd794b4b3498" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5bf0ca4cfe23ac32e3d45a286b91b311" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
+  <block id="3e75e13e53d4c5c1d22207efcaa0e783" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和仅限 EBS 的实例存储。操作系统映像为 Amazon Linux 2 。</block>
+  <block id="9cd257410791914582184188f35f06ac" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
+  <block id="b6c807b6705175334b42f88a1227e051" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</block>
+  <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</block>
+  <block id="8fbd59a133dcfda8cee282a5de58e452" category="paragraph">例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
+  <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
+  <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">备份和还原 Kubernetes 永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
+  <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
+  <block id="41cb49a16b097520a48e2141982170fe" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>。</block>
+  <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。</block>
+  <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接</block>
+  <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
+  <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
+  <block id="5cd8f01849080c583021a91f23942914" category="list-text">如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</block>
+  <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
 </blocks>

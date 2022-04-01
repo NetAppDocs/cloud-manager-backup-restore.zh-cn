@@ -85,7 +85,7 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 
 * 注意： * 如果要还原的卷的备份文件位于归档存储中（从 ONTAP 9.10.1 开始可用于 AWS 和 Azure ），则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。
 
-link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原的更多信息"]。。
+link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原的更多信息"]。link:reference-aws-backup-tiers.html["了解有关从 AWS 归档存储还原的更多信息"]。
 
 
 
@@ -165,7 +165,7 @@ image:screenshot_restore_new_vol_name.png["输入要还原的新卷名称的屏�
 如果您要从位于归档存储层（从 ONTAP 9.10.1 开始提供）中的备份文件还原卷，则可以选择还原优先级。
 
 +
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。。
+link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
 
 . 单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。
 
@@ -190,7 +190,7 @@ TIP: 如果备份文件驻留在归档存储中，则无法还原单个文件。
 ==== 前提条件
 
 * 要执行文件还原操作， Cloud Volumes ONTAP 或内部 ONTAP 系统中的 ONTAP 版本必须为 9.6 或更高版本。
-* 从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 link:task-backup-to-s3.html#requirements["AWS 要求"] 或  以确保您的环境已准备就绪。
+* 从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 link:task-backup-to-s3.html#requirements["AWS 要求"] 或 link:task-backup-to-azure.html#requirements["Azure 要求"] 以确保您的环境已准备就绪。
 * 还原文件还要求向为 Cloud Manager 提供权限的用户角色添加特定的 AWS EC2 权限。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["确保已正确配置所有权限"]。
 * AWS 跨帐户还原需要在 AWS 控制台中手动执行操作。请参见 AWS 主题 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["授予跨帐户存储分段权限"^] 了解详细信息。
 
@@ -350,7 +350,7 @@ video::RZktLe32hhQ[youtube, width=848,height=480]
 
 此过程如下所示：
 
-. 在使用搜索和还原之前，您需要在要从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷的备份文件。它可以在提供数据的 SVM 上启用 SnapDiff v3 ，并配置新的 S3 存储分段和 https://aws.amazon.com/athena/faqs/["Amazon Athena 交互式查询服务"^] 和。
+. 在使用搜索和还原之前，您需要在要从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷的备份文件。它可以在提供数据的 SVM 上启用 SnapDiff v3 ，并配置新的 S3 存储分段和 https://aws.amazon.com/athena/faqs/["Amazon Athena 交互式查询服务"^] 和 https://aws.amazon.com/glue/faqs/["AWS 无服务器数据集成服务"^]。
 . 如果要从卷备份还原卷或文件，请在 _Search & Restore_ 下单击 * 搜索和还原 * 。
 . 按部分或完整卷名称，部分或完整文件名，大小范围，创建日期范围和其他搜索筛选器输入卷或文件的搜索条件，然后单击 * 搜索 * 。
 +
