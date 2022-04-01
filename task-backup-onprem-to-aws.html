@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 18:53:33 +0000">03/31/2022</time>
+    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
     
   
 
@@ -848,10 +848,10 @@
 </ul>
 </div>
 <div class="paragraph quick-margin-para">
-<p>选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。</p>
+<p>选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * ，然后按照设置向导进行操作。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_onprem_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
 </div>
 <div class="paragraph quick-margin-para">
 <p>选择 Amazon Web Services 作为您的提供商，然后输入提供商详细信息。您需要选择 AWS 帐户以及要创建备份的区域。您还可以选择自己的客户管理密钥进行数据加密，而不是使用默认的 Amazon S3 加密密钥。</p>
@@ -1102,12 +1102,16 @@
       },</code></pre>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre> If you deployed the Connector using version 3.9.15 or greater, these permissions should be part of the IAM role already. Otherwise you'll need to add the missing permissions.
-. 将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止 Cloud Restore 实例：</pre>
+</li>
+</ol>
 </div>
+<div class="paragraph">
+<p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止 Cloud Restore 实例：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">          "Action": [
@@ -1188,9 +1192,9 @@
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * 。</p>
+<p>在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_onprem_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
 </div>
 </li>
 <li>
@@ -1278,7 +1282,7 @@
 <p>Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。</p>
 </div>
 <div class="paragraph">
-<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以  连接到 AWS 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。</p>
+<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"从备份文件还原整个卷或单个文件"</a> 连接到 AWS 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。</p>
 </div>
 </div>
 </div>

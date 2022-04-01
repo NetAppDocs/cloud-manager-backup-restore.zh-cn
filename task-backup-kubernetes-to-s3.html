@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 17:43:29 +0000">03/31/2022</time>
+    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
     
   
 
@@ -828,7 +828,7 @@
 <p>您已为备份所在的存储空间订阅了有效的云提供商。</p>
 </li>
 <li>
-<p>您已订阅 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa">"Cloud Manager Marketplace Backup 产品"</a>，和或您已购买 <a href="task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses">"并激活"</a> NetApp 提供的 Cloud Backup BYOL 许可证。</p>
+<p>您已订阅 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa">"Cloud Manager Marketplace Backup 产品"</a>，和 <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8">"AWS 年度合同"</a>或您已购买 <a href="task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses">"并激活"</a> NetApp 提供的 Cloud Backup BYOL 许可证。</p>
 </li>
 <li>
 <p>为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager 策略"</a>。</p>
@@ -879,7 +879,7 @@
 <p>您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 <a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-aws.html" target="_blank" rel="noopener">"了解如何发现 Kubernetes 集群"</a>。</p>
 </li>
 <li>
-<p>集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html">"如何安装 Trident"</a> 或。</p>
+<p>集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html">"如何安装 Trident"</a> 或 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html">"如何升级 Trident 版本"</a>。</p>
 </li>
 <li>
 <p>集群必须使用 AWS 上的 Cloud Volumes ONTAP 作为其后端存储。</p>
@@ -953,7 +953,7 @@ spec:
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8" target="_blank" rel="noopener">"AWS Marketplace 页面"</a> 然后。</p>
+<p>对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8" target="_blank" rel="noopener">"AWS Marketplace 页面"</a> 然后 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_blank" rel="noopener">"将订阅与您的 AWS 凭据关联"</a>。</p>
 </div>
 <div class="paragraph">
 <p>对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。</p>
@@ -1067,7 +1067,7 @@ spec:
 <p>此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。</p>
 </div>
 <div class="paragraph">
-<p>您可以 <a href="task-managing-backups.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以  作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</p>
+<p>您可以 <a href="task-managing-backups.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file" target="_blank" rel="noopener">"从备份文件还原整个卷"</a> 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</p>
 </div>
 </div>
 </div>

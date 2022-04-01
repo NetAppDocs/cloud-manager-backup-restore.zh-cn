@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 18:53:33 +0000">03/31/2022</time>
+    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
     
   
 
@@ -939,12 +939,6 @@
 <div class="paragraph">
 <p>请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。</p>
 </div>
-<div class="sect2">
-<h3 id="支持无-internet-连接的站点">支持无 Internet 连接的站点</h3>
-<div class="paragraph">
-<p>Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。在这种情况下，您需要在非公开站点中部署 Cloud Manager Connector （最低版本为 3.9.17 ）。请参见 <a href="task-backup-onprem-private-cloud.html">"将内部 ONTAP 数据备份到 StorageGRID"</a> 了解详细信息。</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -979,13 +973,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>在 AWS 中，还原实例在上运行 <a href="https://aws.amazon.com/ec2/instance-types/m5/" target="_blank" rel="noopener">"m5n.xlarge 实例"</a> 具有 4 个 CPU ， 16 GiB 内存和仅 EBS 实例存储。操作系统映像为 Amazon Linux 2 。</p>
+<p>在 AWS 中，还原实例在上运行 <a href="https://aws.amazon.com/ec2/instance-types/m5/" target="_blank" rel="noopener">"m5n.xlarge 实例"</a> 具有 4 个 CPU ， 16 GB 内存和仅限 EBS 的实例存储。操作系统映像为 Amazon Linux 2 。</p>
 <div class="paragraph">
 <p>在 m5n.xlarge 实例不可用的区域中， Restore 会在 m5.xlarge 实例上运行。</p>
 </div>
 </li>
 <li>
-<p>在 Azure 中，还原虚拟机在上运行 <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series" target="_blank" rel="noopener">"标准 D4s_v3 虚拟机"</a> 具有 4 个 CPU ， 16 GiB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</p>
+<p>在 Azure 中，还原虚拟机在上运行 <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series" target="_blank" rel="noopener">"标准 D4s_v3 虚拟机"</a> 具有 4 个 CPU ， 16 GB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</p>
 <div class="paragraph">
 <p>此实例名为 <em>Cloud-Restore-instance</em> ，您的帐户 ID 与此实例连接在一起。例如： <em>Cloud-Restore-instance-MyAccount</em> 。</p>
 </div>
@@ -1000,7 +994,7 @@
 <p>对于使用搜索和还原的卷或文件还原，需要 Amazon Athena 和 AWS 粘附资源。还原卷和文件时，这些资源会产生成本。目前，只支持使用 AWS A3 进行搜索和还原。</p>
 </li>
 <li>
-<p>如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GB 检索费用和每请求费用。</p>
+<p>如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</p>
 </li>
 <li>
 <p>服务费用 *</p>
@@ -1033,7 +1027,7 @@
 <div class="sect2">
 <h3 id="按需购买订阅">按需购买订阅</h3>
 <div class="paragraph">
-<p>Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后，您需要为备份的数据按 GB 付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</p>
+<p>Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</p>
 </div>
 <div class="paragraph">
 <p>即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：</p>
@@ -1049,7 +1043,7 @@
 <li>
 <p>如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。</p>
 <div class="paragraph">
-<p>例如，如果您拥有 10 TB BYOL 许可证，则超过 10 TB 的所有容量均通过 PAYGO 订阅付费。</p>
+<p>例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</p>
 </div>
 </li>
 </ul>
@@ -1089,7 +1083,7 @@
 <div class="sect2">
 <h3 id="自带许可证">自带许可证</h3>
 <div class="paragraph">
-<p>BYOL 基于期限（ 12 ， 24 或 36 个月）和容量，以 1 TB 为增量递增。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，并支付最大容量（如 10 TB ）的费用。</p>
+<p>BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</p>
 </div>
 <div class="paragraph">
 <p>您将收到一个序列号，您可以在 Cloud Manager 数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html" target="_blank" rel="noopener">"Cloud Manager 帐户"</a>。</p>
@@ -1366,9 +1360,6 @@
 </li>
 <li>
 <p>如果在不同子网中将同一帐户与不同的 Cloud Manager 结合使用，则不支持文件级还原。</p>
-</li>
-<li>
-<p>如果 Connector 安装在无法访问 Internet 的站点（非公开站点）上，则不支持文件级还原。</p>
 </li>
 </ul>
 </div>

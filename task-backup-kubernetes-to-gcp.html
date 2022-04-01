@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 17:43:29 +0000">03/31/2022</time>
+    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
     
   
 
@@ -879,7 +879,7 @@
 <p>您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 <a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-gke.html" target="_blank" rel="noopener">"了解如何发现 Kubernetes 集群"</a>。</p>
 </li>
 <li>
-<p>集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html">"如何安装 Trident"</a> 或。</p>
+<p>集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html">"如何安装 Trident"</a> 或 <a href="https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html">"如何升级 Trident 版本"</a>。</p>
 </li>
 <li>
 <p>集群的后端存储必须使用 GCP 上的 Cloud Volumes ONTAP 。</p>
@@ -953,7 +953,7 @@ spec:
 </dd>
 <dt class="hdlist1">许可证要求</dt>
 <dd>
-<p>对于 Cloud Backup PAYGO 许可，可通过订阅 <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&amp;rif_reserved">"GCP 市场"</a> 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。。</p>
+<p>对于 Cloud Backup PAYGO 许可，可通过订阅 <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&amp;rif_reserved">"GCP 市场"</a> 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html" target="_blank" rel="noopener">"您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"</a>。</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -1025,7 +1025,7 @@ spec:
 <p>此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。</p>
 </div>
 <div class="paragraph">
-<p>您可以 <a href="task-managing-backups.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以  作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</p>
+<p>您可以 <a href="task-managing-backups.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file" target="_blank" rel="noopener">"从备份文件还原整个卷"</a> 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</p>
 </div>
 </div>
 </div>

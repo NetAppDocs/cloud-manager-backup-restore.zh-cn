@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-31 18:53:33 +0000">03/31/2022</time>
+    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
     
   
 
@@ -856,7 +856,7 @@
 <li>
 <p>一种专业包，使您能够使用为期 1 年， 2 年或 3 年的年度合同捆绑 Cloud Volumes ONTAP 和云备份。按 TiB 支付。此选项不允许您备份内部 ONTAP 数据。</p>
 <div class="paragraph">
-<p>转至 <a href="https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri" target="_blank" rel="noopener">"AWS Marketplace 页面"</a> 要查看定价详细信息，请转到 了解有关此许可选项的更多信息。</p>
+<p>转至 <a href="https://aws.amazon.com/marketplace/pp/prodview-q7dg6zwszplri" target="_blank" rel="noopener">"AWS Marketplace 页面"</a> 要查看定价详细信息，请转到 <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap" target="_blank" rel="noopener">"《 Cloud Volumes ONTAP 发行说明》"</a> 了解有关此许可选项的更多信息。</p>
 </div>
 <div class="paragraph">
 <p>如果要使用此选项，您可以在创建 Cloud Volumes ONTAP 工作环境时设置年度合同，而 Cloud Manager 会提示您订阅 AWS Marketplace 。</p>
@@ -888,9 +888,6 @@
 <h3 id="获取-cloud-backup-许可证文件">获取 Cloud Backup 许可证文件</h3>
 <div class="paragraph">
 <p>购买 Cloud Backup 许可证后，您可以通过输入 Cloud Backup 序列号和 NSS 帐户或上传 NLF 许可证文件在 Cloud Manager 中激活此许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</p>
-</div>
-<div class="paragraph">
-<p>如果您在无法访问 Internet 的内部站点上运行 Cloud Backup ，这意味着您已在脱机内部站点的主机上部署 Cloud Manager Connector ，则需要从已连接 Internet 的系统获取许可证文件。使用序列号和 NSS 帐户激活许可证不可用于脱机（非公开站点）安装。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -944,7 +941,7 @@
 </div>
 </li>
 <li>
-<p>如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</p>
+<p>如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_services_license_add2.png" alt="显示用于添加 Cloud Backup BYOL 许可证的页面的屏幕截图。"></span></p>
 </div>
@@ -979,7 +976,7 @@
 </div>
 </li>
 <li>
-<p>如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。</p>
+<p>如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1035,7 +1032,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件（例如，安装在非公开站点时），您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <a href="task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license">"如何更新 Cloud Backup 许可证"</a>。</p>
+<p>续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <a href="task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license">"如何更新 Cloud Backup 许可证"</a>。</p>
 </div>
 <div class="paragraph">
 <p>已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统在未获得许可证的情况下运行，则会停止显示警告，并因许可证过期期间发生的备份活动而收取费用。</p>
