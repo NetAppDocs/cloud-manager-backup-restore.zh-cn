@@ -9,15 +9,15 @@
   <meta property="og:title" content="从备份文件还原 ONTAP 数据 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html" />
-	<meta property="og:description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个卷，也可以从备份文件还原单个文件。" />
+	<meta property="og:description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个 ONTAP 卷，也可以从备份文件还原单个文件。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个卷，也可以从备份文件还原单个文件。">
-  <meta name="keywords" content=" restoring, restore, restore volumes, restore files, cloud backup, file restore, single file restore, volume restore, browse and restore, search and restore"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个 ONTAP 卷，也可以从备份文件还原单个文件。">
+  <meta name="keywords" content=" restoring, restore, restore volumes, restore files, cloud backup, file restore, single file restore, volume restore, browse and restore, search and restore, ONTAP"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-backup-restore/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
+    <time datetime="2022-04-04 20:23:08 +0000">04/04/2022</time>
     
   
 
@@ -792,13 +792,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个卷，也可以从备份文件还原单个文件。</p>
+<p>备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个 ONTAP 卷，也可以从备份文件还原单个文件。</p>
 </div>
 <div class="paragraph">
-<p>您可以将 * 卷 * （作为新卷）还原到相同的工作环境，使用相同云帐户的不同工作环境或内部 ONTAP 系统。</p>
+<p>您可以将 * 卷 * （作为新卷）还原到原始工作环境，使用相同云帐户的其他工作环境或内部 ONTAP 系统。</p>
 </div>
 <div class="paragraph">
-<p>您可以将 * 文件 * 还原到同一工作环境中的卷，使用同一云帐户的不同工作环境中的卷或内部 ONTAP 系统上的卷。</p>
+<p>您可以将 * 文件 * 还原到原始工作环境中的卷，使用相同云帐户的其他工作环境中的卷或内部 ONTAP 系统上的卷。</p>
 </div>
 </div>
 </div>
@@ -832,7 +832,7 @@
 <h2 id="比较浏览和还原以及搜索和还原">比较浏览和还原以及搜索和还原</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>概括地说，当您需要上一周，月或年的特定卷或文件时， _Browse &amp; Restore" 通常会更好—您知道文件的名称和位置，以及文件最后一个状态良好的日期。通常，当您需要一个卷或文件时， _Search &amp; Restore" 会更好，但您不记得确切的名称，卷所在的卷或最后一个卷状态良好的日期。</p>
+<p>概括地说，当您需要从过去一周或一个月还原特定卷或文件时， _Browse &amp; Restore" 通常会更好—您知道文件的名称和位置，以及文件的最后一个状态良好的日期。通常，当您需要还原卷或文件时， _Search &amp; Restore" 会更好，但您不记得确切的名称，卷所在的卷或最后一个卷状态良好的日期。</p>
 </div>
 <div class="paragraph">
 <p>下表对这两种方法进行了比较。</p>
@@ -854,7 +854,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">在 * 所有备份文件 * 中按部分或完整卷名称，部分或完整文件名，大小范围以及其他搜索筛选器搜索卷或文件</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud Storage 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">卷和文件还原适用于存储在 Amazon S3 中的备份文件</p></td>
 </tr>
 <tr>
@@ -863,7 +863,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">浏览公有 或私有云中的结果</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">浏览公有 云中的结果，以及未来在私有云和本地 Snapshot 副本中的结果</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">浏览公有 云和本地 Snapshot 副本以及未来跨私有云的结果</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">文件还原需要单独的 Cloud Restore 实例</p></td>
@@ -875,7 +875,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">还原文件时与 Cloud Restore 实例相关的成本</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">还原卷和文件时与 Amazon Athena 和 AWS 粘附资源相关的成本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">扫描备份文件和卷以查找搜索结果时与 Amazon Athena 和 AWS 粘附资源相关的成本</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">从标准层和归档层还原卷。仅从标准层还原文件</p></td>
@@ -908,7 +908,7 @@
 <h2 id="使用浏览和还原还原-ontap-数据">使用浏览和还原还原 ONTAP 数据</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在开始还原卷或文件之前，您应知道要还原的卷或文件的名称以及卷所在备份文件的大致日期。</p>
+<p>在开始还原卷或文件之前，您应知道要还原的卷或文件的名称，卷所在工作环境的名称以及要从中还原的备份文件的大致日期。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -984,7 +984,7 @@
 <div class="sect2">
 <h3 id="使用浏览和还原还原卷">使用浏览和还原还原卷</h3>
 <div class="paragraph">
-<p>从备份文件还原卷时， Cloud Manager 会使用备份中的数据创建 <em>new</em> 卷。您可以将数据还原到同一工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</p>
+<p>从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 <em>new</em> 卷。您可以将数据还原到原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_browse_restore_volume.png" alt="一个图，显示了使用浏览和放大；还原执行卷还原操作的流程。"></span></p>
@@ -1070,7 +1070,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>Cloud Manager 会根据您选择的备份创建一个新卷。您可以 <a href="task-manage-backups-ontap.html">"管理此新卷的备份设置"</a> 根据需要。</p>
+<p>Cloud Backup 会根据您选择的备份创建一个新卷。您可以 <a href="task-manage-backups-ontap.html">"管理此新卷的备份设置"</a> 根据需要。</p>
 </div>
 <div class="paragraph">
 <p>请注意，从归档存储中的备份文件还原卷可能需要数分钟或数小时，具体取决于归档层和还原优先级。您可以单击 * 作业监控 * 选项卡查看还原进度。</p>
@@ -1079,10 +1079,10 @@
 <div class="sect2">
 <h3 id="使用浏览和还原还原-ontap-文件">使用浏览和还原还原 ONTAP 文件</h3>
 <div class="paragraph">
-<p>如果您只需要从一个卷还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到同一工作环境中的现有卷，也可以还原到使用同一云帐户的不同工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</p>
+<p>如果您只需要从 ONTAP 卷备份还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到原始工作环境中的现有卷，也可以还原到使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</p>
 </div>
 <div class="paragraph">
-<p>如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。如果要将文件还原到不同的卷，则需要多次运行还原过程。</p>
+<p>如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。因此，如果要将文件还原到不同的卷，则需要多次运行还原过程。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1091,7 +1091,7 @@
 <img src="/us-en/cloud-manager-backup-restore/images/tip.svg" alt="提示">
 </td>
 <td class="content">
-如果备份文件驻留在归档存储中，则无法还原单个文件。在这种情况下，您可以从尚未归档的较新备份文件还原文件，也可以使用搜索和还原还原文件，或者从归档的备份还原整个卷，然后访问所需的文件。
+如果备份文件驻留在归档存储中，则无法还原单个文件。在这种情况下，您可以从尚未归档的较新备份文件还原文件，也可以从归档的备份还原整个卷，然后访问所需的文件，或者使用搜索和还原还原还原文件。
 </td>
 </tr>
 </table>
@@ -1104,13 +1104,16 @@
 <p>要执行文件还原操作， Cloud Volumes ONTAP 或内部 ONTAP 系统中的 ONTAP 版本必须为 9.6 或更高版本。</p>
 </li>
 <li>
-<p>从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 <a href="task-backup-to-s3.html#requirements">"AWS 要求"</a> 或 <a href="task-backup-to-azure.html#requirements">"Azure 要求"</a> 以确保您的环境已准备就绪。</p>
+<p>从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 <a href="concept-ontap-backup-to-cloud.html#cost">"要为文件还原操作部署的实例类型"</a> 并确保您的环境已准备就绪。</p>
 </li>
 <li>
-<p>还原文件还要求向为 Cloud Manager 提供权限的用户角色添加特定的 AWS EC2 权限。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"确保已正确配置所有权限"</a>。</p>
+<p>从 Amazon S3 上的备份还原文件需要将特定的 AWS EC2 权限添加到为 Cloud Manager 提供权限的用户角色中。您还需要允许出站 Internet 访问以联系某些端点。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"验证您的配置是否已准备好还原文件"</a>。</p>
 </li>
 <li>
 <p>AWS 跨帐户还原需要在 AWS 控制台中手动执行操作。请参见 AWS 主题 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html" target="_blank" rel="noopener">"授予跨帐户存储分段权限"</a> 了解详细信息。</p>
+</li>
+<li>
+<p>从 Azure Blob 上的备份还原文件需要能够访问出站 Internet 以联系特定端点。 <a href="task-backup-onprem-to-azure.html#preparing-azure-blob-storage-for-backups">"验证您的配置是否已准备好还原文件"</a>。</p>
 </li>
 </ul>
 </div>
@@ -1142,7 +1145,7 @@
 <p>选择要还原文件的位置（工作环境，卷和文件夹），然后单击 * 还原 * 。</p>
 </li>
 <li>
-<p>文件将被还原，然后关闭还原实例，以便在一段时间不活动后节省成本。</p>
+<p>文件将被还原，还原实例将在一段时间不活动后关闭，以节省成本。</p>
 </li>
 </ol>
 </div>
@@ -1156,7 +1159,7 @@
 <div class="sect3">
 <h4 id="使用浏览和还原还原文件">使用浏览和还原还原文件</h4>
 <div class="paragraph">
-<p>按照以下步骤将文件从卷备份还原到卷。您应知道要用于还原文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</p>
+<p>按照以下步骤将文件从 ONTAP 卷备份还原到卷。您应知道要用于还原文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</p>
 </div>
 <div class="paragraph">
 <p>以下视频显示了还原单个文件的快速演练：</p>
@@ -1188,7 +1191,7 @@
 </div>
 </li>
 <li>
-<p>单击 * 继续 * ，此时将启动还原实例。几分钟后，还原实例将显示卷备份中的文件夹和文件列表。</p>
+<p>单击 * 继续 * ，此时将启动还原实例。几分钟后，将显示卷备份中的文件夹和文件列表。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1283,10 +1286,13 @@
 <h2 id="使用搜索和还原还原-ontap-数据">使用搜索和还原还原 ONTAP 数据</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以使用搜索和还原从备份文件还原卷或单个文件。通过搜索和还原，您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷或文件，然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</p>
+<p>您可以使用搜索和还原从 ONTAP 备份文件还原卷或单个文件。通过搜索和还原，您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷或文件，然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</p>
 </div>
 <div class="paragraph">
-<p>从备份文件还原卷时， Cloud Manager 会使用备份中的数据创建 <em>new</em> 卷。您可以将数据还原为同一工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</p>
+<p>搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以从 " 画布 " 上的 " 卷详细信息 " 页面将快照还原为新卷。</p>
+</div>
+<div class="paragraph">
+<p>从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 <em>new</em> 卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</p>
 </div>
 <div class="paragraph">
 <p>您可以将文件还原到原始卷位置，同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</p>
@@ -1339,7 +1345,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>未来版本将支持更多云提供商。</p>
+<p>未来版本将支持其他云提供商。</p>
 </div>
 <div class="paragraph">
 <p>请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。</p>
@@ -1374,6 +1380,9 @@
 <ul>
 <li>
 <p>必须将特定的 Amazon Athena ， AWS glue 和 AWS S3 权限添加到为 Cloud Manager 提供权限的用户角色中。 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"确保已正确配置所有权限"</a>。</p>
+<div class="paragraph">
+<p>请注意，如果您已经在使用 Cloud Backup 时使用了过去配置的连接器，则现在需要将 Athena 和粘附权限添加到 Cloud Manager 用户角色中。这些是新的，搜索和还原需要它们。</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1397,11 +1406,11 @@
 <li>
 <p>按部分或完整卷名称，部分或完整文件名，大小范围，创建日期范围和其他搜索筛选器输入卷或文件的搜索条件，然后单击 * 搜索 * 。</p>
 <div class="paragraph">
-<p>搜索结果页面将显示具有符合搜索条件的文件或卷的所有备份文件。</p>
+<p>" 搜索结果 " 页面将显示文件或卷与您的搜索条件匹配的所有位置。</p>
 </div>
 </li>
 <li>
-<p>单击要用于还原卷或文件的备份文件的 * 查看所有备份 * ，然后在要使用的实际备份文件上单击 * 还原 * 。</p>
+<p>单击 * 查看所有备份 * 以查看要用于还原卷或文件的位置，然后在要使用的实际备份文件上单击 * 还原 * 。</p>
 </li>
 <li>
 <p>选择要还原卷或文件的位置，然后单击 * 还原 * 。</p>
@@ -1415,7 +1424,7 @@
 <p><span class="image"><img src="./media/diagram_search_restore_vol_file.png" alt="一个示意图，用于显示使用 Search &amp;amp ； Restore 执行卷或文件还原操作的流程。"></span></p>
 </div>
 <div class="paragraph">
-<p>如您所见，您实际上只需要知道部分卷或文件名，而 Cloud backup 会搜索与您的搜索匹配的所有备份文件。</p>
+<p>如您所见，您实际上只需要知道部分卷或文件名， Cloud Backup 会搜索与您的搜索匹配的所有备份文件。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1449,7 +1458,7 @@
 <p><span class="image"><img src="./media/screenshot_restore_enable_indexing.png" alt="显示已激活索引目录的工作环境的屏幕截图。"></span></p>
 </div>
 <div class="paragraph">
-<p>根据工作环境中卷的大小以及云中备份文件的数量，初始索引编制过程可能需要长达一小时的时间。之后，它会每小时更新一次，并进行增量更改以保持最新。</p>
+<p>根据工作环境中卷的大小以及云中备份文件的数量，初始索引编制过程可能需要长达一小时的时间。之后，它会每小时透明地更新一次，并进行增量更改，以保持最新状态。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1498,7 +1507,10 @@
 </div>
 </li>
 <li>
-<p>单击要用于还原卷或文件的备份文件的 * 还原 * 。</p>
+<p>对于要用于从云还原卷或文件的备份文件，请单击 * 还原 * 。</p>
+<div class="paragraph">
+<p>请注意，结果还会标识搜索中包含该文件的本地卷 Snapshot 副本。此时， * 还原 * 按钮对快照不起作用，但如果要从 Snapshot 副本而非备份文件还原数据，请记下卷的名称和位置，然后打开 " 画布 " 上的 " 卷详细信息 " 页面。 并使用 * 从 Snapshot 副本还原 * 选项。</p>
+</div>
 </li>
 <li>
 <p>选择要还原卷或文件的位置，然后单击 * 还原 * 。</p>

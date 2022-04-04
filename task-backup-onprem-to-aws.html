@@ -782,7 +782,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-01 18:34:13 +0000">04/01/2022</time>
+    <time datetime="2022-04-04 20:23:08 +0000">04/04/2022</time>
     
   
 
@@ -1106,12 +1106,12 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。</p>
+<p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止 Cloud Restore 实例：</p>
+<p>将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止用于浏览和还原操作的 Cloud Restore 实例：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">          "Action": [
