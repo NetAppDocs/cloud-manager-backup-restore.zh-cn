@@ -130,9 +130,9 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 --
 
 
-如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。
+如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。
 
-需要 AWS 还原权限:: IAM 角色需要以下 EC2 权限，以便为 Cloud Manager 提供启动，停止和终止 Cloud Restore 实例的权限：
+需要 AWS 还原权限:: IAM 角色需要以下 EC2 权限，此角色为 Cloud Manager 提供权限，使其可以启动，停止和终止 Cloud Restore 实例以执行浏览和还原操作：
 +
 --
 [source, json]

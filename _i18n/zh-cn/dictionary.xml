@@ -374,7 +374,6 @@
   <block id="10f6202d30d30fab178f494f51fd80be" category="list-text">将卷或单个文件还原到源系统或其他系统。</block>
   <block id="8d3b14a9e537b12cc786825ea2f9e4cb" category="list-text">使用不同的订阅 / 帐户或位于不同区域的工作环境还原数据。</block>
   <block id="54abac4b0e4ba613b4a723ce5bc4fb9c" category="list-text">还原块级别的数据，将数据直接放置在您指定的位置，同时保留原始 ACL 。</block>
-  <block id="f319acfc40bbcab25f408ee9038599f7" category="list-text">用于选择单个文件进行单个文件还原的可浏览文件目录。</block>
   <block id="8c2fa8f9ca2c046b2cddcd4a9239752f" category="section-title">支持的 ONTAP 工作环境和对象存储提供程序</block>
   <block id="c69521d41090229a4c8162ebc8682468" category="paragraph">通过 Cloud Backup ，您可以将 ONTAP 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：</block>
   <block id="da3ad9d6a0eca9d57ad9063ff8690ab6" category="cell">源工作环境</block>
@@ -401,13 +400,11 @@
   <block id="7d42bbb55a0a84fa72ab6edcc4fae677" category="list-text">对于备份，您需要为云提供商支付对象存储成本。</block>
   <block id="0de9b3cec1ef6cadb404383ceab17afa" category="paragraph">由于云备份会保留源卷的存储效率，因此您需要为云提供商的对象存储成本支付 data_after_ ONTAP 效率（适用于应用重复数据删除和数据压缩后少量的数据）。</block>
   <block id="4add3b76588efda22443faf65d7b33b8" category="list-text">对于使用 " 浏览和还原 " 进行文件还原的情况，只有在还原实例运行时，您才需要为云提供商的计算成本付费。</block>
-  <block id="2e8e31cde916a3195214336332198f1d" category="paragraph">此实例与 Connector 位于同一子网中，只有在浏览备份文件以查找要还原的各个文件时，它才会运行。不使用实例时，该实例将关闭以节省成本。</block>
   <block id="61c85306674ea0662e30c30a451e8bb6" category="inline-link">m5n.xlarge 实例</block>
   <block id="8eee98a18c217036ccb07ef6bed307a3" category="paragraph">在 m5n.xlarge 实例不可用的区域中， Restore 会在 m5.xlarge 实例上运行。</block>
   <block id="8d63888e8805c64f266bdd3b3aae561b" category="inline-link">标准 D4s_v3 虚拟机</block>
   <block id="ffc6e434091ae2664cbbe027fc45747f" category="paragraph">此实例名为 _Cloud-Restore-instance_ ，您的帐户 ID 与此实例连接在一起。例如： _Cloud-Restore-instance-MyAccount_ 。</block>
   <block id="c44bf8d814d25bd36e966009ffe7c778" category="list-text">对于使用 " 浏览和还原 " 进行卷还原，不需要任何成本，因为不需要单独的实例或虚拟机。</block>
-  <block id="019995fe578c139f5c7879d1c512272e" category="list-text">对于使用搜索和还原的卷或文件还原，需要 Amazon Athena 和 AWS 粘附资源。还原卷和文件时，这些资源会产生成本。目前，只支持使用 AWS A3 进行搜索和还原。</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">* 服务费用 *</block>
   <block id="da7eba6ba6d65c47401a65d01a2b5be6" category="paragraph">服务费用支付给 NetApp ，用于支付这些备份的 _creation_backup_ 和 _restor_ 卷或文件的费用。您只需为所保护的数据付费，该数据是通过备份到对象存储的 ONTAP 卷的源逻辑已用容量（ _before_ONTAP 效率）计算得出的。此容量也称为前端 TB （前端 TB ）。</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="inline-xref">许可</block>
@@ -709,39 +706,31 @@
   <block id="16d050cc0c345f23a8c1f9d1557ac107" category="list-text">在确认对话框中，单击 * 取消注册 * 。</block>
   <block id="087310fbce62062547e7755ce36288a5" category="summary">了解 Cloud Backup 中的新增功能。</block>
   <block id="2b0d303ec45a6f12beec71d59abfee40" category="doc">Cloud Backup 的新增功能</block>
-  <block id="ec9b8f6823bcd6e5f05df71983a3ea63" category="section-title">2022 年 4 月 3 日</block>
   <block id="53a177bd3753cd5dd3160eb23ae27ae3" category="section-title">支持 Cloud Backup for Applications 1.1.0</block>
   <block id="9793a7606042d0fe65c3a7569fe10e8a" category="inline-link-macro">了解有关保护内部应用程序数据到云的更多信息</block>
-  <block id="01f2ae9bea9fe30701f09beb6db8263f" category="paragraph"><block ref="a674deae71d4abae6a5e9726f531eb11" category="inline-link-macro-rx"></block>。</block>
   <block id="03a4b55a53bde0dfb397461371884e8e" category="section-title">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件。</block>
   <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">了解如何使用搜索和放大；还原</block>
-  <block id="c94a7fd1550e4a8904300b181c98caaf" category="section-title">2022 年 3 月 3 日</block>
   <block id="4164f4229952724961b18ee1aba05107" category="section-title">能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储。</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">有关详细信息，请访问此处</block>
-  <block id="6ff133e735e841b3a54d6f8c0a84c071" category="paragraph">如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。 <block ref="04c62f5c961d468f8c7e3d8b6a8a1398" category="inline-link-macro-rx"></block>。</block>
   <block id="425adda56e394de12209334423b302c9" category="section-title">此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能。</block>
   <block id="f49fe4c56999dcc895c26b71ec63e34f" category="section-title">2022 年 2 月 14 日</block>
   <block id="00cc27904469b8648e9ce7406785695d" category="section-title">现在，您可以将备份策略分配给单个集群中的各个卷。</block>
   <block id="963d2836c97952a191ac974f0e9b5e67" category="inline-link-macro">请参见如何为集群创建新的备份策略并将其分配给选定卷</block>
-  <block id="056d5c98f94dd0eca78fff3496e65d8f" category="paragraph">过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 <block ref="f5709b6141daa2d8cef3c3b52da344f9" category="inline-link-macro-rx"></block>。</block>
   <block id="77140e0c93e73cb88d01dd1b37161fac" category="section-title">通过一个新选项，您可以自动将默认备份策略应用于新创建的卷。</block>
   <block id="e239caf739c8a0f59aa2ff963f94dcd3" category="paragraph">过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在，无论卷是在 Cloud Manager ， System Manager ， CLI 中创建的，还是使用 API 创建的， Cloud Backup 都将发现卷并应用您选择作为默认策略的备份策略。</block>
   <block id="b702b8a648700d54afccce0b8de7766a" category="paragraph">如果在新的工作环境中启用备份，或者从 _Manage Volumes_ 页面为现有工作环境启用备份，则可以使用此选项。</block>
   <block id="af23ae909dc3d2f5bf75a94a7fd9a901" category="section-title">新的作业监控器可用于查看所有备份和还原作业的正在处理状态。</block>
   <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">请参见如何使用作业监控器</block>
-  <block id="9d20a5735dc25af92271eea8fa797bf7" category="paragraph">如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 <block ref="41d368101275ff882313a6db3fc29812" category="inline-link-macro-rx"></block>。</block>
   <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
   <block id="8037b7835bd266869a4758e906fad109" category="section-title">能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储。</block>
   <block id="8b0675f2bcc5bb7f00dbceec71509372" category="paragraph">如果您的 AKS 集群安装了 NetApp Astra Trident ，并且使用适用于 Azure 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将卷备份到 Azure Blob 存储以及从 Azure Blob 存储还原卷。 <block ref="dedf276821ed6d29dbf4b6c6ac7e23c3" category="inline-link-macro-rx"></block>。</block>
   <block id="bd91087a6508bbacf0f61cfbc8b246a8" category="section-title">此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致。</block>
   <block id="8f26fba202051bdab8552c6642789714" category="paragraph">现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。</block>
-  <block id="e7c5ad171298e38494ee7665c2b581e3" category="section-title">2021 年 11 月 28 日</block>
   <block id="1153be6d2aedc11a67ca9b99cae2751e" category="section-title">能够将 EKS Kubernetes 集群中的永久性卷备份到 Amazon S3 。</block>
   <block id="14311cc96cac23e1709c359110a5b7f1" category="paragraph">如果您的 EKS 集群安装了 NetApp Astra Trident ，并且使用 Cloud Volumes ONTAP for AWS 作为集群的后端存储，则可以将卷备份到 Amazon S3 或从 Amazon S3 还原卷。 <block ref="c1364db2c360144190c55a3c78bff6b7" category="inline-link-macro-rx"></block>。</block>
   <block id="4ff3f3683da36a44bf2336e409a3a2b4" category="section-title">用于备份 DP 卷的增强功能。</block>
   <block id="91b001577242864121cd5bc710161e53" category="inline-link-macro">限制</block>
   <block id="c3952b163e8769f9c892f1921127899a" category="paragraph">现在， Cloud Backup 支持为 SVM-DR 关系中目标 ONTAP 系统上的 DP 卷创建备份。存在一些限制，请参见 <block ref="06a75d4d3a3c786253d04f8ea1e7ee58" category="inline-link-macro-rx"></block> 了解详细信息。</block>
-  <block id="eb893b956cd84a842afbad951c555cbd" category="section-title">2021 年 11 月 5 日</block>
   <block id="7748314bccd2a9b204371d47a13049f7" category="section-title">可以在将卷还原到内部 ONTAP 系统时选择专用端点。</block>
   <block id="30ba5fd5ccdd0c02bffa75b47be23a3b" category="paragraph">从 Amazon S3 或 Azure Blob 上的备份文件将卷还原到内部 ONTAP 系统时，现在您可以选择一个私有端点，用于以私密方式安全地连接到内部系统。</block>
   <block id="2569d20656d01d1eb21ae2ad2fd09fe3" category="section-title">现在，您可以在数天后将旧备份文件分层到归档存储，以节省成本。</block>
@@ -750,7 +739,6 @@
   <block id="d1ddbe1a2b846fcb593cc918a3e89011" category="paragraph">如果集群运行的是 ONTAP 9.10.1 或更高版本，而您使用的是 AWS 或 Azure 云存储，则可以将备份分层到归档存储。请参见有关的详细信息 <block ref="81a47028e5300e8284480e386f5c858b" category="inline-link-macro-rx"></block> 和 <block ref="dcf621b23bcce9bd9dd0dcef7d3820cf" category="inline-link-macro-rx"></block>。</block>
   <block id="22be192cad53cace936d73c283cf2f7e" category="section-title">Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡。</block>
   <block id="6ce8a3f44b004fcf6550446a48ff963f" category="paragraph">Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud Manager Digital Wallet 中的 Data Services Licenses 选项卡。</block>
-  <block id="1d9b19895587e0b25381eb63ed0a09b9" category="section-title">2021 年 10 月 4 日</block>
   <block id="ba6ad29a4438fcb9af2cc9ea1fb5bf0b" category="section-title">现在，在执行卷或文件还原时，备份文件大小将显示在备份页面中。</block>
   <block id="ab2ccc498a90c5f6b10b5303b9c5aeb0" category="paragraph">如果您要删除不必要的大型备份文件，或者您可以比较备份文件大小，以确定可能因恶意软件攻击而导致的任何异常备份文件，则此功能非常有用。</block>
   <block id="34feaa240a5540ed421b3802310321a6" category="section-title">TCO 计算器可用于比较 Cloud Backup 成本。</block>
@@ -838,9 +826,7 @@
   <block id="7f7aa67e8e982d398b5f4be602378263" category="list-text">默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>。</block>
   <block id="ce648319d45a9a1e763cf027842a0260" category="list-text">您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
   <block id="02c17660d0f6b51d0aeadd6bfd390921" category="paragraph">以下是策略中的特定权限：</block>
-  <block id="cb331a766b18dd50036837a4700cb03b" category="paragraph">如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。</block>
   <block id="81db035f5a5e6c5293eadeb3e395e79f" category="list-text">需要 AWS 还原权限</block>
-  <block id="6c7350d75fb2cc0f9a776efd525e9b96" category="list-text">IAM 角色需要以下 EC2 权限，以便为 Cloud Manager 提供启动，停止和终止 Cloud Restore 实例的权限：</block>
   <block id="48b0e91edc840d9f4e5a2c26360fcf4e" category="list-text">AWS 部署所需的出站 Internet 访问</block>
   <block id="ad8d960ed8a770a28c14f108482c2074" category="list-text">Cloud Restore 实例需要出站 Internet 访问。如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保此实例可以通过出站 Internet 访问与以下端点联系。</block>
   <block id="abd528273c052b18efee9184372ad0c4" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</block>
@@ -938,7 +924,6 @@
   <block id="f0f056157e94a487e92f86eae3d2b423" category="section-title">准备 Amazon S3 进行备份</block>
   <block id="97198096ce6980ecffa6d593f70b7295" category="paragraph">在使用 Amazon S3 时，您必须为 Connector 配置权限以创建和管理 S3 存储分段，并且必须配置权限，以便内部 ONTAP 集群可以对 S3 存储分段进行读写。</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。</block>
-  <block id="9ec7c7f1ef92d270ccbe0d977011e354" category="list-text">将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止 Cloud Restore 实例：</block>
   <block id="b42dca64a9c4c239b82a8753cea8daca" category="list-text">激活此服务时，备份向导将提示您输入访问密钥和机密密钥。为此，您需要创建具有以下权限的 IAM 用户。Cloud Backup 会将这些凭据传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 文档：创建角色以向 IAM 用户委派权限</block>
   <block id="5d6d3c39001c5518d516e9053e5363e3" category="paragraph">请参见<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block> 了解详细信息。</block>
@@ -1186,10 +1171,7 @@
   <block id="10529b4a25e9696c4ba72d76e2fdc25d" category="paragraph"><block ref="10529b4a25e9696c4ba72d76e2fdc25d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5cf322cefc810d29bf6edaec8079e4f8" category="paragraph">备份文件将使用与 Cloud Volumes ONTAP 系统相同的 Azure 订阅和区域存储在 Blob 容器中。</block>
   <block id="e8ac4ce23b2d4fe22e4e10c89ec20a37" category="paragraph">您可以 <block ref="e06ea2dd8b89d4e56ea2375f93158021" category="inline-link-macro-rx"></block>。您也可以 <block ref="340341f5c0d376f606645c931d11e3ae" category="inline-link-macro-rx"></block> 作为 Azure 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
-  <block id="ccbbcefa9fe212847b4a769dfadb9f62" category="summary">备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个卷，也可以从备份文件还原单个文件。</block>
   <block id="8bc63442b5976f212bf0d3c259bcb851" category="doc">从备份文件还原 ONTAP 数据</block>
-  <block id="b8b70e23ebfafd2286dfe2c76afda4fd" category="paragraph">您可以将 * 卷 * （作为新卷）还原到相同的工作环境，使用相同云帐户的不同工作环境或内部 ONTAP 系统。</block>
-  <block id="8b0259491104615d2480b30940ccbe34" category="paragraph">您可以将 * 文件 * 还原到同一工作环境中的卷，使用同一云帐户的不同工作环境中的卷或内部 ONTAP 系统上的卷。</block>
   <block id="65fba989fe7e3d4f06e7b1a4c8b66ff0" category="section-title">还原信息板</block>
   <block id="024205acf9405311336c02bbd2193b70" category="inline-image-macro">更多按钮</block>
   <block id="bb266de26a47a35a97254f296ab860ed" category="paragraph">您可以使用还原信息板执行卷和文件还原操作。要访问还原信息板，请单击 Cloud Manager 顶部的 * 备份和还原 * ，然后单击 * 还原 * 选项卡。您也可以单击 <block ref="c01b692574fda287c7455bfbcec2709c" category="inline-image-macro-rx" type="image"></block> &gt; " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。</block>
@@ -1198,24 +1180,19 @@
   <block id="0926cc88101f4f93d295f001c8d31d31" category="paragraph"><block ref="d456723a7b2b287ea97734b5600ab596" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d879bbb4f68f76e08e2778efe314b107" category="paragraph">如您所见，还原信息板提供了两种不同的方法来从备份文件还原数据： * 浏览和还原 * 和 * 搜索和还原 * 。</block>
   <block id="6b0b2f1ade447e93ec60561aec84daae" category="section-title">比较浏览和还原以及搜索和还原</block>
-  <block id="27f1c153d6dbf37f15e9da9dba1b99be" category="paragraph">概括地说，当您需要上一周，月或年的特定卷或文件时， _Browse &amp; Restore" 通常会更好—您知道文件的名称和位置，以及文件最后一个状态良好的日期。通常，当您需要一个卷或文件时， _Search &amp; Restore" 会更好，但您不记得确切的名称，卷所在的卷或最后一个卷状态良好的日期。</block>
   <block id="2acfaf00d1f43b0bc630fdcf43c20bb3" category="paragraph">下表对这两种方法进行了比较。</block>
   <block id="1181e345cf6d2eaef5900c975d430d7d" category="cell">浏览和还原</block>
   <block id="7d0014a7ab187c6931fc2183a6074420" category="cell">搜索和还原</block>
   <block id="0cae191277fac89f0e42bbc0ac65e85d" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷或文件</block>
   <block id="d8bfe71b250180e0bed0dd3556bc2e5b" category="cell">在 * 所有备份文件 * 中按部分或完整卷名称，部分或完整文件名，大小范围以及其他搜索筛选器搜索卷或文件</block>
-  <block id="9d44b18466e2a5326a11fe2e48bc84a7" category="cell">卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud Storage 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件</block>
   <block id="5563fd3c4b6041b3f631546b2ef49734" category="cell">卷和文件还原适用于存储在 Amazon S3 中的备份文件</block>
   <block id="fa6009564cbbb803ab9e939ec7396236" category="cell">不处理已重命名或删除的文件</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件</block>
   <block id="31415ba37b5edee7aba09d3fde0352e2" category="cell">浏览公有 或私有云中的结果</block>
-  <block id="b819274a9c447150205d76b47347e6df" category="cell">浏览公有 云中的结果，以及未来在私有云和本地 Snapshot 副本中的结果</block>
   <block id="41fabcd0633ee21cc8817616beb7441f" category="cell">文件还原需要单独的 Cloud Restore 实例</block>
   <block id="67df1ec38e03c69b2d9b22ff27f89b98" category="cell">不需要 Cloud Restore 实例</block>
-  <block id="db93d2b74e46a12c98c6295b9e8057d0" category="cell">无需额外的 Amazon 资源</block>
   <block id="e1e9d038f553090ab4fe8905d190ba18" category="cell">每个帐户需要新的存储分段和 Amazon Athena 和 AWS 胶水资源</block>
   <block id="aa9743708ff9c566eb64a6d1efeaa9b5" category="cell">还原文件时与 Cloud Restore 实例相关的成本</block>
-  <block id="dd02855438d52817e8d07b0d3f4ffb94" category="cell">还原卷和文件时与 Amazon Athena 和 AWS 粘附资源相关的成本</block>
   <block id="b0f7e64bd25e3b690aab9e20a3f7fc57" category="cell">从标准层和归档层还原卷。仅从标准层还原文件</block>
   <block id="1e4be39e44e4c696c4ab1fc02e732c1b" category="cell">从标准层和归档层还原卷和文件</block>
   <block id="8425d41c6f9d3b6f077b56c4d49651a4" category="paragraph">在使用任一还原方法之前，请确保已为环境配置了唯一的资源要求。以下各节将介绍这些要求。</block>
@@ -1227,7 +1204,6 @@
   <block id="d08ca3094836aa46649fef00f2bd8721" category="inline-xref">使用搜索和放大器还原卷和文件；还原</block>
   <block id="4a004f1075f4bc7f4174e142c73348e7" category="list-text"><block ref="d90a3cee47716ccf76cc7618cda7d58d" category="inline-xref-macro-rx"></block></block>
   <block id="603d72dccb888dcc907e3f3437dabf42" category="section-title">使用浏览和还原还原 ONTAP 数据</block>
-  <block id="a7205bd833df39f5be9d880afa541711" category="paragraph">在开始还原卷或文件之前，您应知道要还原的卷或文件的名称以及卷所在备份文件的大致日期。</block>
   <block id="3f23c2e3558a095de0fd0b3c0b291ead" category="paragraph">* 注意： * 如果要还原的卷的备份文件位于归档存储中（从 ONTAP 9.10.1 开始可用于 AWS 和 Azure ），则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="f0a32293e7110abfd30f9402fa924815" category="inline-link-macro">了解有关从 Azure 归档存储还原的更多信息</block>
   <block id="b23bca1a2a7f2ec270c7be93eb3d5720" category="inline-link-macro">了解有关从 AWS 归档存储还原的更多信息</block>
@@ -1235,7 +1211,6 @@
   <block id="3137db9876bc57bceab513dbed918445" category="section-title">浏览并还原支持的工作环境和对象存储提供程序</block>
   <block id="a56368bdfe1c12e155e1b5736efd5b34" category="admonition">如果备份文件驻留在归档存储中，则仅支持卷还原。使用浏览和还原时，当前不支持从归档存储还原文件。</block>
   <block id="515ab291ab79ec8cfa9e1523b5a9a8ef" category="section-title">使用浏览和还原还原卷</block>
-  <block id="fe3848679db96ae69de9c3f71d6450a5" category="paragraph">从备份文件还原卷时， Cloud Manager 会使用备份中的数据创建 _new_ 卷。您可以将数据还原到同一工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="9336df9a96bed9adb0f67170b2dad2b3" category="inline-image-macro">一个图，显示了使用浏览和放大；还原执行卷还原操作的流程。</block>
   <block id="38aad7ac8bd6898064d142472e3e7624" category="paragraph"><block ref="7d27a3070fb1dce60f7cb72cb7d60b55" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af292b8b1888fe5e6fd1aa517772208a" category="paragraph">如您所见，要执行卷还原，您需要知道工作环境名称，卷名称和备份文件日期。</block>
@@ -1263,19 +1238,11 @@
   <block id="15c25e27b550e844257a7920d4c7a5ea" category="paragraph">如果您要从位于归档存储层（从 ONTAP 9.10.1 开始提供）中的备份文件还原卷，则可以选择还原优先级。</block>
   <block id="52814911bd19ee58ffd2088fab3261ee" category="paragraph"><block ref="e84408fa2ad67b16ce499fc31f7f4f81" category="inline-link-macro-rx"></block>。<block ref="cacf15576b46da141d22ed2be2ccc0c6" category="inline-link-macro-rx"></block>。</block>
   <block id="331e823e611c54b97405788cbceb2421" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。</block>
-  <block id="52728eb0074474332d4da538b13a222f" category="paragraph">Cloud Manager 会根据您选择的备份创建一个新卷。您可以 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 根据需要。</block>
   <block id="ca83adebc55f88d6dccac68b18bcad1a" category="paragraph">请注意，从归档存储中的备份文件还原卷可能需要数分钟或数小时，具体取决于归档层和还原优先级。您可以单击 * 作业监控 * 选项卡查看还原进度。</block>
   <block id="bed4e5c461e028397bd33a3f2ac09eac" category="section-title">使用浏览和还原还原 ONTAP 文件</block>
-  <block id="bfb245672cc00033a675b6f5ca918acc" category="paragraph">如果您只需要从一个卷还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到同一工作环境中的现有卷，也可以还原到使用同一云帐户的不同工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</block>
-  <block id="deb8999828b96163ca0bb8254acc8c34" category="paragraph">如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。如果要将文件还原到不同的卷，则需要多次运行还原过程。</block>
-  <block id="4b61beb77053023847ea7a115ffc1711" category="admonition">如果备份文件驻留在归档存储中，则无法还原单个文件。在这种情况下，您可以从尚未归档的较新备份文件还原文件，也可以使用搜索和还原还原文件，或者从归档的备份还原整个卷，然后访问所需的文件。</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">前提条件</block>
   <block id="115846a48fcd206b32685cf5b3b0de39" category="list-text">要执行文件还原操作， Cloud Volumes ONTAP 或内部 ONTAP 系统中的 ONTAP 版本必须为 9.6 或更高版本。</block>
-  <block id="224e02a96c0a18e9289ce76336ad1626" category="inline-link-macro">AWS 要求</block>
-  <block id="bf42a0066a5ef2b35b598820d6538893" category="inline-link-macro">Azure 要求</block>
-  <block id="d5fc8b1c0d9eff137f1c870e4c8174f6" category="list-text">从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 <block ref="31df579cd28bd8f677a5578f548c9d64" category="inline-link-macro-rx"></block> 或 <block ref="7933b6d1b3377ae0bf4aa90313194b61" category="inline-link-macro-rx"></block> 以确保您的环境已准备就绪。</block>
   <block id="69822c6d3eec5c2a5b83f578217d08ce" category="inline-link-macro">确保已正确配置所有权限</block>
-  <block id="c43ff304c70d1b103c2a8dc1c4adbcf3" category="list-text">还原文件还要求向为 Cloud Manager 提供权限的用户角色添加特定的 AWS EC2 权限。 <block ref="1fd545f26468487b13b3ba3332e65af7" category="inline-link-macro-rx"></block>。</block>
   <block id="b978081c22feaffda24639e4c4c63fa1" category="inline-link">授予跨帐户存储分段权限</block>
   <block id="5670162f015f137df3f918df6c2c1fcb" category="list-text">AWS 跨帐户还原需要在 AWS 控制台中手动执行操作。请参见 AWS 主题<block ref="ac4c75b2db0b6ef32843c3980cc0815d" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="c7c8552e901417195541087cc58cacbc" category="section-title">文件还原过程</block>
@@ -1285,12 +1252,10 @@
   <block id="9c963e83113a07eeaf1d82065f433a42" category="paragraph">* 注意： * 首次还原文件时，还原实例将部署在云提供商的环境中。</block>
   <block id="6676184bc154f348d5794457f2ad2f6d" category="list-text">选择要从该备份还原的一个或多个文件。</block>
   <block id="dfa6a50b10edbdf8a3ed1ba311814487" category="list-text">选择要还原文件的位置（工作环境，卷和文件夹），然后单击 * 还原 * 。</block>
-  <block id="f080b4cea39ca650313b423134071bb7" category="list-text">文件将被还原，然后关闭还原实例，以便在一段时间不活动后节省成本。</block>
   <block id="983985e7b5c6473861f79292288f8649" category="inline-image-macro">一个图，显示了使用浏览和放大；还原执行文件还原操作的流程。</block>
   <block id="a86b95296a5e8660c2661d4c0fdd6403" category="paragraph"><block ref="b8616ef8bcb9351aff887ce7eb6910c4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="301dca6570b0674e62e36cd9584538ff" category="paragraph">如您所见，要执行文件还原，您需要知道工作环境名称，卷名称，备份文件日期和文件名。</block>
   <block id="7ebdcfdd3b7703da3487d8438e842713" category="section-title">使用浏览和还原还原文件</block>
-  <block id="9fd1e09d83ef921cb9d8f3ed60fc9225" category="paragraph">按照以下步骤将文件从卷备份还原到卷。您应知道要用于还原文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</block>
   <block id="f50bc81f344069aa50965b6a99f47c72" category="paragraph">以下视频显示了还原单个文件的快速演练：</block>
   <block id="9008c9564d0e14b5c1b3ecf87e40e3c2" category="list-text">在 _Browse &amp; Restore_ 部分中，单击 * 还原文件 * 。</block>
   <block id="da70da04c7b312337ec4fa5057cf0a47" category="inline-image-macro">从还原信息板中选择还原文件按钮的屏幕截图。</block>
@@ -1298,7 +1263,6 @@
   <block id="1268343ed55a914755648aeb28283201" category="list-text">在 _Select Source" 页面中，导航到包含要还原的文件的卷的备份文件。选择具有要从中还原文件的日期 / 时间戳的 * 工作环境 * ， * 卷 * 和 * 备份 * 。</block>
   <block id="294de02a01f018eddaca4f1722710ed4" category="inline-image-macro">为要还原的文件选择卷和备份的屏幕截图。</block>
   <block id="17f463b982b788d27adf5ed39c7de8a9" category="paragraph"><block ref="17f463b982b788d27adf5ed39c7de8a9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3281366cc16023a296ded0df5968a83a" category="list-text">单击 * 继续 * ，此时将启动还原实例。几分钟后，还原实例将显示卷备份中的文件夹和文件列表。</block>
   <block id="fd0d479ff0135e407a463fe915b4a8d0" category="paragraph">* 注意： * 首次还原文件时，还原实例会部署在云提供商的环境中，因此，首次执行此步骤可能需要几分钟的时间。</block>
   <block id="abd0505d3f4d78afa169d1521e472dbd" category="inline-image-macro">选择文件页面的屏幕截图，用于导航到要还原的文件。</block>
   <block id="0d5da4345b644e5ab72058eaf1cbc7c3" category="paragraph"><block ref="0d5da4345b644e5ab72058eaf1cbc7c3" category="inline-image-macro-rx" type="image"></block></block>
@@ -1324,14 +1288,11 @@
   <block id="1416ed4c9545330801c21cba765ded61" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击 * 作业监控 * 选项卡查看还原进度。</block>
   <block id="156338817692a044f95ba61acd72b727" category="paragraph">还原实例在一段时间处于非活动状态后会关闭，以节省您的资金，以便只有在处于活动状态时才会产生成本。</block>
   <block id="1c60eafb2bcc4dfa9a04abebcbb62b4e" category="section-title">使用搜索和还原还原 ONTAP 数据</block>
-  <block id="648d622c79ef3b6a8eb7d0a99bab849b" category="paragraph">您可以使用搜索和还原从备份文件还原卷或单个文件。通过搜索和还原，您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷或文件，然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</block>
-  <block id="27d5af1e1c0e818b5fd4b0db74ce47ef" category="paragraph">从备份文件还原卷时， Cloud Manager 会使用备份中的数据创建 _new_ 卷。您可以将数据还原为同一工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="9132930f60be96e86f4380dfc1386bf3" category="paragraph">您可以将文件还原到原始卷位置，同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</block>
   <block id="6182c3b43fe5b349213c1748ebd0bef2" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中（从 ONTAP 9.10.1 开始可用于 AWS ），则还原操作将需要较长的时间并产生额外成本。请注意，目标集群也必须运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="87e12bc1b54923f05d8d8365d473b744" category="paragraph"><block ref="ca127c5e9bec15815ed41459177c241d" category="inline-link-macro-rx"></block>。</block>
   <block id="42c4ab8961cdba5beaf8c8b46bfb4bc4" category="paragraph">开始之前，您应了解要还原的卷或文件的名称或位置。</block>
   <block id="08f59a930621019b7b2d289b74ed3bf2" category="section-title">搜索和还原支持的工作环境和对象存储提供程序</block>
-  <block id="7fb830e0c2df8037ecd47df6aff5f120" category="paragraph">未来版本将支持更多云提供商。</block>
   <block id="7c9a067ed7fc3d318d415405ab0cb349" category="list-text">集群要求：</block>
   <block id="042e2868bd27cf0f2d07239f80a976dd" category="list-text">ONTAP 版本必须为 9.8 或更高版本。</block>
   <block id="6f0cd96277bd61a1a3f4c2504033ded7" category="list-text">卷所在的 Storage VM （ SVM ）必须已配置数据 LIF 。</block>
@@ -1345,24 +1306,19 @@
   <block id="556b2ea942e370ecaeb7b473759f7791" category="list-text">在使用搜索和还原之前，您需要在要从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷的备份文件。它可以在提供数据的 SVM 上启用 SnapDiff v3 ，并配置新的 S3 存储分段和<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> 和<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>。</block>
   <block id="0848cf03c413f3904ce1aede12f02101" category="list-text">如果要从卷备份还原卷或文件，请在 _Search &amp; Restore_ 下单击 * 搜索和还原 * 。</block>
   <block id="cb84b037572af2dc4822519afb96f153" category="list-text">按部分或完整卷名称，部分或完整文件名，大小范围，创建日期范围和其他搜索筛选器输入卷或文件的搜索条件，然后单击 * 搜索 * 。</block>
-  <block id="1057ba469ff3440c61a7f24972579634" category="paragraph">搜索结果页面将显示具有符合搜索条件的文件或卷的所有备份文件。</block>
-  <block id="f34f0f51f58a576e9cc7d35070aaead2" category="list-text">单击要用于还原卷或文件的备份文件的 * 查看所有备份 * ，然后在要使用的实际备份文件上单击 * 还原 * 。</block>
   <block id="fa1ec988d377e7abe5509addb77f5285" category="list-text">选择要还原卷或文件的位置，然后单击 * 还原 * 。</block>
   <block id="a6285e595baded97225736819dec9f86" category="list-text">卷或文件已还原。</block>
   <block id="53c2284a5c5cad0268fd21a2f3f5be0b" category="inline-image-macro">一个示意图，用于显示使用 Search &amp;amp ； Restore 执行卷或文件还原操作的流程。</block>
   <block id="fb3a59b0276a68880db85882bb070213" category="paragraph"><block ref="8ea93c2a419908ba35bd3b1be423db72" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6c82f5f5a4aa1601163e62202d5c6f00" category="paragraph">如您所见，您实际上只需要知道部分卷或文件名，而 Cloud backup 会搜索与您的搜索匹配的所有备份文件。</block>
   <block id="6bfb19e1af6eb70029da765ce1dd9a05" category="section-title">为每个工作环境启用索引目录</block>
   <block id="721f0292b89494d52fd3ab7655e44491" category="paragraph">在使用搜索和还原之前，您需要在计划从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷和每个备份文件，从而使搜索非常快速高效。</block>
   <block id="aad8d5d5c76ce4e9d69aae36967d747a" category="paragraph">启用此功能后， Cloud Backup 会在 SVM 上为卷启用 SnapDiff v3 ，并创建一个新的存储分段，用于配置 Amazon Athena 交互式查询服务和 AWS 无胶水服务器数据集成服务。</block>
-  <block id="49e09469c76dc8dca9465deb408f0662" category="paragraph">如果您的工作环境已启用索引，请转到下一节以还原数据。</block>
   <block id="8c3d8e8290011affd1cc36d8fb6ca3a8" category="paragraph">要为工作环境启用索引编制，请执行以下操作：</block>
   <block id="77b424e494cba30c234da205f975c6ba" category="list-text">如果尚未为工作环境编制索引，请在 "Restore Dashboard" 中的 _Search &amp; Restore_ 下，单击 * 为工作环境启用索引 * ，然后单击 * 为工作环境启用索引 * 。</block>
   <block id="3c672ca6b1c8663911932efdc7cb9761" category="list-text">如果至少有一个工作环境已编制索引，请在 "Restore Dashboard" 中的 "_Search &amp; Restore" 下，单击 * 索引设置 * ，然后单击 * 为工作环境启用索引 * 。</block>
   <block id="d76950a27877cc1b2fad2a533be5bd70" category="paragraph">配置完所有服务并激活索引目录后，工作环境将显示为 "Active" 。</block>
   <block id="22a8553a7fcf088b4624bfb22aca2c00" category="inline-image-macro">显示已激活索引目录的工作环境的屏幕截图。</block>
   <block id="2e6096622065e7d9092ff099425f8bf0" category="paragraph"><block ref="2e6096622065e7d9092ff099425f8bf0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="96de694c4bf78a5e284456961fcfafe0" category="paragraph">根据工作环境中卷的大小以及云中备份文件的数量，初始索引编制过程可能需要长达一小时的时间。之后，它会每小时更新一次，并进行增量更改以保持最新。</block>
   <block id="049776cc014fd67448e0df9e5632894b" category="section-title">使用搜索和还原还原卷和文件</block>
   <block id="525771ad8c8d45a1f0506d1712926a4f" category="inline-xref">已为您的工作环境启用索引编制</block>
   <block id="ff3e4dbc133954ac1d36af2f114c0fcc" category="paragraph">你先请 <block ref="9314b8a97cab98202a58ea7476f5d80f" category="inline-xref-macro-rx"></block>，您可以使用搜索和还原来还原卷或文件。这样，您就可以使用多种筛选器来查找要从所有备份文件还原的确切文件或卷。</block>
@@ -1378,7 +1334,6 @@
   <block id="27d6d3d9521f6da24c698fb393a4d694" category="list-text">单击 * 查看所有备份 * 以查看包含要还原的数据的位置，以显示包含卷或文件的所有备份文件。</block>
   <block id="e09cd23a3f64c40b39bba1a2fb22c7fd" category="inline-image-macro">显示如何查看符合搜索条件的所有备份的屏幕截图。</block>
   <block id="f13515ea414632814764890822fe8887" category="paragraph"><block ref="f13515ea414632814764890822fe8887" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="aa7a723dd151aa5803823b4b54bc094b" category="list-text">单击要用于还原卷或文件的备份文件的 * 还原 * 。</block>
   <block id="34cd87a8000db831ead6ec4ce833362c" category="list-text">对于文件，您可以还原到原始位置，也可以选择其他位置</block>
   <block id="159e14f7a65515e0215fc5c4507c33fd" category="list-text">对于卷，您可以选择位置。</block>
   <block id="5d03519eba4e93d7e8c1c51eb845995e" category="paragraph">卷或文件将还原，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击 * 作业监控 * 选项卡查看还原进度。</block>
@@ -1536,7 +1491,6 @@
   <block id="70af97100aa32faf0090b5c729f50df0" category="paragraph">NetApp 自带许可证的期限为 1 年， 2 年或 3 年。您只需为所保护的数据付费，此费用由要备份的源 ONTAP 卷的逻辑已用容量（ _before_any 的效率）计算得出。此容量也称为前端 TB （前端 TB ）。</block>
   <block id="bf7e6f30b15da1dd2b68006a3cbeb0ec" category="paragraph">BYOL Cloud Backup 许可证是一种浮动许可证，总容量在与您的 Cloud Manager 帐户关联的所有系统之间共享。对于 ONTAP 系统，您可以对计划备份的卷运行 ONTAP 命令 `volume show-space -logical-used` 来大致估算所需容量。</block>
   <block id="1bdb5964b1e1151098850bdd005ded43" category="paragraph">如果您没有 Cloud Backup BYOL 许可证，请单击 Cloud Manager 右下角的聊天图标购买一个。</block>
-  <block id="cd15208b3c7213079ff6ceb05581ca82" category="paragraph">或者，如果您已为 Cloud Volumes ONTAP 取消分配了基于节点的许可证，而您不会使用该许可证，则可以将其转换为具有相同美元等价性和相同到期日期的 Cloud Backup 许可证。<block ref="eba792cc4ea762abf667ddd327a7fe89" category="inline-link-rx"></block>。</block>
   <block id="b2791cca971216c964d32d50e88dc692" category="paragraph">您可以使用 Cloud Manager 中的数字电子钱包页面管理 Cloud Backup 的 BYOL 许可证。您可以添加新许可证并更新现有许可证。</block>
   <block id="583571647e284c9fed0a15301f155dba" category="section-title">获取 Cloud Backup 许可证文件</block>
   <block id="67552b54e54ab2c194b5b6d9e183595d" category="paragraph">购买 Cloud Backup 许可证后，您可以通过输入 Cloud Backup 序列号和 NSS 帐户或上传 NLF 许可证文件在 Cloud Manager 中激活此许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</block>
@@ -1698,17 +1652,67 @@
   <block id="5bf0ca4cfe23ac32e3d45a286b91b311" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
   <block id="3e75e13e53d4c5c1d22207efcaa0e783" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和仅限 EBS 的实例存储。操作系统映像为 Amazon Linux 2 。</block>
   <block id="9cd257410791914582184188f35f06ac" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
-  <block id="b6c807b6705175334b42f88a1227e051" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</block>
   <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</block>
   <block id="8fbd59a133dcfda8cee282a5de58e452" category="paragraph">例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">备份和还原 Kubernetes 永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="41cb49a16b097520a48e2141982170fe" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>。</block>
   <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。</block>
   <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接</block>
   <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
   <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
   <block id="5cd8f01849080c583021a91f23942914" category="list-text">如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</block>
   <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
+  <block id="5ec0e34db1f9e57ce343263019c9c2b0" category="list-text">可浏览且可搜索的文件目录，用于选择单个文件进行单个文件还原。</block>
+  <block id="7c50c77e0fa6a4acce1dd964575cf0da" category="paragraph">只有在浏览备份文件以查找要还原的各个文件时，此实例才会运行。不使用实例时，该实例将关闭以节省成本。</block>
+  <block id="3c25948daf6b068e9940f710d20f46d4" category="list-text">对于使用搜索和还原的卷或文件还原， Amazon Athena 和 AWS glue 资源用于搜索卷和备份文件。每 TiB 成本与搜索请求扫描的数据量相关联。只有在当前从 Amazon S3 中的备份文件还原数据时，才支持搜索和还原。</block>
+  <block id="bde4d0ddf68f7065595bc86f18ad90af" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</block>
+  <block id="5e16db4c47abe8cb1c5bd746df2fd94a" category="section-title">2022 年 4 月 3 日</block>
+  <block id="eda2e5118f80ed23863efd871fe97b1e" category="paragraph"><block ref="4c415cce11b2e607b8fde97291a59b9c" category="inline-link-rx"></block>。</block>
+  <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>。</block>
+  <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022 年 3 月 3 日</block>
+  <block id="387cd7ab52bc5fa4b28d5ab54360a48f" category="paragraph">如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。<block ref="39d25c9214775db10710eba772faa6a0" category="inline-link-rx"></block>。</block>
+  <block id="a6c59f277ff2cb475761f97d26b64235" category="paragraph">过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。<block ref="e99bb7175535747ba1edf9d862ac2f3f" category="inline-link-rx"></block>。</block>
+  <block id="3c51dbbafedd7bc1b145a88fc5e7e77e" category="paragraph">如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。<block ref="9521382be7155a87eb6763729a99c134" category="inline-link-rx"></block>。</block>
+  <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
+  <block id="efaa7c999dedec2704fc2db580ad4967" category="section-title">2021 年 11 月 5 日</block>
+  <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021 年 10 月 4 日</block>
+  <block id="94144629a142bf78b4252a00351a8862" category="paragraph">如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</block>
+  <block id="e0458b8253a5a9360f13731ee3855136" category="list-text">IAM 角色需要以下 EC2 权限，此角色为 Cloud Manager 提供权限，使其可以启动，停止和终止 Cloud Restore 实例以执行浏览和还原操作：</block>
+  <block id="17bc81342559cb663f4a2d8ce0019c77" category="list-text">将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止用于浏览和还原操作的 Cloud Restore 实例：</block>
+  <block id="11ce5891710552c1e865ae4676df2879" category="summary">备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个 ONTAP 卷，也可以从备份文件还原单个文件。</block>
+  <block id="2af55e36133bee199e6856aa4e468486" category="paragraph">您可以将 * 卷 * （作为新卷）还原到原始工作环境，使用相同云帐户的其他工作环境或内部 ONTAP 系统。</block>
+  <block id="49b3fb49db06a6317743033ac39be690" category="paragraph">您可以将 * 文件 * 还原到原始工作环境中的卷，使用相同云帐户的其他工作环境中的卷或内部 ONTAP 系统上的卷。</block>
+  <block id="fc9da4a32e8272d9816ffe0aa5970592" category="paragraph">概括地说，当您需要从过去一周或一个月还原特定卷或文件时， _Browse &amp; Restore" 通常会更好—您知道文件的名称和位置，以及文件的最后一个状态良好的日期。通常，当您需要还原卷或文件时， _Search &amp; Restore" 会更好，但您不记得确切的名称，卷所在的卷或最后一个卷状态良好的日期。</block>
+  <block id="95b053a527e7cc21aea66df63760c8dd" category="cell">卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件</block>
+  <block id="b90414086a82bcbc5bd43c8732fd1408" category="cell">浏览公有 云和本地 Snapshot 副本以及未来跨私有云的结果</block>
+  <block id="5bafe041e0de9e07b9efb4f64b2de571" category="cell">无需额外的 Amazon 资源</block>
+  <block id="d0d972400028f5e4ece41a0521604447" category="cell">扫描备份文件和卷以查找搜索结果时与 Amazon Athena 和 AWS 粘附资源相关的成本</block>
+  <block id="0252629b615d666988e90a14fcf4deec" category="paragraph">在开始还原卷或文件之前，您应知道要还原的卷或文件的名称，卷所在工作环境的名称以及要从中还原的备份文件的大致日期。</block>
+  <block id="91c3ddf19f416d0a8c7658b15c646d42" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原到原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
+  <block id="f69b765af6afabfc9faf4bcb989c85e7" category="paragraph">Cloud Backup 会根据您选择的备份创建一个新卷。您可以 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 根据需要。</block>
+  <block id="de390d962a903ec8ccc52b638f497114" category="paragraph">如果您只需要从 ONTAP 卷备份还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到原始工作环境中的现有卷，也可以还原到使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</block>
+  <block id="2cfe9659cdef6b61005a35e5ad1c7305" category="paragraph">如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。因此，如果要将文件还原到不同的卷，则需要多次运行还原过程。</block>
+  <block id="56117adb607ac3f106c0bbef47e34bdc" category="admonition">如果备份文件驻留在归档存储中，则无法还原单个文件。在这种情况下，您可以从尚未归档的较新备份文件还原文件，也可以从归档的备份还原整个卷，然后访问所需的文件，或者使用搜索和还原还原还原文件。</block>
+  <block id="4cff09715eb850dd75d9ffb61cd7126e" category="inline-link-macro">要为文件还原操作部署的实例类型</block>
+  <block id="70ab4b01412ca8f78f38d5e6fcddb3a0" category="list-text">从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 <block ref="888bbc8761b09bd3d9fa09b9ad08942e" category="inline-link-macro-rx"></block> 并确保您的环境已准备就绪。</block>
+  <block id="bd256beae5b23a5a166057d79fd16d89" category="inline-link-macro">验证您的配置是否已准备好还原文件</block>
+  <block id="f2f4c2b67f9024f567ad60e0a34f77a5" category="list-text">从 Amazon S3 上的备份还原文件需要将特定的 AWS EC2 权限添加到为 Cloud Manager 提供权限的用户角色中。您还需要允许出站 Internet 访问以联系某些端点。 <block ref="f0b7a77fce17fc030034600052420c1d" category="inline-link-macro-rx"></block>。</block>
+  <block id="da148b1501f1acb945b431209385495f" category="list-text">从 Azure Blob 上的备份还原文件需要能够访问出站 Internet 以联系特定端点。 <block ref="6c6a7508bd839fd3dc4d77e76bc043b3" category="inline-link-macro-rx"></block>。</block>
+  <block id="0be0883d639da8a73049672529f55c34" category="list-text">文件将被还原，还原实例将在一段时间不活动后关闭，以节省成本。</block>
+  <block id="0689108de18135e4dd390fe62d7027d6" category="paragraph">按照以下步骤将文件从 ONTAP 卷备份还原到卷。您应知道要用于还原文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</block>
+  <block id="0b6c73e03f53d01f1c938ab1589db4b7" category="list-text">单击 * 继续 * ，此时将启动还原实例。几分钟后，将显示卷备份中的文件夹和文件列表。</block>
+  <block id="ec20735efd036ef56f709e9a07587140" category="paragraph">您可以使用搜索和还原从 ONTAP 备份文件还原卷或单个文件。通过搜索和还原，您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷或文件，然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</block>
+  <block id="c87406bc7afbf4c1491aba5c6a89782b" category="paragraph">搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以从 " 画布 " 上的 " 卷详细信息 " 页面将快照还原为新卷。</block>
+  <block id="bd0f4c161a252516fc5ca2f8121fe5d5" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
+  <block id="a13e26069c8d5e22e8f7be262e98077f" category="paragraph">未来版本将支持其他云提供商。</block>
+  <block id="304d9d83f13c0db0869bfb712e405713" category="paragraph">请注意，如果您已经在使用 Cloud Backup 时使用了过去配置的连接器，则现在需要将 Athena 和粘附权限添加到 Cloud Manager 用户角色中。这些是新的，搜索和还原需要它们。</block>
+  <block id="dea8c22fb34052b0f4a9a5e32405ef9a" category="paragraph">" 搜索结果 " 页面将显示文件或卷与您的搜索条件匹配的所有位置。</block>
+  <block id="dd69890bcf98aded30cef2070bda977a" category="list-text">单击 * 查看所有备份 * 以查看要用于还原卷或文件的位置，然后在要使用的实际备份文件上单击 * 还原 * 。</block>
+  <block id="a2e54fc91f9af995fe7d13a8e083ee57" category="paragraph">如您所见，您实际上只需要知道部分卷或文件名， Cloud Backup 会搜索与您的搜索匹配的所有备份文件。</block>
+  <block id="ad13cab5dd920f50df05b097ac6ce5f3" category="paragraph">如果您的工作环境已启用索引，请转到下一节以还原数据。</block>
+  <block id="a5f3075b4c4502f059b907dc8ace2fb6" category="paragraph">根据工作环境中卷的大小以及云中备份文件的数量，初始索引编制过程可能需要长达一小时的时间。之后，它会每小时透明地更新一次，并进行增量更改，以保持最新状态。</block>
+  <block id="d400864a550275b34b5036473c8c5d7f" category="list-text">对于要用于从云还原卷或文件的备份文件，请单击 * 还原 * 。</block>
+  <block id="d6b457fc25a9021d5d9f3ccafd9e4049" category="paragraph">请注意，结果还会标识搜索中包含该文件的本地卷 Snapshot 副本。此时， * 还原 * 按钮对快照不起作用，但如果要从 Snapshot 副本而非备份文件还原数据，请记下卷的名称和位置，然后打开 " 画布 " 上的 " 卷详细信息 " 页面。 并使用 * 从 Snapshot 副本还原 * 选项。</block>
+  <block id="55204488774c56d81410f328e9486976" category="paragraph">或者，如果您已为 Cloud Volumes ONTAP 取消分配了基于节点的许可证，而您不会使用该许可证，则可以将其转换为具有相同美元等价性和相同到期日期的 Cloud Backup 许可证。<block ref="c110e5a4a66d7429a8ced7dc2264a8f5" category="inline-link-rx"></block>。</block>
 </blocks>
