@@ -1719,4 +1719,5 @@
   <block id="e63547e1b25be3f2854e3f50cbc53e4c" category="paragraph">您可以 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
   <block id="e0413a89d4f4e5f20e8ebe8fa7f79026" category="paragraph">如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。</block>
   <block id="550dc506285db04f092b52843f119230" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。<block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>。</block>
+  <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">在更新工作环境详细信息之前，您不应继续操作。更新工作环境详细信息可能需要长达 30 分钟的时间。30 分钟后，您应关闭向导并从步骤 1 重试以查看工作环境详细信息。如果未更新工作环境详细信息，则重试后，请确保添加了正确的工作环境。</block>
 </blocks>
