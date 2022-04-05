@@ -17,21 +17,21 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
-== 2022 年 4 月 3 日
+== 2022 年 4 月 4 日
 
 
 
-=== 支持 Cloud Backup for Applications 1.1.0
+=== 适用于应用程序的 Cloud Backup 1.1.0 （由 SnapCenter 提供支持）现已正式上市
 
-您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。
+通过适用于应用程序的 Cloud Backup 新功能，您可以将适用于 Oracle 和 Microsoft SQL 的现有应用程序一致性快照（备份）从内部主存储卸载到 AWS S3 或 Azure Blob 中的云对象存储。
 
-您可以将内部 ONTAP 中的 Oracle 和 Microsoft SQL 应用程序数据备份到 Amazon Web Services 或 Microsoft Azure 。
+如果需要，您可以将此数据从云还原到内部环境。
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html["了解有关保护内部应用程序数据到云的更多信息"]。
 
 
 
-=== 新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件。
+=== 新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件
 
 现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["了解如何使用搜索和放大；还原"]。
 
@@ -41,13 +41,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储。
+=== 能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储
 
 如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html["有关详细信息，请访问此处"]。
 
 
 
-=== 此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能。
+=== 此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能
 
 
 
@@ -55,13 +55,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 现在，您可以将备份策略分配给单个集群中的各个卷。
+=== 现在，您可以将备份策略分配给单个集群中的各个卷
 
-过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-managing-backups-ontap#changing-the-policy-assigned-to-existing-volumes["请参见如何为集群创建新的备份策略并将其分配给选定卷"]。
+过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes["请参见如何为集群创建新的备份策略并将其分配给选定卷"]。
 
 
 
-=== 通过一个新选项，您可以自动将默认备份策略应用于新创建的卷。
+=== 通过一个新选项，您可以自动将默认备份策略应用于新创建的卷
 
 过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在，无论卷是在 Cloud Manager ， System Manager ， CLI 中创建的，还是使用 API 创建的， Cloud Backup 都将发现卷并应用您选择作为默认策略的备份策略。
 
@@ -69,7 +69,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 新的作业监控器可用于查看所有备份和还原作业的正在处理状态。
+=== 新的作业监控器可用于查看所有备份和还原作业的正在处理状态
 
 如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["请参见如何使用作业监控器"]。
 
@@ -79,13 +79,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储。
+=== 能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储
 
 如果您的 AKS 集群安装了 NetApp Astra Trident ，并且使用适用于 Azure 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将卷备份到 Azure Blob 存储以及从 Azure Blob 存储还原卷。 link:task-backup-kubernetes-to-azure.html["有关详细信息，请访问此处"]。
 
 
 
-=== 此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致。
+=== 此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致
 
 现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。
 
@@ -95,13 +95,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 能够将 EKS Kubernetes 集群中的永久性卷备份到 Amazon S3 。
+=== 能够将 EKS Kubernetes 集群中的永久性卷备份到 Amazon S3
 
 如果您的 EKS 集群安装了 NetApp Astra Trident ，并且使用 Cloud Volumes ONTAP for AWS 作为集群的后端存储，则可以将卷备份到 Amazon S3 或从 Amazon S3 还原卷。 link:task-backup-kubernetes-to-s3.html["有关详细信息，请访问此处"]。
 
 
 
-=== 用于备份 DP 卷的增强功能。
+=== 用于备份 DP 卷的增强功能
 
 现在， Cloud Backup 支持为 SVM-DR 关系中目标 ONTAP 系统上的 DP 卷创建备份。存在一些限制，请参见 link:concept-ontap-backup-to-cloud.html#limitations["限制"] 了解详细信息。
 
@@ -111,19 +111,19 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-d
 
 
 
-=== 可以在将卷还原到内部 ONTAP 系统时选择专用端点。
+=== 可以在将卷还原到内部 ONTAP 系统时选择专用端点
 
 从 Amazon S3 或 Azure Blob 上的备份文件将卷还原到内部 ONTAP 系统时，现在您可以选择一个私有端点，用于以私密方式安全地连接到内部系统。
 
 
 
-=== 现在，您可以在数天后将旧备份文件分层到归档存储，以节省成本。
+=== 现在，您可以在数天后将旧备份文件分层到归档存储，以节省成本
 
 如果集群运行的是 ONTAP 9.10.1 或更高版本，而您使用的是 AWS 或 Azure 云存储，则可以将备份分层到归档存储。请参见有关的详细信息 link:reference-aws-backup-tiers.html["AWS S3 归档存储类"] 和 link:reference-azure-backup-tiers.html["Azure Blob 归档访问层"]。
 
 
 
-=== Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡。
+=== Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡
 
 Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud Manager Digital Wallet 中的 Data Services Licenses 选项卡。
 
@@ -133,21 +133,21 @@ Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud M
 
 
 
-=== 现在，在执行卷或文件还原时，备份文件大小将显示在备份页面中。
+=== 现在，在执行卷或文件还原时，备份文件大小将显示在备份页面中
 
 如果您要删除不必要的大型备份文件，或者您可以比较备份文件大小，以确定可能因恶意软件攻击而导致的任何异常备份文件，则此功能非常有用。
 
 
 
-=== TCO 计算器可用于比较 Cloud Backup 成本。
+=== TCO 计算器可用于比较 Cloud Backup 成本
 
 总拥有成本计算器可帮助您了解 Cloud Backup 的总拥有成本，并将这些成本与传统备份解决方案进行比较，并估算潜在节省量。请查看https://cloud.netapp.com/cloud-backup-service-tco-calculator["此处"^]。
 
 
 
-=== 能够为工作环境取消注册 Cloud Backup 。
+=== 能够为工作环境取消注册 Cloud Backup
 
-现在，您可以轻松地完成这项工作 link:task_managing_backups.html#unregistering-cloud-backup-for-a-working-environment["为工作环境取消注册 Cloud Backup"] 如果您不想再对该工作环境使用备份功能（或需要付费），
+现在，您可以轻松地完成这项工作 link:task_manage_backups.html#unregistering-cloud-backup-for-a-working-environment["为工作环境取消注册 Cloud Backup"] 如果您不想再对该工作环境使用备份功能（或需要付费），
 
 
 
@@ -155,27 +155,27 @@ Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud M
 
 
 
-=== 能够为卷创建按需备份。
+=== 能够为卷创建按需备份
 
 现在，您可以随时创建按需备份来捕获卷的当前状态。如果对卷进行了重要更改，而您不想等待下一次计划的备份来保护该数据，则此功能非常有用。
 
-link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["了解如何创建按需备份"]。
+link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["了解如何创建按需备份"]。
 
 
 
-=== 可以定义专用接口连接，以便安全地备份到 Amazon S3 。
+=== 可以定义专用接口连接，以便安全地备份到 Amazon S3
 
 在配置从内部 ONTAP 系统到 Amazon S3 的备份时，现在您可以在激活向导中定义与专用接口端点的连接。这样，您就可以使用一个网络接口，将内部系统以私密和安全的方式连接到由 AWS PrivateLink 提供支持的服务。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["查看有关此选项的详细信息"]。
 
 
 
-=== 现在，您可以在将数据备份到 Amazon S3 时选择自己由客户管理的数据加密密钥。
+=== 现在，您可以在将数据备份到 Amazon S3 时选择自己由客户管理的数据加密密钥
 
 为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在从内部 ONTAP 系统或 AWS 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。
 
 
 
-=== 现在，您可以从文件数超过 30 ， 000 的目录还原文件。
+=== 现在，您可以从文件数超过 30 ， 000 的目录还原文件
 
 
 
@@ -183,13 +183,13 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 可以定义专用端点连接，以便安全地备份到 Azure Blob 。
+=== 可以定义专用端点连接，以便安全地备份到 Azure Blob
 
 在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以在激活向导中定义与 Azure 私有端点的连接。这样，您就可以使用一个网络接口，将您以私密方式安全地连接到由 Azure Private Link 提供支持的服务。
 
 
 
-=== 现在支持每小时备份策略。
+=== 现在支持每小时备份策略
 
 此新策略是对现有每日，每周和每月策略的补充。每小时备份策略可提供最小恢复点目标（ RPO ）。
 
@@ -199,7 +199,7 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 现在，您可以使用不同的帐户在不同的区域创建备份。
+=== 现在，您可以使用不同的帐户在不同的区域创建备份
 
 现在，您可以使用与 Cloud Volumes ONTAP 系统不同的帐户 / 订阅创建备份。您还可以在部署 Cloud Volumes ONTAP 系统的区域以外的其他区域创建备份文件。
 
@@ -207,13 +207,13 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 现在，您可以在将数据备份到 Azure Blob 时选择自己由客户管理的数据加密密钥。
+=== 现在，您可以在将数据备份到 Azure Blob 时选择自己由客户管理的数据加密密钥
 
 为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Microsoft 管理的加密密钥。在从内部 ONTAP 系统或从 Azure 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。
 
 
 
-=== 现在，在使用单文件还原时，一次最多可以还原 100 个文件。
+=== 现在，在使用单文件还原时，一次最多可以还原 100 个文件
 
 
 
@@ -221,7 +221,7 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 使用 ONTAP 9.8 或更高版本时对 DP 卷取消了限制。
+=== 使用 ONTAP 9.8 或更高版本时对 DP 卷取消了限制
 
 已解决备份数据保护（ DP ）卷的两个已知限制：
 
@@ -235,19 +235,19 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 将内部集群数据备份到 Google Cloud Storage 或 NetApp StorageGRID 系统。
+=== 将内部集群数据备份到 Google Cloud Storage 或 NetApp StorageGRID 系统
 
 现在，您可以创建从内部 ONTAP 系统到 Google 云存储或 NetApp StorageGRID 系统的备份。请参见 link:task-backup-onprem-to-gcp.html["备份到 Google Cloud Storage"^] 和 link:task-backup-onprem-private-cloud.html["备份到 StorageGRID"^] 了解详细信息。
 
 
 
-=== 现在，您可以使用 System Manager 执行 Cloud Backup 操作。
+=== 现在，您可以使用 System Manager 执行 Cloud Backup 操作
 
 通过 ONTAP 9.9.1 中的一项新功能，您可以使用 System Manager 将内部 ONTAP 卷的备份发送到您通过云备份设置的对象存储。 link:https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
 
 
 
-=== 备份策略已通过一些增强功能进行了改进。
+=== 备份策略已通过一些增强功能进行了改进
 
 * 现在，您可以创建一个自定义策略，其中包括每日，每周和每月备份。
 * 更改备份策略时，会使用原始备份策略将适用场景 all new backups * 和 * 更改为所有卷。过去，此更改仅应用于新的卷备份。
@@ -255,7 +255,7 @@ link:task-managing-backups-ontap.html#creating-a-manual-volume-backup-at-any-tim
 
 
 
-=== 其他备份和还原改进功能。
+=== 其他备份和还原改进功能
 
 * 现在，在为备份文件配置云目标时，您可以选择与 Cloud Volumes ONTAP 系统所在区域不同的区域。
 * 可以为单个卷创建的备份文件数量已从 1 ， 019 个增加到 4 ， 000 个。

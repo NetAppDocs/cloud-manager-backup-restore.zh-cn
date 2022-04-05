@@ -24,7 +24,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
 * 您正在 AWS 中运行 Cloud Volumes ONTAP 9.6 或更高版本。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
 * 为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
 
 
@@ -74,7 +74,7 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 
 对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
 
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["了解如何管理 BYOL 许可证"]。
+对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 您需要为备份所在的存储空间创建一个 AWS 帐户。
 

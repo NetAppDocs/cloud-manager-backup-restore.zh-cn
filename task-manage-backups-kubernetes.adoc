@@ -200,7 +200,7 @@ image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工
 
 删除卷的所有备份也会禁用该卷的未来备份。
 
-您可以 <<Starting and stopping backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
+您可以 <<Enabling and disabling backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
 
 .步骤
 . 从 * Kubernetes * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。

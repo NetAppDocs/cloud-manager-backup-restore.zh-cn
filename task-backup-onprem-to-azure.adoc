@@ -168,7 +168,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 在 30 天免费试用 Cloud Backup 到期之前，您需要订阅 Azure 提供的按需购买（ PAYGO ） Cloud Manager Marketplace 产品，或者从 NetApp 购买并激活 Cloud Backup BYOL 许可证。这些许可证适用于帐户，可在多个系统中使用。
 
 * 对于 Cloud Backup PAYGO 许可，您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] Cloud Manager Marketplace 产品以继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。
-* 对于 Cloud Backup BYOL 许可，您不需要订阅。您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["了解如何管理 BYOL 许可证"]。
+* 对于 Cloud Backup BYOL 许可，您不需要订阅。您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 您需要为备份所在的对象存储空间订阅 Azure 。
@@ -220,7 +220,7 @@ image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份�
 . 输入网络连接详细信息并单击 * 下一步 * 。
 +
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
-.. （可选）选择是否要配置 Azure 私有端点。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["请参见有关使用私有端点的详细信息"]。
+.. （可选）选择是否要配置 Azure 私有端点。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["请参见有关使用私有端点的详细信息"^]。
 +
 image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷从 ONTAP 系统备份到 Azure Blob 存储时的网络连接详细信息。"]
 

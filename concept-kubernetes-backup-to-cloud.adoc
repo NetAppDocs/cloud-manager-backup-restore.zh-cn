@@ -42,7 +42,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 
 通过 Cloud Backup ，您可以将 Kubernetes 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：
 
-[cols="40,40"]
+[cols="45,40"]
 |===
 | 源工作环境 | 备份文件目标 
 
@@ -57,7 +57,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 |===
 您可以将卷从 Kubernetes 备份文件还原到以下工作环境：
 
-[cols="40,40"]
+[cols="40,45"]
 |===
 | 备份文件位置 | 目标工作环境 
 
@@ -140,10 +140,6 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如
 
 
 CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
-
-下图显示了每个组件之间的关系：
-
-image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
 
 
 

@@ -24,7 +24,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
 * 您正在 Azure 中运行 Cloud Volumes ONTAP 9.7P5 或更高版本。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace Backup 产品"^]或您已购买 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace Backup 产品"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
 
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt-twe"></span> 在新系统或现有系统上启用 Cloud Backup
@@ -69,7 +69,7 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 许可证要求:: 对于 Cloud Backup PAYGO 许可，在启用 Cloud Backup 之前，需要通过 Azure Marketplace 订阅。Cloud Backup 的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["了解如何管理 BYOL 许可证"]。
+对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 您需要为备份所在的存储空间订阅 Microsoft Azure 。
 

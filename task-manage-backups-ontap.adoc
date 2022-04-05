@@ -58,7 +58,10 @@ image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" �
 image:screenshot_backup_edit_policy.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
 
 +
-如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。link:reference-aws-backup-tiers.html["了解有关使用 AWS 归档存储的更多信息"]。
+如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。
+
++
+link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。link:reference-aws-backup-tiers.html["了解有关使用 AWS 归档存储的更多信息"]。
 
 +
 image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
@@ -121,7 +124,10 @@ image:screenshot_backup_manage_policy_page_add.png["屏幕截图显示了 \" 管
 image:screenshot_backup_add_new_policy.png["显示备份策略设置的屏幕截图，您可以在其中添加备份计划和备份保留设置。"]
 
 +
-如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。link:reference-aws-backup-tiers.html["了解有关使用 AWS 归档存储的更多信息"]。
+如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。
+
++
+link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。link:reference-aws-backup-tiers.html["了解有关使用 AWS 归档存储的更多信息"]。
 
 +
 image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
@@ -235,7 +241,7 @@ image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工
 
 删除卷的所有备份也会禁用该卷的未来备份。
 
-您可以 <<Starting and stopping backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
+您可以 <<Enabling and disabling backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
 
 .步骤
 . 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。

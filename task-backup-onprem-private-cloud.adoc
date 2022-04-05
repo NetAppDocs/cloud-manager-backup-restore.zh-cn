@@ -127,7 +127,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 === 正在准备 StorageGRID
 
-StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/sgws-115/index.jsp["StorageGRID 文档"^] 有关详细信息 ...
+StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/us-en/storagegrid-116/["StorageGRID 文档"^] 有关详细信息 ...
 
 支持的 StorageGRID 版本:: 支持 StorageGRID 10.3 及更高版本。
 S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为服务帐户输入 S3 访问密钥和机密密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的 StorageGRID 存储分段进行身份验证和访问。这些密钥是必需的，以便 StorageGRID 知道是谁发出请求。
