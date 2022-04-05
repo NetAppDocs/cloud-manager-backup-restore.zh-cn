@@ -1660,7 +1660,6 @@
   <block id="4a746b0a727e0ade1ea06ab02a265e09" category="paragraph">对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="88a02dc2d0f86fd4395dc4542805e76b" category="list-text">您已订阅<block ref="f210bc7c758e9ef0d000392aaf5a4cb5" category="inline-link-rx"></block>，和<block ref="564c46d47e4fef703ab2a0ee02042ed6" category="inline-link-rx"></block>或您已购买 <block ref="ae025f92701c4e4e5ee318b9155a4737" category="inline-link-macro-rx"></block> NetApp 提供的 Cloud Backup BYOL 许可证。</block>
   <block id="08d651ca7cc9bcb3df90e453cb9cee53" category="list-text">您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。<block ref="b008743209457997d1cdda737bb04357" category="inline-link-rx"></block>。</block>
-  <block id="d0a051fff12e19e3e01da61720c1dbd9" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <block ref="22901f3bcc9ac777a79ed087c67a0976" category="inline-link-macro-rx"></block> 或<block ref="05cf6547a678977d7fb0e7e0c31cb936" category="inline-link-rx"></block>。</block>
   <block id="6b0c75410e611c90f61766c508b79740" category="paragraph">您可以 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
   <block id="13f4833f14110af4cb2943f6ee04ec0c" category="inline-link">Amazon Athena</block>
   <block id="d27c79824b42388962acf60cbd3cac6a" category="inline-link">AWS 胶水</block>
@@ -1720,4 +1719,6 @@
   <block id="e0413a89d4f4e5f20e8ebe8fa7f79026" category="paragraph">如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。</block>
   <block id="550dc506285db04f092b52843f119230" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。<block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>。</block>
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">在更新工作环境详细信息之前，您不应继续操作。更新工作环境详细信息可能需要长达 30 分钟的时间。30 分钟后，您应关闭向导并从步骤 1 重试以查看工作环境详细信息。如果未更新工作环境详细信息，则重试后，请确保添加了正确的工作环境。</block>
+  <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 或<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
+  <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

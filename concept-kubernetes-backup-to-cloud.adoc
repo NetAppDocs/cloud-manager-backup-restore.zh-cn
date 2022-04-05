@@ -141,6 +141,10 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如
 
 CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
 
+下图显示了每个组件之间的关系：
+
+image:diagram_cloud_backup_general_k8s.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
+
 
 
 === 支持的存储类或访问层

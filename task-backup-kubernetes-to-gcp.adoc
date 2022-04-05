@@ -66,7 +66,7 @@ Kubernetes 集群要求::
 +
 --
 * 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-gke.html["了解如何发现 Kubernetes 集群"^]。
-* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["如何安装 Trident"^] 或 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["如何升级 Trident 版本"^]。
+* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
 * 集群的后端存储必须使用 GCP 上的 Cloud Volumes ONTAP 。
 * Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 GCP 区域，并且必须运行 ONTAP 9.7P5 或更高版本。
 +
