@@ -20,6 +20,12 @@ summary: 将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCen
 
 NOTE: 您应使用 SnapCenter 软件 4.6 。
 
+有关适用于应用程序的 Cloud Backup 的详细信息，请参见：
+
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["借助 Cloud Backup 和 SnapCenter 实现应用程序感知备份"^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications["适用于应用程序的云备份"^]
+
+
 
 
 == 要求

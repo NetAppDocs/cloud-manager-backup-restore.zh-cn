@@ -1721,4 +1721,9 @@
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">在更新工作环境详细信息之前，您不应继续操作。更新工作环境详细信息可能需要长达 30 分钟的时间。30 分钟后，您应关闭向导并从步骤 1 重试以查看工作环境详细信息。如果未更新工作环境详细信息，则重试后，请确保添加了正确的工作环境。</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 或<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
   <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="14f3ef2e312755e7942bb9d424acba3a" category="paragraph">有关适用于应用程序的 Cloud Backup 的详细信息，请参见：</block>
+  <block id="ca6aeed84517a7133f1abaebed19854e" category="inline-link">借助 Cloud Backup 和 SnapCenter 实现应用程序感知备份</block>
+  <block id="ef3b2f715336b2a637c8e6704ee4bf21" category="list-text"><block ref="ef3b2f715336b2a637c8e6704ee4bf21" category="inline-link-rx"></block></block>
+  <block id="02f724fd5f12a11414bbb1d866d83955" category="inline-link">适用于应用程序的云备份</block>
+  <block id="c1838894b610d8946ffa3203fa32c67c" category="list-text"><block ref="c1838894b610d8946ffa3203fa32c67c" category="inline-link-rx"></block></block>
 </blocks>
