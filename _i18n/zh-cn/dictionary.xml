@@ -1726,4 +1726,5 @@
   <block id="74cc281b8e4c7e949e92e69bf209421f" category="summary">您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。</block>
   <block id="5fd6f798208daa9906f9880884735da2" category="paragraph">请注意，系统启动的作业（例如正在进行的备份操作）不会反映在 * 作业监控 * 选项卡中—仅显示用户启动的作业。</block>
   <block id="7a48560852ec8ed04802b3b0c1192f24" category="paragraph">您可以查看所有备份和还原操作及其当前状态的列表。其中包括从 Cloud Volumes ONTAP ，内部 ONTAP ，应用程序和 Kubernetes 系统执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：</block>
+  <block id="3f69cf45a57ed5ec31eab750cc861f13" category="paragraph">以下视频显示了有关保护数据库的快速演练：</block>
 </blocks>
