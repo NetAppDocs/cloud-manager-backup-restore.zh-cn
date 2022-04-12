@@ -6,6 +6,7 @@ summary: 通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在
 ---
 = 在 AWS 中为多帐户访问配置备份
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

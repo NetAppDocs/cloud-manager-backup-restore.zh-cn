@@ -6,6 +6,7 @@ summary: 完成几个步骤，将应用程序数据从 ONTAP 备份到云服务�
 ---
 = 将内部应用程序数据备份到云
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: Cloud Backup 是一项适用于 Cloud Manager 工作环境的服务，�
 ---
 = 了解 Cloud Backup
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

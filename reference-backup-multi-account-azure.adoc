@@ -6,6 +6,7 @@ summary: 您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，�
 ---
 = 在 Azure 中配置用于多帐户访问的备份
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

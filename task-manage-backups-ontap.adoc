@@ -6,6 +6,7 @@ summary: 您可以通过更改备份计划，启用 / 禁用卷备份，删除�
 ---
 = 管理 ONTAP 系统的备份
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

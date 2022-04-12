@@ -6,6 +6,7 @@ summary: 您可以查看策略和备份。根据数据库，策略或资源组�
 ---
 = 管理应用程序的保护
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

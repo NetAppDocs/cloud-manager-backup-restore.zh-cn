@@ -6,6 +6,7 @@ summary: 30 天免费试用云备份从您支持云提供商所在的 Cloud Back
 ---
 = 为 Cloud Backup 设置许可
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Ama
 ---
 = 将内部 ONTAP 数据备份到 Amazon S3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

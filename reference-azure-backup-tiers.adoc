@@ -6,6 +6,7 @@ summary: Cloud Backup 支持一个 Azure 归档访问层以及大多数地区。
 ---
 = Azure 归档层和还原检索时间
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

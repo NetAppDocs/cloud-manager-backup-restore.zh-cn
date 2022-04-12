@@ -6,6 +6,7 @@ summary: 这些主题介绍如何在使用不同的云提供商时为跨帐户�
 ---
 = 跨帐户和跨区域配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

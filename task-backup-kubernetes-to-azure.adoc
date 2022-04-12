@@ -6,6 +6,7 @@ summary: 完成几个步骤，开始将数据从 AKS Kubernetes 集群上的永�
 ---
 = 将 Kubernetes 永久性卷数据备份到 Azure Blob 存储
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 ---
 = 将 Kubernetes 永久性卷数据备份到 Amazon S3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

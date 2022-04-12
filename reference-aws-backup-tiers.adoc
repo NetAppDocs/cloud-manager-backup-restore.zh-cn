@@ -6,6 +6,7 @@ summary: Cloud Backup 支持两个 S3 归档存储类以及大多数地区。
 ---
 = AWS S3 归档存储类和还原检索时间
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

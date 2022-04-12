@@ -6,6 +6,7 @@ summary: 将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCen
 ---
 = 保护内部应用程序数据
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

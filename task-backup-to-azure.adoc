@@ -6,6 +6,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 ---
 = 将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

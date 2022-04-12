@@ -6,6 +6,7 @@ summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档 
 ---
 = 使用云备份保护 ONTAP 集群数据
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

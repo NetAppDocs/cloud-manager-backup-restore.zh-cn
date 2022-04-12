@@ -6,6 +6,7 @@ summary: 您可以将 SQL Server 数据库从云还原到内部 SnapCenter Serve
 ---
 = 还原 SQL Server 数据库
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

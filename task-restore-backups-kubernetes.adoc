@@ -6,6 +6,7 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 ---
 = 从备份文件还原 Kubernetes 数据
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
