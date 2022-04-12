@@ -47,7 +47,7 @@ link:concept-backup-to-cloud.html#licensing["详细了解与 Cloud Backup 相关
 
 * 一种 "CVO 专业人员 " 计划，可用于捆绑 Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。
 +
-请参见 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/concept-licensing.html["Cloud Volumes ONTAP 许可主题"^] 了解有关此许可选项的更多信息。
+请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP 许可主题"^] 了解有关此许可选项的更多信息。
 
 +
 如果要使用此选项，您可以在创建 Cloud Volumes ONTAP 工作环境时设置年度合同，而 Cloud Manager 会提示您订阅 AWS Marketplace 。
