@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-04-20 20:48:37 +0000">04/20/2022</time>
     
   
 
@@ -930,10 +930,29 @@
 <p>在开始将内部卷备份到 Azure Blob 存储之前，请阅读以下要求，以确保您的配置受支持。</p>
 </div>
 <div class="paragraph">
-<p>下图显示了每个组件以及需要在它们之间准备的连接：</p>
+<p>在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以使用两种连接方法。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>公有 连接—使用公有 Azure 端点将 ONTAP 系统直接连接到 Azure Blob 存储。</p>
+</li>
+<li>
+<p>专用连接—使用 VPN 或 ExpressRoute ，并通过使用专用 IP 地址的 vNet 专用端点路由流量。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>下图显示了公有 连接方法以及组件之间需要准备的连接：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
+</div>
+<div class="paragraph">
+<p>下图显示了专用连接方法以及组件之间需要准备的连接：</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure_vnet.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
 </div>
 <div class="paragraph">
 <p>请注意，在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。</p>
@@ -1116,6 +1135,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://olcentgbl.trafficmanager.net" class="bare">http://olcentgbl.trafficmanager.net</a> https://olcentgbl.trafficmanager.net</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">为 Cloud Restore 虚拟机提供 CentOS 软件包。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">提供 Docker 引擎软件包。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> https://cloudmanagerinfraprod.azurecr.io</p></td>

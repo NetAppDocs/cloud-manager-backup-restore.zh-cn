@@ -9,14 +9,14 @@
   <meta property="og:title" content="将内部 ONTAP 数据备份到 Amazon S3 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" />
-	<meta property="og:description" content="完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 。" />
+	<meta property="og:description" content="完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 存储。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 。">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 存储。">
   <meta name="keywords" content=" backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-04-20 20:48:37 +0000">04/20/2022</time>
     
   
 
@@ -862,99 +862,140 @@
 <h2 id="快速入门">快速入门</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。</p>
-</div>
-<div class="ulist">
-<div class="title">跨度 class="image&gt;&lt;img src="<a href="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"" class="bare">https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"</a> Alt-one"&gt;&lt;/span&gt; 验证是否支持您的配置</div>
-<ul>
-<li>
-<p>您已发现内部集群并将其添加到 Cloud Manager 中的工作环境中。请参见 <a href="https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html" target="_blank" rel="noopener">"发现 ONTAP 集群"</a> 了解详细信息。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>此集群运行的是 ONTAP 9.7P5 或更高版本。</p>
-</li>
-<li>
-<p>集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。</p>
-</li>
-<li>
-<p>集群必须与 S3 存储和 Connector 建立所需的网络连接。</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>连接器必须具有连接到 S3 存储和集群所需的网络连接以及所需的权限。</p>
-</li>
-<li>
-<p>您已为备份所在的对象存储空间订阅了有效的 AWS 。</p>
-</li>
-<li>
-<p>您有一个 AWS 帐户，其中包含访问密钥和机密密钥，以及 <a href="task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups">"所需权限"</a> 以便 ONTAP 集群可以备份和还原数据。</p>
-</li>
-</ul>
+<p>按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * ，然后按照设置向导进行操作。</p>
+<p>选择是使用公有 S3 端点将内部 ONTAP 集群直接连接到 AWS S3 ，还是使用 VPN 或 AWS Direct Connect 并通过专用 VPC 端点接口将流量路由到 AWS S3 。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p><span class="image"><img src="./media/screenshot_backup_onprem_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
+<p><a href="#Network diagrams for connection options">请参见可用的连接方法。</a></p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>选择 Amazon Web Services 作为您的提供商，然后输入提供商详细信息。您需要选择 AWS 帐户以及要创建备份的区域。您还可以选择自己的客户管理密钥进行数据加密，而不是使用默认的 Amazon S3 加密密钥。</p>
+<p>如果您已在 AWS VPC 中部署了 Connector ，则可以随时完成所有操作。如果没有，则需要在 AWS 中创建连接器，以便将 ONTAP 数据备份到 AWS S3 存储。您还需要自定义 Connector 的网络设置，以便它可以连接到 AWS S3 。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p><span class="image"><img src="./media/screenshot_backup_provider_settings_aws.png" alt="显示将卷从 ONTAP 系统备份到 AWS S3 时云提供商详细信息的屏幕截图。"></span></p>
+<p><a href="#Prepare your Connector">请参见如何创建 Connector 以及如何定义所需的网络设置。</a></p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>选择卷所在 ONTAP 集群中的 IP 空间。您还可以选择使用现有 AWS PrivateLink 配置，以便从内部数据中心更安全地连接到 VPC 。</p>
+<p>在 Cloud Manager 中发现您的 ONTAP 集群，验证集群是否满足最低要求，并自定义网络设置，以便集群可以连接到 AWS S3 。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p><span class="image"><img src="./media/screenshot_backup_onprem_aws_networking.png" alt="屏幕截图显示了将卷从 ONTAP 系统备份到 AWS S3 时的网络连接详细信息。"></span></p>
+<p><a href="#Prepare your ONTAP cluster">了解如何使内部 ONTAP 集群做好准备。</a></p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。</p>
+<p>为 Connector 设置权限，以便创建和管理 S3 存储分段以及使用还原实例还原数据。并为内部部署 ONTAP 集群设置权限，以便可以将数据读写到 S3 存储分段。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>默认情况下，备份存储在 S3 标准存储中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。</p>
+<p>或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。 <a href="#Prepare your AWS environment">了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。</a></p>
 </div>
 <div class="paragraph quick-margin-para">
-<p><span class="image"><img src="./media/screenshot_backup_policy_aws.png" alt="显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"></span></p>
+<p>选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。然后，按照设置向导定义默认备份策略和要保留的备份数，并选择要备份的卷。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。</p>
+<p><a href="#Enable Cloud Backup">了解如何在卷上激活 Cloud Backup 。</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="要求">要求</h2>
+<h2 id="连接选项的网络图">连接选项的网络图</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>在开始将内部卷备份到 S3 存储之前，请阅读以下要求，以确保您的配置受支持。</p>
+<p>在配置从内部 ONTAP 系统到 AWS S3 的备份时，您可以使用两种连接方法。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>公有 连接—使用公有 S3 端点将 ONTAP 系统直接连接到 AWS S3 。</p>
+</li>
+<li>
+<p>专用连接—使用 VPN 或 AWS Direct Connect ，并通过使用专用 IP 地址的 VPC 端点接口路由流量。</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>下图显示了每个组件以及需要在它们之间准备的连接：</p>
+<p>下图显示了公有 连接方法以及组件之间需要准备的连接：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
 </div>
 <div class="paragraph">
+<p>下图显示了专用连接方法以及组件之间需要准备的连接：</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws_vpc.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
+</div>
+<div class="paragraph">
 <p>请注意，在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。</p>
 </div>
-<div class="sect2">
-<h3 id="准备-ontap-集群">准备 ONTAP 集群</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="准备您的连接器">准备您的连接器</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。</p>
+<p>Cloud Manager Connector 是 Cloud Manager 功能的主要软件。需要使用连接器来备份和还原 ONTAP 数据。</p>
+</div>
+<div class="sect2">
+<h3 id="创建或切换连接器">创建或切换连接器</h3>
+<div class="paragraph">
+<p>如果您已在 AWS VPC 中部署了 Connector ，则可以随时完成所有操作。如果没有，则需要在 AWS 中创建新的连接器，以便将 ONTAP 数据备份到 AWS S3 存储。您不能使用部署在内部或部署在其他云提供商中的 Connector 。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"了解连接器"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"在 AWS 中创建连接器"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"在连接器之间切换"</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="连接器网络连接要求">连接器网络连接要求</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>确保安装 Connector 的网络启用以下连接：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>通过端口 443 与 Cloud Backup Service 建立 HTTPS 连接</p>
+</li>
+<li>
+<p>通过端口 443 与 S3 对象存储建立 HTTPS 连接</p>
+</li>
+<li>
+<p>通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>（可选）启用连接到 S3 的 VPC 端点接口。如果从 ONTAP 集群到 VPC 具有直接连接或 VPN 连接，并且您希望连接器和 S3 之间的通信保持在 AWS 内部网络中，则需要此功能。 <a href="#Set up a VPC endpoint interface (optional)">请参见如何设置 VPC 端点接口。</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="准备-ontap-集群">准备 ONTAP 集群</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="在-cloud-manager-中发现您的-ontap-集群">在 Cloud Manager 中发现您的 ONTAP 集群</h3>
+<div class="paragraph">
+<p>您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。</p>
 </div>
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html" target="_blank" rel="noopener">"了解如何发现集群"</a>。</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">ONTAP 要求</dt>
-<dd>
-<div class="openblock">
-<div class="content">
+</div>
+<div class="sect2">
+<h3 id="ontap-要求">ONTAP 要求</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -978,130 +1019,87 @@
 </ul>
 </div>
 </div>
-</div>
-</dd>
-<dt class="hdlist1">集群网络连接要求</dt>
-<dd>
-<div class="openblock">
-<div class="content">
+<div class="sect2">
+<h3 id="集群网络连接要求">集群网络连接要求</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>ONTAP 集群通过端口 443 从集群间 LIF 启动 HTTPS 连接到 Amazon S3 存储，以执行备份和还原操作。</p>
+<p>集群需要从 Connector 到集群管理 LIF 的入站 HTTPS 连接。</p>
+</li>
+<li>
+<p>托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。这些集群间 LIF 必须能够访问对象存储。</p>
 <div class="paragraph">
-<p>ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会启动，而只是响应。</p>
+<p>集群通过端口 443 从集群间 LIF 启动出站 HTTPS 连接到 Amazon S3 存储，以执行备份和还原操作。ONTAP 在对象存储中读取和写入数据—对象存储从不启动，它只是响应。</p>
 </div>
 </li>
 <li>
-<p>ONTAP 需要从连接器到集群管理 LIF 的入站连接。此连接器可以驻留在 AWS VPC 中。</p>
-</li>
-<li>
-<p>托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 <a href="https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html" target="_blank" rel="noopener">"了解有关 IP 空间的更多信息"</a>。</p>
+<p>集群间 LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 <a href="https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html" target="_blank" rel="noopener">"了解有关 IP 空间的更多信息"</a>。</p>
 <div class="paragraph">
-<p>设置 Cloud Backup 时，系统会提示您使用 IP 空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。</p>
+<p>设置 Cloud Backup 时，系统会提示您使用 IP 空间。您应选择与这些 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。</p>
+</div>
+<div class="paragraph">
+<p>如果您使用的 IP 空间与 " 默认 " 不同，则可能需要创建静态路由才能访问对象存储。</p>
 </div>
 </li>
 <li>
-<p>节点的集群间 LIF 能够访问对象存储。</p>
+<p>必须已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"为 SVM 配置 DNS 服务"</a>。</p>
 </li>
 <li>
-<p>已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"为 SVM 配置 DNS 服务"</a>。</p>
+<p>如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup 连接以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</p>
 </li>
 <li>
-<p>请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。</p>
-</li>
-<li>
-<p>如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup Service 连接，以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</p>
+<p>（可选）如果在 AWS 中使用专用 VPC 接口端点进行 S3 连接，则要使用 HTTPS/443 ，您需要将 S3 端点证书加载到 ONTAP 集群中。 <a href="#Set up a VPC endpoint interface (optional)">请参见如何设置 VPC 端点接口并加载 S3 证书。</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</dd>
-</dl>
 </div>
-</div>
-<div class="sect2">
-<h3 id="创建或切换连接器">创建或切换连接器</h3>
-<div class="paragraph">
-<p>需要使用 Connector 将数据备份到云，在将数据备份到 AWS S3 存储时， Connector 必须位于 AWS VPC 中。您不能使用内部部署的 Connector 。您需要创建一个新的连接器，或者确保当前选定的连接器位于正确的提供程序中。</p>
-</div>
+<div class="sect1">
+<h2 id="验证许可证要求">验证许可证要求</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"了解连接器"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"在 AWS 中创建连接器"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"在连接器之间切换"</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="为连接器准备网络连接">为连接器准备网络连接</h3>
-<div class="paragraph">
-<p>确保此连接器具有所需的网络连接。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>确保安装 Connector 的网络启用以下连接：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>通过端口 443 （ HTTPS ）与 Cloud Backup Service 的出站 Internet 连接</p>
-</li>
-<li>
-<p>通过端口 443 与 S3 对象存储建立 HTTPS 连接</p>
-</li>
-<li>
-<p>通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>为 S3 启用 VPC 端点。如果从 ONTAP 集群到 VPC 具有直接连接或 VPN 连接，并且您希望连接器和 S3 之间的通信保持在 AWS 内部网络中，则需要此功能。</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="支持的区域">支持的区域</h3>
-<div class="paragraph">
-<p>您可以在所有地区创建从内部系统到 Amazon S3 的备份 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"支持 Cloud Volumes ONTAP 的位置"</a>；包括 AWS GovCloud 地区。您可以在设置服务时指定要存储备份的区域。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="许可证要求">许可证要求</h3>
-<div class="paragraph">
 <p>在 30 天免费试用 Cloud Backup 到期之前，您需要订阅 AWS 提供的按需购买（ PAYGO ） Cloud Manager Marketplace 产品，或者从 NetApp 购买并激活 Cloud Backup BYOL 许可证。这些许可证适用于您的帐户，可在多个系统中使用。</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>对于 Cloud Backup PAYGO 许可，您需要订阅 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS"</a> Cloud Manager Marketplace 产品以继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。</p>
+<p>对于 Cloud Backup PAYGO 许可，您需要订阅 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS Cloud Manager Marketplace 产品"</a> 继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。</p>
 </li>
 <li>
 <p>对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"了解如何管理 BYOL 许可证"</a>。</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>您需要为备份所在的对象存储空间订阅 AWS 。</p>
-</div>
 <div class="paragraph">
-<p>集群上需要 SnapMirror 许可证。请注意，使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。</p>
+<p>您可以在所有地区创建从内部系统到 Amazon S3 的备份 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"支持 Cloud Volumes ONTAP 的位置"</a>；包括 AWS GovCloud 地区。您可以在设置服务时指定要存储备份的区域。</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="准备-aws-环境">准备 AWS 环境</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="准备-amazon-s3-进行备份">准备 Amazon S3 进行备份</h3>
+<h3 id="设置-s3-权限">设置 S3 权限</h3>
 <div class="paragraph">
-<p>在使用 Amazon S3 时，您必须为 Connector 配置权限以创建和管理 S3 存储分段，并且必须配置权限，以便内部 ONTAP 集群可以对 S3 存储分段进行读写。</p>
+<p>您需要配置两组权限：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connector 创建和管理 S3 存储分段以及使用还原实例还原数据的权限。</p>
+</li>
+<li>
+<p>内部 ONTAP 集群的权限，以便可以将数据读写到 S3 存储分段。</p>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
@@ -1149,14 +1147,10 @@
       },</code></pre>
 </div>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
-<p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</p>
+<p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html">"AWS 文档：编辑 IAM 策略"</a>。</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止用于浏览和还原操作的 Cloud Restore 实例：</p>
 <div class="listingblock">
@@ -1171,24 +1165,42 @@
 </div>
 </li>
 <li>
-<p>激活此服务时，备份向导将提示您输入访问密钥和机密密钥。为此，您需要创建具有以下权限的 IAM 用户。Cloud Backup 会将这些凭据传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。</p>
+<p>激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">  "s3:ListAllMyBuckets",
-  "s3:ListBucket",
-  "s3:GetBucketLocation",
-  "s3:GetObject",
-  "s3:PutObject",
-  "s3:PutBucketencryption",
-  "s3:DeleteObject"</code></pre>
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+     "Statement": [
+        {
+           "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+                "s3:PutEncryptionConfiguration"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup-*",
+            "Effect": "Allow",
+            "Sid": "backupPolicy"
+        }
+    ]
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>请参见 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html" target="_blank" rel="noopener">"AWS 文档：创建角色以向 IAM 用户委派权限"</a> 了解详细信息。</p>
 </div>
 </li>
-<li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="验证-cloud-restore-internet-访问">验证 Cloud Restore Internet 访问</h3>
+<div class="paragraph">
 <p>如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保 Cloud Restore 实例具有出站 Internet 访问权限，以便与以下端点联系。</p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1202,7 +1214,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/" class="bare">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/" class="bare">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/</a> x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。</p></td>
 </tr>
 <tr>
@@ -1211,17 +1223,72 @@
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>您可以在激活向导中为数据加密选择自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"了解如何使用您自己的密钥"</a>。</p>
-</li>
-<li>
-<p>如果您希望通过公有 Internet 从内部数据中心到 VPC 建立更安全的连接，可以选择在激活向导中选择 AWS PrivateLink 连接。如果您要通过 VPN/DirectConnect 连接内部系统，则必须提供此许可证。在这种情况下，您需要使用 Amazon VPC 控制台或命令行创建接口端点配置。 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html" target="_blank" rel="noopener">"请参见有关使用适用于 Amazon S3 的 AWS PrivateLink 的详细信息"</a>。</p>
-<div class="paragraph">
-<p>请注意，您还需要修改与 Cloud Manager Connector 关联的安全组配置。您必须将此策略更改为 " 自定义 " （从 " 完全访问 " ），并且必须按照前面（上文）所示从备份策略添加权限。</p>
 </div>
+<div class="sect2">
+<h3 id="设置-amazon-s3-加密可选">设置 Amazon S3 加密（可选）</h3>
+<div class="paragraph">
+<p>您可以在备份激活向导中为数据加密选择自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"了解如何使用您自己的密钥"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="设置-vpc-端点接口可选">设置 VPC 端点接口（可选）</h3>
+<div class="paragraph">
+<p>如果您希望通过公有 Internet 从内部数据中心到 VPC 建立更安全的连接，可以在备份激活向导中选择 AWS PrivateLink 连接。如果您要通过 VPN 或 AWS Direct Connect 连接内部系统，则必须使用此功能。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用 Amazon VPC 控制台或命令行创建接口端点配置。 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html" target="_blank" rel="noopener">"请参见有关使用适用于 Amazon S3 的 AWS PrivateLink 的详细信息"</a>。</p>
+</li>
+<li>
+<p>修改与 Cloud Manager Connector 关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <a href="#Set up S3 permissions">从备份策略添加 S3 权限</a> 如前面所示。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_backup_aws_sec_group.png" alt="与 Connector 关联的 AWS 安全组的屏幕截图。"></span></p>
+</div>
+<div class="paragraph">
+<p>如果您使用端口 80 （ HTTP ）与专用端点进行通信，则会对您进行所有设置。您现在可以在集群上启用 Cloud Backup 。</p>
+</div>
+<div class="paragraph">
+<p>如果您使用端口 443 （ HTTPS ）与专用端点进行通信，则必须从 VPC S3 端点复制证书并将证书添加到 ONTAP 集群中，如接下来的 4 个步骤所示。</p>
+</div>
+</li>
+<li>
+<p>从 AWS 控制台获取端点的 DNS 名称。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_endpoint_dns_aws_console.png" alt="AWS 控制台中 VPC 端点的 DNS 名称的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>从 VPC S3 端点获取证书。您可以通过执行此操作 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm">"登录到托管 Cloud Manager Connector 的 VM"</a> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>从此命令的输出中，复制 S3 证书的数据（包括开始 / 结束证书标记之间的所有数据）：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">Certificate chain
+0 s:/CN=s3.us-west-2.amazonaws.com`
+   i:/C=US/O=Amazon/OU=Server CA 1B/CN=Amazon
+-----BEGIN CERTIFICATE-----
+MIIM6zCCC9OgAwIBAgIQA7MGJ4FaDBR8uL0KR3oltTANBgkqhkiG9w0BAQsFADBG
+…
+…
+GqvbOz/oO2NWLLFCqI+xmkLcMiPrZy+/6Af+HH2mLCM4EsI2b+IpBmPkriWnnxo=
+-----END CERTIFICATE-----</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>登录到 ONTAP 集群命令行界面并使用以下命令应用您复制的证书（替换您自己的 Storage VM 名称）：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">cluster1::&gt; security certificate install -vserver cluster1 -type server-ca
+Please enter Certificate: Press &lt;Enter&gt; when done</code></pre>
+</div>
 </div>
 </li>
 </ol>
@@ -1254,14 +1321,14 @@
 <li>
 <p>用于存储备份的 AWS 帐户， AWS 访问密钥和机密密钥。</p>
 <div class="paragraph">
-<p>访问密钥和机密密钥是为 ONTAP 集群授予对 S3 存储分段访问权限而创建的用户提供的。</p>
+<p>访问密钥和机密密钥适用于您创建的 IAM 用户，用于为 ONTAP 集群授予对 S3 存储分段的访问权限。</p>
 </div>
 </li>
 <li>
 <p>要存储备份的 AWS 区域。</p>
 </li>
 <li>
-<p>是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (<a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">"了解如何使用您自己的密钥"</a>）。</p>
+<p>您是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (<a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">"了解如何使用您自己的密钥"</a>）。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_backup_provider_settings_aws.png" alt="显示将卷从 ONTAP 系统备份到 AWS S3 时云提供商详细信息的屏幕截图。"></span></p>
 </div>
