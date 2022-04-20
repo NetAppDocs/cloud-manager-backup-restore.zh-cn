@@ -75,9 +75,19 @@ image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截
 
 在开始将内部卷备份到 Azure Blob 存储之前，请阅读以下要求，以确保您的配置受支持。
 
-下图显示了每个组件以及需要在它们之间准备的连接：
+在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以使用两种连接方法。
+
+* 公有 连接—使用公有 Azure 端点将 ONTAP 系统直接连接到 Azure Blob 存储。
+* 专用连接—使用 VPN 或 ExpressRoute ，并通过使用专用 IP 地址的 vNet 专用端点路由流量。
+
+
+下图显示了公有 连接方法以及组件之间需要准备的连接：
 
 image:diagram_cloud_backup_onprem_azure.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+
+下图显示了专用连接方法以及组件之间需要准备的连接：
+
+image:diagram_cloud_backup_onprem_azure_vnet.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
 请注意，在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。
 
@@ -188,6 +198,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 
 | http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net | 为 Cloud Restore 虚拟机提供 CentOS 软件包。 
+
+
+| https://download.docker.com/linux/centos/docker-ce.repo | 提供 Docker 引擎软件包。 
 
 
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 虚拟机映像存储库。 

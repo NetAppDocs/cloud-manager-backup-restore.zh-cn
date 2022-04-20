@@ -33,7 +33,7 @@ link:concept-backup-to-cloud.html#licensing["详细了解与 Cloud Backup 相关
 
 * AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
 * Azure 酒店 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
-* GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
+* GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
 
 
 

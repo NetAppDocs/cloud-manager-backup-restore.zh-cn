@@ -89,6 +89,9 @@ Azure 部署所需的出站 Internet 访问:: Cloud Restore 虚拟机需要出�
 | http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net | 为 Cloud Restore 虚拟机提供 CentOS 软件包。 
 
 
+| https://download.docker.com/linux/centos/docker-ce.repo | 提供 Docker 引擎软件包。 
+
+
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 虚拟机映像存储库。 
 |===
 
