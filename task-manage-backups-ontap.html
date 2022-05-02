@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:40:18 +0000">05/02/2022</time>
     
   
 
@@ -881,6 +881,50 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="启用和禁用卷备份">启用和禁用卷备份</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>从 * 卷 * 选项卡中，选择 * 备份设置 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"></span></p>
+</div>
+</li>
+<li>
+<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于工作环境，请选择 * 管理卷 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="屏幕截图显示了备份设置页面中的管理卷按钮。"></span></p>
+</div>
+</li>
+<li>
+<p>选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="管理卷页面，您可以在其中选择或取消选择卷。"></span></p>
+</div>
+<div class="paragraph">
+<p>通过使用 " 自动备份未来卷 &#8230;&#8203;" 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。</p>
+</div>
+</li>
+<li>
+<p>单击 * 保存 * 以提交更改。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <a href="#Deleting backups">删除备份</a>。</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="编辑现有备份策略">编辑现有备份策略</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -923,50 +967,6 @@
 </div>
 <div class="paragraph">
 <p>请注意，如果您停止将备份分层到归档存储，则已分层到归档存储的所有备份文件都会保留在该层中，而这些备份不会自动移回标准层。</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="启用和禁用卷备份">启用和禁用卷备份</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>从 * 卷 * 选项卡中，选择 * 备份设置 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button.png" alt="屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于工作环境，请选择 * 管理卷 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes.png" alt="屏幕截图显示了备份设置页面中的管理卷按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page.png" alt="管理卷页面，您可以在其中选择或取消选择卷。"></span></p>
-</div>
-<div class="paragraph">
-<p>通过使用 " 自动备份未来卷 &#8230;&#8203;" 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。</p>
-</div>
-</li>
-<li>
-<p>单击 * 保存 * 以提交更改。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <a href="#Deleting backups">删除备份</a>。</p>
-</li>
-</ul>
 </div>
 </li>
 </ol>
@@ -1147,7 +1147,7 @@
 <h2 id="删除备份">删除备份</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>通过 Cloud Backup ，您可以删除单个备份文件，删除卷的所有备份，或者删除工作环境或 Kubernetes 集群中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。</p>
+<p>您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -1176,7 +1176,7 @@
 </div>
 </li>
 <li>
-<p>单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于工作环境或 Kubernetes 集群，要删除所有备份并选择 * 删除所有备份 * 。</p>
+<p>单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于要删除所有备份并选择 * 删除所有备份 * 的工作环境。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_delete_all_backups.png" alt="选择删除所有备份按钮删除工作环境中所有备份的屏幕截图。"></span></p>
 </div>
@@ -1257,10 +1257,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="为工作环境禁用-cloud-backup">为工作环境禁用 Cloud Backup</h2>
+<h2 id="为工作环境停用cloud-backup">为工作环境停用Cloud Backup</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>禁用工作环境的 Cloud Backup 会禁用系统上每个卷的备份，同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。</p>
+<p>在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。</p>
 </div>
 <div class="paragraph">
 <p>请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <a href="#Deleting all backup files for a working environment">删除备份</a>。</p>
@@ -1275,7 +1275,7 @@
 </div>
 </li>
 <li>
-<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于要禁用备份的工作环境或 Kubernetes 集群，请选择 * 停用备份 * 。</p>
+<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于要禁用备份的工作环境，请选择 * 停用备份 * 。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_disable_backups.png" alt="工作环境的停用备份按钮的屏幕截图。"></span></p>
 </div>

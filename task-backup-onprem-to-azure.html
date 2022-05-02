@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:48:37 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:40:18 +0000">05/02/2022</time>
     
   
 
@@ -1093,25 +1093,29 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="许可证要求">许可证要求</h3>
-<div class="paragraph">
-<p>在 30 天免费试用 Cloud Backup 到期之前，您需要订阅 Azure 提供的按需购买（ PAYGO ） Cloud Manager Marketplace 产品，或者从 NetApp 购买并激活 Cloud Backup BYOL 许可证。这些许可证适用于帐户，可在多个系统中使用。</p>
-</div>
+<h3 id="验证许可证要求">验证许可证要求</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>对于 Cloud Backup PAYGO 许可，您需要订阅 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure 酒店"</a> Cloud Manager Marketplace 产品以继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。</p>
+<p>在为集群激活Cloud Backup之前、您需要从Azure订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>对于 Cloud Backup PAYGO 许可，您需要订阅 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure 酒店"</a> Cloud Manager Marketplace提供了使用Cloud Backup的服务。Cloud Backup 的计费通过此订阅完成。</p>
 </li>
 <li>
-<p>对于 Cloud Backup BYOL 许可，您不需要订阅。您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"了解如何管理 BYOL 许可证"</a>。</p>
+<p>对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"了解如何管理 BYOL 许可证"</a>。</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>您需要为备份所在的对象存储空间订阅 Azure 。</p>
-</div>
 <div class="paragraph">
-<p>集群上需要 SnapMirror 许可证。请注意，使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。</p>
+<p>您可以在所有区域创建从内部系统到 Azure Blob 的备份 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"支持 Cloud Volumes ONTAP 的位置"</a>；包括 Azure 政府区域。您可以在设置服务时指定要存储备份的区域。</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1194,6 +1198,9 @@
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 <a href="task-licensing-cloud-backup.html">"了解如何设置Cloud Backup许可。"</a></p>
 </li>
 <li>
 <p>输入网络连接详细信息并单击 * 下一步 * 。</p>

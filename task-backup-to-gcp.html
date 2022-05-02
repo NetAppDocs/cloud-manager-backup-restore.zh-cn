@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:40:18 +0000">05/02/2022</time>
     
   
 
@@ -937,7 +937,48 @@
 <dd>
 <p>您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html" target="_blank" rel="noopener">"了解如何创建服务帐户"</a>。</p>
 </dd>
+<dt class="hdlist1">验证并向Connector添加权限</dt>
+<dd>
+<p>要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。</p>
+</dd>
 </dl>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>在中 <a href="https://console.cloud.google.com" target="_blank" rel="noopener">"云控制台"</a>下，转到 * 角色 * 页面。</p>
+</li>
+<li>
+<p>使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。</p>
+</li>
+<li>
+<p>单击一个自定义角色。</p>
+</li>
+<li>
+<p>单击 * 编辑角色 * 以更新角色的权限。</p>
+</li>
+<li>
+<p>单击 * 添加权限 * 向角色添加以下新权限。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>单击 * 更新 * 以保存已编辑的角色。</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1070,7 +1111,7 @@
 <p>Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。</p>
 </div>
 <div class="paragraph">
-<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"从备份文件还原整个卷"</a> 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。</p>
+<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"从备份文件还原卷或文件"</a> 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。</p>
 </div>
 </div>
 </div>

@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:40:18 +0000">05/02/2022</time>
     
   
 
@@ -945,9 +945,9 @@
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 27.4725%;">
-<col style="width: 36.2637%;">
-<col style="width: 36.2638%;">
+<col style="width: 26.3157%;">
+<col style="width: 34.7368%;">
+<col style="width: 38.9475%;">
 </colgroup>
 <thead>
 <tr>
@@ -974,7 +974,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud 存储</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NetApp StorageGRID</p></td>
@@ -1038,10 +1038,20 @@
 <p>对于使用 " 浏览和还原 " 进行卷还原，不需要任何成本，因为不需要单独的实例或虚拟机。</p>
 </li>
 <li>
-<p>对于使用搜索和还原的卷或文件还原，将显示 <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena"</a> 和 <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS 胶水"</a> 资源用于搜索卷和备份文件。每 TiB 成本与搜索请求扫描的数据量相关联。只有在当前从 Amazon S3 中的备份文件还原数据时，才支持搜索和还原。</p>
+<p>对于使用搜索和还原的卷或文件还原、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>在AWS中、 <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"Amazon Athena"</a> 和 <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS 胶水"</a> 资源部署在新的S3存储分段中。</p>
 </li>
 <li>
-<p>如果您需要从已移至归档存储的备份文件还原卷数据（在使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能），则云提供商会额外收取每 GiB 检索费用和每请求费用。</p>
+<p>在Google中、将部署一个新存储分段、并部署 <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener">"Google Cloud BigQuery服务"</a> 在帐户/项目级别配置。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果您需要从已移至归档存储的备份文件还原卷数据(在使用ONTAP 9.10.1+时、AWS支持此功能)、则云提供商会额外收取每GiB检索费用和每请求费用。</p>
 </li>
 <li>
 <p>服务费用 *</p>
@@ -1060,43 +1070,12 @@
 <h2 id="许可">许可</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Backup 提供三种许可选项：按需购买（ PAYGO ）， AWS Marketplace 提供的年度合同和自带许可证（ BYOL ）。如果您没有许可证，可以免费试用 30 天。</p>
-</div>
-<div class="sect2">
-<h3 id="免费试用">免费试用</h3>
-<div class="paragraph">
-<p>使用 30 天免费试用版时，系统会通知您剩余的免费试用天数。在免费试用版结束时，备份将停止创建。您必须订阅此服务或购买许可证才能继续使用此服务。</p>
-</div>
-<div class="paragraph">
-<p>禁用此服务后，不会删除备份文件。除非删除备份，否则云提供商会继续为您的备份所使用的容量收取对象存储成本。</p>
-</div>
+<p>Cloud Backup提供三种许可选项：按需购买(PAYGO)订阅、AWS Marketplace提供的年度合同以及自带许可证(BYOL)。如果您订阅了PAYGO、则可以免费试用30天。</p>
 </div>
 <div class="sect2">
 <h3 id="按需购买订阅">按需购买订阅</h3>
 <div class="paragraph">
 <p>Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</p>
-</div>
-<div class="paragraph">
-<p>即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>订阅可确保在免费试用结束后不会中断服务。</p>
-<div class="paragraph">
-<p>试用结束后，系统会根据您备份的数据量按小时收取费用。</p>
-</div>
-</li>
-<li>
-<p>如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。</p>
-<div class="paragraph">
-<p>例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>在免费试用期间，或者如果您未超过 BYOL 许可证，则不会从按需购买订阅中收取费用。</p>
 </div>
 <div class="paragraph">
 <p><a href="task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription">"了解如何设置按需购买订阅"</a>。</p>
@@ -1111,15 +1090,9 @@
 <ul>
 <li>
 <p>一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。</p>
-<div class="paragraph">
-<p>您还需要使用此年度合同订阅为 Cloud Volumes ONTAP 系统付费，因为您只能在 Cloud Manager 中为 AWS 凭据分配一个有效订阅。</p>
-</div>
 </li>
 <li>
 <p>一种 "CVO 专业人员 " 计划，可用于捆绑 Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。</p>
-<div class="paragraph">
-<p>您可以在创建 Cloud Volumes ONTAP 工作环境时设置年度合同， Cloud Manager 将提示您订阅 AWS Marketplace 。</p>
-</div>
 </li>
 </ul>
 </div>
