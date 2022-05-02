@@ -37,6 +37,33 @@ image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备�
 
 
 
+== 启用和禁用卷备份
+
+如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
++
+image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
+
+. 选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。
++
+image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在其中选择或取消选择卷。"]
+
++
+通过使用 " 自动备份未来卷 ..." 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。
+
+. 单击 * 保存 * 以提交更改。
+
+
+* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <<Deleting backups,删除备份>>。
+
+
+
 == 编辑现有备份策略
 
 您可以更改当前应用于工作环境中卷的备份策略的属性。更改备份策略会影响正在使用此策略的所有现有卷。
@@ -71,33 +98,6 @@ image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Bac
 请注意，如果您停止将备份分层到归档存储，则已分层到归档存储的所有备份文件都会保留在该层中，而这些备份不会自动移回标准层。
 
 
-
-
-
-== 启用和禁用卷备份
-
-如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。
-
-.步骤
-. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
-+
-image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
-
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
-+
-image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
-
-. 选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。
-+
-image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在其中选择或取消选择卷。"]
-
-+
-通过使用 " 自动备份未来卷 ..." 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。
-
-. 单击 * 保存 * 以提交更改。
-
-
-* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <<Deleting backups,删除备份>>。
 
 
 
@@ -213,7 +213,7 @@ image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件�
 
 == 删除备份
 
-通过 Cloud Backup ，您可以删除单个备份文件，删除卷的所有备份，或者删除工作环境或 Kubernetes 集群中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。
+您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。
 
 
 CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。删除系统时， Cloud Backup 不会自动删除备份，并且用户界面当前不支持在删除系统后删除这些备份。对于任何剩余备份，您仍需支付对象存储成本费用。
@@ -229,7 +229,7 @@ CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须�
 +
 image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
 
-. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境或 Kubernetes 集群，要删除所有备份并选择 * 删除所有备份 * 。
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要删除所有备份并选择 * 删除所有备份 * 的工作环境。
 +
 image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工作环境中所有备份的屏幕截图。"]
 
@@ -288,9 +288,9 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 
 
-== 为工作环境禁用 Cloud Backup
+== 为工作环境停用Cloud Backup
 
-禁用工作环境的 Cloud Backup 会禁用系统上每个卷的备份，同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
+在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
 
 请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<Deleting all backup files for a working environment,删除备份>>。
 
@@ -299,7 +299,7 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 +
 image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
 
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要禁用备份的工作环境或 Kubernetes 集群，请选择 * 停用备份 * 。
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要禁用备份的工作环境，请选择 * 停用备份 * 。
 +
 image:screenshot_disable_backups.png["工作环境的停用备份按钮的屏幕截图。"]
 

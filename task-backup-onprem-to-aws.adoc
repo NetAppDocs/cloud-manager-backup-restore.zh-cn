@@ -163,9 +163,9 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 
 == 验证许可证要求
 
-* 在 30 天免费试用 Cloud Backup 到期之前，您需要订阅 AWS 提供的按需购买（ PAYGO ） Cloud Manager Marketplace 产品，或者从 NetApp 购买并激活 Cloud Backup BYOL 许可证。这些许可证适用于您的帐户，可在多个系统中使用。
+* 在为集群激活Cloud Backup之前、您需要从AWS订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["AWS Cloud Manager Marketplace 产品"^] 继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。
+** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["AWS Cloud Manager Marketplace 产品"^] 使用Cloud Backup。Cloud Backup 的计费通过此订阅完成。
 ** 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
@@ -289,6 +289,9 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 | http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | 适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。 
 
 
+| https://download.docker.com/linux/centos/docker-ce.repo | 提供 Docker 引擎软件包。 
+
+
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 实例映像存储库。 
 |===
 
@@ -372,6 +375,7 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 ONTAP 系统�
 
 
 
+. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅AWS提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
 . 输入网络连接详细信息并单击 * 下一步 * 。
 +
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。

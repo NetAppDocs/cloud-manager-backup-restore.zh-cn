@@ -158,23 +158,48 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 
 
-=== 支持的区域
+=== 验证并向Connector添加权限
 
-您可以在所有区域创建从内部系统到 Google Cloud 存储的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。您可以在设置服务时指定要存储备份的区域。
+要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
+
+.步骤
+. 在中 link:https://console.cloud.google.com["云控制台"^]下，转到 * 角色 * 页面。
+. 使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。
+. 单击一个自定义角色。
+. 单击 * 编辑角色 * 以更新角色的权限。
+. 单击 * 添加权限 * 向角色添加以下新权限。
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. 单击 * 更新 * 以保存已编辑的角色。
 
 
 
-=== 许可证要求
 
-在 30 天免费试用 Cloud Backup 到期之前，您需要从 Google 订阅按需购买（ PAYGO ） Cloud Manager Marketplace 产品，或者从 NetApp 购买并激活 Cloud Backup BYOL 许可证。这些许可证适用于帐户，可在多个系统中使用。
+=== 验证许可证要求
 
-* 对于 Cloud Backup PAYGO 许可，您需要订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Manager Marketplace 产品以继续使用 Cloud Backup 。Cloud Backup 的计费通过此订阅完成。
-* 对于 Cloud Backup BYOL 许可，您不需要订阅。您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+* 在为集群激活Cloud Backup之前、您需要从Google订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
++
+** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Manager Marketplace提供了使用Cloud Backup的服务。Cloud Backup 的计费通过此订阅完成。
+** 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
-您需要为备份所在的对象存储空间订阅 Google 。
+* 您需要为备份所在的对象存储空间订阅 Google 。
++
+您可以在所有区域创建从内部系统到Google Cloud Storage的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。您可以在设置服务时指定要存储备份的区域。
 
-集群上需要 SnapMirror 许可证。请注意，使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
+
 
 
 
@@ -218,6 +243,7 @@ image:screenshot_backup_onprem_to_google.png["显示将卷从内部集群备份�
 
 
 
+. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Google提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
 . 在 _Define Policy_ 页面中，选择现有备份计划和保留值，或者定义新的默认备份策略，然后单击 * 下一步 * 。
 +
 image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
@@ -242,4 +268,4 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷"^] 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原卷或文件"^] 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。

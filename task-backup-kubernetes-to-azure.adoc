@@ -138,9 +138,9 @@ spec:
 
 
 
-== 在现有系统上启用 Cloud Backup
+== 启用 Cloud Backup
 
-可随时直接从工作环境启用 Cloud Backup 。
+可以随时直接从Kubernetes工作环境启用Cloud Backup。
 
 .步骤
 . 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
@@ -159,10 +159,11 @@ image:screenshot_backup_policy_k8s_azure.png["显示 Cloud Backup 设置的屏�
 ** 要备份所有卷，请选中标题行（image:button_backup_all_volumes.png[""]）。
 ** 要备份单个卷，请选中每个卷对应的框（image:button_backup_1_volume.png[""]）。
 +
-image:screenshot_backup_select_volumes_k8s.png["选择要备份的卷的屏幕截图。"]
+image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷的屏幕截图。"]
 
 
 
+. 如果希望将来添加的所有卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。
 . 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
 
 

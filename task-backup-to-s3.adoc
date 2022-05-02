@@ -154,7 +154,10 @@ AWS 部署所需的出站 Internet 访问:: Cloud Restore 实例需要出站 Int
 | 端点 | 目的 
 
 
-| http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | 适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。 
+| http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | 适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。 
+
+
+| https://download.docker.com/linux/centos/docker-ce.repo | 提供 Docker 引擎软件包。 
 
 
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 实例映像存储库。 

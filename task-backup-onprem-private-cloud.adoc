@@ -180,14 +180,12 @@ S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为�
 
 === 许可证要求
 
-在 30 天免费试用 Cloud Backup 到期之前，您需要从 NetApp 购买并激活 Cloud Backup BYOL 许可证。此许可证适用于帐户，可在多个系统中使用。
+在为集群激活Cloud Backup之前、您需要从NetApp购买并激活Cloud Backup BYOL许可证。此许可证适用于帐户，可在多个系统中使用。
 
 您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
-
-集群上需要 SnapMirror 许可证。请注意，使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
 
 
 

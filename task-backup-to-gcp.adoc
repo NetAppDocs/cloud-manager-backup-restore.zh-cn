@@ -73,6 +73,30 @@ image:diagram_cloud_backup_cvo_google.png["显示 Cloud Backup 如何与备份�
 
 --
 GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^]。
+验证并向Connector添加权限:: 要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
+
+
+.步骤
+. 在中 link:https://console.cloud.google.com["云控制台"^]下，转到 * 角色 * 页面。
+. 使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。
+. 单击一个自定义角色。
+. 单击 * 编辑角色 * 以更新角色的权限。
+. 单击 * 添加权限 * 向角色添加以下新权限。
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. 单击 * 更新 * 以保存已编辑的角色。
 
 
 
@@ -154,4 +178,4 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷"^] 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原卷或文件"^] 连接到 Google 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
