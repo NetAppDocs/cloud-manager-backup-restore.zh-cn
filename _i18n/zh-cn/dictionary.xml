@@ -490,7 +490,6 @@
   <block id="6488e4b9eef53ffd6c9cc6103d98e9fa" category="list-text">ONTAP 不支持扇出从一个卷到多个对象存储的 SnapMirror 关系；因此， Cloud Backup 不支持此配置。</block>
   <block id="c382be8ae1c203d850c1fd82ccc1f638" category="list-text">不支持对象存储上的 WORM/Compliance 模式。</block>
   <block id="595d0bcf55189d5a7852a255d268db51" category="section-title">单个文件还原限制</block>
-  <block id="61d2fb70c854276ebc3e16296f86d0cd" category="list-text">单个文件还原一次最多可还原 100 个单个文件。目前不支持还原文件夹 / 目录。</block>
   <block id="5f5966e9da5716290dfc2b88ceeb2217" category="list-text">要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。</block>
   <block id="1553a2b337f69cb4e2878126a9158d14" category="list-text">如果在不同子网中将同一帐户与不同的 Cloud Manager 结合使用，则不支持文件级还原。</block>
   <block id="45905824646346222e779ba345f6254b" category="summary">Cloud Backup 是一项适用于 Cloud Manager 工作环境的服务，可提供备份和还原功能来保护和长期归档数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
@@ -600,7 +599,6 @@
   <block id="f3f9bf3f7291a5ed0552bbb7de61f88d" category="list-text">选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。</block>
   <block id="8e074e924c73e9c00480607c80481d60" category="inline-image-macro">管理卷页面，您可以在其中选择或取消选择卷。</block>
   <block id="2bfa980473a5e104b4ba06a383a064c8" category="paragraph"><block ref="2bfa980473a5e104b4ba06a383a064c8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0f749ecebfa90be5ad345938fe0206ec" category="paragraph">通过使用 " 自动备份未来卷 ..." 复选框，您可以选择在将来添加的所有卷是否启用备份。如果禁用此设置，则需要为将来添加的卷手动启用备份。</block>
   <block id="c7a220fc58ccea879a68f706ca98ac0c" category="list-text">单击 * 保存 * 以提交更改。</block>
   <block id="8764d766d622ae40812776b15d742a79" category="inline-xref">删除备份</block>
   <block id="1cdf12d909faca3295263dc58dc5d4b8" category="paragraph">* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>。</block>
@@ -1805,7 +1803,6 @@
   <block id="949b473773535ea19f7817cd4c272bc1" category="paragraph"><block ref="949b473773535ea19f7817cd4c272bc1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f3e4b6c3b2f014829f853146224b7663" category="list-text">选中"自动备份未来的永久性卷..."复选框、选择要应用于新卷的备份策略、然后单击*保存*。</block>
   <block id="e0d65bcc987fbf0e0395ea11d741cc4c" category="inline-image-macro">显示如何选择要分配给集群上所有未来卷的备份策略的屏幕截图。</block>
-  <block id="e1a8bb8592ca3edece2f7672e90295ff" category="paragraph"><block ref="e1a8bb8592ca3edece2f7672e90295ff" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9bfd7698cd685594f5f96180cc0f6ed9" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于存在卷的工作环境、请选择*管理永久性卷*。</block>
   <block id="749877571899cdb524c800a67b079f94" category="paragraph"><block ref="749877571899cdb524c800a67b079f94" category="inline-image-macro-rx" type="image"></block></block>
   <block id="28b1e5b15add5c8ab1001a76115ac105" category="paragraph"><block ref="28b1e5b15add5c8ab1001a76115ac105" category="inline-image-macro-rx" type="image"></block></block>
@@ -1816,8 +1813,6 @@
   <block id="b2e1e47df118b4fe3823a0ac91876736" category="list-text">如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 <block ref="36493bbba79c7c4eddc07ad75acbe470" category="inline-link-macro-rx"></block></block>
   <block id="eb9411915f253c6cdf360afa2be4b4f0" category="paragraph">您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。</block>
   <block id="c4760350a0bd1b742a79bce7d3174928" category="list-text">单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要删除所有备份并选择 * 删除所有备份 * 的工作环境。</block>
-  <block id="5a58de0e84e5db9ac743167d182029a5" category="section-title">为工作环境停用Cloud Backup</block>
-  <block id="7d74a85f6ca999dc566f13bea483a788" category="paragraph">在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。</block>
   <block id="a9805696126ef48bc68224dc06136bbd" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要禁用备份的工作环境，请选择 * 停用备份 * 。</block>
   <block id="49cbaef969d427f74417618eaa641c54" category="paragraph">可以随时直接从Kubernetes工作环境启用Cloud Backup。</block>
   <block id="a1eb634b81be113bee0e21e6a20c118c" category="inline-image-macro">选择要备份的永久性卷的屏幕截图。</block>
@@ -1896,4 +1891,21 @@
   <block id="7f55f1ead15a67b08eea9e732f6ed59d" category="list-text">对于存储在AWS中的备份、它会配置一个新的S3存储分段和<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> 和<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>。</block>
   <block id="c44278ad43fbe360e4ca928f671f88b9" category="list-text">对于存储在Google Cloud中的备份、它会配置一个新存储分段和<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> 在帐户/项目级别配置。如果您的工作环境已启用索引，请转到下一节以还原数据。</block>
   <block id="1febcfde465ce9cfbf21c08aa17b6a2b" category="paragraph">如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将Kubernetes集群拖动到Amazon S3工作环境中以启动设置向导。</block>
+  <block id="1c161354c6da9cce8d6d66c83e6117e3" category="inline-image-macro">屏幕截图显示了备份设置按钮、该按钮可在您选择Kubernetes集群后使用。</block>
+  <block id="81362333b4667057105418e2c797fb4d" category="paragraph"><block ref="81362333b4667057105418e2c797fb4d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d611fbcee8116241337f06ec4995ff9c" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于存在卷的Kubernetes集群、选择*自动备份新卷*。</block>
+  <block id="014386141b63dc0c43377cb37936b250" category="inline-image-macro">显示如何选择要分配给Kubernetes集群上所有未来卷的备份策略的屏幕截图。</block>
+  <block id="891b6416962c7710069b6bd6d9d86a07" category="paragraph"><block ref="891b6416962c7710069b6bd6d9d86a07" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3877a9846e783c8af0a4e454f688cc19" category="paragraph">现在、此备份策略将应用于在此Kubernetes集群中创建的任何新卷。</block>
+  <block id="73454754c1af733fbae3cb63539996ef" category="paragraph">如果在ONTAP 集群上首次激活云备份时未选择将备份策略自动分配给新创建的卷的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。</block>
+  <block id="152ce4fa26eb65e8e96a262e60518c22" category="paragraph"><block ref="152ce4fa26eb65e8e96a262e60518c22" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0484e1bec383e6b588abfcbce01d8a7" category="list-text">选中"自动备份新卷..."复选框、选择要应用于新卷的备份策略、然后单击*保存*。</block>
+  <block id="66aafc10059faefcfba7f2cfc427bba5" category="paragraph"><block ref="66aafc10059faefcfba7f2cfc427bba5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7c393b904fd78ca1a97c1c3d93e8427f" category="paragraph">现在、此备份策略将应用于使用Cloud Manager、System Manager或ONTAP 命令行界面在此工作环境中创建的任何新卷。</block>
+  <block id="34654042ecfc4226d89a0eec5901d43e" category="inline-link">请参见如何使用ONTAP 命令行界面删除快照</block>
+  <block id="9ad3e0546cb45c95b651ec5649490c7d" category="paragraph">请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。<block ref="f1f70532768ec75f9b065af279b58c4c" category="inline-link-rx"></block>。</block>
+  <block id="104f191bacc12db075c772f4dbbcec2e" category="paragraph">这些限制适用于恢复文件的搜索和还原以及浏览和还原方法；除非特别说明。</block>
+  <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">浏览和还原一次最多可还原100个单个文件。</block>
+  <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">搜索和还原一次可以还原1个文件。</block>
+  <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">目前不支持还原文件夹 / 目录。</block>
 </blocks>
