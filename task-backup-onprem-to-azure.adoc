@@ -19,9 +19,6 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azu
 请注意， " 内部 ONTAP 系统 " 包括 FAS ， AFF 和 ONTAP Select 系统。
 
 
-TIP: 在大多数情况下，您将使用 Cloud Manager 执行所有备份和还原操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
-
-
 
 == 快速入门
 
