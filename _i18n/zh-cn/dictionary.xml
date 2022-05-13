@@ -44,7 +44,6 @@
   <block id="3d6e948defef3e67a438f4f7819ed82e" category="doc">将内部 ONTAP 数据备份到 Azure Blob 存储</block>
   <block id="447d2fd8f5815390c0a99de97b857ccb" category="paragraph">请注意， " 内部 ONTAP 系统 " 包括 FAS ， AFF 和 ONTAP Select 系统。</block>
   <block id="fee59c74a156abe8a410a85ba51f5956" category="inline-link">了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。</block>
-  <block id="f3a66b671251dc0a25cfc24ab6952930" category="admonition">在大多数情况下，您将使用 Cloud Manager 执行所有备份和还原操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。<block ref="b4b04e1b4b3140ad1e0e3c0a94c9c848" category="inline-link-rx"></block></block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">快速入门</block>
   <block id="91e06e9a9ef97681b798e2e5e007ba97" category="paragraph">按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。</block>
   <block id="9637543697c707cfc64db2a64d650753" category="list-title">跨度 class="image&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt-one"&gt;&lt;/span&gt; 验证是否支持您的配置</block>
@@ -833,7 +832,6 @@
   <block id="9e140440889c757014a9bc2eabbf0f85" category="inline-image-macro">屏幕截图显示了将卷从 ONTAP 系统备份到 AWS S3 时的网络连接详细信息。</block>
   <block id="2c4a72cdb0fff2addedf37dea946cf88" category="paragraph"><block ref="2c4a72cdb0fff2addedf37dea946cf88" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2a12eb134c1a7bf9323eeb868060f734" category="paragraph"><block ref="2a12eb134c1a7bf9323eeb868060f734" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1a431e8fb608c4c81fa7e72da6aba7c7" category="list-text">通过端口 443 与 S3 对象存储建立 HTTPS 连接</block>
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">您需要为备份所在的对象存储空间订阅 AWS 。</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 文档：创建角色以向 IAM 用户委派权限</block>
@@ -1707,7 +1705,6 @@
   <block id="9d420cf71a5b9a71abf46456eb58f8ed" category="cell">https://download.docker.com/linux/centos/docker-ce.repo</block>
   <block id="756d8723023e48c330841a5fab0f9e6f" category="cell">提供 Docker 引擎软件包。</block>
   <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。</block>
-  <block id="cdc60ee7ffa2e1ee87520360a9985da9" category="paragraph">选择是使用公有 S3 端点将内部 ONTAP 集群直接连接到 AWS S3 ，还是使用 VPN 或 AWS Direct Connect 并通过专用 VPC 端点接口将流量路由到 AWS S3 。</block>
   <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">请参见可用的连接方法。</block>
   <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
   <block id="81d8bb87e59af8b8bc57eaf5d2b911c4" category="paragraph">如果您已在 AWS VPC 中部署了 Connector ，则可以随时完成所有操作。如果没有，则需要在 AWS 中创建连接器，以便将 ONTAP 数据备份到 AWS S3 存储。您还需要自定义 Connector 的网络设置，以便它可以连接到 AWS S3 。</block>
@@ -1732,12 +1729,8 @@
   <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">如果您已在 AWS VPC 中部署了 Connector ，则可以随时完成所有操作。如果没有，则需要在 AWS 中创建新的连接器，以便将 ONTAP 数据备份到 AWS S3 存储。您不能使用部署在内部或部署在其他云提供商中的 Connector 。</block>
   <block id="9b740c2dda97a2c23cd8f8cf0fc5aac6" category="inline-link">在 AWS 中创建连接器</block>
   <block id="37ddae853fabb564f9fc3c5ab06062ee" category="list-text"><block ref="37ddae853fabb564f9fc3c5ab06062ee" category="inline-link-rx"></block></block>
-  <block id="f86faf1862caeed3f6dccfce3a669edf" category="inline-link">在连接器之间切换</block>
-  <block id="536d81ee151729245ef15564ad0455b4" category="list-text"><block ref="536d81ee151729245ef15564ad0455b4" category="inline-link-rx"></block></block>
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">连接器网络连接要求</block>
-  <block id="d21941843d3f51f6d91597bbc6f2fe96" category="list-text">通过端口 443 与 Cloud Backup Service 建立 HTTPS 连接</block>
   <block id="db41e7a8de9567fec002e93320c428ad" category="inline-xref">请参见如何设置 VPC 端点接口。</block>
-  <block id="fa5aa396756a091429ff95b88b2cb91f" category="list-text">（可选）启用连接到 S3 的 VPC 端点接口。如果从 ONTAP 集群到 VPC 具有直接连接或 VPN 连接，并且您希望连接器和 S3 之间的通信保持在 AWS 内部网络中，则需要此功能。 <block ref="96349a58af3e05e4441faa6bbc02f81a" category="inline-xref-macro-rx"></block></block>
   <block id="aa8387a4bff8defdb2d4c5777a1bf540" category="section-title">准备 ONTAP 集群</block>
   <block id="c5fe798394fdf9d90bcf14b0e01b5dda" category="section-title">在 Cloud Manager 中发现您的 ONTAP 集群</block>
   <block id="7e7c991226da8981bccabf973fe2eba0" category="paragraph">您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。</block>
@@ -1750,7 +1743,6 @@
   <block id="e30347a67bfdcb246f056cfd9aa4efbd" category="list-text">必须已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明<block ref="f1c08d303d78e879204468f0ff96d977" category="inline-link-rx"></block>。</block>
   <block id="ac4f47e577f8d7771d01f8331c6f4736" category="list-text">如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup 连接以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</block>
   <block id="3389249695ca8c10d31bf35b73b0c94e" category="inline-xref">请参见如何设置 VPC 端点接口并加载 S3 证书。</block>
-  <block id="5c124f6cf2bfcfbf94279be52b0632d2" category="list-text">（可选）如果在 AWS 中使用专用 VPC 接口端点进行 S3 连接，则要使用 HTTPS/443 ，您需要将 S3 端点证书加载到 ONTAP 集群中。 <block ref="53258c6a820319d399112ef2849fb9e8" category="inline-xref-macro-rx"></block></block>
   <block id="9433d8064a183eecdc4dfa1b31b38834" category="section-title">验证许可证要求</block>
   <block id="22340c7eefb94e5f665f788bc6c331ce" category="inline-link">AWS Cloud Manager Marketplace 产品</block>
   <block id="ae026b849c4275f68e7902a73ecf0632" category="paragraph">您可以在所有地区创建从内部系统到 Amazon S3 的备份<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>；包括 AWS GovCloud 地区。您可以在设置服务时指定要存储备份的区域。</block>
@@ -1764,20 +1756,13 @@
   <block id="e4ba209f1e83c31c97d006aab1897e1d" category="list-text">激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：</block>
   <block id="b8471833713b205fce6b0c37afe7c220" category="section-title">验证 Cloud Restore Internet 访问</block>
   <block id="4f0f8734b8eb262313537f384daa2aad" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</block>
-  <block id="68ff90feee01d7ff9f80cbfc1edd7eb9" category="section-title">设置 Amazon S3 加密（可选）</block>
-  <block id="acda78b900d86834702d7cf022c5c307" category="paragraph">您可以在备份激活向导中为数据加密选择自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
-  <block id="eadf50bb3952a4b3b149df1a7616cede" category="section-title">设置 VPC 端点接口（可选）</block>
-  <block id="4e1fc0c572b0fc7c8464dc57aa414942" category="paragraph">如果您希望通过公有 Internet 从内部数据中心到 VPC 建立更安全的连接，可以在备份激活向导中选择 AWS PrivateLink 连接。如果您要通过 VPN 或 AWS Direct Connect 连接内部系统，则必须使用此功能。</block>
   <block id="c2217bd93d297ddc08ba3a9c93fb29aa" category="list-text">使用 Amazon VPC 控制台或命令行创建接口端点配置。<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>。</block>
   <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">从备份策略添加 S3 权限</block>
   <block id="c68e08ee2b5be8ff44e713441b6aa84d" category="list-text">修改与 Cloud Manager Connector 关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 如前面所示。</block>
-  <block id="0779f8ec0f01d3d713051f10c0f5269a" category="paragraph">如果您使用端口 80 （ HTTP ）与专用端点进行通信，则会对您进行所有设置。您现在可以在集群上启用 Cloud Backup 。</block>
-  <block id="209e22c3253a318498527950bcbd07d9" category="paragraph">如果您使用端口 443 （ HTTPS ）与专用端点进行通信，则必须从 VPC S3 端点复制证书并将证书添加到 ONTAP 集群中，如接下来的 4 个步骤所示。</block>
   <block id="39bab378d876d4ae9f917360ff7b633a" category="list-text">从 AWS 控制台获取端点的 DNS 名称。</block>
   <block id="51cca00855dd27ddbb729c64d6988680" category="inline-image-macro">AWS 控制台中 VPC 端点的 DNS 名称的屏幕截图。</block>
   <block id="63c7ff1056127bdaee465b05c7c83d3c" category="paragraph"><block ref="63c7ff1056127bdaee465b05c7c83d3c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="31b738479d7d16ff849ac312f5649e77" category="inline-link">登录到托管 Cloud Manager Connector 的 VM</block>
-  <block id="8d8e3b0bb1a13ecfbdfdb5a14b2e2618" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="da3c83ae0d03d7e43a4d87fed2f5f3ba" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
   <block id="b11703e578eba56af91d25ee75ec1594" category="list-text">从此命令的输出中，复制 S3 证书的数据（包括开始 / 结束证书标记之间的所有数据）：</block>
   <block id="042284b067b431d7d21168a5ada6e448" category="list-text">登录到 ONTAP 集群命令行界面并使用以下命令应用您复制的证书（替换您自己的 Storage VM 名称）：</block>
   <block id="d0285b972453920d44e9bfc537f86825" category="section-title">启用 Cloud Backup</block>
@@ -1908,4 +1893,29 @@
   <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">浏览和还原一次最多可还原100个单个文件。</block>
   <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">搜索和还原一次可以还原1个文件。</block>
   <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">目前不支持还原文件夹 / 目录。</block>
+  <block id="e41af01898aa01f20e528d19fdda2ec8" category="paragraph">选择是通过公有 Internet将内部ONTAP 集群直接连接到AWS S3、还是使用VPN或AWS Direct Connect并通过专用VPC端点接口将流量路由到AWS S3。</block>
+  <block id="c97ea7350518d38329c34d289bc4771e" category="paragraph">下图显示了*公有 connection*方法以及组件之间需要准备的连接：</block>
+  <block id="ce894cc2b182c2b6d47f70da3e6e4fb3" category="paragraph">下图显示了*专用连接*方法以及组件之间需要准备的连接：</block>
+  <block id="d41b031ef25fff764808749edcc2cd28" category="inline-link">连接器入门</block>
+  <block id="b37ed402641ff6f2d1b0b55061547f2d" category="list-text"><block ref="b37ed402641ff6f2d1b0b55061547f2d" category="inline-link-rx"></block></block>
+  <block id="0dae4177288fa87563dc166ad6dad9d7" category="list-text">通过端口443与Cloud Backup Service 和S3对象存储建立HTTPS连接(请参见端点列表 <block ref="ebd49d7903d0a4bb2b6ed64e3736bb95" category="inline-link-macro-rx"></block>）</block>
+  <block id="76e709935c290dea4c7b1c0de4918211" category="inline-link-macro">确保Connector具有管理S3存储分段的权限</block>
+  <block id="834f26d80b9784d547a441b2c02d3ad5" category="list-text"><block ref="7eb7d4d5a2ffca3aec2449e14ed03205" category="inline-link-macro-rx"></block>。</block>
+  <block id="a4af58b20c3303b39e56dee8ca99e1a3" category="list-text">如果从ONTAP 集群到VPC具有直接连接或VPN连接、并且您希望连接器和S3之间的通信保持在AWS内部网络中、则需要启用连接到S3的VPC端点接口。 <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
+  <block id="ce59fdd3e4f02ba3606e4e3cf3dde6c9" category="list-text">建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。</block>
+  <block id="187b50ee8f2351a69b8fa6b8b42687d5" category="paragraph">IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法为当前IP空间配置此空间、则需要创建一个专用IP空间、其中所有集群间LIF都可以访问对象存储。</block>
+  <block id="e3cb89ec96389280988a5bc1aab122d8" category="list-text">如果在AWS中使用专用VPC接口端点进行S3连接、则要使用HTTPS/443、您需要将S3端点证书加载到ONTAP 集群中。 <block ref="1dbd4fd842a70fbdf055f03b19c52e23" category="inline-xref-macro-rx"></block></block>
+  <block id="99c8c5b6a1c2808dc952ab4207702a72" category="inline-link-macro">确保ONTAP 集群具有访问S3存储分段的权限</block>
+  <block id="b670b978b055bbffbc3ac15528f4ae84" category="list-text"><block ref="38941058629b01cbe2eac550f126312e" category="inline-link-macro-rx"></block>。</block>
+  <block id="868fb9c55d4ddac7523d9c4697eb9d9f" category="section-title">设置客户管理的AWS密钥以进行数据加密</block>
+  <block id="72828ef5ab3d5aa027bfcdd1a9224f67" category="paragraph">如果您要使用默认Amazon S3加密密钥对内部集群和S3存储分段之间传递的数据进行加密、则会进行全部设置、因为默认安装会使用此类型的加密。</block>
+  <block id="d19ad4a91ccc5af70a541d99c6ad6d99" category="paragraph">如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则在启动Cloud Backup向导之前、您需要先设置加密管理密钥。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
+  <block id="486567bdd60f21beefa59174661f6d52" category="section-title">使用VPC端点接口为系统配置专用连接</block>
+  <block id="d37ada70a820c5c84f992a48e05045cf" category="inline-link-macro">第一个图</block>
+  <block id="55082684c888abf218793c0bd2f3b5e4" category="paragraph">如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 <block ref="b1224f75874af139b1e7a51a1da970e9" category="inline-link-macro-rx"></block>。</block>
+  <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">第二个图</block>
+  <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>。</block>
+  <block id="adba439901e690844020282dc0e87c32" category="paragraph">如果您使用端口80 (HTTP)与专用端点进行通信、则表示您已设置完毕。您现在可以在集群上启用 Cloud Backup 。</block>
+  <block id="d58fcd28ca27643e7a41fc5c17398721" category="paragraph">如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将证书添加到ONTAP 集群、如接下来的4个步骤所示。</block>
+  <block id="9494561b819165d9f1e8e339562e316d" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="0617c2fce5134dbc852516af04fe18ee" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
 </blocks>
