@@ -831,7 +831,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-10 20:50:52 +0000">05/10/2022</time>
+    <time datetime="2022-05-13 17:46:08 +0000">05/13/2022</time>
     
   
 
@@ -855,7 +855,7 @@
 <p>按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>选择是使用公有 S3 端点将内部 ONTAP 集群直接连接到 AWS S3 ，还是使用 VPN 或 AWS Direct Connect 并通过专用 VPC 端点接口将流量路由到 AWS S3 。</p>
+<p>选择是通过公有 Internet将内部ONTAP 集群直接连接到AWS S3、还是使用VPN或AWS Direct Connect并通过专用VPC端点接口将流量路由到AWS S3。</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p><a href="#Network diagrams for connection options">请参见可用的连接方法。</a></p>
@@ -903,13 +903,13 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>下图显示了公有 连接方法以及组件之间需要准备的连接：</p>
+<p>下图显示了*公有 connection*方法以及组件之间需要准备的连接：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
 </div>
 <div class="paragraph">
-<p>下图显示了专用连接方法以及组件之间需要准备的连接：</p>
+<p>下图显示了*专用连接*方法以及组件之间需要准备的连接：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws_vpc.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
@@ -936,10 +936,10 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"了解连接器"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"在 AWS 中创建连接器"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"连接器入门"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"在连接器之间切换"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"在 AWS 中创建连接器"</a></p>
 </li>
 </ul>
 </div>
@@ -953,10 +953,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>通过端口 443 与 Cloud Backup Service 建立 HTTPS 连接</p>
-</li>
-<li>
-<p>通过端口 443 与 S3 对象存储建立 HTTPS 连接</p>
+<p>通过端口443与Cloud Backup Service 和S3对象存储建立HTTPS连接(请参见端点列表 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"此处"</a>）</p>
 </li>
 <li>
 <p>通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接</p>
@@ -965,7 +962,10 @@
 </div>
 </li>
 <li>
-<p>（可选）启用连接到 S3 的 VPC 端点接口。如果从 ONTAP 集群到 VPC 具有直接连接或 VPN 连接，并且您希望连接器和 S3 之间的通信保持在 AWS 内部网络中，则需要此功能。 <a href="#Set up a VPC endpoint interface (optional)">请参见如何设置 VPC 端点接口。</a></p>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"确保Connector具有管理S3存储分段的权限"</a>。</p>
+</li>
+<li>
+<p>如果从ONTAP 集群到VPC具有直接连接或VPN连接、并且您希望连接器和S3之间的通信保持在AWS内部网络中、则需要启用连接到S3的VPC端点接口。 <a href="#Configure your system for a private connection using a VPC endpoint interface">请参见如何设置 VPC 端点接口。</a></p>
 </li>
 </ul>
 </div>
@@ -989,7 +989,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ONTAP 9.7P5 及更高版本。</p>
+<p>建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。</p>
 </li>
 <li>
 <p>SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。</p>
@@ -1030,6 +1030,9 @@
 <div class="paragraph">
 <p>如果您使用的 IP 空间与 " 默认 " 不同，则可能需要创建静态路由才能访问对象存储。</p>
 </div>
+<div class="paragraph">
+<p>IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法为当前IP空间配置此空间、则需要创建一个专用IP空间、其中所有集群间LIF都可以访问对象存储。</p>
+</div>
 </li>
 <li>
 <p>必须已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"为 SVM 配置 DNS 服务"</a>。</p>
@@ -1038,7 +1041,10 @@
 <p>如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup 连接以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</p>
 </li>
 <li>
-<p>（可选）如果在 AWS 中使用专用 VPC 接口端点进行 S3 连接，则要使用 HTTPS/443 ，您需要将 S3 端点证书加载到 ONTAP 集群中。 <a href="#Set up a VPC endpoint interface (optional)">请参见如何设置 VPC 端点接口并加载 S3 证书。</a></p>
+<p>如果在AWS中使用专用VPC接口端点进行S3连接、则要使用HTTPS/443、您需要将S3端点证书加载到ONTAP 集群中。 <a href="#Configure your system for a private connection using a VPC endpoint interface">请参见如何设置 VPC 端点接口并加载 S3 证书。</a></p>
+</li>
+<li>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"确保ONTAP 集群具有访问S3存储分段的权限"</a>。</p>
 </li>
 </ul>
 </div>
@@ -1219,15 +1225,21 @@
 </table>
 </div>
 <div class="sect2">
-<h3 id="设置-amazon-s3-加密可选">设置 Amazon S3 加密（可选）</h3>
+<h3 id="设置客户管理的aws密钥以进行数据加密">设置客户管理的AWS密钥以进行数据加密</h3>
 <div class="paragraph">
-<p>您可以在备份激活向导中为数据加密选择自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"了解如何使用您自己的密钥"</a>。</p>
+<p>如果您要使用默认Amazon S3加密密钥对内部集群和S3存储分段之间传递的数据进行加密、则会进行全部设置、因为默认安装会使用此类型的加密。</p>
+</div>
+<div class="paragraph">
+<p>如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则在启动Cloud Backup向导之前、您需要先设置加密管理密钥。 <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"了解如何使用您自己的密钥"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="设置-vpc-端点接口可选">设置 VPC 端点接口（可选）</h3>
+<h3 id="使用vpc端点接口为系统配置专用连接">使用VPC端点接口为系统配置专用连接</h3>
 <div class="paragraph">
-<p>如果您希望通过公有 Internet 从内部数据中心到 VPC 建立更安全的连接，可以在备份激活向导中选择 AWS PrivateLink 连接。如果您要通过 VPN 或 AWS Direct Connect 连接内部系统，则必须使用此功能。</p>
+<p>如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"第一个图"</a>。</p>
+</div>
+<div class="paragraph">
+<p>如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"第二个图"</a>。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1240,10 +1252,10 @@
 <p><span class="image"><img src="./media/screenshot_backup_aws_sec_group.png" alt="与 Connector 关联的 AWS 安全组的屏幕截图。"></span></p>
 </div>
 <div class="paragraph">
-<p>如果您使用端口 80 （ HTTP ）与专用端点进行通信，则会对您进行所有设置。您现在可以在集群上启用 Cloud Backup 。</p>
+<p>如果您使用端口80 (HTTP)与专用端点进行通信、则表示您已设置完毕。您现在可以在集群上启用 Cloud Backup 。</p>
 </div>
 <div class="paragraph">
-<p>如果您使用端口 443 （ HTTPS ）与专用端点进行通信，则必须从 VPC S3 端点复制证书并将证书添加到 ONTAP 集群中，如接下来的 4 个步骤所示。</p>
+<p>如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将证书添加到ONTAP 集群、如接下来的4个步骤所示。</p>
 </div>
 </li>
 <li>
@@ -1253,7 +1265,7 @@
 </div>
 </li>
 <li>
-<p>从 VPC S3 端点获取证书。您可以通过执行此操作 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm">"登录到托管 Cloud Manager Connector 的 VM"</a> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</p>
+<p>从 VPC S3 端点获取证书。您可以通过执行此操作 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm" target="_blank" rel="noopener">"登录到托管 Cloud Manager Connector 的 VM"</a> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-text" data-lang="text">[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts</code></pre>
