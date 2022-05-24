@@ -835,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-05 19:24:12 +0000">05/05/2022</time>
+    <time datetime="2022-05-24 17:39:51 +0000">05/24/2022</time>
     
   
 
@@ -961,129 +961,6 @@
 </div>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="正在添加新备份策略">正在添加新备份策略</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。</p>
-</div>
-<div class="paragraph">
-<p>如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <a href="#Changing the policy assigned to existing volumes">将此策略应用于该工作环境中的卷</a>。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>从 * Kubernetes * 选项卡中，选择 * 备份设置 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="屏幕截图显示了卷选项卡中的备份设置按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>从 <em>Backup Settings</em> 页面中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于要添加新策略的工作环境，请选择 * 管理策略 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_modify_policy_k8s.png" alt="屏幕截图显示了备份设置页面中的管理策略选项。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Manage Policies</em> 页面中，单击 * 添加新策略 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_policy_page_add.png" alt="屏幕截图显示了 &quot; 管理策略 &quot; 页面中的 &quot; 添加新策略 &quot; 按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Add New Policy</em> 页面中，定义计划和备份保留，然后单击 * 保存 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_add_new_policy.png" alt="显示备份策略设置的屏幕截图，您可以在其中添加备份计划和备份保留设置。"></span></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="更改分配给现有卷的策略">更改分配给现有卷的策略</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>如果要更改备份频率或更改保留值，则可以更改分配给现有卷的备份策略。</p>
-</div>
-<div class="paragraph">
-<p>请注意，要应用于卷的策略必须已存在。 <a href="#Adding a new backup policy">请参见如何为工作环境添加新的备份策略</a>。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>从 * Kubernetes * 选项卡中，选择 * 备份设置 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于存在卷的工作环境、请选择*管理永久性卷*。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_k8s.png" alt="屏幕截图显示了备份设置页面中的管理永久性卷按钮。"></span></p>
-</div>
-</li>
-<li>
-<p>选中要更改策略的一个或多个卷对应的复选框，然后单击 * 更改策略 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_manage_volumes_page_change.png" alt="管理卷页面，您可以在其中选择或取消选择卷。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Change Policy</em> 页面中，选择要应用于卷的策略，然后单击 * 更改策略 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_change_policy.png" alt="显示如何选择要应用于选定卷的新策略的屏幕截图。"></span></p>
-</div>
-</li>
-<li>
-<p>单击 * 保存 * 以提交更改。</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="设置要分配给新卷的备份策略">设置要分配给新卷的备份策略</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>如果您未选择在首次在Kubernetes集群上激活Cloud Backup时自动为新创建的卷分配备份策略的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。</p>
-</div>
-<div class="paragraph">
-<p>请注意，要应用于卷的策略必须已存在。 <a href="#Adding a new backup policy">请参见如何为工作环境添加新的备份策略</a>。</p>
-</div>
-<div class="paragraph">
-<p>您也可以禁用此设置、以使新创建的卷不会自动备份。在这种情况下、您需要手动为将来要备份的任何特定卷启用备份。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>从 * Kubernetes * 选项卡中，选择 * 备份设置 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="屏幕截图显示了备份设置按钮、该按钮可在您选择Kubernetes集群后使用。"></span></p>
-</div>
-</li>
-<li>
-<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于存在卷的Kubernetes集群、选择*自动备份新卷*。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_auto_backup_new_volumes_k8s.png" alt="从备份设置页面选择自动备份新卷选项的屏幕截图。"></span></p>
-</div>
-</li>
-<li>
-<p>选中"自动备份未来的永久性卷&#8230;&#8203;"复选框、选择要应用于新卷的备份策略、然后单击*保存*。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_auto_backup_k8s.png" alt="显示如何选择要分配给Kubernetes集群上所有未来卷的备份策略的屏幕截图。"></span></p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>现在、此备份策略将应用于在此Kubernetes集群中创建的任何新卷。</p>
 </div>
 </div>
 </div>
