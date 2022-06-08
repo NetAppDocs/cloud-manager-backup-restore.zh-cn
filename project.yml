@@ -74,6 +74,16 @@ sidebar:
         url: "/task-restore-oracle-data.html"
       - title: 还原 SQL Server 数据库
         url: "/task-restore-sql-data.html"
+  - title: 备份和还原虚拟机数据
+    entries:
+    - title: 保护虚拟机数据
+      url: "/concept-protect-vm-data.html"
+    - title: 将数据存储库备份到云
+      url: "/task-backup-vm-data-to-cloud.html"
+    - title: 管理虚拟机的保护
+      url: "/task-manage-vm-data-in-cloud.html"
+    - title: 还原虚拟机数据
+      url: "/task-restore-vm-data.html"
   - title: 参考
     entries:
     - title: 支持的 AWS 归档存储层
@@ -137,6 +147,12 @@ homepage:
       url: "/task-restore-oracle-data.html"
     - title: 还原 SQL Server 数据库
       url: "/task-restore-sql-data.html"
+  - title: 备份和还原虚拟机数据
+    links:
+    - title: 将数据存储库备份到云
+      url: "/task-backup-vm-data-to-cloud.html"
+    - title: 从云还原虚拟机
+      url: "/task-restore-vm-data.html"
   - title: 从备份文件还原数据
     links:
     - title: 还原 ONTAP 卷

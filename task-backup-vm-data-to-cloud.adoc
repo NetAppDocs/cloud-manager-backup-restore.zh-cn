@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: task-backup-vm-data-to-cloud.html 
+keywords: backing up, back up, backup, backup virtual machine data, back up vm, Azure, Amazon Web services, Cloud Backup, cloud backup service, backup datastores 
+summary: 将数据存储库从内部ONTAP 备份到云。 
+---
+= 将数据存储库备份到云
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来将数据存储库备份到云。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
+
+
+NOTE: 确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 将数据存储库备份到云之前。
+
+
+
+== 注册适用于VMware vSphere的SnapCenter 插件
+
+您应在Cloud Manager中注册适用于VMware vSphere的SnapCenter 插件、以便在Cloud Manager中显示数据存储库和虚拟机。只有具有管理访问权限的用户才能注册适用于VMware vSphere的SnapCenter 插件。
+
+
+NOTE: 您可以注册多个适用于VMware vSphere的SnapCenter 插件。但是、注册后、您将无法删除适用于VMware vSphere的SnapCenter 插件。
+
+.步骤
+. 在Cloud Manager UI中、单击*备份和还原*>*虚拟机*。
+. 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。
+. 单击*注册适用于VMware vSphere的SnapCenter 插件*。
+. 指定以下详细信息：
++
+.. 在适用于VMware vSphere的SnapCenter 插件字段中、指定适用于VMware vSphere的SnapCenter 插件的FQDN或IP地址。
+.. 在端口字段中、指定运行适用于VMware vSphere的SnapCenter 插件的端口号。
++
+您应确保此端口已打开、以便适用于VMware vSphere的SnapCenter 插件与适用于应用程序的云备份之间进行通信。
+
+.. 在用户名和密码字段中、指定具有管理员角色的用户的凭据。
+
+
+. 单击 * 注册 * 。
+
+
+* 完成后 *
+
+单击*备份和还原>虚拟机*以查看使用适用于VMware vSphere的注册SnapCenter 插件符合保护条件的所有数据存储库和虚拟机。
+
+
+
+== 备份数据存储库
+
+您可以使用一个策略将一个或多个数据存储库同时备份到云中。只能为数据存储库分配默认策略。
+
+.步骤
+. 在Cloud Manager UI中、单击*备份和还原*>*虚拟机*。
+. 单击 image:icon-action.png["Action"] 对应于要备份的数据存储库、然后单击*激活备份*。
+. 添加工作环境。
++
+配置您希望Cloud Manager发现的ONTAP 集群以备份数据存储库。为其中一个数据存储库添加工作环境后、可以对同一ONTAP 集群上的所有其他数据存储库重复使用该环境。
+
++
+.. 单击与SVM对应的*添加工作环境*。
+.. 在添加工作环境向导中：
++
+... 指定 ONTAP 集群的 IP 地址。
+... 指定ONTAP 集群用户的凭据。
+
+
+.. 单击 * 添加工作环境 * 。
+
+
+. 选择并配置云提供商。
++
+[role="tabbed-block"]
+====
+.配置 Amazon Web Services
+--
+.. 指定 AWS 帐户。
+.. 在AWS访问密钥字段中、指定数据加密密钥。
+.. 在AWS机密密钥字段中、指定数据加密的密码。
+.. 选择要创建备份的区域。
+.. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
+
+
+--
+.配置 Microsoft Azure
+--
+.. 指定 Azure 订阅 ID 。
+.. 选择要创建备份的区域。
+.. 创建新资源组或使用现有资源组。
+.. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
+
+
+--
+====
+
+
+. 在分配策略页面中，选择策略并单击 * 下一步 * 。
+. 查看详细信息并单击 * 激活备份 * 。
+

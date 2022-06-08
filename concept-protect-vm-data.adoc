@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: concept-protect-vm-data.html 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in 
+summary: 了解有关保护虚拟机上数据的更多信息、并了解不同的策略。 
+---
+= 保护虚拟机数据
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
+
+您可以将数据存储库备份到Amazon Web Services S3或Microsoft Azure Blob。
+
+
+
+== 要求
+
+在开始将数据存储库和虚拟机备份到云服务之前、请阅读以下要求、以确保您的配置受支持。
+
+* 适用于VMware vSphere 4.6P1或更高版本的SnapCenter 插件
+* ONTAP 9.8 或更高版本
+* Cloud Manager 3.9或更高版本
+* 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
+* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与Cloud Manager中适用于虚拟机的Cloud Backup策略的标签或标签。
+* 对于预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。
+* 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
+* 请确保所有卷均未加密、因为不支持还原加密卷。
+* 在所需资源组上禁用"*近期*"。如果为资源组启用了"*近期*"、则这些资源组的备份不能用于云数据保护、因此无法用于还原操作。
+* 确保要还原虚拟机的目标数据存储库具有足够的空间来容纳所有虚拟机文件的副本、例如VMDK、VMx、VMSD等。
+* 确保目标数据存储库不包含先前还原操作失败时格式为restore_xxx.xxxxxx_filename的陈旧虚拟机文件。在触发还原操作之前、您应删除陈旧的文件。
+
+
+下图显示了每个组件以及需要在它们之间准备的连接：
+
+image:cloud_backup_vm.png["虚拟机云备份的架构图。"]
+
+
+
+== 保护策略
+
+您应使用适用于虚拟机的Cloud Backup中定义的策略之一将数据存储库备份到云。
+
+
+NOTE: 不支持自定义策略。
+
+您可以通过单击Cloud Manager中的*备份和还原*>*虚拟机*>*策略*来查看默认策略。
+
+|===
+| Policy name | Label | 保留值 
+
+
+ a| 
+1 年每日 LTR
+ a| 
+每天
+ a| 
+366.
+
+
+
+ a| 
+5 年每日 LTR
+ a| 
+每天
+ a| 
+1830 年
+
+
+
+ a| 
+7 年每周 LTR
+ a| 
+每周
+ a| 
+370
+
+
+
+ a| 
+10 年每月 LTR
+ a| 
+每月
+ a| 
+120
+
+|===

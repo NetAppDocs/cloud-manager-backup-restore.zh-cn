@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: task-manage-vm-data-in-cloud.html 
+keywords: manage backups, virtual machines, view datastores, view virtual machines, edit 
+summary: 您可以查看数据存储库和虚拟机、并编辑适用于VMware vSphere的SnapCenter 插件实例。 
+---
+= 管理虚拟机的保护
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在备份和还原数据之前查看策略、数据存储库和虚拟机。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。
+
+
+
+== 查看策略
+
+您可以查看所有默认预制策略。对于其中每个策略、在查看详细信息时、将列出所有关联的Cloud Backup for Virtual Machine策略以及所有关联的虚拟机。
+
+. 单击*备份和还原>虚拟机*。
+. 从 * 设置 * 下拉列表中，单击 * 策略 * 。
+. 单击与要查看其详细信息的策略对应的 * 查看详细信息 * 。
+
+
+此时将列出关联的Cloud Backup for Virtual Machine策略以及所有虚拟机。
+
+
+
+== 查看数据存储库和虚拟机
+
+此时将显示使用适用于VMware vSphere的注册SnapCenter 插件进行保护的数据存储库和虚拟机。
+
+* 关于此任务 *
+
+* 仅显示NFS数据存储库。
+* 仅会显示已在适用于VMware vSphere的SnapCenter 插件中成功创建备份至少一个的数据存储库。
+
+
+.步骤
+. 在Cloud Manager UI中、单击*备份和还原*>*虚拟机*>*设置*>*适用于VMware vSphere的SnapCenter 插件*。
+. 单击要查看其数据存储库和虚拟机的适用于VMware vSphere的SnapCenter 插件。
+
+
+
+
+== 编辑适用于VMware vSphere的SnapCenter 插件实例
+
+您可以在Cloud Manager中编辑适用于VMware vSphere的SnapCenter 插件的详细信息
+
+.步骤
+. 在Cloud Manager UI中、单击*备份和还原*>*虚拟机*>*设置*>*适用于VMware vSphere的SnapCenter 插件*。
+. 单击并选择*编辑*
+. 根据需要修改详细信息
+. 单击 * 保存 * 。
+
+
+
+
+== 刷新保护状态
+
+向数据库添加新卷时、或者如果策略或资源组发生更改、则应刷新保护。
+
+. 单击*备份和还原>虚拟机*。
+. 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。
+. 单击 image:icon-action.png["Action"] 对应于托管虚拟机的适用于VMware vSphere的SnapCenter 插件、然后单击*刷新*。
++
+此时将发现新的更改。
+
+. 单击 image:icon-action.png["Action"] 对应于数据存储库、然后单击*刷新保护*为所做的更改启用云保护。
+
+
+
+
+== 监控作业
+
+系统会为所有 Cloud Backup 操作创建作业。您可以监控在每个任务中执行的所有作业和所有子任务。
+
+. 单击*备份和还原>作业监控*。
++
+启动操作时，将显示一个窗口，指出作业已启动。您可以单击此链接来监控作业。
+
+. 单击主任务可查看每个子任务的子任务和状态。
+

@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: task-restore-vm-data.html 
+keywords: restore virtual machines 
+summary: 您可以将虚拟机从云还原到内部SnapCenter。 
+---
+= 从云还原虚拟机
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以将虚拟机从云还原到内部vCenter。备份将还原到创建备份的完全相同的位置。您不能将备份还原到任何其他备用位置。您可以从数据存储库或VM视图还原虚拟机。
+
+
+NOTE: 您不能还原跨数据存储库的虚拟机。
+
+确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 从云还原虚拟机之前。
+
+.步骤
+. 在Cloud Manager中、单击*备份和还原*>*虚拟机*>*适用于VMware vSphere的SnapCenter 插件*、然后选择要还原其虚拟机的适用于VMware vSphere的SnapCenter 插件。
+
+
+
+NOTE: 如果将源虚拟机移动到另一位置(vMotion)、并且用户从Cloud Manager触发该虚拟机的还原、则该虚拟机将还原到创建备份的原始源位置。
+
+. 从数据存储库还原：
++
+.. 单击 image:icon-action.png["Action"] 对应于要还原的数据存储库、然后单击*查看详细信息*。
+.. 单击要还原的备份对应的*还原*。
+.. 选择要从备份中还原的虚拟机、然后单击*下一步*。
+.. 查看详细信息并单击 * 还原 * 。
+
+
+. 要从虚拟机还原、请执行以下操作：
++
+.. 单击 image:icon-action.png["Action"] 对应于要还原的虚拟机、然后单击*还原*。
+.. 选择要用于还原虚拟机的备份、然后单击*下一步*。
+.. 查看详细信息并单击 * 还原 * 。
+
+
+
+
+虚拟机将还原到创建备份的同一位置。

@@ -18,6 +18,18 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年6月8日
+
+
+
+=== 适用于虚拟机的Cloud Backup 1.1.0现已正式上市
+
+您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["了解有关保护内部应用程序数据到云的更多信息"]。
+
+
+
 == 2022年5月2日
 
 
