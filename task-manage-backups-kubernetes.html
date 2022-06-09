@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[管理 Kubernetes 系统的备份](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-manage-backups-kubernetes.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html">
+  
+  <div class="custom-dropdown-select unselected" title="所有云提供商">
+    <label>云提供商</label>
+    <span>所有云提供商</span>
+    <img src="/zh-cn/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-backup-restore/aws/task-manage-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-backup-restore/gcp/task-manage-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-backup-restore/azure/task-manage-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[管理 Kubernetes 系统的备份](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-manage-backups-kubernetes.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_文档.pdf" >
           <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/跨帐户和跨区域配置.pdf" 
-            
-          >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            跨帐户和跨区域配置
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        所有 Cloud Manager 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
         Cloud Backup 文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/whats-new.html">
         发行说明
@@ -779,21 +782,16 @@
         管理虚拟机的保护
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-vm-data.html">
         还原虚拟机数据
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/api-backup-restore.html">
+        使用 REST API 实现自动化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参考</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         支持的 AWS 归档存储层
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         支持的 Azure 归档访问层
-      </a></li><li class="subfolders "><a href="/zh-cn/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        在 AWS 中配置备份以实现多帐户访问
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        在 Azure 中配置备份以实现多帐户访问
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-24 17:39:51 +0000">05/24/2022</time>
+    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
     
   
 
@@ -997,6 +995,46 @@
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="设置要分配给新卷的备份策略">设置要分配给新卷的备份策略</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果您未选择在首次在Kubernetes集群上激活Cloud Backup时自动为新创建的卷分配备份策略的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。</p>
+</div>
+<div class="paragraph">
+<p>请注意，要应用于卷的策略必须已存在。 <a href="#Adding a new backup policy">请参见如何为工作环境添加新的备份策略</a>。</p>
+</div>
+<div class="paragraph">
+<p>您也可以禁用此设置、以使新创建的卷不会自动备份。在这种情况下、您需要手动为将来要备份的任何特定卷启用备份。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>从 * Kubernetes * 选项卡中，选择 * 备份设置 * 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_settings_button_k8s.png" alt="屏幕截图显示了备份设置按钮、该按钮可在您选择Kubernetes集群后使用。"></span></p>
+</div>
+</li>
+<li>
+<p>在 <em>Backup Settings page</em> 中，单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span> 对于存在卷的Kubernetes集群、选择*自动备份新卷*。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup_new_volumes_k8s.png" alt="从备份设置页面选择自动备份新卷选项的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>选中"自动备份未来的永久性卷&#8230;&#8203;"复选框、选择要应用于新卷的备份策略、然后单击*保存*。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_auto_backup_k8s.png" alt="显示如何选择要分配给Kubernetes集群上所有未来卷的备份策略的屏幕截图。"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>现在、此备份策略将应用于在此Kubernetes集群中创建的任何新卷。</p>
 </div>
 </div>
 </div>

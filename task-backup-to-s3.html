@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[将 Cloud Volumes ONTAP 数据备份到 Amazon S3](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html">
+  
+  <div class="custom-dropdown-select unselected" title="所有云提供商">
+    <label>云提供商</label>
+    <span>所有云提供商</span>
+    <img src="/zh-cn/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-backup-restore/aws/task-backup-to-s3.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-backup-restore/gcp">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-backup-restore/azure">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[将 Cloud Volumes ONTAP 数据备份到 Amazon S3](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_文档.pdf" >
           <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/跨帐户和跨区域配置.pdf" 
-            
-          >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            跨帐户和跨区域配置
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        所有 Cloud Manager 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
         Cloud Backup 文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/whats-new.html">
         发行说明
@@ -779,21 +782,16 @@
         管理虚拟机的保护
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-vm-data.html">
         还原虚拟机数据
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/api-backup-restore.html">
+        使用 REST API 实现自动化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参考</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         支持的 AWS 归档存储层
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         支持的 Azure 归档访问层
-      </a></li><li class="subfolders "><a href="/zh-cn/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        在 AWS 中配置备份以实现多帐户访问
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        在 Azure 中配置备份以实现多帐户访问
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-02 14:40:18 +0000">05/02/2022</time>
+    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
     
   
 
@@ -954,14 +952,11 @@
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_cvo_aws.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
 </div>
-<div class="paragraph">
-<p>在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。</p>
-</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">支持的 ONTAP 版本</dt>
 <dd>
-<p>Cloud Volumes ONTAP 9.6 及更高版本。</p>
+<p>建议至少使用ONTAP 9.6；ONTAP 9.8P11及更高版本。</p>
 </dd>
 <dt class="hdlist1">许可证要求</dt>
 <dd>
@@ -986,10 +981,6 @@
 <dt class="hdlist1">支持的 AWS 区域</dt>
 <dd>
 <p>所有 AWS 地区均支持 Cloud Backup <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"支持 Cloud Volumes ONTAP 的位置"</a>；包括 AWS GovCloud 地区。</p>
-</dd>
-<dt class="hdlist1">在其他 AWS 帐户中创建备份所需的设置</dt>
-<dd>
-<p>默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 <a href="reference-backup-multi-account-aws.html">"登录到 AWS 门户并链接这两个帐户"</a>。</p>
 </dd>
 <dt class="hdlist1">使用客户管理的密钥进行数据加密所需的信息</dt>
 <dd>
@@ -1052,62 +1043,6 @@
 <div class="paragraph">
 <p>如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">需要 AWS 还原权限</dt>
-<dd>
-<p>IAM 角色需要以下 EC2 权限，此角色为 Cloud Manager 提供权限，使其可以启动，停止和终止 Cloud Restore 实例以执行浏览和还原操作：</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">          "Action": [
-              "ec2:DescribeInstanceTypeOfferings",
-              "ec2:StartInstances",
-              "ec2:StopInstances",
-              "ec2:TerminateInstances"
-          ],</code></pre>
-</div>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">AWS 部署所需的出站 Internet 访问</dt>
-<dd>
-<p>Cloud Restore 实例需要出站 Internet 访问。如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保此实例可以通过出站 Internet 访问与以下端点联系。</p>
-<div class="openblock">
-<div class="content">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 43%;">
-<col style="width: 57%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">端点</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/" class="bare">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/</a> x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">提供 Docker 引擎软件包。</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> https://cloudmanagerinfraprod.azurecr.io</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Restore 实例映像存储库。</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</dd>
-</dl>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1162,7 +1097,10 @@
 <li>
 <p>选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"></span></p>
+<p>如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将集群拖动到Amazon S3工作环境中以启动设置向导。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Backup &amp; amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
 </div>
 </li>
 <li>
@@ -1171,9 +1109,6 @@
 <ol class="loweralpha" type="a">
 <li>
 <p>用于存储备份的 AWS 帐户。此帐户可以与 Cloud Volumes ONTAP 系统所驻留的帐户不同。</p>
-<div class="paragraph">
-<p>如果要使用其他 AWS 帐户进行备份，则必须使用 <a href="reference-backup-multi-account-aws.html">"登录到 AWS 门户并链接这两个帐户"</a>。</p>
-</div>
 </li>
 <li>
 <p>要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。</p>

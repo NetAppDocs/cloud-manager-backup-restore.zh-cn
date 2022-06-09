@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>在 AWS 中为多帐户访问配置备份 | NetApp Documentation</title>
+  <title>将 Kubernetes 永久性卷数据备份到 Amazon S3 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="在 AWS 中为多帐户访问配置备份 | NetApp Documentation" />
+  <meta property="og:title" content="将 Kubernetes 永久性卷数据备份到 Amazon S3 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" />
-	<meta property="og:description" content="通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同且与 Cloud Manager Connector 所在帐户不同的 AWS 帐户中创建备份文件。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" />
+	<meta property="og:description" content="完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久性卷中的数据备份到 Amazon S3 存储。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同且与 Cloud Manager Connector 所在帐户不同的 AWS 帐户中创建备份文件。">
-  <meta name="keywords" content=" aws, amazon, s3, multiple accounts, multiple regions, backup"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久性卷中的数据备份到 Amazon S3 存储。">
+  <meta name="keywords" content=" backing up, back up, backup, back up kubernetes volumes, persistent volumes, PV, persistence volume claim, PVC, aws, aws s3, amazon s3, s3 bucket, back up volumes, cloud backup, eks, kubernetes"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-backup-restore/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -52,6 +52,9 @@
   <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
+  
+    
+    <link rel="canonical" href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" />
   <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     if (document.location.hostname === "docs.netapp.com") {
       var head = document.getElementsByTagName('head')[0];
@@ -161,7 +164,7 @@
 </head>
 
 
-  <body class role="document" data-flavor="">
+  <body class role="document" data-flavor="aws">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
@@ -169,7 +172,41 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[在 AWS 中为多帐户访问配置备份](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/reference-backup-multi-account-aws.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html">
+  
+  
+  <div class="custom-dropdown-select selected" title="AWS">
+    <label>云提供商</label>
+    <div>AWS</div>  
+    <img src="/zh-cn/cloud-manager-backup-restore/images/filter.svg" class="custom-icon selected" alt="" />
+    <img src="/zh-cn/cloud-manager-backup-restore/images/dismiss.svg" class="custom-icon selected" id="remove-flavor" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-backup-restore/aws/task-backup-kubernetes-to-s3.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-backup-restore/gcp">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-backup-restore/azure">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[将 Kubernetes 永久性卷数据备份到 Amazon S3](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-kubernetes-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -264,7 +301,7 @@
           data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
           data-results-found="找到 {hitCount} 个结果"  
           data-sk-es-pf-indexes=""
-          data-flavor=""></div>
+          data-flavor="aws"></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -288,15 +325,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-aws.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -350,10 +387,8 @@
         
         
         
-        <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_文档.pdf" >
+        <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/fullsite-sidebar/Cloud_Backup_文档.pdf" >
           <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
-
-
 
 
 
@@ -367,7 +402,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/入门.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/入门.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -398,7 +433,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_ONTAP_数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原_ONTAP_数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -443,7 +478,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_Kubernetes_数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原_Kubernetes_数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -452,6 +487,15 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/task-backup-kubernetes-to-s3.pdf" >
+    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -480,7 +524,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原内部应用程序数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原内部应用程序数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -502,7 +546,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/还原应用程序数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/还原应用程序数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -540,7 +584,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原虚拟机数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原虚拟机数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -565,6 +609,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -573,7 +619,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/参考.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/参考.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -585,44 +631,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/跨帐户和跨区域配置.pdf" 
-            
-          >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            跨帐户和跨区域配置
-          </a>
-          
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/reference-backup-multi-account-aws.pdf" >
-    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
-
-
-
           
         </li>
       </ul>
@@ -640,7 +648,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/知识和支持.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/知识和支持.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -698,109 +706,92 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        所有 Cloud Manager 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/index.html">
         Cloud Backup 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/whats-new.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/whats-new.html">
         发行说明
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 入门</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-backup-to-cloud.html">
         了解 Cloud Backup
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-licensing-cloud-backup.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-licensing-cloud-backup.html">
         设置许可
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-monitor-backup-jobs.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-monitor-backup-jobs.html">
         监控备份和还原作业的状态
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原 ONTAP 数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-ontap-backup-to-cloud.html">
         保护 ONTAP 数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-to-s3.html">
         将 Cloud Volumes ONTAP 备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-azure.html">
-        将 Cloud Volumes ONTAP 备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html">
-        将 Cloud Volumes ONTAP 备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-onprem-to-aws.html">
         将内部 ONTAP 备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html">
-        将内部 ONTAP 备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html">
-        将内部 ONTAP 备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-onprem-private-cloud.html">
         将内部 ONTAP 备份到 StorageGRID
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-backups-ontap.html">
         管理 ONTAP 备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-backups-ontap.html">
         从 ONTAP 备份还原
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原 Kubernetes 数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-kubernetes-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-kubernetes-backup-to-cloud.html">
         保护您的 Kubernetes 数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-kubernetes-to-s3.html">
         备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html">
-        备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">
-        备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-backups-kubernetes.html">
         管理 Kubernetes 备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-backups-kubernetes.html">
         从 Kubernetes 备份还原
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原内部应用程序数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-protect-app-data-to-cloud.html">
         保护内部应用程序数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-app-data-to-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-app-data-to-cloud.html">
         将内部应用程序数据备份到云
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-app-backups.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-app-backups.html">
         管理应用程序的保护
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 还原应用程序数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-oracle-data.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-oracle-data.html">
         还原 Oracle 数据库
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-sql-data.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-sql-data.html">
         还原 SQL Server 数据库
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原虚拟机数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-protect-vm-data.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-protect-vm-data.html">
         保护虚拟机数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-vm-data-to-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-vm-data-to-cloud.html">
         将数据存储库备份到云
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-vm-data-in-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-vm-data-in-cloud.html">
         管理虚拟机的保护
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-vm-data.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-vm-data.html">
         还原虚拟机数据
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/api-backup-restore.html">
+        使用 REST API 实现自动化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参考</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/reference-aws-backup-tiers.html">
         支持的 AWS 归档存储层
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/reference-azure-backup-tiers.html">
         支持的 Azure 归档访问层
-      </a></li><li class="subfolders "><a href="/zh-cn/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
-      </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        在 AWS 中配置备份以实现多帐户访问
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        在 Azure 中配置备份以实现多帐户访问
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-support-registration.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-support-registration.html">
         注册以获得支持
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-get-help.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-get-help.html">
         获取帮助
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/legal-notices.html">
         法律声明
       </a></li></ul>
 </div>
@@ -864,14 +855,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">在 AWS 中为多帐户访问配置备份</h1>
+  <h1 class="n-doc__component-detail-heading">将 Kubernetes 永久性卷数据备份到 Amazon S3</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
     
   
 
@@ -881,251 +872,288 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 AWS 帐户中创建备份文件。这两个帐户都可以与 Cloud Manager Connector 所在的帐户不同。</p>
-</div>
-<div class="paragraph">
-<p>只有在您使用时，才需要执行这些步骤 <a href="task-backup-to-s3.html">"将 Cloud Volumes ONTAP 数据备份到 Amazon S3"</a>。</p>
-</div>
-<div class="paragraph">
-<p>按照以下步骤以这种方式设置您的配置。</p>
+<p>完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久性卷中的数据备份到 Amazon S3 存储。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="在帐户之间设置-vpc-对等关系">在帐户之间设置 VPC 对等关系</h2>
+<h2 id="快速入门">快速入门</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
+<div class="paragraph">
+<p>按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。</p>
+</div>
+<div class="ulist">
+<div class="title">跨度 class="image&gt;&lt;img src="<a href="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"" class="bare">https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"</a> Alt-one"&gt;&lt;/span&gt; 查看前提条件</div>
+<ul>
 <li>
-<p>登录到第二个帐户并创建对等连接：</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。</p>
+<div class="ulist">
+<ul>
 <li>
-<p>选择本地 VPC ：选择第二个帐户的 VPC 。</p>
+<p>集群上必须安装 Trident ，并且 Trident 版本必须为 21.1 或更高版本。</p>
 </li>
 <li>
-<p>选择其他 VPC ：输入第一个帐户的帐户 ID 。</p>
+<p>要用于创建要备份的永久性卷的所有 PVC 都必须将 "snapshotPolicy" 设置为 "default" 。</p>
 </li>
 <li>
-<p>选择运行 Cloud Manager Connector 的区域。在此测试设置中，两个帐户都在同一区域运行。</p>
+<p>集群必须使用 AWS 上的 Cloud Volumes ONTAP 作为其后端存储。</p>
 </li>
 <li>
-<p>VPC ID ：登录到第一个帐户并输入接收者 VPC ID 。这是 Cloud Manager Connector 的 VPC ID 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer1.png" alt=""></span></p>
-</div>
-<div class="paragraph">
-<p>此时将显示成功对话框。</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer2.png" alt=""></span></p>
-</div>
-<div class="paragraph">
-<p>对等连接的状态显示为待接受。</p>
-</div>
+<p>Cloud Volumes ONTAP 系统必须运行 ONTAP 9.7P5 或更高版本。</p>
 </li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer3.png" alt=""></span></p>
+</ul>
 </div>
 </li>
 <li>
-<p>登录到第一个帐户并接受对等请求：</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer4.png" alt=""></span></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer5.png" alt=""></span></p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>您已为备份所在的存储空间订阅了有效的云提供商。</p>
+</li>
 <li>
-<p>单击 * 是 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer6.png" alt=""></span></p>
-</div>
-<div class="paragraph">
-<p>此时，此连接将显示为 "Active" 。我们还添加了一个名称标记来标识名为 <code>CBS-Multi-account</code> 的对等连接。</p>
-</div>
+<p>您已订阅 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa">"Cloud Manager Marketplace Backup 产品"</a>，和 <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8">"AWS 年度合同"</a>或您已购买 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"并激活"</a> NetApp 提供的 Cloud Backup BYOL 许可证。</p>
 </li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer7.png" alt=""></span></p>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
 <li>
-<p>刷新第二个帐户中的对等连接，并注意状态将更改为 "Active" 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_peer8.png" alt=""></span></p>
-</div>
+<p>为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager 策略"</a>。</p>
 </li>
-</ol>
+</ul>
 </div>
-</li>
-</ol>
+<div class="paragraph quick-margin-para">
+<p>选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"></span></p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p><span class="image"><img src="./media/screenshot_backup_policy_k8s_aws.png" alt="显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"></span></p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>在选择卷页面中确定要备份的卷。系统会在与 Cloud Volumes ONTAP 系统相同的 AWS 帐户和区域中自动创建 S3 存储分段，并且备份文件会存储在该处。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="向两个帐户中的路由表添加路由">向两个帐户中的路由表添加路由</h2>
+<h2 id="要求">要求</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>转至 VPC &gt; 子网 &gt; 路由表。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_route1.png" alt=""></span></p>
+<p>开始将 Kubernetes 永久性卷备份到 S3 之前，请阅读以下要求，以确保您的配置受支持。</p>
+</div>
+<div class="paragraph">
+<p>下图显示了每个组件以及需要在它们之间准备的连接：</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_cloud_backup_k8s_cvo_aws.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
+</div>
+<div class="paragraph">
+<p>请注意， VPC 端点是可选的。</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Kubernetes 集群要求</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 <a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html" target="_blank" rel="noopener">"了解如何发现 Kubernetes 集群"</a>。</p>
+</li>
+<li>
+<p>集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 <a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html" target="_blank" rel="noopener">"如何安装 Trident"</a> 或 <a href="https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html" target="_blank" rel="noopener">"如何升级 Trident 版本"</a>。</p>
+</li>
+<li>
+<p>集群必须使用 AWS 上的 Cloud Volumes ONTAP 作为其后端存储。</p>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一AWS区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。</p>
+<div class="paragraph">
+<p>请注意，不支持内部位置中的 Kubernetes 集群。仅支持使用 Cloud Volumes ONTAP 系统的云部署中的 Kubernetes 集群。</p>
 </div>
 </li>
 <li>
-<p>单击路由选项卡。</p>
+<p>要用于创建要备份的永久性卷的所有永久性卷声明对象都必须将 "snapshotPolicy" 设置为 "default" 。</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_route2.png" alt=""></span></p>
+<p>您可以通过在标注下添加 <code>snapshotPolicy</code> 来为单个 PVC 执行此操作：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: full
+  annotations:
+    trident.netapp.io/snapshotPolicy: "default"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1000Mi
+  storageClassName: silver</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>您可以通过在 <code>backend.json</code> 文件的 defaults 下添加 <code>snapshotPolicy</code> 字段来为与特定后端存储关联的所有 PVC 执行此操作：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: backend-tbc-ontap-nas-advanced
+spec:
+  version: 1
+  storageDriverName: ontap-nas
+  managementLIF: 10.0.0.1
+  dataLIF: 10.0.0.2
+  backendName: tbc-ontap-nas-advanced
+  svm: trident_svm
+  credentials:
+    name: backend-tbc-ontap-nas-advanced-secret
+  limitAggregateUsage: 80%
+  limitVolumeSize: 50Gi
+  nfsMountOptions: nfsvers=4
+  defaults:
+    spaceReserve: volume
+    exportPolicy: myk8scluster
+    snapshotPolicy: default
+    snapshotReserve: '10'
+  deletionPolicy: retain</code></pre>
+</div>
 </div>
 </li>
-<li>
-<p>单击 * 编辑路由 * 。</p>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">许可证要求</dt>
+<dd>
+<p>对于 Cloud Backup PAYGO 许可， AWS Marketplace 中提供了 Cloud Manager 订阅，用于部署 Cloud Volumes ONTAP 和 Cloud Backup 。您需要 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"订阅此 Cloud Manager 订阅"</a> 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。</p>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_route3.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>单击 * 添加路由 * ，然后从目标下拉列表中选择 * 对等连接 * ，然后选择您创建的对等连接。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>在目标中，输入另一帐户的子网 CIDR 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_route4.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>单击 * 保存路由 * ，此时将显示一个成功对话框。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_route5.png" alt=""></span></p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="在-cloud-manager-中添加第二个-aws-帐户凭据">在 Cloud Manager 中添加第二个 AWS 帐户凭据</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>添加第二个 AWS 帐户，例如 <em>Saran-XCP-Dev</em> 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_second_account1.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>在发现 Cloud Volumes ONTAP 页面中，选择新添加的凭据。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_second_account2.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>选择要从第二个帐户发现的 Cloud Volumes ONTAP 系统。您也可以在第二个帐户中部署新的 Cloud Volumes ONTAP 系统。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_second_account3.png" alt=""></span></p>
+<p>对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 <a href="https://aws.amazon.com/marketplace/pp/B086PDWSS8" target="_blank" rel="noopener">"AWS Marketplace 页面"</a> 然后 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_blank" rel="noopener">"将订阅与您的 AWS 凭据关联"</a>。</p>
 </div>
 <div class="paragraph">
-<p>现在，第二个帐户中的 Cloud Volumes ONTAP 系统将添加到在其他帐户中运行的 Cloud Manager 中。</p>
+<p>对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_second_account4.png" alt=""></span></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="在其他-aws-帐户中启用备份">在其他 AWS 帐户中启用备份</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>在 Cloud Manager 中，为第一个帐户中运行的 Cloud Volumes ONTAP 系统启用备份，但选择第二个帐户作为创建备份文件的位置。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_pick_second_account1.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>然后，选择一个备份策略以及要备份的卷， Cloud Backup 将尝试在选定帐户中创建一个新存储分段。</p>
-<div class="paragraph">
-<p>但是，将存储分段添加到 Cloud Volumes ONTAP 系统将失败，因为 Cloud Backup 使用实例配置文件添加存储分段，而 Cloud Manager 实例配置文件无法访问第二个帐户中的资源。</p>
-</div>
-</li>
-<li>
-<p>获取 Cloud Volumes ONTAP 系统的工作环境 ID 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_onprem_we_id.png" alt=""></span></p>
+<p>对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"了解如何管理 BYOL 许可证"</a>。</p>
 </div>
 <div class="paragraph">
-<p>Cloud Backup 会创建前缀为 <code>netapp-backup-</code> 的每个存储分段，并包含工作环境 ID ；例如： <code>87ULeA10</code></p>
+<p>您需要为备份所在的存储空间创建一个 AWS 帐户。</p>
 </div>
-</li>
-<li>
-<p>在 EC2 门户中，转到 S3 并搜索名称以 <code>87uLeA10</code> 结尾的分段，此时您将看到分段名称显示为 <code>NetApp-backup-vsa87uLeA10</code> 。</p>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">支持的 AWS 区域</dt>
+<dd>
+<p>所有 AWS 地区均支持 Cloud Backup <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"支持 Cloud Volumes ONTAP 的位置"</a>。</p>
+</dd>
+<dt class="hdlist1">需要 AWS 备份权限</dt>
+<dd>
+<p>为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager 策略"</a>。</p>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_find_bucket.png" alt=""></span></p>
+<p>以下是策略中的特定 S3 权限：</p>
 </div>
-</li>
-<li>
-<p>单击存储分段，然后单击权限选项卡，然后单击存储分段策略部分中的 * 编辑 * 。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_aws_bucket_policy.png" alt=""></span></p>
-</div>
-</li>
-<li>
-<p>为新创建的存储分段添加存储分段策略，以访问 Cloud Manager 的 AWS 帐户，然后保存更改。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicRead",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::464262061435:root"
-      },
-      "Action": [
-        "s3:ListBucket",
-        "s3:GetBucketLocation",
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::netapp-backup-vsa87uleai0",
-        "arn:aws:s3:::netapp-backup-vsa87uleai0/*"
-      ]
-    }
-  ]
-}</code></pre>
+            "Sid": "backupPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:GetLifecycleConfiguration",
+                "s3:PutLifecycleConfiguration",
+                "s3:PutBucketTagging",
+                "s3:ListBucketVersions",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketTagging",
+                "s3:GetBucketLocation",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy",
+                "s3:PutBucketPublicAccessBlock"
+            ],
+            "Resource": [
+                "arn:aws:s3:::netapp-backup-*"
+            ]
+        },</code></pre>
 </div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="启用-cloud-backup">启用 Cloud Backup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>可以随时直接从Kubernetes工作环境启用Cloud Backup。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。</p>
+<div class="paragraph">
+<p>如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将Kubernetes集群拖动到Amazon S3工作环境中以启动设置向导。</p>
 </div>
 <div class="paragraph">
-<p>请注意， "AWs" ： "ARN ： AWS ： iam ：： 464262061435 ： root" 为帐户 464262061435 中的所有资源提供了此存储分段的完全访问权限。如果要将策略缩减为特定角色，级别，则可以使用特定角色更新策略。如果要添加单个角色，请确保同时添加了 occa 角色，否则备份将不会在 Cloud Backup UI 中更新。</p>
-</div>
-<div class="paragraph">
-<p>例如： "AWs" ： "ARN ： AWS ： iam ：： 464262061435 ： role/cvo-instance-profile-version10-d8e-IamInstanceRole-ikjpJ1HC2E7R"</p>
+<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"></span></p>
 </div>
 </li>
 <li>
-<p>请重试在 Cloud Volumes ONTAP 系统上启用云备份，此时应成功启用。</p>
+<p>输入备份策略详细信息并单击 * 下一步 * 。</p>
+<div class="paragraph">
+<p>您可以定义备份计划并选择要保留的备份数。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_policy_k8s_aws.png" alt="显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"></span></p>
+</div>
+</li>
+<li>
+<p>选择要备份的永久性卷。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>要备份所有卷，请选中标题行（<span class="image"><img src="./media/button_backup_all_volumes.png" alt=""></span>）。</p>
+</li>
+<li>
+<p>要备份单个卷，请选中每个卷对应的框（<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>）。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_select_volumes_k8s.png" alt="选择要备份的永久性卷的屏幕截图。"></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果您希望所有当前卷和未来卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。</p>
+</li>
+<li>
+<p>单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>系统会在与 Cloud Volumes ONTAP 系统相同的 AWS 帐户和区域中自动创建 S3 存储分段，并且备份文件会存储在该处。</p>
+</div>
+<div class="paragraph">
+<p>此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。</p>
+</div>
+<div class="paragraph">
+<p>您可以 <a href="task-managing-backups-kubernetes.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file" target="_blank" rel="noopener">"从备份文件还原整个卷"</a> 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</p>
 </div>
 </div>
 </div>

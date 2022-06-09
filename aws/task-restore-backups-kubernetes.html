@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>跨帐户和跨区域配置 | NetApp Documentation</title>
+  <title>从备份文件还原 Kubernetes 数据 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="跨帐户和跨区域配置 | NetApp Documentation" />
+  <meta property="og:title" content="从备份文件还原 Kubernetes 数据 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-cross-account.html" />
-	<meta property="og:description" content="这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" />
+	<meta property="og:description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从已保存的备份文件还原整个 Kubernetes 永久性卷。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。">
-  <meta name="keywords" content=" cross account, backup, aws, azure"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从已保存的备份文件还原整个 Kubernetes 永久性卷。">
+  <meta name="keywords" content=" restoring, restore, restore volumes, cloud backup, volume restore, persistent volume"><!-- Icons -->
   <link rel="icon" href="/zh-cn/cloud-manager-backup-restore/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/zh-cn/cloud-manager-backup-restore/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -52,6 +52,9 @@
   <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/cloud-manager-backup-restore/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
+  
+    
+    <link rel="canonical" href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" />
   <link rel='stylesheet' href='/zh-cn/cloud-manager-backup-restore/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     if (document.location.hostname === "docs.netapp.com") {
       var head = document.getElementsByTagName('head')[0];
@@ -161,7 +164,7 @@
 </head>
 
 
-  <body class role="document" data-flavor="">
+  <body class role="document" data-flavor="aws">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
@@ -169,7 +172,41 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[跨帐户和跨区域配置](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-cross-account.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/reference-cross-account.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html">
+  
+  
+  <div class="custom-dropdown-select selected" title="AWS">
+    <label>云提供商</label>
+    <div>AWS</div>  
+    <img src="/zh-cn/cloud-manager-backup-restore/images/filter.svg" class="custom-icon selected" alt="" />
+    <img src="/zh-cn/cloud-manager-backup-restore/images/dismiss.svg" class="custom-icon selected" id="remove-flavor" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/zh-cn/cloud-manager-backup-restore/aws/task-restore-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/zh-cn/cloud-manager-backup-restore/gcp/task-restore-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/zh-cn/cloud-manager-backup-restore/azure/task-restore-backups-kubernetes.html">
+      <img alt="" src="/zh-cn/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/zh-cn/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[从备份文件还原 Kubernetes 数据](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-restore-backups-kubernetes.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -264,7 +301,7 @@
           data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
           data-results-found="找到 {hitCount} 个结果"  
           data-sk-es-pf-indexes=""
-          data-flavor=""></div>
+          data-flavor="aws"></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -288,15 +325,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/reference-cross-account.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/reference-cross-account.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/reference-cross-account.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-backup-restore/reference-cross-account.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/reference-cross-account.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-restore-backups-kubernetes.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -350,10 +387,8 @@
         
         
         
-        <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_文档.pdf" >
+        <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/fullsite-sidebar/Cloud_Backup_文档.pdf" >
           <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
-
-
 
 
 
@@ -367,7 +402,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/入门.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/入门.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -398,7 +433,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_ONTAP_数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原_ONTAP_数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -443,7 +478,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原_Kubernetes_数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原_Kubernetes_数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -460,6 +495,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/task-restore-backups-kubernetes.pdf" >
+    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -480,7 +524,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原内部应用程序数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原内部应用程序数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -502,7 +546,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/还原应用程序数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/还原应用程序数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -540,7 +584,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/备份和还原虚拟机数据.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/备份和还原虚拟机数据.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -565,6 +609,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -573,7 +619,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/参考.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/参考.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -585,44 +631,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/跨帐户和跨区域配置.pdf" 
-            
-          >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            跨帐户和跨区域配置
-          </a>
-          
-
-
-
-
-
-          
-            <li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/reference-cross-account.pdf" >
-    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-
-          
-        </li>
-      </ul>
-    
-
-  
-
-
-
           
         </li>
       </ul>
@@ -640,7 +648,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/cloud-manager-backup-restore/pdfs/sidebar/知识和支持.pdf" 
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/aws/sidebar/知识和支持.pdf" 
             
           >
             <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
@@ -698,109 +706,92 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        所有 Cloud Manager 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/zh-cn/cloud-manager-family/"><img src="/zh-cn/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/index.html">
         Cloud Backup 文档
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/whats-new.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/whats-new.html">
         发行说明
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 入门</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-backup-to-cloud.html">
         了解 Cloud Backup
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-licensing-cloud-backup.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-licensing-cloud-backup.html">
         设置许可
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-monitor-backup-jobs.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-monitor-backup-jobs.html">
         监控备份和还原作业的状态
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原 ONTAP 数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-ontap-backup-to-cloud.html">
         保护 ONTAP 数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-s3.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-to-s3.html">
         将 Cloud Volumes ONTAP 备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-azure.html">
-        将 Cloud Volumes ONTAP 备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html">
-        将 Cloud Volumes ONTAP 备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-onprem-to-aws.html">
         将内部 ONTAP 备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html">
-        将内部 ONTAP 备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html">
-        将内部 ONTAP 备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-onprem-private-cloud.html">
         将内部 ONTAP 备份到 StorageGRID
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-ontap.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-backups-ontap.html">
         管理 ONTAP 备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-ontap.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-backups-ontap.html">
         从 ONTAP 备份还原
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原 Kubernetes 数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-kubernetes-backup-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-kubernetes-backup-to-cloud.html">
         保护您的 Kubernetes 数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-s3.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-kubernetes-to-s3.html">
         备份到 Amazon S3
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html">
-        备份到 Azure Blob
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">
-        备份到 Google Cloud
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-backups-kubernetes.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-backups-kubernetes.html">
         管理 Kubernetes 备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-backups-kubernetes.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-backups-kubernetes.html">
         从 Kubernetes 备份还原
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原内部应用程序数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-protect-app-data-to-cloud.html">
         保护内部应用程序数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-app-data-to-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-app-data-to-cloud.html">
         将内部应用程序数据备份到云
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-app-backups.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-app-backups.html">
         管理应用程序的保护
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 还原应用程序数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-oracle-data.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-oracle-data.html">
         还原 Oracle 数据库
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-sql-data.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-sql-data.html">
         还原 SQL Server 数据库
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 备份和还原虚拟机数据</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/concept-protect-vm-data.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/concept-protect-vm-data.html">
         保护虚拟机数据
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-backup-vm-data-to-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-backup-vm-data-to-cloud.html">
         将数据存储库备份到云
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-manage-vm-data-in-cloud.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-manage-vm-data-in-cloud.html">
         管理虚拟机的保护
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-restore-vm-data.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-restore-vm-data.html">
         还原虚拟机数据
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/api-backup-restore.html">
+        使用 REST API 实现自动化
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 参考</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/reference-aws-backup-tiers.html">
         支持的 AWS 归档存储层
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/reference-azure-backup-tiers.html">
         支持的 Azure 归档访问层
-      </a></li><li class="subfolders  active "><a href="/zh-cn/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        在 AWS 中配置备份以实现多帐户访问
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        在 Azure 中配置备份以实现多帐户访问
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-support-registration.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-support-registration.html">
         注册以获得支持
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/task-get-help.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/task-get-help.html">
         获取帮助
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/aws/legal-notices.html">
         法律声明
       </a></li></ul>
 </div>
@@ -864,32 +855,112 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">跨帐户和跨区域配置</h1>
+  <h1 class="n-doc__component-detail-heading">从备份文件还原 Kubernetes 数据</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:42:22 +0000">04/18/2022</time>
+    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
     
   
 
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。</p>
+<p>备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从已保存的备份文件还原整个 Kubernetes 永久性卷。</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="paragraph">
+<p>您可以将永久性卷（作为新卷）还原到同一工作环境或使用同一云帐户的不同工作环境。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="支持的工作环境和对象存储提供程序">支持的工作环境和对象存储提供程序</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以将卷从 Kubernetes 备份文件还原到以下工作环境：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">备份文件位置</th>
+<th class="tableblock halign-left valign-top">目标工作环境ifdef：：AWS]]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS内的Kubernetes集群endf：：AWS ]] ifdef：：azure[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure内的Kubernetes集群：：azure[] ifdef：：：gcp[]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud 存储</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google endf中的Kubernetes集群：GCP[]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="从-kubernetes-备份文件还原卷">从 Kubernetes 备份文件还原卷</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>从备份文件还原永久性卷时， Cloud Manager 会使用备份中的数据创建 <em>new</em> 卷。您可以将数据还原到同一 Kubernetes 集群中的卷或与源 Kubernetes 集群位于同一云帐户中的其他 Kubernetes 集群。</p>
+</div>
+<div class="paragraph">
+<p>开始之前，您应知道要还原的卷的名称以及要用于创建新还原的卷的备份文件的日期。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
 <li>
-<p><a href="reference-backup-multi-account-aws.html">"在 AWS 中配置 Cloud Backup 以实现多帐户访问"</a></p>
+<p>选择 * 备份和还原 * 服务。</p>
 </li>
 <li>
-<p><a href="reference-backup-multi-account-azure.html">"在 Azure 中配置 Cloud Backup 以实现多帐户访问"</a></p>
+<p>单击 * Kubernetes * 选项卡，此时将显示 Kubernetes 信息板。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_view_k8s_backups_button.png" alt="Kubernetes 信息板的屏幕截图，其中列出了要备份的所有 Kubernetes 集群和卷。"></span></p>
+</div>
 </li>
-</ul>
+<li>
+<p>找到要还原的卷，然后单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span>、然后单击*详细信息和备份列表*。</p>
+<div class="paragraph">
+<p>此时将显示该卷的所有备份文件列表以及有关源卷，目标位置和备份详细信息。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_view_k8s_backups.png" alt="一个源卷的所有可用备份的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>根据日期 / 时间戳找到要还原的特定备份文件，然后单击 <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="更多图标"></span>，然后是 * 还原 * 。</p>
+</li>
+<li>
+<p>在 <em>Select Destination</em> 页面中，选择要还原卷的 <em>Kubernetes cluster</em> ， <em>Namespaces</em> ， <em>Storage Class</em> 以及新的 _Persistent 卷名称 _ 。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_restore_k8s_volume.png" alt="有关要还原永久性卷的目标信息的屏幕截图。"></span></p>
+</div>
+</li>
+<li>
+<p>单击 * 还原 * ，您将返回到 Kubernetes 信息板，以便查看还原操作的进度。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Cloud Manager 会根据您选择的备份在 Kubernetes 集群中创建一个新卷。您可以 <a href="task-manage-backups-kubernetes.html">"管理此新卷的备份设置"</a> 根据需要。</p>
+</div>
+</div>
 </div>
 
     </article>
