@@ -45,9 +45,27 @@ image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文�
 
 备份副本存储在 Cloud Manager 在云帐户中创建的对象存储中。每个集群 / 工作环境有一个对象存储， Cloud Manager 将该对象存储命名为： "netapp-backup-clusteruuid" 。请确保不要删除此对象存储。
 
+ifdef::aws[]
+
 * 在 AWS 中， Cloud Manager 可启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * 在 Azure 中， Cloud Manager 使用新的或现有的资源组以及 Blob 容器的存储帐户。云管理器 https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * 在 GCP 中， Cloud Manager 会使用一个新项目或现有项目，并为 Google Cloud Storage 存储分段使用存储帐户。
+
+
+endif::gcp[]
+
 * 在 StorageGRID 中， Cloud Manager 会将现有存储帐户用于对象存储分段。
 
 

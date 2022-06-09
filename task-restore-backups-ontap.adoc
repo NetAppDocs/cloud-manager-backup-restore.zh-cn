@@ -51,7 +51,7 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 浏览文件夹样式的结构以查找单个备份文件中的卷或文件 | 在 * 所有备份文件 * 中按部分或完整卷名称，部分或完整文件名，大小范围以及其他搜索筛选器搜索卷或文件 
 
 
-| 卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件 | 卷和文件还原适用于存储在Amazon S3和Google Cloud中的备份文件 
+| 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件。 | 卷和文件还原适用于存储在Amazon S3和Google Cloud中的备份文件 
 
 
 | 不处理已重命名或删除的文件 | 处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件 
@@ -60,13 +60,10 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 浏览公有 和私有云中的结果 | 浏览公有 云和本地 Snapshot 副本的结果 
 
 
-| 文件还原需要单独的 Cloud Restore 实例 | 不需要 Cloud Restore 实例 
-
-
 | 无需额外的云提供商资源 | 每个帐户需要额外的存储分段和AWS或Google资源 
 
 
-| 浏览单个文件的备份时与 Cloud Restore 实例相关的成本 | 扫描备份和卷以查找搜索结果时与AWS或Google资源相关的成本 
+| 无需额外的云提供商成本 | 扫描备份和卷以查找搜索结果时与AWS或Google资源相关的成本 
 |===
 在使用任一还原方法之前，请确保已为环境配置了唯一的资源要求。以下各节将介绍这些要求。
 
@@ -83,9 +80,19 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 
 在开始还原卷或文件之前，您应知道要还原的卷或文件的名称，卷所在工作环境的名称以及要从中还原的备份文件的大致日期。
 
-* 注意： * 如果要还原的卷的备份文件位于归档存储中（从 ONTAP 9.10.1 开始可用于 AWS 和 Azure ），则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。
+*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。
 
-link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原的更多信息"]。link:reference-aws-backup-tiers.html["了解有关从 AWS 归档存储还原的更多信息"]。
+ifdef::aws[]
+
+link:reference-aws-backup-tiers.html["了解有关从 AWS 归档存储还原的更多信息"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原的更多信息"]。
+
+endif::azure[]
 
 
 
@@ -98,19 +105,19 @@ link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原
 | 备份文件位置 2+| 目标工作环境 
 
 
-|  | * 卷还原 * | * 文件还原 * 
+|  | * 卷还原 * | *文件还原* ifdef：：AWS 
 
 
-| Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP 
+| Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
 
 
-| Azure Blob | Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP 
+| Azure Blob | Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[] 
 
 
-| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP |  
+| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
 
 
-| NetApp StorageGRID | 内部部署 ONTAP 系统 |  
+| NetApp StorageGRID | 内部部署 ONTAP 系统 | 内部部署 ONTAP 系统 
 |===
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 
@@ -148,13 +155,33 @@ image:screenshot_restore_select_work_env_volume.png["为要还原的卷选择目
 
 . 如果您选择内部 ONTAP 系统，但尚未配置与对象存储的集群连接，则系统会提示您输入追加信息：
 +
+ifdef::aws[]
+
++
 ** 从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。
-** 从 Azure Blob 还原时，请选择目标卷所在的 ONTAP 集群中的 IP 空间，选择 Azure 订阅以访问对象存储，并可选择通过选择 vNet 和子网选择用于安全数据传输的私有端点。
-** 从 Google Cloud Storage 还原时，请选择 Google Cloud Project 以及访问密钥和机密密钥以访问对象存储，备份存储所在的区域以及目标卷所在的 ONTAP 集群中的 IP 空间。
-** 从 StorageGRID 还原时，请选择访问对象存储所需的访问密钥和机密密钥，以及目标卷所在的 ONTAP 集群中的 IP 空间。
 
 
-. 输入要用于还原的卷的名称，然后选择此卷要驻留的 Storage VM 。默认情况下，使用 * <source_volume_name>_Restore* 作为卷名称。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 从 Azure Blob 还原时，请选择目标卷所在的 ONTAP 集群中的 IP 空间，选择 Azure 订阅以访问对象存储，并可选择通过选择 vNet 和子网选择用于安全数据传输的私有端点。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 从 Google Cloud Storage 还原时，请选择 Google Cloud Project 以及访问密钥和机密密钥以访问对象存储，备份存储所在的区域以及目标卷所在的 ONTAP 集群中的 IP 空间。
+
+
+endif::gcp[]
+
+* 从StorageGRID 还原时、输入StorageGRID 服务器的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口、选择访问对象存储所需的访问密钥和机密密钥、以及目标卷所在的ONTAP 集群中的IP空间。
++
+.. 输入要用于还原的卷的名称，然后选择此卷要驻留的 Storage VM 。默认情况下，使用 * <source_volume_name>_Restore* 作为卷名称。
 +
 image:screenshot_restore_new_vol_name.png["输入要还原的新卷名称的屏幕截图。"]
 
@@ -165,7 +192,21 @@ image:screenshot_restore_new_vol_name.png["输入要还原的新卷名称的屏�
 如果您要从位于归档存储层（从 ONTAP 9.10.1 开始提供）中的备份文件还原卷，则可以选择还原优先级。
 
 +
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
+ifdef::aws[]
+
+
+
+
+
+link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。
+
+endif::azure[]
 
 . 单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。
 
@@ -190,11 +231,14 @@ TIP: 如果备份文件驻留在归档存储中，则无法还原单个文件。
 ==== 前提条件
 
 * 要执行文件还原操作， Cloud Volumes ONTAP 或内部 ONTAP 系统中的 ONTAP 版本必须为 9.6 或更高版本。
-* 从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 link:concept-ontap-backup-to-cloud.html#cost["要为文件还原操作部署的实例类型"] 并确保您的环境已准备就绪。
-* 从 Amazon S3 上的备份还原文件需要将特定的 AWS EC2 权限添加到为 Cloud Manager 提供权限的用户角色中。您还需要允许出站 Internet 访问以联系某些端点。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["验证您的配置是否已准备好还原文件"]。
-* AWS 跨帐户还原需要在 AWS 控制台中手动执行操作。请参见 AWS 主题 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["授予跨帐户存储分段权限"^] 了解详细信息。
-* 从 Azure Blob 上的备份还原文件需要能够访问出站 Internet 以联系特定端点。 link:task-backup-onprem-to-azure.html#preparing-azure-blob-storage-for-backups["验证您的配置是否已准备好还原文件"]。
 
+
+ifdef::aws[]
+
+* AWS 跨帐户还原需要在 AWS 控制台中手动执行操作。请参见 AWS 主题 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-walkthroughs-managing-access-example2.html["授予跨帐户存储分段权限"^] 了解详细信息。
+
+
+endif::aws[]
 
 
 
@@ -203,13 +247,10 @@ TIP: 如果备份文件驻留在归档存储中，则无法还原单个文件。
 此过程如下所示：
 
 . 如果要从卷备份中还原一个或多个文件，请单击 * 还原 * 选项卡，单击 _Browse & Restore_ 下的 * 还原文件 * ，然后选择文件所在的备份文件。
-. 还原实例将启动并显示选定备份文件中的文件夹和文件。
-+
-* 注意： * 首次还原文件时，还原实例将部署在云提供商的环境中。
-
+. Cloud Backup会显示选定备份文件中的文件夹和文件。
 . 选择要从该备份还原的一个或多个文件。
 . 选择要还原文件的位置（工作环境，卷和文件夹），然后单击 * 还原 * 。
-. 文件将被还原，还原实例将在一段时间不活动后关闭，以节省成本。
+. 文件已还原。
 
 
 image:diagram_browse_restore_file.png["一个图，显示了使用浏览和放大；还原执行文件还原操作的流程。"]
@@ -236,10 +277,7 @@ image:screenshot_restore_files_selection.png["从还原信息板中选择还原�
 +
 image:screenshot_restore_select_source.png["为要还原的文件选择卷和备份的屏幕截图。"]
 
-. 单击 * 继续 * ，此时将启动还原实例。几分钟后，将显示卷备份中的文件夹和文件列表。
-+
-* 注意： * 首次还原文件时，还原实例会部署在云提供商的环境中，因此，首次执行此步骤可能需要几分钟的时间。
-
+. 单击*继续*、此时将显示卷备份中的文件夹和文件列表。
 +
 image:screenshot_restore_select_files.png["选择文件页面的屏幕截图，用于导航到要还原的文件。"]
 
@@ -261,31 +299,53 @@ image:screenshot_restore_select_work_env.png["为要还原的文件选择目标�
 如果选择内部集群，但尚未配置与对象存储的集群连接，则系统会提示您输入追加信息：
 
 +
+ifdef::aws[]
+
++
 ** 从 Amazon S3 还原时，输入目标卷所在 ONTAP 集群中的 IP 空间以及访问对象存储所需的 AWS 访问密钥和机密密钥。
-** 从 Azure Blob 还原时，输入目标卷所在 ONTAP 集群中的 IP 空间。
 
 
-. 然后选择 * 卷 * 和 * 文件夹 * 以还原文件。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 从 Azure Blob 还原时，输入目标卷所在 ONTAP 集群中的 IP 空间。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 从Google云存储还原时、输入目标卷所在ONTAP 集群中的IP空间以及访问对象存储所需的访问密钥和机密密钥。
+
+
+endif::gcp[]
+
+* 从StorageGRID 还原时、输入StorageGRID 服务器的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口、输入访问对象存储所需的访问密钥和机密密钥、以及目标卷所在ONTAP 集群中的IP空间。
++
+.. 然后选择 * 卷 * 和 * 文件夹 * 以还原文件。
 +
 image:screenshot_restore_select_dest.png["为要还原的文件选择卷和文件夹的屏幕截图。"]
 
 +
 还原文件时，您可以选择一些位置选项。
 
+
+
+* 选择 * 选择目标文件夹 * 后，如上所示：
 +
-** 选择 * 选择目标文件夹 * 后，如上所示：
+** 您可以选择任何文件夹。
+** 您可以将鼠标悬停在某个文件夹上并单击 image:button_subfolder.png[""] 在行末尾展开以深入到子文件夹，然后选择一个文件夹。
+
+
+* 如果选择的目标工作环境和卷与源文件所在的位置相同，则可以选择 * 维护源文件夹路径 * 将文件或所有文件还原到源结构中存在的同一文件夹。所有相同的文件夹和子文件夹都必须已存在；不会创建文件夹。
 +
-*** 您可以选择任何文件夹。
-*** 您可以将鼠标悬停在某个文件夹上并单击 image:button_subfolder.png[""] 在行末尾展开以深入到子文件夹，然后选择一个文件夹。
+.. 单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击 * 作业监控 * 选项卡查看还原进度。
 
 
-** 如果选择的目标工作环境和卷与源文件所在的位置相同，则可以选择 * 维护源文件夹路径 * 将文件或所有文件还原到源结构中存在的同一文件夹。所有相同的文件夹和子文件夹都必须已存在；不会创建文件夹。
 
-
-. 单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击 * 作业监控 * 选项卡查看还原进度。
-
-
-还原实例在一段时间处于非活动状态后会关闭，以节省您的资金，以便只有在处于活动状态时才会产生成本。
 
 
 
@@ -299,9 +359,17 @@ image:screenshot_restore_select_dest.png["为要还原的文件选择卷和文�
 
 您可以将文件还原到原始卷位置，同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。
 
-如果要还原的卷的备份文件驻留在归档存储中（从 ONTAP 9.10.1 开始可用于 AWS ），则还原操作将需要较长的时间并产生额外成本。请注意，目标集群也必须运行 ONTAP 9.10.1 或更高版本，并且当前不支持从归档存储还原文件。
+如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意，目标集群也必须运行 ONTAP 9.10.1 或更高版本，并且当前不支持从归档存储还原文件。
+
+ifdef::aws[]
 
 link:reference-aws-backup-tiers.html["了解有关从 AWS 归档存储还原的更多信息"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 开始之前，您应了解要还原的卷或文件的名称或位置。
 
@@ -319,13 +387,19 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 | 备份文件位置 2+| 目标工作环境 
 
 
-|  | * 卷还原 * | * 文件还原 * 
+|  | * 卷还原 * | *文件还原* ifdef：：AWS 
 
 
-| Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP 
+| Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
 
 
-| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP 
+| Azure Blob | 当前不支持 | endif：：azure[] ifdef：：gcp[] 
+
+
+| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
+
+
+| NetApp StorageGRID | 当前不支持 |  
 |===
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 
@@ -341,6 +415,10 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 ** 必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时， Cloud Manager 会自动执行此操作。
 
 
+
+
+ifdef::aws[]
+
 * AWS 要求：
 +
 ** 必须将特定的 Amazon Athena ， AWS glue 和 AWS S3 权限添加到为 Cloud Manager 提供权限的用户角色中。 link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保已正确配置所有权限"]。
@@ -348,6 +426,12 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 请注意，如果您已经在使用 Cloud Backup 时使用了过去配置的连接器，则现在需要将 Athena 和粘附权限添加到 Cloud Manager 用户角色中。这些是新的，搜索和还原需要它们。
 
 
+
+
+
+endif::aws[]
+
+ifdef::gcp[]
 
 * Google Cloud要求：
 +
@@ -358,6 +442,8 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 
 
 
+
+endif::gcp[]
 
 
 
@@ -388,9 +474,21 @@ image:diagram_search_restore_vol_file.png["一个示意图，用于显示使用 
 
 启用此功能后、Cloud Backup会在SVM上为卷启用SnapDiff v3、并执行以下操作：
 
-* 对于存储在AWS中的备份、它会配置一个新的S3存储分段和 https://aws.amazon.com/athena/faqs/["Amazon Athena 交互式查询服务"^] 和 https://aws.amazon.com/glue/faqs/["AWS 无服务器数据集成服务"^]。
-* 对于存储在Google Cloud中的备份、它会配置一个新存储分段和 https://cloud.google.com/bigquery["Google Cloud BigQuery服务"^] 在帐户/项目级别配置。如果您的工作环境已启用索引，请转到下一节以还原数据。
+ifdef::aws[]
 
+* 对于存储在AWS中的备份、它会配置一个新的S3存储分段和 https://aws.amazon.com/athena/faqs/["Amazon Athena 交互式查询服务"^] 和 https://aws.amazon.com/glue/faqs/["AWS 无服务器数据集成服务"^]。
+
+
+endif::aws[]
+
+ifdef::gcp[]
+
+* 对于存储在Google Cloud中的备份、它会配置一个新存储分段和 https://cloud.google.com/bigquery["Google Cloud BigQuery服务"^] 在帐户/项目级别配置。
+
+
+endif::gcp[]
+
+如果您的工作环境已启用索引，请转到下一节以还原数据。
 
 要为工作环境启用索引编制，请执行以下操作：
 

@@ -70,14 +70,11 @@
   <block id="ccf182129a2e67c326dd5939e1280df1" category="paragraph">在开始将内部卷备份到 Azure Blob 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="455299fd2e4b438ff8661df0bfd1cace" category="paragraph">下图显示了每个组件以及需要在它们之间准备的连接：</block>
   <block id="362e1fd025fbc54170675a786630faff" category="inline-image-macro">显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。</block>
-  <block id="5471ef0d1f59ac12122c1823b52b17e4" category="paragraph"><block ref="5471ef0d1f59ac12122c1823b52b17e4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a4281f453b01f203658a61cea1bdd627" category="paragraph">请注意，在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。</block>
   <block id="5c611511bb6c7851d2e8d2dda1c92506" category="section-title">准备 ONTAP 集群</block>
   <block id="226b317dc3b32fad613074ad133752ab" category="paragraph">您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。</block>
   <block id="b020365bc471630c977d9fcc2c5ea1d1" category="inline-link">了解如何发现集群</block>
   <block id="6ff483ff43e1d1341ed8bca213a5d6c2" category="paragraph"><block ref="781159370dedb574e61a716048070385" category="inline-link-rx"></block>。</block>
   <block id="1b6bc3125f482fcbcf029c833aea1290" category="list-text">ONTAP 要求</block>
-  <block id="c75fbb46ed66c205ea4af9d253795fee" category="list-text">ONTAP 9.7P5 及更高版本。</block>
   <block id="be2a4307ac15130326b39aa20133d5ed" category="list-text">SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。</block>
   <block id="cc92fa5132e2092953e468adecb520c2" category="paragraph">* 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。</block>
   <block id="ae01d724ba612f4c3231038db0a25d5c" category="inline-link">管理集群许可证</block>
@@ -121,15 +118,7 @@
   <block id="ac311923d7cae9a2261e1a28ccabceeb" category="inline-link-macro">了解如何管理 BYOL 许可证</block>
   <block id="39476a4d8825e098719d72ca18619ed8" category="paragraph">您需要为备份所在的对象存储空间订阅 Azure 。</block>
   <block id="64ab20ef71fee4648fc2a302300fa115" category="section-title">为备份准备 Azure Blob 存储</block>
-  <block id="f5af327d8e128d489f723361249498ad" category="list-text">如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保 Cloud Restore 虚拟机具有出站 Internet 访问权限，以便与以下端点联系。</block>
-  <block id="b8724da75fb917e992576b17378e66b3" category="cell">端点</block>
-  <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
-  <block id="ca83bae8f9f49c6390873ec116b8186f" category="cell">http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net</block>
-  <block id="b024a96f5e5c6b52b7a7a1c12ac5dd25" category="cell">为 Cloud Restore 虚拟机提供 CentOS 软件包。</block>
-  <block id="b514e4afd879933858e6a38ee697d64e" category="cell">http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io</block>
-  <block id="6a8713f173fcd346881a24feec268749" category="cell">Cloud Restore 虚拟机映像存储库。</block>
   <block id="5938ac938681497e7209c89bcf1fc58f" category="inline-link">了解如何使用您自己的密钥</block>
-  <block id="00f7bf154ed65a31af6cc66a6db12611" category="list-text">您可以在激活向导中使用选择自己的自定义管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。<block ref="50f2f49feb0afd07f1969b5faf2ca775" category="inline-link-rx"></block>。</block>
   <block id="f0bf61d20b6441a707c4f7c554b448cc" category="inline-link">请参见有关使用私有端点的详细信息</block>
   <block id="2197d8918b3cd72ff2ee47970d6be4ce" category="list-text">如果您希望通过公有 Internet 从内部数据中心更安全地连接到 vNet ，可以在激活向导中选择配置 Azure 私有端点。在这种情况下，您需要了解此连接的 vNet 和子网。<block ref="816f1de3134aa8b527c6ee03dddc7a42" category="inline-link-rx"></block>。</block>
   <block id="89096417437822e0dc275ea833d99200" category="section-title">启用 Cloud Backup</block>
@@ -180,7 +169,6 @@
   <block id="b7af34a4e3b220774dbc0e1ab60525ba" category="inline-image-macro">Kubernetes 信息板的屏幕截图，其中列出了要备份的所有 Kubernetes 集群和卷。</block>
   <block id="f27dc7aa48ba95864dcbd7f9f3031d81" category="paragraph"><block ref="f27dc7aa48ba95864dcbd7f9f3031d81" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8f0a75d2d5a82f31f2cf069c3b0ee684" category="inline-image-macro">更多图标</block>
-  <block id="ac2966ba606773d38faa9b00ab814402" category="list-text">找到要还原的卷，然后单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block>，然后是 * 卷详细信息 * 。</block>
   <block id="530c317db5924ab0beef599328be3a8f" category="paragraph">此时将显示该卷的所有备份文件列表以及有关源卷，目标位置和备份详细信息。</block>
   <block id="94c0f1a02bc8bbc1ffc72208379e9cbb" category="inline-image-macro">一个源卷的所有可用备份的屏幕截图。</block>
   <block id="d19a6624c6d3013d9c1c387c1cca7812" category="paragraph"><block ref="d19a6624c6d3013d9c1c387c1cca7812" category="inline-image-macro-rx" type="image"></block></block>
@@ -210,27 +198,19 @@
   <block id="97aa4a8b340eb63344d8eb78360a00a9" category="paragraph"><block ref="97aa4a8b340eb63344d8eb78360a00a9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1c46604b0617edfe2e838caa6b0d4817" category="paragraph">在开始将卷备份到 Azure Blob 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="6ecfc2b370e7d4995270910a47116471" category="paragraph"><block ref="6ecfc2b370e7d4995270910a47116471" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0d0ae31474b3c91084955ae098b59427" category="paragraph">在云中部署 Cloud Restore 虚拟机时，该虚拟机与 Connector 位于同一子网中。</block>
   <block id="eae7ed824c301543a7e09d88d74d7b19" category="list-text">支持的 ONTAP 版本</block>
-  <block id="d24c555e1f23ee33277066be1c47d5d0" category="list-text">Cloud Volumes ONTAP 9.7P5 及更高版本。</block>
   <block id="b5c9fa9bce15f0de1507e8a190b390e9" category="inline-link">您可以从工作环境向导的详细信息和 amp ；凭据页面订阅</block>
   <block id="3f1043f5ad3f3b6dafec8c0bb69ce366" category="list-text">对于 Cloud Backup PAYGO 许可，在启用 Cloud Backup 之前，需要通过 Azure Marketplace 订阅。Cloud Backup 的计费通过此订阅完成。<block ref="04783d4bbdbfb6af9e5fb891b016edd7" category="inline-link-rx"></block>。</block>
   <block id="bdaf195e79571aa760a337bc03bd82b0" category="paragraph">您需要为备份所在的存储空间订阅 Microsoft Azure 。</block>
   <block id="455aadf3bd22f71973763b3cdc7db550" category="list-text">支持的 Azure 区域</block>
   <block id="37420245846b4916dd24a15e0a208a94" category="list-text">所有 Azure 地区均支持 Cloud Backup<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>；包括 Azure 政府区域。</block>
-  <block id="5befa7486c8d00eaafce2041341f9c2e" category="list-text">在其他 Azure 订阅中创建备份所需的设置</block>
-  <block id="a2ff0bc78d093861138e916ba1b7cc8b" category="inline-link-macro">登录到 Azure 门户并链接这两个订阅</block>
-  <block id="0cb51e6ed7c689efeebeb6de708d8e58" category="list-text">默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 <block ref="9054d8fd2617d522cb8cc52a346f8430" category="inline-link-macro-rx"></block>。</block>
   <block id="066024cd527d9a0ba9916c0266c19676" category="list-text">使用客户管理的密钥进行数据加密所需的信息</block>
   <block id="ae027becb41143ec468cd24207a01b06" category="list-text">您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。<block ref="d293694b2edc7128e1ffe56e99f8ed99" category="inline-link-rx"></block>。</block>
-  <block id="56aa64221150b9dec59117f720cebd30" category="list-text">Azure 部署所需的出站 Internet 访问</block>
-  <block id="af4fc7133c8741b97eadd1d50c544cfc" category="list-text">Cloud Restore 虚拟机需要出站 Internet 访问。如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保此实例可以通过出站 Internet 访问与以下端点联系。</block>
   <block id="ea0d10c48d86f89a9ca08529f69a37ce" category="section-title">在新系统上启用 Cloud Backup</block>
   <block id="ea566cde7465e4ccf2df5cbdab272697" category="paragraph">Cloud Backup 在工作环境向导中默认处于启用状态。请务必保持此选项处于启用状态。</block>
   <block id="7ca1af679f0ba86814f2ad58a578cb7c" category="inline-link">在 Azure 中启动 Cloud Volumes ONTAP</block>
   <block id="3ed257b47c643900e9574b8c70a0c8a6" category="paragraph">请参见<block ref="e515c0e95325e358a799acebafdf6235" category="inline-link-rx"></block> 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。</block>
   <block id="5a356acba956eb49f49463a47b07dbdf" category="inline-xref">在现有系统上启用 Cloud Backup</block>
-  <block id="448a9307bcfeb42fcdcbada6b3fefc4a" category="admonition">如果要选择资源组的名称，请在部署 Cloud Volumes ONTAP 时 * 禁用 * 云备份。按照的步骤进行操作 <block ref="b0d51b36fb9fc0bca7d2dd53f406f3ac" category="inline-xref-macro-rx"></block> 启用 Cloud Backup 并选择资源组。</block>
   <block id="36233220222760341fc9ff566bc8f320" category="list-text">单击 * 创建 Cloud Volumes ONTAP * 。</block>
   <block id="5387e637e4dec0e9f79e98e81ca789ff" category="list-text">选择 Microsoft Azure 作为云提供程序，然后选择单个节点或 HA 系统。</block>
   <block id="d4181fc5781232f50f90b64c6aeddf08" category="list-text">在定义 Azure 凭据页面中，输入凭据名称，客户端 ID ，客户端密钥和目录 ID ，然后单击 * 继续 * 。</block>
@@ -245,7 +225,6 @@
   <block id="a9f4aa88b99fa4227e7e220d4178efb0" category="list-text">选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。</block>
   <block id="6b7ef72a61eee61912495d7bebd324ad" category="list-text">选择提供程序详细信息并单击 * 下一步 * ：</block>
   <block id="74c4b858feda3c891671448871a9278e" category="list-text">用于存储备份的 Azure 订阅。此订阅可以与 Cloud Volumes ONTAP 系统所在的订阅不同。</block>
-  <block id="1f1d430741bc6a0e3ed24dea15d600e3" category="paragraph">如果要对备份使用其他 Azure 订阅，则必须使用 <block ref="9054d8fd2617d522cb8cc52a346f8430" category="inline-link-macro-rx"></block>。</block>
   <block id="36a61c42aee1e6b2824cb7660d384c7e" category="list-text">要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。</block>
   <block id="6b963c4d6ce1e163d93491e0619ee621" category="list-text">是使用默认的 Microsoft 管理的加密密钥，还是选择您自己的客户管理的密钥来管理数据加密。 <block ref="9e310a1108b9dc778f6385369a79827b" category="inline-link-rx"></block>）。</block>
   <block id="eac56b4e0b0a9fcdaa19e3a98994c922" category="list-text">单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。</block>
@@ -271,7 +250,6 @@
   <block id="39a875b1e9ef9f5447dff029a4e31641" category="inline-link">了解如何发现 Kubernetes 集群</block>
   <block id="f39cf0371a8569a37618b2abf7fb11bd" category="inline-link-macro">如何安装 Trident</block>
   <block id="68fe2e383aebea35afdffc7be08dfbdd" category="inline-link">如何升级 Trident 版本</block>
-  <block id="4fb49628546c6009cf61c11f5b15cdad" category="list-text">Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 AWS 区域，并且必须运行 ONTAP 9.7P5 或更高版本。</block>
   <block id="7e750612c420301512a8e94f7491def1" category="paragraph">请注意，不支持内部位置中的 Kubernetes 集群。仅支持使用 Cloud Volumes ONTAP 系统的云部署中的 Kubernetes 集群。</block>
   <block id="17fc7550015fcf3581b1f6f07cc675a6" category="list-text">要用于创建要备份的永久性卷的所有永久性卷声明对象都必须将 "snapshotPolicy" 设置为 "default" 。</block>
   <block id="4f5e2f4b7c2b9f766c6a0e6a47209826" category="paragraph">您可以通过在标注下添加 `snapshotPolicy` 来为单个 PVC 执行此操作：</block>
@@ -306,7 +284,6 @@
   <block id="7ffdeee26efbb4de92b2a7d6b5011f0b" category="paragraph">选择 Google Cloud 作为提供商，然后输入提供商详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。</block>
   <block id="2e1115d39f7972f9468b4f2ab39cff31" category="paragraph"><block ref="2e1115d39f7972f9468b4f2ab39cff31" category="inline-image-macro-rx" type="image"></block></block>
   <block id="be956322a93c4a7bc2b8c8b049f7496e" category="paragraph">在开始将内部卷备份到 Google Cloud 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
-  <block id="e8ab6f6e04e79dc5df01bb98ecc3bf49" category="paragraph"><block ref="e8ab6f6e04e79dc5df01bb98ecc3bf49" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0ee205b9a66364b8bd529d4a5a68568a" category="list-text">ONTAP 集群通过端口 443 从集群间 LIF 启动 HTTPS 连接到 Google Cloud 存储，以执行备份和还原操作。</block>
   <block id="a45a0d78412f96d4e0612c2263af5042" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器可以位于 Google Cloud Platform VPC 中。</block>
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">节点的集群间 LIF 能够访问对象存储。</block>
@@ -346,7 +323,6 @@
   <block id="6433f8932ae76610af96dec0c0c9c0f2" category="paragraph">备份功能：</block>
   <block id="480780e18005ac0a5e932d9eefb712c5" category="list-text">将数据卷的独立副本备份到低成本对象存储。</block>
   <block id="978691ecd52f4541232e2bc2d3a0519b" category="list-text">将单个备份策略应用于集群中的所有卷，或者将不同的备份策略分配给具有唯一恢复点目标的卷。</block>
-  <block id="141d9fe657b5b6713828a97b1f7ee7bc" category="list-text">将旧备份文件分层到归档存储以节省成本（使用 ONTAP 9.10.1+ 时， AWS 和 Azure 支持此功能）</block>
   <block id="70074255acdc2a7ecaceae099892e971" category="list-text">从云备份到云，从内部系统备份到公有或私有云。</block>
   <block id="2558eb396fc11e78b640b17ffaa04330" category="list-text">对于 Cloud Volumes ONTAP 系统，备份可以位于不同的订阅 / 帐户或不同的区域。</block>
   <block id="2e266f5c456f5f6206428071c74410a6" category="list-text">使用 AES-256 位空闲加密和正在传输的 TLS 1.2 HTTPS 连接保护备份数据。</block>
@@ -360,17 +336,14 @@
   <block id="8c2fa8f9ca2c046b2cddcd4a9239752f" category="section-title">支持的 ONTAP 工作环境和对象存储提供程序</block>
   <block id="c69521d41090229a4c8162ebc8682468" category="paragraph">通过 Cloud Backup ，您可以将 ONTAP 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：</block>
   <block id="da3ad9d6a0eca9d57ad9063ff8690ab6" category="cell">源工作环境</block>
-  <block id="ed56c48eb3d77598d7dd71524f288c12" category="cell">备份文件目标</block>
   <block id="bdcb25a0b74cb8c3c6dc4deb7e7dc876" category="cell">AWS 中的 Cloud Volumes ONTAP</block>
   <block id="0e8f3fb260ced5550398e677e8e16659" category="cell">Azure 中的 Cloud Volumes ONTAP</block>
   <block id="c373a9aa878db8431d1195796e8e6695" category="cell">Google 中的 Cloud Volumes ONTAP</block>
   <block id="04769aee9bd2927c5587bd92b56cca85" category="cell">内部部署 ONTAP 系统</block>
-  <block id="8fd8baef259452fb3c9087d3ea45981e" category="cell">Amazon S3 Azure Blob Google 云存储 NetApp StorageGRID</block>
   <block id="5359990fe520094f026c7db90ea69230" category="paragraph">您可以将卷或单个文件从 ONTAP 备份文件还原到以下工作环境：</block>
   <block id="faa0833cd581ba985bc7c1435b239823" category="cell">备份文件</block>
   <block id="13afab58626a9721d363115ba16e409c" category="cell">* 位置 *</block>
   <block id="5bf0ec987a44f9a72eb5b422ea39344f" category="cell">* 卷还原 *</block>
-  <block id="1a76327eda0e870f05bb5a97b7328298" category="cell">* 文件还原 *</block>
   <block id="2d93497a3ea1b209cbf5982eb2d40323" category="cell">AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP</block>
   <block id="df595a3f2e073c08673c684c3c4dd5da" category="cell">Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP</block>
   <block id="9ecea76e21268445d7d03aec4130ba29" category="cell">Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP</block>
@@ -382,16 +355,9 @@
   <block id="d026ff3f28453705127abc556cf539e1" category="paragraph">向云提供商支付对象存储容量和在云中运行虚拟机 / 实例的资源费用。</block>
   <block id="7d42bbb55a0a84fa72ab6edcc4fae677" category="list-text">对于备份，您需要为云提供商支付对象存储成本。</block>
   <block id="0de9b3cec1ef6cadb404383ceab17afa" category="paragraph">由于云备份会保留源卷的存储效率，因此您需要为云提供商的对象存储成本支付 data_after_ ONTAP 效率（适用于应用重复数据删除和数据压缩后少量的数据）。</block>
-  <block id="4add3b76588efda22443faf65d7b33b8" category="list-text">对于使用 " 浏览和还原 " 进行文件还原的情况，只有在还原实例运行时，您才需要为云提供商的计算成本付费。</block>
-  <block id="61c85306674ea0662e30c30a451e8bb6" category="inline-link">m5n.xlarge 实例</block>
-  <block id="8eee98a18c217036ccb07ef6bed307a3" category="paragraph">在 m5n.xlarge 实例不可用的区域中， Restore 会在 m5.xlarge 实例上运行。</block>
-  <block id="8d63888e8805c64f266bdd3b3aae561b" category="inline-link">标准 D4s_v3 虚拟机</block>
-  <block id="ffc6e434091ae2664cbbe027fc45747f" category="paragraph">此实例名为 _Cloud-Restore-instance_ ，您的帐户 ID 与此实例连接在一起。例如： _Cloud-Restore-instance-MyAccount_ 。</block>
-  <block id="c44bf8d814d25bd36e966009ffe7c778" category="list-text">对于使用 " 浏览和还原 " 进行卷还原，不需要任何成本，因为不需要单独的实例或虚拟机。</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">* 服务费用 *</block>
   <block id="da7eba6ba6d65c47401a65d01a2b5be6" category="paragraph">服务费用支付给 NetApp ，用于支付这些备份的 _creation_backup_ 和 _restor_ 卷或文件的费用。您只需为所保护的数据付费，该数据是通过备份到对象存储的 ONTAP 卷的源逻辑已用容量（ _before_ONTAP 效率）计算得出的。此容量也称为前端 TB （前端 TB ）。</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="inline-xref">许可</block>
-  <block id="d0a5b6668607349b3c50295371780141" category="paragraph">有三种方式可以为备份服务付费。第一种选择是从云提供商订阅，这样您可以按月付费。第二种选择是获取年度合同，此合同仅通过 AWS 提供。第三种选择是直接从 NetApp 购买许可证。阅读 <block ref="b839456cc57645a9392f4db60a4f044a" category="inline-xref-macro-rx"></block> 部分以了解详细信息。</block>
   <block id="a4db2be5fc9fed95c3b899dc47229d5d" category="section-title">免费试用</block>
   <block id="150d0b73810898f0438b1126fa9d43d2" category="paragraph">使用 30 天免费试用版时，系统会通知您剩余的免费试用天数。在免费试用版结束时，备份将停止创建。您必须订阅此服务或购买许可证才能继续使用此服务。</block>
   <block id="853139cb08e7b4134237475a52139c44" category="paragraph">禁用此服务后，不会删除备份文件。除非删除备份，否则云提供商会继续为您的备份所使用的容量收取对象存储成本。</block>
@@ -475,7 +441,6 @@
   <block id="bb6081547e8fbef7f7f415d52896c5bd" category="paragraph">Cloud Backup 支持 FlexVol 读写卷和 SnapMirror 数据保护（ DP ）目标卷。</block>
   <block id="65955112d9a58afa4e9cfd638259282a" category="paragraph">目前不支持 FlexGroup 卷和 SnapLock 卷。</block>
   <block id="e646e16bee8b32e6ea29e30d01970a6c" category="section-title">限制</block>
-  <block id="251b7da7af067d92a6ff7f3e770e2df4" category="list-text">要将旧备份文件分层到归档存储，集群必须运行 ONTAP 9.10.1 或更高版本（目前 AWS 和 Azure 支持此功能）。从归档存储中的备份文件还原卷还要求目标集群运行 ONTAP 9.10.1+ 。</block>
   <block id="b2c42e88cb6710c9293d1ce23cdc3cd1" category="list-text">在创建或编辑备份策略时，如果没有为该策略分配任何卷，则保留的备份数最多可以为 1018 。作为临时解决策 ，您可以减少备份数量以创建策略。然后，在为策略分配卷后，您可以编辑此策略以创建多达 4000 个备份。</block>
   <block id="77d466b8234e6505b43fecdfba9bf69e" category="list-text">备份数据保护（ DP ）卷时，不会将具有以下 SnapMirror 标签的关系备份到云：</block>
   <block id="b17c9a947d4e38d7975718380fab6b7a" category="list-text">应用程序一致</block>
@@ -512,7 +477,6 @@
   <block id="0da172938aa3bca619803103b3df2ade" category="summary">将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCenter 相集成，将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。</block>
   <block id="18a6c204240510c87aba39d6d8b5d26b" category="doc">保护内部应用程序数据</block>
   <block id="37383c5357fd4592db933b96a8b85497" category="paragraph">您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。</block>
-  <block id="de051c2388d3f18bbd148f11063121a9" category="paragraph">您可以将内部 ONTAP 中的 Oracle 和 Microsoft SQL 应用程序数据备份到 Amazon Web Services 或 Microsoft Azure 。</block>
   <block id="0defa64858999a59daec4b1d2f4347aa" category="admonition">您应使用 SnapCenter 软件 4.6 。</block>
   <block id="bc2c0309ab805c8d369345a992e020bd" category="paragraph">在开始将应用程序数据备份到云服务之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="c3ce6809be6bdc67ae978395484d0585" category="list-text">ONTAP 9.8 或更高版本</block>
@@ -679,7 +643,6 @@
   <block id="16d050cc0c345f23a8c1f9d1557ac107" category="list-text">在确认对话框中，单击 * 取消注册 * 。</block>
   <block id="087310fbce62062547e7755ce36288a5" category="summary">了解 Cloud Backup 中的新增功能。</block>
   <block id="2b0d303ec45a6f12beec71d59abfee40" category="doc">Cloud Backup 的新增功能</block>
-  <block id="9793a7606042d0fe65c3a7569fe10e8a" category="inline-link-macro">了解有关保护内部应用程序数据到云的更多信息</block>
   <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">了解如何使用搜索和放大；还原</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">有关详细信息，请访问此处</block>
   <block id="f49fe4c56999dcc895c26b71ec63e34f" category="section-title">2022 年 2 月 14 日</block>
@@ -755,88 +718,31 @@
   <block id="ab2c0d976e4b8493ab1c105192825a2c" category="paragraph"><block ref="ab2c0d976e4b8493ab1c105192825a2c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f540dcb6244343752d809a32f46fe48c" category="paragraph">开始将卷备份到 S3 之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="c3f8e4a996caac8decf7c7e966b95425" category="paragraph"><block ref="c3f8e4a996caac8decf7c7e966b95425" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="db30dcc678647563a5a5d51841523ceb" category="paragraph">在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。</block>
-  <block id="439fdd1d5cfb4385143b828fda34969b" category="list-text">Cloud Volumes ONTAP 9.6 及更高版本。</block>
   <block id="5ce58e7ec95058884d843ee435f325eb" category="list-text">所有 AWS 地区均支持 Cloud Backup<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>；包括 AWS GovCloud 地区。</block>
-  <block id="5203ff4556ed5037a1fa6c4dbbdecaa2" category="list-text">在其他 AWS 帐户中创建备份所需的设置</block>
-  <block id="fabb672065eda5c24a37dfc40766d386" category="inline-link-macro">登录到 AWS 门户并链接这两个帐户</block>
-  <block id="7f7aa67e8e982d398b5f4be602378263" category="list-text">默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>。</block>
   <block id="ce648319d45a9a1e763cf027842a0260" category="list-text">您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
   <block id="02c17660d0f6b51d0aeadd6bfd390921" category="paragraph">以下是策略中的特定权限：</block>
-  <block id="81db035f5a5e6c5293eadeb3e395e79f" category="list-text">需要 AWS 还原权限</block>
-  <block id="48b0e91edc840d9f4e5a2c26360fcf4e" category="list-text">AWS 部署所需的出站 Internet 访问</block>
-  <block id="ad8d960ed8a770a28c14f108482c2074" category="list-text">Cloud Restore 实例需要出站 Internet 访问。如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保此实例可以通过出站 Internet 访问与以下端点联系。</block>
-  <block id="9a9a0a0bd8201ce1a6abd4ab55997994" category="cell">适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。</block>
-  <block id="848e213aeb7ca5e9d922c3b2643accef" category="cell">Cloud Restore 实例映像存储库。</block>
   <block id="6602afb860a6cca23c3b75bf601365eb" category="inline-link">在 AWS 中启动 Cloud Volumes ONTAP</block>
   <block id="de8166bbd2cfa133eaeed2915628dfbe" category="paragraph">请参见<block ref="497bfdbba9caf2f6a6f7d799eda40dc3" category="inline-link-rx"></block> 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。</block>
   <block id="d4aafebf40fcb8d9e66d2e757262f049" category="list-text">选择 Amazon Web Services 作为云提供商，然后选择单个节点或 HA 系统。</block>
   <block id="b44abc3e5e8508124c9a497fba2888b2" category="list-text">填写详细信息和凭据页面。</block>
   <block id="44b440d7f91cf8f6cb506cb256ae3bcb" category="paragraph">您可以 <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>。您也可以 <block ref="2725cea0a8dc9dd072cc5f5c23563bbd" category="inline-link-macro-rx"></block> 连接到 AWS 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。</block>
   <block id="a56e82f1b2b801aa90b2b1831bcd84f4" category="list-text">用于存储备份的 AWS 帐户。此帐户可以与 Cloud Volumes ONTAP 系统所驻留的帐户不同。</block>
-  <block id="1551f9c7ff96c2847bddea05633c6831" category="paragraph">如果要使用其他 AWS 帐户进行备份，则必须使用 <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>。</block>
   <block id="0ea4b8f8e49e76c407dc92eef3ef1c15" category="inline-link">了解如何使用您自己的加密密钥</block>
   <block id="c405c27a75a970faab6a45d722272f0e" category="list-text">是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 <block ref="bc512376b7a797d916a8cc982884f1f3" category="inline-link-rx"></block>）。</block>
   <block id="7817e0bb34e1919679d6efe442c34b7d" category="list-text">使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。 <block ref="58f01ad9ea7ce8fd23147681b9f27af7" category="inline-link-macro-rx"></block>。</block>
   <block id="dcff3c249c7fb676fe0af82644445673" category="paragraph"><block ref="dcff3c249c7fb676fe0af82644445673" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ce21e7ae4271271294ccbf54c8fd6864" category="summary">NetApp 通过多种方式为 Cloud Manager 提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和社区论坛。您的支持注册包括通过 Web 服务单提供的远程技术支持。</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">获取帮助</block>
-  <block id="6c82d791a5e7452f52c38a42d7b61c10" category="summary">您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，此帐户与源 Cloud Volumes ONTAP 卷所在位置不同，并且与 Cloud Manager Connector 所在帐户不同。</block>
-  <block id="da7bc8de90297f74e7e43d559d6f8a4c" category="doc">在 Azure 中配置用于多帐户访问的备份</block>
-  <block id="8429269282ffb8b1977a5b2d128d65ca" category="paragraph">通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 Azure 帐户中创建备份文件。这两个帐户都可以与 Cloud Manager Connector 所在的帐户不同。</block>
-  <block id="08fb1651cbfdb11878b475347705c01b" category="inline-link">将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储</block>
-  <block id="2a4ac893df9780b6108621896c9bfc7b" category="paragraph">只有在您使用时，才需要执行这些步骤<block ref="e74b3b06a2a8c2ff7fa54388adf98ac9" category="inline-link-rx"></block>。</block>
-  <block id="f9a8974587711b80f51f844aef1e99df" category="paragraph">只需按照以下步骤以这种方式设置您的配置即可。</block>
-  <block id="7effdaab63f2a455255267b1c45a602d" category="section-title">在帐户之间设置 vNet 对等关系</block>
-  <block id="2b8c0900fecf2fde6ad819b17c34d231" category="paragraph">请注意，如果您希望 Cloud Manager 在其他帐户 / 区域管理您的 Cloud Volumes ONTAP 系统，则需要设置 vNet 对等关系。存储帐户连接不需要建立 vNet 对等关系。</block>
-  <block id="7be5dff9f26dd0cfb7e5896d6142d4c7" category="list-text">登录到 Azure 门户，然后从主页选择 Virtual Networks 。</block>
-  <block id="24d6ea8c256f982be40d4e8e87a36c2c" category="list-text">选择要用作订阅 1 的订阅，然后单击要设置对等关系的 vNet 。</block>
-  <block id="010f020ec46dae654334c56b074681e9" category="paragraph"><block ref="010f020ec46dae654334c56b074681e9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ff903d724a3c43c1027ecc76bb702e6b" category="list-text">选择 * cbsnetwork* ，然后从左侧面板中单击 * 产品 * ，然后单击 * 添加 * 。</block>
-  <block id="48f2a3e5416499a845b82d79729c9d24" category="paragraph"><block ref="48f2a3e5416499a845b82d79729c9d24" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="29352d6eba72ea7dbb14542cfe329be6" category="list-text">在对等页面上输入以下信息，然后单击 * 添加 * 。</block>
-  <block id="35a314f287f704bbad5bca1d051178df" category="list-text">此网络的对等链路名称：您可以提供任何名称来标识对等连接。</block>
-  <block id="23a50db2830b340ce45406a69594314e" category="list-text">远程虚拟网络对等链路名称：输入一个名称以标识远程 vNet 。</block>
-  <block id="23251ed1ab3cfb08802622b5c2f690d3" category="list-text">将所有选择保留为默认值。</block>
-  <block id="f6158ca7f18c6d458f457bd8d96c59b3" category="list-text">在订阅下，选择订阅 2.</block>
-  <block id="4949fa102af5d259068b046bbcf72842" category="list-text">虚拟网络，请在订阅 2 中选择要设置对等关系的虚拟网络。</block>
-  <block id="25e65bc02464ec916d34bab534d7035e" category="paragraph"><block ref="25e65bc02464ec916d34bab534d7035e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1995f9fb02d5dc1ec670c575158c4755" category="list-text">在 subscription 2 vNet 中执行相同的步骤，并指定 subscription 1 的订阅和远程 vNet 详细信息。</block>
-  <block id="70ad9b34a75d793ad5ca4592ae835d9e" category="paragraph"><block ref="70ad9b34a75d793ad5ca4592ae835d9e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="51578c8638d5ef3ad9f76229b740c313" category="paragraph">此时将添加对等设置。</block>
-  <block id="daacd9916a3d67dff4ea461056675145" category="paragraph"><block ref="daacd9916a3d67dff4ea461056675145" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2aa38dadb98b1cc114f5605565fc8460" category="section-title">为存储帐户创建私有端点</block>
-  <block id="65f2f7b74f3cf2f1a25c4c81a6aaa2ee" category="paragraph">现在，您需要为此存储帐户创建一个专用端点。在此示例中，存储帐户在订阅 1 中创建， Cloud Volumes ONTAP 系统在订阅 2 中运行。</block>
-  <block id="720247e8961069a5c025366867b8b8fb" category="admonition">要执行以下操作，您需要网络贡献者权限。</block>
-  <block id="1da2c465a0473c669ecf45690f9c77f8" category="list-text">转到存储帐户 &gt; 网络 &gt; 专用端点连接，然后单击 * + 专用端点 * 。</block>
-  <block id="ab018e3a2da472dd06615e08149c8ae2" category="paragraph"><block ref="ab018e3a2da472dd06615e08149c8ae2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2e0fccb2492335abb1bf03e7895e57b1" category="list-text">在 Private Endpoint _Basics 页面中：</block>
-  <block id="47575dd43ad40803f135818d9b3c43fb" category="list-text">选择订阅 2 （部署 Cloud Manager Connector 和 Cloud Volumes ONTAP 系统的位置）和资源组。</block>
-  <block id="dcf7853e5720d1d4006d6354680dfca5" category="list-text">输入端点名称。</block>
-  <block id="8632ba911e67cd674d7aa46e9c33ca03" category="list-text">选择区域。</block>
-  <block id="8de80de63c22bf5501105fe1221042c7" category="paragraph"><block ref="8de80de63c22bf5501105fe1221042c7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="86429c7405c9ff23bac7996b6cc76306" category="list-text">在 _Resources_ 页面中，选择目标子资源为 * BLOB * 。</block>
-  <block id="78ce42b66c723160afef603d60cfbd83" category="paragraph"><block ref="78ce42b66c723160afef603d60cfbd83" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4f45f5d0c19691a0eac82881ce091080" category="list-text">在配置页面中：</block>
-  <block id="e17a8b8467cfbf9720f1af51cc6f6419" category="list-text">选择虚拟网络和子网。</block>
-  <block id="a9faeeb34299d046e7a14a5d1df3950a" category="list-text">单击 * 是 * 单选按钮以 " 与专用 DNS 区域集成 " 。</block>
-  <block id="cec5fb61420f116b9d3e7afb6183499d" category="paragraph"><block ref="cec5fb61420f116b9d3e7afb6183499d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="872d4b2a2e61a2a07fc61a362e17881d" category="list-text">在专用 DNS 区域列表中，确保从正确的区域中选择了专用区域，然后单击 * 查看 + 创建 * 。</block>
-  <block id="865c712e84080e3a8a2a2e9f3ced5e13" category="paragraph"><block ref="865c712e84080e3a8a2a2e9f3ced5e13" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="547e2a5eac8fbdbb2c8f7a56f61c8cbe" category="paragraph">现在，存储帐户（在订阅 1 中）可以访问在订阅 2 中运行的 Cloud Volumes ONTAP 系统。</block>
-  <block id="6c1ad99d058e5f7bd2ca1d2080dbc7ee" category="list-text">请重试在 Cloud Volumes ONTAP 系统上启用云备份，此时应成功启用。</block>
   <block id="e4eb771c510e3febaca5aa81f1155f85" category="doc">将内部 ONTAP 数据备份到 Amazon S3</block>
   <block id="180e97e259921e464d68cd76825f9337" category="paragraph">完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 存储。</block>
   <block id="b8752d8344f0777b3df39705ebfca22f" category="inline-image-macro">显示将卷从 ONTAP 系统备份到 AWS S3 时云提供商详细信息的屏幕截图。</block>
   <block id="5ada387e6bdf51389cbc58e3a326ec69" category="paragraph"><block ref="5ada387e6bdf51389cbc58e3a326ec69" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9e140440889c757014a9bc2eabbf0f85" category="inline-image-macro">屏幕截图显示了将卷从 ONTAP 系统备份到 AWS S3 时的网络连接详细信息。</block>
   <block id="2c4a72cdb0fff2addedf37dea946cf88" category="paragraph"><block ref="2c4a72cdb0fff2addedf37dea946cf88" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2a12eb134c1a7bf9323eeb868060f734" category="paragraph"><block ref="2a12eb134c1a7bf9323eeb868060f734" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">您需要为备份所在的对象存储空间订阅 AWS 。</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 文档：创建角色以向 IAM 用户委派权限</block>
   <block id="5d6d3c39001c5518d516e9053e5363e3" category="paragraph">请参见<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block> 了解详细信息。</block>
-  <block id="57dd5e8e540a82827fb8416885daba44" category="list-text">如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保 Cloud Restore 实例具有出站 Internet 访问权限，以便与以下端点联系。</block>
   <block id="a08b285fd78cf03936887841fbc87805" category="inline-link">请参见有关使用适用于 Amazon S3 的 AWS PrivateLink 的详细信息</block>
   <block id="54979ba354582c6f2824abc12558cf5a" category="inline-image-macro">与 Connector 关联的 AWS 安全组的屏幕截图。</block>
   <block id="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="paragraph"><block ref="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="inline-image-macro-rx" type="image"></block></block>
@@ -844,68 +750,6 @@
   <block id="6a214193b7d4e0d357a02a60f0b08db3" category="list-text">用于存储备份的 AWS 帐户， AWS 访问密钥和机密密钥。</block>
   <block id="747f0efebd1dba208c83630552f97a6d" category="list-text">要存储备份的 AWS 区域。</block>
   <block id="da6211c797a89720b6883bacdc774e98" category="list-text">或者，选择是否使用先前配置的 AWS PrivateLink 。<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>。</block>
-  <block id="dd94e6d5951947f0eff3b1955e4083ad" category="summary">通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同且与 Cloud Manager Connector 所在帐户不同的 AWS 帐户中创建备份文件。</block>
-  <block id="8e751a9486c9dfca33d698d89e8735cc" category="doc">在 AWS 中为多帐户访问配置备份</block>
-  <block id="6a8063f29ccc05aa9135dc170e2bb3fa" category="paragraph">通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 AWS 帐户中创建备份文件。这两个帐户都可以与 Cloud Manager Connector 所在的帐户不同。</block>
-  <block id="8058713b6e99091e9338b74c54fcf4d1" category="inline-link-macro">将 Cloud Volumes ONTAP 数据备份到 Amazon S3</block>
-  <block id="6fc5373fc5963d4fc74be3c09593d6cd" category="paragraph">只有在您使用时，才需要执行这些步骤 <block ref="1712a7b3a53406f071004d1011ed4c8b" category="inline-link-macro-rx"></block>。</block>
-  <block id="cc8f5b323a09317b230e8d9df9fd9fe5" category="paragraph">按照以下步骤以这种方式设置您的配置。</block>
-  <block id="8dda5cc49426a1529bde8a248cc69f3c" category="section-title">在帐户之间设置 VPC 对等关系</block>
-  <block id="23999be399dc666655c009d67e765a7f" category="list-text">登录到第二个帐户并创建对等连接：</block>
-  <block id="da124a43157a545c849d8d044177fa5c" category="list-text">选择本地 VPC ：选择第二个帐户的 VPC 。</block>
-  <block id="2bc490e4e2b6ea807815e0ae6f8d6364" category="list-text">选择其他 VPC ：输入第一个帐户的帐户 ID 。</block>
-  <block id="b8c0b1182f4103fb937e35c4b3d5ed22" category="list-text">选择运行 Cloud Manager Connector 的区域。在此测试设置中，两个帐户都在同一区域运行。</block>
-  <block id="0cc30f7ff998b548302215e5c813f3e7" category="list-text">VPC ID ：登录到第一个帐户并输入接收者 VPC ID 。这是 Cloud Manager Connector 的 VPC ID 。</block>
-  <block id="f37940e1c94c024babffc6656fe5d4cb" category="paragraph"><block ref="f37940e1c94c024babffc6656fe5d4cb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="46cd1193424d126ae819e16ccea775cf" category="paragraph">此时将显示成功对话框。</block>
-  <block id="09d396d9aff8a1584d61db9ad70830f5" category="paragraph"><block ref="09d396d9aff8a1584d61db9ad70830f5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0ed17cab8279c2b037bdab4523b50537" category="paragraph">对等连接的状态显示为待接受。</block>
-  <block id="54aceb9e33fcd332781c087dd2a435d9" category="paragraph"><block ref="54aceb9e33fcd332781c087dd2a435d9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d9a7222807f4794ab2093d32e006689d" category="list-text">登录到第一个帐户并接受对等请求：</block>
-  <block id="34e48e56b2732115af6c105d7a5a2364" category="paragraph"><block ref="34e48e56b2732115af6c105d7a5a2364" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1d5fe7b7af26cac39d4c1afc05604a0b" category="paragraph"><block ref="1d5fe7b7af26cac39d4c1afc05604a0b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="86ce5961ef6624058f736d93459d1889" category="list-text">单击 * 是 * 。</block>
-  <block id="392156e7bb0b5c698108c0dbd1718b7e" category="paragraph"><block ref="392156e7bb0b5c698108c0dbd1718b7e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b0af152910d091115e45fdca137f5e6c" category="paragraph">此时，此连接将显示为 "Active" 。我们还添加了一个名称标记来标识名为 `CBS-Multi-account` 的对等连接。</block>
-  <block id="fb9e6d839c4c0733662b7d1c3791f04f" category="paragraph"><block ref="fb9e6d839c4c0733662b7d1c3791f04f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="61ddfb970163206fba685a5f0288a53f" category="list-text">刷新第二个帐户中的对等连接，并注意状态将更改为 "Active" 。</block>
-  <block id="efad595592ce0aa3fd924c4dda391af1" category="paragraph"><block ref="efad595592ce0aa3fd924c4dda391af1" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3dd11551c4578618a1047768ca1080ff" category="section-title">向两个帐户中的路由表添加路由</block>
-  <block id="fef14d27984d5c5007fad3a8398d3ec6" category="list-text">转至 VPC &gt; 子网 &gt; 路由表。</block>
-  <block id="b93111065e7ccbab6abcba2c1a8f73fb" category="paragraph"><block ref="b93111065e7ccbab6abcba2c1a8f73fb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="17427bd5e56b832846f9b5977972eb9b" category="list-text">单击路由选项卡。</block>
-  <block id="151c3859381a10834ef3650ebfc04c63" category="paragraph"><block ref="151c3859381a10834ef3650ebfc04c63" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b7b9b631e23759ae9b15b6eb3fa5e222" category="list-text">单击 * 编辑路由 * 。</block>
-  <block id="7b598fc0eb5ff89574ab28967361b6cf" category="paragraph"><block ref="7b598fc0eb5ff89574ab28967361b6cf" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b20975ec2c9cc3c0b410539e7431ce3c" category="list-text">单击 * 添加路由 * ，然后从目标下拉列表中选择 * 对等连接 * ，然后选择您创建的对等连接。</block>
-  <block id="1cc0e6aa45469e0c97f4c8d01029c711" category="list-text">在目标中，输入另一帐户的子网 CIDR 。</block>
-  <block id="5aaec6437a876633deb75e4e44f13351" category="paragraph"><block ref="5aaec6437a876633deb75e4e44f13351" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="dc876faf644bb502138fe26e0c34cc2b" category="list-text">单击 * 保存路由 * ，此时将显示一个成功对话框。</block>
-  <block id="f222fc35d9f0a2e68dee5303c744b233" category="paragraph"><block ref="f222fc35d9f0a2e68dee5303c744b233" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="83ee06969289ad2709c85daa494b8e6d" category="section-title">在 Cloud Manager 中添加第二个 AWS 帐户凭据</block>
-  <block id="51bd60bef39198eadbd9d07f07b6f848" category="list-text">添加第二个 AWS 帐户，例如 _Saran-XCP-Dev_ 。</block>
-  <block id="101c8a0e2fe06335bed991a98fe511d6" category="paragraph"><block ref="101c8a0e2fe06335bed991a98fe511d6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="62d5e5b16a7d3cd4992e06a9e44f6b89" category="list-text">在发现 Cloud Volumes ONTAP 页面中，选择新添加的凭据。</block>
-  <block id="b81e988d180a4e5002c7da0a525bae8c" category="paragraph"><block ref="b81e988d180a4e5002c7da0a525bae8c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f985d1b240eac967d67d47f51d4b6923" category="list-text">选择要从第二个帐户发现的 Cloud Volumes ONTAP 系统。您也可以在第二个帐户中部署新的 Cloud Volumes ONTAP 系统。</block>
-  <block id="01f374c4058840889001edce93ae826c" category="paragraph"><block ref="01f374c4058840889001edce93ae826c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="843b67542940bb2cdfa06d92ed063953" category="paragraph">现在，第二个帐户中的 Cloud Volumes ONTAP 系统将添加到在其他帐户中运行的 Cloud Manager 中。</block>
-  <block id="d7c65f60ddee3212048c02a58dafe3f2" category="paragraph"><block ref="d7c65f60ddee3212048c02a58dafe3f2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5f984f141905e9a2ae976772c3a0ec88" category="section-title">在其他 AWS 帐户中启用备份</block>
-  <block id="0db1a08a4c5ab75fe461fbfc62c60b31" category="list-text">在 Cloud Manager 中，为第一个帐户中运行的 Cloud Volumes ONTAP 系统启用备份，但选择第二个帐户作为创建备份文件的位置。</block>
-  <block id="e1cba41a34f099af4da44519122e4819" category="paragraph"><block ref="e1cba41a34f099af4da44519122e4819" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="37fb64af7838c7812742277f86b82187" category="list-text">然后，选择一个备份策略以及要备份的卷， Cloud Backup 将尝试在选定帐户中创建一个新存储分段。</block>
-  <block id="c110fa61f3820ba9895f3bd3a9a34bf1" category="paragraph">但是，将存储分段添加到 Cloud Volumes ONTAP 系统将失败，因为 Cloud Backup 使用实例配置文件添加存储分段，而 Cloud Manager 实例配置文件无法访问第二个帐户中的资源。</block>
-  <block id="73b0a17a2aeef54342d85e4069276106" category="list-text">获取 Cloud Volumes ONTAP 系统的工作环境 ID 。</block>
-  <block id="e182d9c19bc99dfeae04b858ebce0657" category="paragraph"><block ref="e182d9c19bc99dfeae04b858ebce0657" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f1156c7e65b5a45e39da5b60f0b5969d" category="paragraph">Cloud Backup 会创建前缀为 `netapp-backup-` 的每个存储分段，并包含工作环境 ID ；例如： `87ULeA10`</block>
-  <block id="47b7a9cb88cc06a74b7f4cbf37ba50c0" category="list-text">在 EC2 门户中，转到 S3 并搜索名称以 `87uLeA10` 结尾的分段，此时您将看到分段名称显示为 `NetApp-backup-vsa87uLeA10` 。</block>
-  <block id="06491e371144d0540a634476a6bbd57c" category="paragraph"><block ref="06491e371144d0540a634476a6bbd57c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="874e4b5a29afc18670812401c549fda7" category="list-text">单击存储分段，然后单击权限选项卡，然后单击存储分段策略部分中的 * 编辑 * 。</block>
-  <block id="18a75610698bdc11d77aad0e366aea73" category="paragraph"><block ref="18a75610698bdc11d77aad0e366aea73" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="da7b3c31d6d6ff8dd2a478b5e8b64f15" category="list-text">为新创建的存储分段添加存储分段策略，以访问 Cloud Manager 的 AWS 帐户，然后保存更改。</block>
-  <block id="f40b6931520c713d2ab0451164991e85" category="paragraph">请注意， "AWs" ： "ARN ： AWS ： iam ：： 464262061435 ： root" 为帐户 464262061435 中的所有资源提供了此存储分段的完全访问权限。如果要将策略缩减为特定角色，级别，则可以使用特定角色更新策略。如果要添加单个角色，请确保同时添加了 occa 角色，否则备份将不会在 Cloud Backup UI 中更新。</block>
-  <block id="5cec8c57838d0c83b81a77b4cc1cff11" category="paragraph">例如： "AWs" ： "ARN ： AWS ： iam ：： 464262061435 ： role/cvo-instance-profile-version10-d8e-IamInstanceRole-ikjpJ1HC2E7R"</block>
   <block id="073db3a1088dabed85a0b9e458290ffe" category="summary">您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。</block>
   <block id="d2107ef674d9474576deedf431042a37" category="doc">管理应用程序的保护</block>
   <block id="b7e23f2fbc84fffbedf563f644b8df93" category="section-title">查看策略</block>
@@ -1025,7 +869,6 @@
   <block id="da95680877c2d8ff430e738df948144e" category="paragraph">在开始将内部卷备份到 StorageGRID 之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="35a7772387f55277aaf5e7a6fe0fd1de" category="paragraph">下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：</block>
   <block id="7c9c2c9135c9dd5b2198f3d2e909e271" category="paragraph"><block ref="7c9c2c9135c9dd5b2198f3d2e909e271" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="484a745f3addaa7481eba3c88d0b7d30" category="paragraph">请注意，此图中未显示云还原实例，因为当前使用 StorageGRID 时不支持单文件还原。</block>
   <block id="ca626f3b73b93a62c135713894e906eb" category="list-text">ONTAP 集群通过用户指定的端口从集群间 LIF 启动 HTTPS 连接到 StorageGRID ，以执行备份和还原操作。此端口可在备份设置期间进行配置。</block>
   <block id="56b804288a96913690a4b3ca49ceea54" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器必须位于您的内部。</block>
   <block id="556dad95e1ddce5110bf583aefc08e81" category="list-text">如有必要，请更新防火墙规则，以允许通过您指定的端口（通常为端口 443 ）从 ONTAP 到对象存储的 Cloud Backup Service 连接，并允许通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</block>
@@ -1063,7 +906,6 @@
   <block id="065e936a81a03d8084991529f2ecb28e" category="paragraph">在开始将 Kubernetes 永久性卷备份到 Blob 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="d6ea4d085acb7feedf70dfad55d12af7" category="paragraph"><block ref="d6ea4d085acb7feedf70dfad55d12af7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="efe4ad90c097b3e944ddb0e73553dce4" category="paragraph">请注意，私有端点是可选的。</block>
-  <block id="39313774b5e582806019797697a4b8ad" category="list-text">Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 Azure 区域，并且必须运行 ONTAP 9.7P5 或更高版本。</block>
   <block id="4216f1ed77e39a831eabf2f65c0d56d8" category="list-text">所有 Azure 地区均支持 Cloud Backup<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>。</block>
   <block id="10529b4a25e9696c4ba72d76e2fdc25d" category="paragraph"><block ref="10529b4a25e9696c4ba72d76e2fdc25d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5cf322cefc810d29bf6edaec8079e4f8" category="paragraph">备份文件将使用与 Cloud Volumes ONTAP 系统相同的 Azure 订阅和区域存储在 Blob 容器中。</block>
@@ -1083,8 +925,6 @@
   <block id="d8bfe71b250180e0bed0dd3556bc2e5b" category="cell">在 * 所有备份文件 * 中按部分或完整卷名称，部分或完整文件名，大小范围以及其他搜索筛选器搜索卷或文件</block>
   <block id="fa6009564cbbb803ab9e939ec7396236" category="cell">不处理已重命名或删除的文件</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件</block>
-  <block id="41fabcd0633ee21cc8817616beb7441f" category="cell">文件还原需要单独的 Cloud Restore 实例</block>
-  <block id="67df1ec38e03c69b2d9b22ff27f89b98" category="cell">不需要 Cloud Restore 实例</block>
   <block id="8425d41c6f9d3b6f077b56c4d49651a4" category="paragraph">在使用任一还原方法之前，请确保已为环境配置了唯一的资源要求。以下各节将介绍这些要求。</block>
   <block id="91679e5e03d41aefa89ddfa7649b05d2" category="paragraph">请参见要使用的还原操作类型的要求和还原步骤：</block>
   <block id="ab298a1df9e049ac3ba4c02e893cc475" category="inline-xref">使用浏览和放大功能还原卷；还原</block>
@@ -1094,10 +934,8 @@
   <block id="d08ca3094836aa46649fef00f2bd8721" category="inline-xref">使用搜索和放大器还原卷和文件；还原</block>
   <block id="4a004f1075f4bc7f4174e142c73348e7" category="list-text"><block ref="d90a3cee47716ccf76cc7618cda7d58d" category="inline-xref-macro-rx"></block></block>
   <block id="603d72dccb888dcc907e3f3437dabf42" category="section-title">使用浏览和还原还原 ONTAP 数据</block>
-  <block id="3f23c2e3558a095de0fd0b3c0b291ead" category="paragraph">* 注意： * 如果要还原的卷的备份文件位于归档存储中（从 ONTAP 9.10.1 开始可用于 AWS 和 Azure ），则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="f0a32293e7110abfd30f9402fa924815" category="inline-link-macro">了解有关从 Azure 归档存储还原的更多信息</block>
   <block id="b23bca1a2a7f2ec270c7be93eb3d5720" category="inline-link-macro">了解有关从 AWS 归档存储还原的更多信息</block>
-  <block id="e33b2538e1db7f1e9837dab0d72b46f8" category="paragraph"><block ref="40cf1b022c7194f1fda41ab0b0dcc94c" category="inline-link-macro-rx"></block>。<block ref="ca127c5e9bec15815ed41459177c241d" category="inline-link-macro-rx"></block>。</block>
   <block id="3137db9876bc57bceab513dbed918445" category="section-title">浏览并还原支持的工作环境和对象存储提供程序</block>
   <block id="a56368bdfe1c12e155e1b5736efd5b34" category="admonition">如果备份文件驻留在归档存储中，则仅支持卷还原。使用浏览和还原时，当前不支持从归档存储还原文件。</block>
   <block id="515ab291ab79ec8cfa9e1523b5a9a8ef" category="section-title">使用浏览和还原还原卷</block>
@@ -1120,13 +958,11 @@
   <block id="8e494bd03a27f49a3a42559fa89f035a" category="list-text">从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。</block>
   <block id="51610f62d18ca7d65b1b6ede56b0ec28" category="list-text">从 Azure Blob 还原时，请选择目标卷所在的 ONTAP 集群中的 IP 空间，选择 Azure 订阅以访问对象存储，并可选择通过选择 vNet 和子网选择用于安全数据传输的私有端点。</block>
   <block id="8e4c50ba47b740ee23a3b8d84d794692" category="list-text">从 Google Cloud Storage 还原时，请选择 Google Cloud Project 以及访问密钥和机密密钥以访问对象存储，备份存储所在的区域以及目标卷所在的 ONTAP 集群中的 IP 空间。</block>
-  <block id="1e3cfe65350f18a96898763c607195ac" category="list-text">从 StorageGRID 还原时，请选择访问对象存储所需的访问密钥和机密密钥，以及目标卷所在的 ONTAP 集群中的 IP 空间。</block>
   <block id="cd3ebcc6f514bb5edbdbd3cbbf6c817f" category="list-text">输入要用于还原的卷的名称，然后选择此卷要驻留的 Storage VM 。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
   <block id="9763ccd6f6f7cd192255a18d4e2c5a16" category="inline-image-macro">输入要还原的新卷名称的屏幕截图。</block>
   <block id="7766d2d18828bfdebdf9558da5b44366" category="paragraph"><block ref="7766d2d18828bfdebdf9558da5b44366" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3dc4adefeded6d02946715b2aa1e7dd5" category="paragraph">只有在将卷还原到内部 ONTAP 系统时，您才能选择卷将用于其容量的聚合。</block>
   <block id="15c25e27b550e844257a7920d4c7a5ea" category="paragraph">如果您要从位于归档存储层（从 ONTAP 9.10.1 开始提供）中的备份文件还原卷，则可以选择还原优先级。</block>
-  <block id="52814911bd19ee58ffd2088fab3261ee" category="paragraph"><block ref="e84408fa2ad67b16ce499fc31f7f4f81" category="inline-link-macro-rx"></block>。<block ref="cacf15576b46da141d22ed2be2ccc0c6" category="inline-link-macro-rx"></block>。</block>
   <block id="331e823e611c54b97405788cbceb2421" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。</block>
   <block id="ca83adebc55f88d6dccac68b18bcad1a" category="paragraph">请注意，从归档存储中的备份文件还原卷可能需要数分钟或数小时，具体取决于归档层和还原优先级。您可以单击 * 作业监控 * 选项卡查看还原进度。</block>
   <block id="bed4e5c461e028397bd33a3f2ac09eac" category="section-title">使用浏览和还原还原 ONTAP 文件</block>
@@ -1138,8 +974,6 @@
   <block id="c7c8552e901417195541087cc58cacbc" category="section-title">文件还原过程</block>
   <block id="01a85f08913124872d9b17dfdb08959a" category="paragraph">此过程如下所示：</block>
   <block id="41f309499907b455906bace48be5a25a" category="list-text">如果要从卷备份中还原一个或多个文件，请单击 * 还原 * 选项卡，单击 _Browse &amp; Restore_ 下的 * 还原文件 * ，然后选择文件所在的备份文件。</block>
-  <block id="25fd380189003d3f39bbb7de0a7e40fc" category="list-text">还原实例将启动并显示选定备份文件中的文件夹和文件。</block>
-  <block id="9c963e83113a07eeaf1d82065f433a42" category="paragraph">* 注意： * 首次还原文件时，还原实例将部署在云提供商的环境中。</block>
   <block id="6676184bc154f348d5794457f2ad2f6d" category="list-text">选择要从该备份还原的一个或多个文件。</block>
   <block id="dfa6a50b10edbdf8a3ed1ba311814487" category="list-text">选择要还原文件的位置（工作环境，卷和文件夹），然后单击 * 还原 * 。</block>
   <block id="983985e7b5c6473861f79292288f8649" category="inline-image-macro">一个图，显示了使用浏览和放大；还原执行文件还原操作的流程。</block>
@@ -1153,7 +987,6 @@
   <block id="1268343ed55a914755648aeb28283201" category="list-text">在 _Select Source" 页面中，导航到包含要还原的文件的卷的备份文件。选择具有要从中还原文件的日期 / 时间戳的 * 工作环境 * ， * 卷 * 和 * 备份 * 。</block>
   <block id="294de02a01f018eddaca4f1722710ed4" category="inline-image-macro">为要还原的文件选择卷和备份的屏幕截图。</block>
   <block id="17f463b982b788d27adf5ed39c7de8a9" category="paragraph"><block ref="17f463b982b788d27adf5ed39c7de8a9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fd0d479ff0135e407a463fe915b4a8d0" category="paragraph">* 注意： * 首次还原文件时，还原实例会部署在云提供商的环境中，因此，首次执行此步骤可能需要几分钟的时间。</block>
   <block id="abd0505d3f4d78afa169d1521e472dbd" category="inline-image-macro">选择文件页面的屏幕截图，用于导航到要还原的文件。</block>
   <block id="0d5da4345b644e5ab72058eaf1cbc7c3" category="paragraph"><block ref="0d5da4345b644e5ab72058eaf1cbc7c3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9677fe1b0942f1fad65f8462f339f2ad" category="list-text">在 _Select Files_ 页面中，选择要还原的一个或多个文件，然后单击 * 继续 * 。要帮助您查找文件，请执行以下操作：</block>
@@ -1176,7 +1009,6 @@
   <block id="f86cddb5af7f6094afd9672eaafed050" category="list-text">您可以将鼠标悬停在某个文件夹上并单击 <block ref="3ff15a622a2116b6d2d6b57ef7b58fef" category="inline-image-macro-rx" type="image"></block> 在行末尾展开以深入到子文件夹，然后选择一个文件夹。</block>
   <block id="f796c6f8164612a32c915b45289071cd" category="list-text">如果选择的目标工作环境和卷与源文件所在的位置相同，则可以选择 * 维护源文件夹路径 * 将文件或所有文件还原到源结构中存在的同一文件夹。所有相同的文件夹和子文件夹都必须已存在；不会创建文件夹。</block>
   <block id="1416ed4c9545330801c21cba765ded61" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击 * 作业监控 * 选项卡查看还原进度。</block>
-  <block id="156338817692a044f95ba61acd72b727" category="paragraph">还原实例在一段时间处于非活动状态后会关闭，以节省您的资金，以便只有在处于活动状态时才会产生成本。</block>
   <block id="1c60eafb2bcc4dfa9a04abebcbb62b4e" category="section-title">使用搜索和还原还原 ONTAP 数据</block>
   <block id="9132930f60be96e86f4380dfc1386bf3" category="paragraph">您可以将文件还原到原始卷位置，同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</block>
   <block id="87e12bc1b54923f05d8d8365d473b744" category="paragraph"><block ref="ca127c5e9bec15815ed41459177c241d" category="inline-link-macro-rx"></block>。</block>
@@ -1411,7 +1243,6 @@
   <block id="916de09e13f9b94e688ab4e6175f2885" category="paragraph">在选择卷页面中确定要备份的卷。备份文件将使用与 Cloud Volumes ONTAP 系统相同的 GCP 订阅和区域存储在 Google 云存储分段中。</block>
   <block id="ef15478cabaf21c4a3c8477e93312cee" category="paragraph">在开始将 Kubernetes 永久性卷备份到 Google Cloud 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="80ee3c92c3cce3c679ccda509fb3d378" category="paragraph"><block ref="80ee3c92c3cce3c679ccda509fb3d378" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c72338bd9f4ba077270dfaddff6f0369" category="list-text">Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 GCP 区域，并且必须运行 ONTAP 9.7P5 或更高版本。</block>
   <block id="672d5169919efa7cbd903c5d4f8738a2" category="paragraph">备份文件将使用与 Cloud Volumes ONTAP 系统相同的 GCP 订阅和区域存储在 Google 云存储分段中。</block>
   <block id="1b4b320c37a1b9c9d6fa4ae43dc38bdc" category="summary">您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Cloud Volumes ONTAP 和内部 ONTAP 系统的备份。</block>
   <block id="c12ce93f1ee9ce3604a77d484e32fe56" category="doc">管理 ONTAP 系统的备份</block>
@@ -1420,8 +1251,6 @@
   <block id="2a42635401c2f16c2080bd6994708fa1" category="inline-link-macro">了解有关使用 Azure 归档存储的更多信息</block>
   <block id="2ee1435ab41f69d919a20dc4c3d48cc8" category="inline-link-macro">了解有关使用 AWS 归档存储的更多信息</block>
   <block id="c81d760440bb2bb201c4889ed32ea087" category="inline-image-macro">屏幕截图显示了 Cloud Backup 的归档存储设置分层。</block>
-  <block id="88ca6566bf61e897964d34c4a123e1db" category="paragraph"><block ref="88ca6566bf61e897964d34c4a123e1db" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e03b9339e448a0fb0fb4f48c911d9c65" category="paragraph">请注意，如果您停止将备份分层到归档存储，则已分层到归档存储的所有备份文件都会保留在该层中，而这些备份不会自动移回标准层。</block>
   <block id="9aace0794d6df869d512f2e096ad11a7" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于工作环境，请选择 * 管理卷 * 。</block>
   <block id="a6e5dd17f2ec5621325991bb454d2e7b" category="section-title">随时创建手动卷备份</block>
   <block id="f26bde028c33dffe4f2bd8f1b74584d5" category="paragraph">您可以随时创建按需备份，以捕获卷的当前状态。如果对卷进行了非常重要的更改，而您不希望等待下一次计划备份来保护该数据，或者如果卷当前未进行备份，而您希望捕获其当前状态，则此功能将非常有用。</block>
@@ -1434,17 +1263,10 @@
   <block id="442391dda03e697fd1fff76d6d68c838" category="list-text">从 * 卷 * 选项卡中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于源卷，然后选择 * 详细信息和备份列表 * 。</block>
   <block id="b5058c23615ec62ba7adbb4b757fdc8a" category="paragraph">如果您不想再使用备份功能，而希望在工作环境中不再需要为备份付费，则可以取消注册适用于此工作环境的 Cloud Backup 。通常，如果您计划删除工作环境并要取消备份服务，则会使用此功能。</block>
   <block id="37695f2c0158d2d30558c2d20892077d" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要取消注册备份服务的工作环境，请选择 * 取消注册 * 。</block>
-  <block id="ea8a2356278a22c30f10f434b2817051" category="summary">这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。</block>
-  <block id="7a53699637b912f01aa7132ea51f400b" category="doc">跨帐户和跨区域配置</block>
-  <block id="d5a79fec0152d5b9f187e79f6b283242" category="inline-link-macro">在 AWS 中配置 Cloud Backup 以实现多帐户访问</block>
-  <block id="3e09ff3eab93d05fbedc4dbf5f29307b" category="list-text"><block ref="3e09ff3eab93d05fbedc4dbf5f29307b" category="inline-link-macro-rx"></block></block>
-  <block id="9612f9e9155213e869c9b3a8f05e2ca4" category="inline-link-macro">在 Azure 中配置 Cloud Backup 以实现多帐户访问</block>
-  <block id="9d8c1bcd2b5235cf83b240a7de1ef594" category="list-text"><block ref="9d8c1bcd2b5235cf83b240a7de1ef594" category="inline-link-macro-rx"></block></block>
   <block id="e5df9ae2e68ee55688688cf3c2915421" category="summary">Cloud Backup 提供备份和还原功能，用于保护和长期归档数据。</block>
   <block id="846099e77083903f32f72c0e2156c3c5" category="doc">Cloud Backup 文档</block>
   <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">在向 NetApp 技术支持创建支持案例之前，您需要先将 NetApp 支持站点帐户添加到 Cloud Manager 中，然后注册获取支持。</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">注册以获得支持</block>
-  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">所有 Cloud Manager 文档</block>
   <block id="76cc4d7d39e779cc966a6cb01a3b17aa" category="sidebar">Cloud Backup 文档</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">发行说明</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
@@ -1473,8 +1295,6 @@
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">参考</block>
   <block id="0253148ca606e51aa3fdb4d9f8b84f32" category="sidebar">支持的 AWS 归档存储层</block>
   <block id="9f442565cfeffa804173efd111c4d74c" category="sidebar">支持的 Azure 归档访问层</block>
-  <block id="15ab165885255fcc1d504e3757e4f995" category="sidebar">在 AWS 中配置备份以实现多帐户访问</block>
-  <block id="37c606e486cf867317024daab096d5c7" category="sidebar">在 Azure 中配置备份以实现多帐户访问</block>
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知识和支持</block>
   <block id="5fef629b836b60819e0c0ce49cd2b9d7" category="sidebar">新增功能</block>
   <block id="c1d2d81968b4f89d4185d4baf66ba468" category="sidebar">将 ONTAP 数据备份到云</block>
@@ -1509,10 +1329,7 @@
   <block id="aec3f107e722aa43f3d2fe7191720a9c" category="paragraph">选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * ，然后按照设置向导进行操作。</block>
   <block id="86a833c12958f07575d29f3d5d9926a6" category="paragraph"><block ref="e36987e16d256e466a9acd794b4b3498" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5bf0ca4cfe23ac32e3d45a286b91b311" category="list-text">在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。</block>
-  <block id="3e75e13e53d4c5c1d22207efcaa0e783" category="list-text">在 AWS 中，还原实例在上运行<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和仅限 EBS 的实例存储。操作系统映像为 Amazon Linux 2 。</block>
-  <block id="9cd257410791914582184188f35f06ac" category="list-text">在 Azure 中，还原虚拟机在上运行<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> 具有 4 个 CPU ， 16 GB 内存和 32 GiB 磁盘。操作系统映像为 CentOS 7.5 ）。</block>
   <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</block>
-  <block id="8fbd59a133dcfda8cee282a5de58e452" category="paragraph">例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">备份和还原 Kubernetes 永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
@@ -1522,37 +1339,23 @@
   <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
   <block id="5cd8f01849080c583021a91f23942914" category="list-text">如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</block>
   <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>。</block>
-  <block id="5ec0e34db1f9e57ce343263019c9c2b0" category="list-text">可浏览且可搜索的文件目录，用于选择单个文件进行单个文件还原。</block>
-  <block id="7c50c77e0fa6a4acce1dd964575cf0da" category="paragraph">只有在浏览备份文件以查找要还原的各个文件时，此实例才会运行。不使用实例时，该实例将关闭以节省成本。</block>
-  <block id="eda2e5118f80ed23863efd871fe97b1e" category="paragraph"><block ref="4c415cce11b2e607b8fde97291a59b9c" category="inline-link-rx"></block>。</block>
   <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>。</block>
   <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022 年 3 月 3 日</block>
-  <block id="387cd7ab52bc5fa4b28d5ab54360a48f" category="paragraph">如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。<block ref="39d25c9214775db10710eba772faa6a0" category="inline-link-rx"></block>。</block>
   <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
   <block id="efaa7c999dedec2704fc2db580ad4967" category="section-title">2021 年 11 月 5 日</block>
   <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021 年 10 月 4 日</block>
   <block id="94144629a142bf78b4252a00351a8862" category="paragraph">如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</block>
-  <block id="e0458b8253a5a9360f13731ee3855136" category="list-text">IAM 角色需要以下 EC2 权限，此角色为 Cloud Manager 提供权限，使其可以启动，停止和终止 Cloud Restore 实例以执行浏览和还原操作：</block>
-  <block id="17bc81342559cb663f4a2d8ce0019c77" category="list-text">将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止用于浏览和还原操作的 Cloud Restore 实例：</block>
   <block id="11ce5891710552c1e865ae4676df2879" category="summary">备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个 ONTAP 卷，也可以从备份文件还原单个文件。</block>
   <block id="2af55e36133bee199e6856aa4e468486" category="paragraph">您可以将 * 卷 * （作为新卷）还原到原始工作环境，使用相同云帐户的其他工作环境或内部 ONTAP 系统。</block>
   <block id="49b3fb49db06a6317743033ac39be690" category="paragraph">您可以将 * 文件 * 还原到原始工作环境中的卷，使用相同云帐户的其他工作环境中的卷或内部 ONTAP 系统上的卷。</block>
   <block id="fc9da4a32e8272d9816ffe0aa5970592" category="paragraph">概括地说，当您需要从过去一周或一个月还原特定卷或文件时， _Browse &amp; Restore" 通常会更好—您知道文件的名称和位置，以及文件的最后一个状态良好的日期。通常，当您需要还原卷或文件时， _Search &amp; Restore" 会更好，但您不记得确切的名称，卷所在的卷或最后一个卷状态良好的日期。</block>
-  <block id="95b053a527e7cc21aea66df63760c8dd" category="cell">卷还原适用于存储在 Amazon S3 ， Azure Blob ， Google Cloud 和 NetApp StorageGRID 中的备份文件。文件还原适用于存储在 Amazon S3 和 Azure Blob 中的备份文件</block>
   <block id="0252629b615d666988e90a14fcf4deec" category="paragraph">在开始还原卷或文件之前，您应知道要还原的卷或文件的名称，卷所在工作环境的名称以及要从中还原的备份文件的大致日期。</block>
   <block id="91c3ddf19f416d0a8c7658b15c646d42" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原到原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="f69b765af6afabfc9faf4bcb989c85e7" category="paragraph">Cloud Backup 会根据您选择的备份创建一个新卷。您可以 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 根据需要。</block>
   <block id="de390d962a903ec8ccc52b638f497114" category="paragraph">如果您只需要从 ONTAP 卷备份还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到原始工作环境中的现有卷，也可以还原到使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。</block>
   <block id="2cfe9659cdef6b61005a35e5ad1c7305" category="paragraph">如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。因此，如果要将文件还原到不同的卷，则需要多次运行还原过程。</block>
   <block id="56117adb607ac3f106c0bbef47e34bdc" category="admonition">如果备份文件驻留在归档存储中，则无法还原单个文件。在这种情况下，您可以从尚未归档的较新备份文件还原文件，也可以从归档的备份还原整个卷，然后访问所需的文件，或者使用搜索和还原还原还原文件。</block>
-  <block id="4cff09715eb850dd75d9ffb61cd7126e" category="inline-link-macro">要为文件还原操作部署的实例类型</block>
-  <block id="70ab4b01412ca8f78f38d5e6fcddb3a0" category="list-text">从备份文件还原单个文件使用单独的还原实例 / 虚拟机。请参见 <block ref="888bbc8761b09bd3d9fa09b9ad08942e" category="inline-link-macro-rx"></block> 并确保您的环境已准备就绪。</block>
-  <block id="bd256beae5b23a5a166057d79fd16d89" category="inline-link-macro">验证您的配置是否已准备好还原文件</block>
-  <block id="f2f4c2b67f9024f567ad60e0a34f77a5" category="list-text">从 Amazon S3 上的备份还原文件需要将特定的 AWS EC2 权限添加到为 Cloud Manager 提供权限的用户角色中。您还需要允许出站 Internet 访问以联系某些端点。 <block ref="f0b7a77fce17fc030034600052420c1d" category="inline-link-macro-rx"></block>。</block>
-  <block id="da148b1501f1acb945b431209385495f" category="list-text">从 Azure Blob 上的备份还原文件需要能够访问出站 Internet 以联系特定端点。 <block ref="6c6a7508bd839fd3dc4d77e76bc043b3" category="inline-link-macro-rx"></block>。</block>
-  <block id="0be0883d639da8a73049672529f55c34" category="list-text">文件将被还原，还原实例将在一段时间不活动后关闭，以节省成本。</block>
   <block id="0689108de18135e4dd390fe62d7027d6" category="paragraph">按照以下步骤将文件从 ONTAP 卷备份还原到卷。您应知道要用于还原文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</block>
-  <block id="0b6c73e03f53d01f1c938ab1589db4b7" category="list-text">单击 * 继续 * ，此时将启动还原实例。几分钟后，将显示卷备份中的文件夹和文件列表。</block>
   <block id="ec20735efd036ef56f709e9a07587140" category="paragraph">您可以使用搜索和还原从 ONTAP 备份文件还原卷或单个文件。通过搜索和还原，您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷或文件，然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</block>
   <block id="c87406bc7afbf4c1491aba5c6a89782b" category="paragraph">搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以从 " 画布 " 上的 " 卷详细信息 " 页面将快照还原为新卷。</block>
   <block id="bd0f4c161a252516fc5ca2f8121fe5d5" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
@@ -1576,7 +1379,6 @@
   <block id="d2ad1da6ad2f6901b037159165028912" category="paragraph">您可以 <block ref="14977a695b05dfa7b0cad6887e2a74bd" category="inline-xref-macro-rx"></block> 可随时从管理备份页面访问。</block>
   <block id="ad806d4b803a5aa7358400786d14dec0" category="section-title">2022 年 4 月 4 日</block>
   <block id="223fdeee6256cb135700ded14acc7574" category="section-title">适用于应用程序的 Cloud Backup 1.1.0 （由 SnapCenter 提供支持）现已正式上市</block>
-  <block id="1d62f7c162a37407056f64380ddd240c" category="paragraph">通过适用于应用程序的 Cloud Backup 新功能，您可以将适用于 Oracle 和 Microsoft SQL 的现有应用程序一致性快照（备份）从内部主存储卸载到 AWS S3 或 Azure Blob 中的云对象存储。</block>
   <block id="1959411b4282df2234896496da39c42f" category="paragraph">如果需要，您可以将此数据从云还原到内部环境。</block>
   <block id="0749ae9ea79ee87dd8c530f67a9065fe" category="section-title">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件</block>
   <block id="afffc0d082245313c31dfcac23d2d8e0" category="section-title">能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储</block>
@@ -1618,12 +1420,8 @@
   <block id="3e19f65259b291185c71923ab2706352" category="list-text">您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。<block ref="fe9c905e0ac5679eb2b5a96bea671a0a" category="inline-link-rx"></block>。</block>
   <block id="45dcf6622abb43241222865addb2141d" category="paragraph">您可以 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 Azure 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
   <block id="5559993f6f3050a853326203c63f7ed0" category="cell">浏览公有 云和本地 Snapshot 副本的结果</block>
-  <block id="3691dfcc8de33cbb04ec369b9c9ca1f2" category="cell">浏览单个文件的备份时与 Cloud Restore 实例相关的成本</block>
-  <block id="5075268a5a2ccf18c7eca7254f1a3def" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中（从 ONTAP 9.10.1 开始可用于 AWS ），则还原操作将需要较长的时间并产生额外成本。请注意，目标集群也必须运行 ONTAP 9.10.1 或更高版本，并且当前不支持从归档存储还原文件。</block>
   <block id="2ebbc61b9bf1d65389010d4baeb388c1" category="list-text">您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。<block ref="9f26112087077321f30a8a9a55bedf44" category="inline-link-rx"></block>。</block>
   <block id="e63547e1b25be3f2854e3f50cbc53e4c" category="paragraph">您可以 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
-  <block id="e0413a89d4f4e5f20e8ebe8fa7f79026" category="paragraph">如果您的集群运行的是 ONTAP 9.10.1 或更高版本，并且您使用 AWS 或 Azure 作为云存储，则还可以选择在一定天数后启用或禁用将备份分层到归档存储。</block>
-  <block id="550dc506285db04f092b52843f119230" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。<block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>。</block>
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">在更新工作环境详细信息之前，您不应继续操作。更新工作环境详细信息可能需要长达 30 分钟的时间。30 分钟后，您应关闭向导并从步骤 1 重试以查看工作环境详细信息。如果未更新工作环境详细信息，则重试后，请确保添加了正确的工作环境。</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 或<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
   <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
@@ -1699,11 +1497,6 @@
   <block id="2d0d225e73f16b3d6a3fd87e23385c8e" category="paragraph">在配置从内部 ONTAP 系统到 Google 云存储的备份时，您可以使用两种连接方法。</block>
   <block id="9a5f1a8ca0c47b2989eff1e34ffce9a2" category="list-text">公有 连接—使用公有 Google 端点将 ONTAP 系统直接连接到 Google 云存储。</block>
   <block id="bb34fe147704098832eaf972d37eaa4e" category="list-text">专用连接—使用 VPN 或专用服务连接，并通过使用专用 IP 地址的专用 Google 访问接口路由流量。</block>
-  <block id="c0b38ac1651b4a4c818cb5bf53f05730" category="paragraph">下图显示了公有 连接方法以及组件之间需要准备的连接：</block>
-  <block id="ad6390bd2fbe7e30262456cfc385f70e" category="paragraph">下图显示了专用连接方法以及组件之间需要准备的连接：</block>
-  <block id="34271c6e72f8115075291b8b40a514a6" category="paragraph"><block ref="34271c6e72f8115075291b8b40a514a6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9d420cf71a5b9a71abf46456eb58f8ed" category="cell">https://download.docker.com/linux/centos/docker-ce.repo</block>
-  <block id="756d8723023e48c330841a5fab0f9e6f" category="cell">提供 Docker 引擎软件包。</block>
   <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。</block>
   <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">请参见可用的连接方法。</block>
   <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
@@ -1713,7 +1506,6 @@
   <block id="aba3af0142718cdcd318e58a13cac0e0" category="paragraph">在 Cloud Manager 中发现您的 ONTAP 集群，验证集群是否满足最低要求，并自定义网络设置，以便集群可以连接到 AWS S3 。</block>
   <block id="6ac7a4162c2e3c973c8dcb8ad3493ff7" category="inline-xref">了解如何使内部 ONTAP 集群做好准备。</block>
   <block id="499fc037a59ef7c075fdde4e7b0311d1" category="paragraph"><block ref="0293805a32fb419ae9403f81b2c4ce54" category="inline-xref-macro-rx"></block></block>
-  <block id="9dad53cc3eddc452d0abe23bd13dc183" category="paragraph">为 Connector 设置权限，以便创建和管理 S3 存储分段以及使用还原实例还原数据。并为内部部署 ONTAP 集群设置权限，以便可以将数据读写到 S3 存储分段。</block>
   <block id="ec5fd71f14fddb1ee3f48a5fd3a21922" category="inline-xref">了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。</block>
   <block id="94ef8c88d53d721a37930e0ad90fc657" category="paragraph">或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。 <block ref="7cfd3dfde247971381059dc97a351faf" category="inline-xref-macro-rx"></block></block>
   <block id="79b318611bba9affb629965e88dcf62b" category="paragraph">选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 &gt; 备份卷 * 。然后，按照设置向导定义默认备份策略和要保留的备份数，并选择要备份的卷。</block>
@@ -1723,7 +1515,6 @@
   <block id="f764b94a0b4a8b2e8da17ee285d14147" category="paragraph">在配置从内部 ONTAP 系统到 AWS S3 的备份时，您可以使用两种连接方法。</block>
   <block id="e0e3556797f60e28e9764edb1e90829b" category="list-text">公有 连接—使用公有 S3 端点将 ONTAP 系统直接连接到 AWS S3 。</block>
   <block id="c00f71153c1c02168311396c4ac129f0" category="list-text">专用连接—使用 VPN 或 AWS Direct Connect ，并通过使用专用 IP 地址的 VPC 端点接口路由流量。</block>
-  <block id="efe861e5b853e6ac375256164208dc09" category="paragraph"><block ref="efe861e5b853e6ac375256164208dc09" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea97cc2428a460eae122a94c68a8b16a" category="section-title">准备您的连接器</block>
   <block id="54f5743f88e60d1c4f6d28ddce6523c9" category="paragraph">Cloud Manager Connector 是 Cloud Manager 功能的主要软件。需要使用连接器来备份和还原 ONTAP 数据。</block>
   <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">如果您已在 AWS VPC 中部署了 Connector ，则可以随时完成所有操作。如果没有，则需要在 AWS 中创建新的连接器，以便将 ONTAP 数据备份到 AWS S3 存储。您不能使用部署在内部或部署在其他云提供商中的 Connector 。</block>
@@ -1749,13 +1540,10 @@
   <block id="aa82b0633ff8ba724f265336515caa95" category="section-title">准备 AWS 环境</block>
   <block id="95be42e50b8072b622c23cf84099c7b8" category="section-title">设置 S3 权限</block>
   <block id="0d0602824136f714807f54069c6d5a89" category="paragraph">您需要配置两组权限：</block>
-  <block id="636d1743c2626211e893636c33846551" category="list-text">Connector 创建和管理 S3 存储分段以及使用还原实例还原数据的权限。</block>
   <block id="e1e27de3274b6be648bacdf85d89a282" category="list-text">内部 ONTAP 集群的权限，以便可以将数据读写到 S3 存储分段。</block>
   <block id="a6e42fec71384a3a5d77eba684fba2c9" category="inline-link">AWS 文档：编辑 IAM 策略</block>
   <block id="7a181e2f5ba5c59c2121d5b286238585" category="paragraph">如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>。</block>
   <block id="e4ba209f1e83c31c97d006aab1897e1d" category="list-text">激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：</block>
-  <block id="b8471833713b205fce6b0c37afe7c220" category="section-title">验证 Cloud Restore Internet 访问</block>
-  <block id="4f0f8734b8eb262313537f384daa2aad" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</block>
   <block id="c2217bd93d297ddc08ba3a9c93fb29aa" category="list-text">使用 Amazon VPC 控制台或命令行创建接口端点配置。<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>。</block>
   <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">从备份策略添加 S3 权限</block>
   <block id="c68e08ee2b5be8ff44e713441b6aa84d" category="list-text">修改与 Cloud Manager Connector 关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 如前面所示。</block>
@@ -1771,7 +1559,6 @@
   <block id="8dd3e6a31b8a75eeb45e98712fe43de2" category="paragraph">在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以使用两种连接方法。</block>
   <block id="f5600159597876145df0a17b2fda758a" category="list-text">公有 连接—使用公有 Azure 端点将 ONTAP 系统直接连接到 Azure Blob 存储。</block>
   <block id="425a7bc4b6c89f92d2181e801ef73c3f" category="list-text">专用连接—使用 VPN 或 ExpressRoute ，并通过使用专用 IP 地址的 vNet 专用端点路由流量。</block>
-  <block id="95fed8e8e89cebef0228fbad327d5470" category="paragraph"><block ref="95fed8e8e89cebef0228fbad327d5470" category="inline-image-macro-rx" type="image"></block></block>
   <block id="36f90f57c6d6c8005dc1e458201e8083" category="paragraph">在为集群激活Cloud Backup之前、您需要从NetApp购买并激活Cloud Backup BYOL许可证。此许可证适用于帐户，可在多个系统中使用。</block>
   <block id="18b34ebf5042da0c5320c1b1148cd8d4" category="paragraph"><block ref="18b34ebf5042da0c5320c1b1148cd8d4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b1f8a1f93af0a13c4859f88d0991cd9d" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于Kubernetes集群、选择*管理永久性卷*。</block>
@@ -1798,7 +1585,6 @@
   <block id="49cbaef969d427f74417618eaa641c54" category="paragraph">可以随时直接从Kubernetes工作环境启用Cloud Backup。</block>
   <block id="a1eb634b81be113bee0e21e6a20c118c" category="inline-image-macro">选择要备份的永久性卷的屏幕截图。</block>
   <block id="e89d53cec577b746e47f09500583b69a" category="paragraph"><block ref="e89d53cec577b746e47f09500583b69a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3a5495b8c186512ed45b3440255aa43a" category="list-text">如果希望将来添加的所有卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。</block>
   <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
   <block id="403f4772d715b69d553d3568ca523be0" category="section-title">现在、Google Cloud Storage中的备份文件支持搜索和还原</block>
   <block id="a2824b49f1c7526bf0e925b86c7b293c" category="inline-link">请参见如何使用搜索和放大器还原卷和文件</block>
@@ -1846,8 +1632,6 @@
   <block id="8d8630ce63e489500c1a1b11f72bee42" category="list-text">在AWS中、<block ref="d5a3b912b6075cc4f090f53976a7cdd5" category="inline-link-rx"></block> 和<block ref="b9cad212d942ecacb38ec39aea6c65ac" category="inline-link-rx"></block> 资源部署在新的S3存储分段中。</block>
   <block id="9fece9ac1c7d50fbf1a1498b93cbeb15" category="inline-link">Google Cloud BigQuery服务</block>
   <block id="fedaab8c05c476a14c09d3ad41bf9a22" category="list-text">在Google中、将部署一个新存储分段、并部署<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> 在帐户/项目级别配置。</block>
-  <block id="5fea59f5100d10373148a70e99443593" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据(在使用ONTAP 9.10.1+时、AWS支持此功能)、则云提供商会额外收取每GiB检索费用和每请求费用。</block>
-  <block id="7ef1937f23b0648d47bec83c9561c609" category="paragraph">Cloud Backup提供三种许可选项：按需购买(PAYGO)订阅、AWS Marketplace提供的年度合同以及自带许可证(BYOL)。如果您订阅了PAYGO、则可以免费试用30天。</block>
   <block id="064c350d3c00a83f07954b1df0abeda5" category="list-text">在为集群激活Cloud Backup之前、您需要从AWS订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
   <block id="f57cdf7c9fa7a0ba9e1d28f75103f5bf" category="list-text">对于 Cloud Backup PAYGO 许可，您需要订阅<block ref="779a1c8f04c765f369d1b47694f2c2f0" category="inline-link-rx"></block> 使用Cloud Backup。Cloud Backup 的计费通过此订阅完成。</block>
   <block id="7bb5996433ada9f3161a0d8f5695dc3b" category="list-text">如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅AWS提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 <block ref="36493bbba79c7c4eddc07ad75acbe470" category="inline-link-macro-rx"></block></block>
@@ -1868,7 +1652,6 @@
   <block id="7a202a9d8fd73c34c9ace74214a753d3" category="list-text">在使用搜索和还原之前，您需要在要从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷的备份文件。</block>
   <block id="3793247d55ecb643a716dc72373dfb6a" category="paragraph">启用此功能后、Cloud Backup会在SVM上为卷启用SnapDiff v3、并执行以下操作：</block>
   <block id="7f55f1ead15a67b08eea9e732f6ed59d" category="list-text">对于存储在AWS中的备份、它会配置一个新的S3存储分段和<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> 和<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>。</block>
-  <block id="c44278ad43fbe360e4ca928f671f88b9" category="list-text">对于存储在Google Cloud中的备份、它会配置一个新存储分段和<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> 在帐户/项目级别配置。如果您的工作环境已启用索引，请转到下一节以还原数据。</block>
   <block id="1febcfde465ce9cfbf21c08aa17b6a2b" category="paragraph">如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将Kubernetes集群拖动到Amazon S3工作环境中以启动设置向导。</block>
   <block id="73454754c1af733fbae3cb63539996ef" category="paragraph">如果在ONTAP 集群上首次激活云备份时未选择将备份策略自动分配给新创建的卷的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。</block>
   <block id="152ce4fa26eb65e8e96a262e60518c22" category="paragraph"><block ref="152ce4fa26eb65e8e96a262e60518c22" category="inline-image-macro-rx" type="image"></block></block>
@@ -1904,7 +1687,6 @@
   <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">第二个图</block>
   <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>。</block>
   <block id="adba439901e690844020282dc0e87c32" category="paragraph">如果您使用端口80 (HTTP)与专用端点进行通信、则表示您已设置完毕。您现在可以在集群上启用 Cloud Backup 。</block>
-  <block id="d58fcd28ca27643e7a41fc5c17398721" category="paragraph">如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将证书添加到ONTAP 集群、如接下来的4个步骤所示。</block>
   <block id="9494561b819165d9f1e8e339562e316d" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="0617c2fce5134dbc852516af04fe18ee" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
   <block id="35902f649443d8dd6c5f04595fff3035" category="paragraph">如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略。在为新Kubernetes集群激活Cloud Backup时、此选项可在设置向导中使用。</block>
   <block id="677e0bc1aa65f4ce3324deca0bcf87f0" category="section-title">2022年6月8日</block>
@@ -2002,4 +1784,152 @@
   <block id="b418e05c847b656e4a8ac26f2f0cc045" category="inline-link">了解有关保护虚拟机到云的更多信息</block>
   <block id="3a5ea6bb0616fe3f66bd74e5e18fd1b3" category="paragraph"><block ref="95fa49d8f0b9a0affedd5e0d4a52c2d2" category="inline-link-rx"></block>。</block>
   <block id="7c8db0bef9b3c6a1335fe8f0a09bfdef" category="sidebar">备份和还原虚拟机数据</block>
+  <block id="338b73eb5ee02b02ceb307b68866c9f2" category="section-title">ONTAP 浏览和还原功能不需要云还原实例</block>
+  <block id="c2f301bf47b0e51a835909a868e786b5" category="paragraph">以前从S3和Blob存储执行文件级浏览和还原操作需要一个单独的Cloud Restore实例/虚拟机。此实例在不使用时关闭、但在还原文件时仍会增加一些时间和成本。此功能已被一个免费容器所取代、此容器可在需要时部署在Connector上。它具有以下优势：</block>
+  <block id="b7a41babdf28bb4d456f0725ccfbc402" category="list-text">文件级还原操作不会增加成本</block>
+  <block id="898be2b1c15b9168ca69a0986639cb4e" category="list-text">文件级还原操作速度更快</block>
+  <block id="f8cae2a44d4ac885154da71ae7da347a" category="list-text">支持在内部安装Connector时从云中对文件执行浏览和还原操作</block>
+  <block id="b7fe1f1109cab9c0a50f4ac3ee36df48" category="paragraph">请注意、如果您先前使用了Cloud Restore实例/VM、则该实例/VM将自动删除。</block>
+  <block id="06a21d28fcdc17ce4f2e4747a1fe635b" category="section-title">浏览并还原对Google Cloud和StorageGRID 存储中文件的支持</block>
+  <block id="60222043eb5ad60b7dd1964a983d4f85" category="inline-link">请参见如何使用浏览和放大功能；还原ONTAP 备份中的卷和文件</block>
+  <block id="68792eeb104c6fe1ef3c561265ed75dd" category="paragraph">现在、通过添加用于浏览和还原操作的容器(如上所述)、可以从存储在Google Cloud和StorageGRID 系统中的备份文件执行文件还原操作。现在、浏览和还原可用于在所有公有 云提供商之间以及从StorageGRID 还原文件。<block ref="a4ebf9bfc678bc28afd45dff032c4465" category="inline-link-rx"></block>。</block>
+  <block id="fe3455104008d8da35fbd267dbef0701" category="section-title">拖放以启用Cloud Backup到S3存储</block>
+  <block id="5e1eb4d1c116b2c77bbd1fbc73321106" category="paragraph">如果用于备份的Amazon S3目标作为工作环境存在于Canvas上、则可以将本地ONTAP 集群或Cloud Volumes ONTAP 系统(安装在AWS中)拖动到Amazon S3工作环境中以启动设置向导。</block>
+  <block id="da1d5a542623977c61bd148b8576513c" category="section-title">自动将备份策略应用于Kubernetes集群中新创建的卷</block>
+  <block id="31d9f5df125d9014e9c296eed143904c" category="inline-link">从_Backup Settings_页面</block>
+  <block id="0781288780239fb5b3a1479574714ff9" category="paragraph">如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略<block ref="11a3efd6b42c9f2e763586db69ebed23" category="inline-link-rx"></block> 适用于已激活Cloud Backup的集群。</block>
+  <block id="52e2c3fc6fb58a0ca1eb816ca6e270ed" category="section-title">Cloud Backup API现在可用于管理备份和还原操作</block>
+  <block id="8334797b9b3383d4f48d98178b8845ea" category="inline-link-macro">此页面</block>
+  <block id="b83e2caeb95bea361704be4e9e795cd1" category="paragraph">这些API可从获取<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。请参见 <block ref="cf7847f4c926eb96d69d319dfdc23654" category="inline-link-macro-rx"></block> 有关API的概述。</block>
+  <block id="45ee97ced966affff074d2bc1efe2686" category="paragraph">通过全新的Cloud Backup for Applications功能、您可以将适用于Oracle和Microsoft SQL的现有应用程序一致性快照(备份)从内部主存储卸载到Amazon S3或Azure Blob中的云对象存储。</block>
+  <block id="8a0841a62164343a6bb78ffd4349420f" category="inline-link">了解有关保护内部应用程序数据到云的更多信息</block>
+  <block id="98d0ff36da367aa918057b6c42219851" category="paragraph"><block ref="6ddb7afc666833c3265591e4f4bdc4a7" category="inline-link-rx"></block>。</block>
+  <block id="6ff133e735e841b3a54d6f8c0a84c071" category="paragraph">如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。 <block ref="04c62f5c961d468f8c7e3d8b6a8a1398" category="inline-link-macro-rx"></block>。</block>
+  <block id="5050ceb19d886a5ee0cc9eeb2c7afec5" category="list-text">将旧备份文件分层到归档存储以节省成本(使用ONTAP 9.10.1+时支持)</block>
+  <block id="99522022ab0c5a70369e13570bafc3bb" category="list-text">可浏览且可搜索的文件目录、用于选择单个文件进行单个文件还原。</block>
+  <block id="49930e1d4376887999c072bd91775525" category="cell">备份文件目标ifdef：：AWS]]</block>
+  <block id="8889077573d45691231050324d93b6a9" category="cell">Amazon S3 endif：：AWS]] ifdef：：azure[]</block>
+  <block id="0959a2f5eff65303771c49363a01d789" category="cell">Azure Blob endf：：azure[] ifdef：：GCP[]</block>
+  <block id="c0b279eeed106351906f95aa546f2ffa" category="cell">Google Cloud Storage endif：gcp[]</block>
+  <block id="45258f319fcdf104df4058c07c21ef2e" category="cell">ifdef：：：AWS]] Amazon S3 endf：：AWS]] ifdef：：azure[] Azure Blob endf：：azure[] ifdef：：GCP；Google Cloud Storage endf：：GCP；NetApp StorageGRID</block>
+  <block id="5ea51d13d3e392d52aa5c1c4bd7d5e09" category="cell">*文件还原* ifdef：：AWS</block>
+  <block id="bc7aa7434d0ca9752e2c02b4ffee9953" category="cell">AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[]</block>
+  <block id="b97f160a229c063bdce958beafa0f695" category="cell">Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[]</block>
+  <block id="a9f8eef7fdd18a9397fd96b661adbbf3" category="cell">Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[]</block>
+  <block id="50447057d0b53e52a90454c49619b112" category="list-text">如果您需要从已移至归档存储的备份文件还原卷数据、则云提供商会额外收取每GiB检索费用和每请求费用。</block>
+  <block id="7f4e982bcc5753d9d97c31f1f4d46a2b" category="paragraph">有三种方式可以为备份服务付费。第一种选择是从云提供商订阅，这样您可以按月付费。第二种选择是获得年度合同。第三种选择是直接从 NetApp 购买许可证。阅读 <block ref="b839456cc57645a9392f4db60a4f044a" category="inline-xref-macro-rx"></block> 部分以了解详细信息。</block>
+  <block id="1478456724f7cf413d717f4b502d39dc" category="paragraph">Cloud Backup提供了几种许可选项：</block>
+  <block id="7aa341986b280fa0687cef85956d92b3" category="list-text">按需购买(PAYGO)订阅</block>
+  <block id="10716bb4d070e4dad16ec08644ae66f8" category="list-text">AWS Marketplace的年度合同</block>
+  <block id="2134e7a0d0b7da83dba2f3a5d5bd3677" category="list-text">自带许可证(BYOL)</block>
+  <block id="eb7278b6fb34a503757928f323204218" category="paragraph">首次注册PAYGO订阅时、您可以获得30天免费试用。</block>
+  <block id="1ab00b260d8ce265da81957e2ab8768a" category="list-text">要将旧备份文件分层到归档存储、集群必须运行ONTAP 9.10.1或更高版本。从归档存储中的备份文件还原卷还要求目标集群运行 ONTAP 9.10.1+ 。</block>
+  <block id="54bddc4e25a88aae05bb69520422c997" category="list-text">订阅可确保在免费试用结束后不会中断服务。试用结束后，系统会根据您备份的数据量按小时收取费用。</block>
+  <block id="5f5358182364ef304e26de4fc2395537" category="list-text">如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
+  <block id="49871198f1fc79f432cd047f40a00a48" category="paragraph">有几个适用于Cloud Backup的PAYGO计划：</block>
+  <block id="20e92bedd41f67c18b032dfcce8e6443" category="list-text">一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。</block>
+  <block id="82d5e1384762b2b00baba048469a1e46" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。ifdef：：azure[]</block>
+  <block id="cf8915b92cd8246fa33ede992991143a" category="summary">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
+  <block id="83d4ca6f3242470b8b6011e0437e8875" category="doc">Cloud Backup API</block>
+  <block id="efbb9906182277bbe4fa02293b54accb" category="paragraph">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
+  <block id="4bf340facb217ae6764d899b29239d58" category="paragraph">Cloud Backup Service 中定义了八类端点：</block>
+  <block id="402051f4be0cc3aad33bcf3ac3d6532b" category="list-text">backup</block>
+  <block id="46f22f2a56ddd091f4b2b2c35c5ca989" category="list-text">目录</block>
+  <block id="a1234b3161b4fbfdfb96dd576b65bbea" category="list-text">云</block>
+  <block id="9dddd5ce1b1375bc497feeb871842d4b" category="list-text">作业</block>
+  <block id="718779752b851ac0dc6281a8c8d77e7e" category="list-text">license</block>
+  <block id="bb2ac0b8da1f64a3498af147ba43fc10" category="list-text">还原</block>
+  <block id="cddd2b11445e1c8453ea0da106dab7a6" category="list-text">单个文件级还原(SFR)</block>
+  <block id="d9a2a68e5e36f917b84ad2543b9d7eb9" category="list-text">工作环境</block>
+  <block id="cb59b87e00d11222bfd9159d0d23836f" category="section-title">入门</block>
+  <block id="cb8eae28208af8da6d1790f12f05d13a" category="paragraph">要开始使用Cloud Backup API、您需要获取用户令牌、Cloud Central帐户ID和Cloud Connector ID。</block>
+  <block id="bbf08442377d1261b670978c8cee59b5" category="paragraph">在进行API调用时、您将在Authorization标头中添加用户令牌、并在x-agent-id标头中添加Cloud Connector ID。您应在API中使用Cloud Central帐户ID。</block>
+  <block id="6f1f68c4600a11c04b4d3eaa5313820c" category="list-text">从 NetApp Cloud Central 获取用户令牌。</block>
+  <block id="8006289517e097344c5132b125d48612" category="list-text">获取您的NetApp Cloud Central帐户ID。</block>
+  <block id="80e7fa6f7ec235f2ec73e616228b4d5a" category="paragraph">此API将返回如下响应。您可以通过解析来自*。*的输出来检索帐户ID。*。* accountPublicId]*。</block>
+  <block id="b3bf0eaed051ad833a0c7b63ac0f2118" category="list-text">获取包含Cloud Manager Connector ID的x-agent-id。</block>
+  <block id="b3080cdc3d4f3f5baa6015e73aeff8f4" category="paragraph">此API将返回如下响应。您可以通过解析*例.[0].[代理].[agentId]*中的输出来检索代理ID。</block>
+  <block id="b62dbbecd6533f9627427d34160e7d75" category="section-title">使用API的示例</block>
+  <block id="5f1680fbed66bdfc227917827cf94d6b" category="paragraph">以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用一个新策略激活工作环境备份、该策略将每天、每小时和每周标签设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。如果选择"auto-backup-enabled"：true、则系统中已存在的任何卷都会进行备份、并添加未来的卷。</block>
+  <block id="d5d102436513dca0dc1b7ccf3b2ebd36" category="paragraph">您会看到、我们使用的是Cloud Central帐户ID "account-DpTfcxN3"、Cloud Manager Connector ID "iZwFfeVCzjWnzGlw8RgD0QQNANZvpP7Icliers"和用户令牌"Bearer JhbGciOiJSIU1NiIISI1NIJVJIJIJIJI1NIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJI…</block>
+  <block id="8243464aa42a67375338d8b893252d77" category="listing-title">response是一个作业ID、您可以监控该ID。</block>
+  <block id="7b029d80356dba73932cd4b67641ab73" category="listing-title">监控响应。</block>
+  <block id="b6c768315d9228aa5e18b2250a18a10e" category="listing-title">响应。</block>
+  <block id="c39d07aa3697a8b5b1eb9963f6cd194c" category="listing-title">监控、直到"状态"为"已完成"为止。</block>
+  <block id="d6f4f4fada8d5c3952a90492c3138e97" category="sidebar-title">令牌过期时应执行什么操作？</block>
+  <block id="1539598d4e260b03b9265b87976a6ab0" category="paragraph">来自 NetApp Cloud Central 的用户令牌具有到期日期。要刷新令牌、您需要再次调用步骤 1 中的 API 。</block>
+  <block id="5c5cd253b66501facf455779c806ee88" category="paragraph">API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。</block>
+  <block id="19ec08da81a826d919d64ab860845c04" category="section-title">API 参考</block>
+  <block id="daeeb32b9a2ca59f58bedaba9bbc41b5" category="paragraph">有关每个Cloud Backup API的文档、请参见<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。</block>
+  <block id="381ea68c9177a4bf66e46b23e8b00041" category="paragraph">为Connector设置创建和管理S3存储分段的权限。您还需要为内部ONTAP 集群设置权限、以便其可以向S3存储分段读取和写入数据。</block>
+  <block id="ff247e0b9dec078f64375cea521d6967" category="inline-image-macro">显示Cloud Backup如何通过公有 连接与备份文件所在的源系统和目标存储上的卷进行通信的示意图。</block>
+  <block id="c89072bad24c59ee1e75f21a078e74df" category="paragraph"><block ref="c89072bad24c59ee1e75f21a078e74df" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="72a85eeb7619147de9e2c529ca33c992" category="inline-image-macro">显示Cloud Backup如何通过专用连接与源系统上的卷以及备份文件所在的目标存储进行通信的图表。</block>
+  <block id="0a736544bf309d4131b7a0c8ac651b87" category="paragraph"><block ref="0a736544bf309d4131b7a0c8ac651b87" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0d021f94d8bd70d2a5185935d6efa23e" category="list-text">Connector创建和管理S3存储分段的权限。</block>
+  <block id="41e9463232a3a509ddf5815706788caa" category="paragraph">如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将其添加到ONTAP 集群中、如接下来的4个步骤所示。</block>
+  <block id="94dd9372ab529c315f08bd0bae6ae331" category="paragraph">如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将集群拖动到Amazon S3工作环境中以启动设置向导。</block>
+  <block id="622487d3daad2c1ce3902c5864551413" category="paragraph">如果您未选择在首次在Kubernetes集群上激活Cloud Backup时自动为新创建的卷分配备份策略的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。</block>
+  <block id="1c161354c6da9cce8d6d66c83e6117e3" category="inline-image-macro">屏幕截图显示了备份设置按钮、该按钮可在您选择Kubernetes集群后使用。</block>
+  <block id="81362333b4667057105418e2c797fb4d" category="paragraph"><block ref="81362333b4667057105418e2c797fb4d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d611fbcee8116241337f06ec4995ff9c" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于存在卷的Kubernetes集群、选择*自动备份新卷*。</block>
+  <block id="949b473773535ea19f7817cd4c272bc1" category="paragraph"><block ref="949b473773535ea19f7817cd4c272bc1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f3e4b6c3b2f014829f853146224b7663" category="list-text">选中"自动备份未来的永久性卷..."复选框、选择要应用于新卷的备份策略、然后单击*保存*。</block>
+  <block id="014386141b63dc0c43377cb37936b250" category="inline-image-macro">显示如何选择要分配给Kubernetes集群上所有未来卷的备份策略的屏幕截图。</block>
+  <block id="891b6416962c7710069b6bd6d9d86a07" category="paragraph"><block ref="891b6416962c7710069b6bd6d9d86a07" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3877a9846e783c8af0a4e454f688cc19" category="paragraph">现在、此备份策略将应用于在此Kubernetes集群中创建的任何新卷。</block>
+  <block id="7ead903fc48405a93153734199d6ea17" category="paragraph">下图显示了*公有 connection*方法以及组件之间需要准备的连接：</block>
+  <block id="365f18293265c24eb5abd8186ffde43d" category="paragraph"><block ref="365f18293265c24eb5abd8186ffde43d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e76a155ff5434b1a4b5c083a233f84a2" category="paragraph">下图显示了*专用连接*方法以及组件之间需要准备的连接：</block>
+  <block id="55793025ae94e14f25eac6fc524ecc81" category="paragraph"><block ref="55793025ae94e14f25eac6fc524ecc81" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5e843e04ba2018476292f29718db06e7" category="list-text">您可以在激活向导中使用自己的自定义管理密钥进行数据加密、而不是使用默认的Microsoft管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。<block ref="50f2f49feb0afd07f1969b5faf2ca775" category="inline-link-rx"></block>。</block>
+  <block id="ac51f0beea0b94bb3165f831f8ba7138" category="cell">目标工作环境ifdef：：AWS]]</block>
+  <block id="0e356152192db3a04cabbf69108987ee" category="cell">AWS内的Kubernetes集群endf：：AWS ]] ifdef：：azure[]</block>
+  <block id="d2a3f8d6a8141baac1e6e97dced3c44b" category="cell">Azure内的Kubernetes集群：：azure[] ifdef：：：gcp[]</block>
+  <block id="9d8c053ff2930ede65f48ab99ec40a69" category="cell">Google endf中的Kubernetes集群：GCP[]</block>
+  <block id="4839487d9ef803363d306e16866e5123" category="list-text">找到要还原的卷，然后单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block>、然后单击*详细信息和备份列表*。</block>
+  <block id="3bc0e9b1baf3af2c3c4d977a88c7633d" category="list-text">Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一Azure区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。</block>
+  <block id="3fb6883a0a5a320f9907b96ada5ed98d" category="list-text">如果您希望所有当前卷和未来卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。</block>
+  <block id="cb064ad5855a7d173c8bf2a8df10527c" category="list-text">Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一AWS区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。</block>
+  <block id="b59e9628c0040f48ada38dd3e52e7482" category="cell">卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件。</block>
+  <block id="f487cfb88239842615093e7eb26153a0" category="cell">无需额外的云提供商成本</block>
+  <block id="02cea6027263fbbfa27ac48839165620" category="paragraph">*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外，目标集群还必须运行 ONTAP 9.10.1 或更高版本。</block>
+  <block id="1b1bae9a1c274fd71b57fe957acf95e0" category="paragraph"><block ref="40cf1b022c7194f1fda41ab0b0dcc94c" category="inline-link-macro-rx"></block>。</block>
+  <block id="7af0d0a640485c14ebea27a93041e711" category="list-text">从StorageGRID 还原时、输入StorageGRID 服务器的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口、选择访问对象存储所需的访问密钥和机密密钥、以及目标卷所在的ONTAP 集群中的IP空间。</block>
+  <block id="e4b253d57f3284f01d23fe6d890c954f" category="paragraph"><block ref="cacf15576b46da141d22ed2be2ccc0c6" category="inline-link-macro-rx"></block>。</block>
+  <block id="953633132ca38597559bcac180010ac2" category="paragraph"><block ref="e84408fa2ad67b16ce499fc31f7f4f81" category="inline-link-macro-rx"></block>。</block>
+  <block id="3f6f6c20d1ed847bc908fee66e676a72" category="list-text">Cloud Backup会显示选定备份文件中的文件夹和文件。</block>
+  <block id="77a738d7362cefd8d0f8a59020626e57" category="list-text">文件已还原。</block>
+  <block id="fefbe9c6a87469d73c5883ab59790089" category="list-text">单击*继续*、此时将显示卷备份中的文件夹和文件列表。</block>
+  <block id="1d6668f1da3f3283d445855e6b6b3ded" category="list-text">从Google云存储还原时、输入目标卷所在ONTAP 集群中的IP空间以及访问对象存储所需的访问密钥和机密密钥。</block>
+  <block id="0d19370f4d82f4437295b4a20f7af2b6" category="list-text">从StorageGRID 还原时、输入StorageGRID 服务器的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口、输入访问对象存储所需的访问密钥和机密密钥、以及目标卷所在ONTAP 集群中的IP空间。</block>
+  <block id="30a52640635b2f0d1cd535c78d333d48" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意，目标集群也必须运行 ONTAP 9.10.1 或更高版本，并且当前不支持从归档存储还原文件。</block>
+  <block id="15aae19b9900db896b4c9b15bcc978b9" category="cell">当前不支持</block>
+  <block id="306cd9f16f08b603af1fab2e7cad106f" category="cell">endif：：azure[] ifdef：：gcp[]</block>
+  <block id="b3cf2a0723236b8965edb17a6adc8bf5" category="list-text">对于存储在Google Cloud中的备份、它会配置一个新存储分段和<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> 在帐户/项目级别配置。</block>
+  <block id="ad13cab5dd920f50df05b097ac6ce5f3" category="paragraph">如果您的工作环境已启用索引，请转到下一节以还原数据。</block>
+  <block id="c3793afe37c8ef86193b630f9ff4e7b9" category="list-text">Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一GCP区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。</block>
+  <block id="11424b9a70e420c1dd25a5c8dd143872" category="paragraph">如果集群运行的是ONTAP 9.10.1或更高版本、您还可以选择在一定天数后启用或禁用对归档存储的备份进行分层。</block>
+  <block id="dd4f36f3b57f7d639e7ae704839404ab" category="paragraph"><block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>。</block>
+  <block id="8602e5067e45157858fdce13f2d722c5" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。</block>
+  <block id="740aabdace3792e528d0a385bbafa58c" category="paragraph">+<block ref="88ca6566bf61e897964d34c4a123e1db" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="30ba145ee7f6cbe8143b7b5e07c516fe" category="paragraph">+请注意、如果您停止将备份分层到归档存储、则已分层到归档存储的所有备份文件都会保留在该层中、而不会自动将这些备份移回标准层。</block>
+  <block id="7f850180a374c5e82662088b40857804" category="list-text">建议至少使用ONTAP 9.6；ONTAP 9.8P11及更高版本。</block>
+  <block id="0a215d6790086862e8e2eca1f4aef9d2" category="paragraph">您可以将内部ONTAP 系统中的Oracle和Microsoft SQL应用程序数据备份到以下云提供商：</block>
+  <block id="6beccc67ff905f7da0b29dece26b0485" category="list-text">Amazon Web Services</block>
+  <block id="1668ca1bd914c1d847f23b491319ac91" category="list-text">Microsoft Azure</block>
+  <block id="3434ce922e1c86ace71f7616788e4086" category="paragraph"><block ref="3434ce922e1c86ace71f7616788e4086" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e86245d9f93a343ebdc70d824ddc2fe1" category="paragraph"><block ref="e86245d9f93a343ebdc70d824ddc2fe1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="53ebd529678afade9a8cc550535c4832" category="admonition">如果要选择资源组的名称，请在部署 Cloud Volumes ONTAP 时 * 禁用 * 云备份。按照的步骤进行操作 <block ref="518f1876d7249067cbf504987e6e7dc3" category="inline-xref-macro-rx"></block> 启用 Cloud Backup 并选择资源组。</block>
+  <block id="68b1e52936c426875b2780e91e195546" category="sidebar">使用 REST API 实现自动化</block>
+  <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">云提供商</block>
+  <block id="46aef2e5080a5347df1ce7546e1be1df" category="sidebar">所有云提供商</block>
+  <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="sidebar">AWS</block>
+  <block id="56ef2682280ac110060b881925a87b80" category="sidebar">Google Cloud</block>
+  <block id="5a81378cdc7edd9ea960cf02d6ca78d2" category="paragraph">ifdef::aws[]</block>
+  <block id="6beb2fa01dc121194547db1bfbe03408" category="paragraph">endif::aws[]</block>
+  <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
+  <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
+  <block id="b010c7530103ef9947582474d65ff9a3" category="paragraph">ifdef::azure[]</block>
+  <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
 </blocks>

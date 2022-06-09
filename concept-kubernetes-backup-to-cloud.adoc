@@ -45,31 +45,31 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 
 [cols="45,40"]
 |===
-| 源工作环境 | 备份文件目标 
+| 源工作环境 | 备份文件目标ifdef：：AWS]] 
 
 
-| AWS 中的 Kubernetes 集群 | Amazon S3 
+| AWS 中的 Kubernetes 集群 | Amazon S3 endif：：AWS]] ifdef：：azure[] 
 
 
-| Azure 中的 Kubernetes 集群 | Azure Blob 
+| Azure 中的 Kubernetes 集群 | Azure Blob endf：：azure[] ifdef：：GCP[] 
 
 
-| Google 中的 Kubernetes 集群 | Google Cloud 存储 
+| Google 中的 Kubernetes 集群 | Google Cloud Storage endif：gcp[] 
 |===
 您可以将卷从 Kubernetes 备份文件还原到以下工作环境：
 
 [cols="40,45"]
 |===
-| 备份文件位置 | 目标工作环境 
+| 备份文件位置 | 目标工作环境ifdef：：AWS]] 
 
 
-| Amazon S3 | AWS 中的 Kubernetes 集群 
+| Amazon S3 | AWS内的Kubernetes集群endf：：AWS ]] ifdef：：azure[] 
 
 
-| Azure Blob | Azure 中的 Kubernetes 集群 
+| Azure Blob | Azure内的Kubernetes集群：：azure[] ifdef：：：gcp[] 
 
 
-| Google Cloud 存储 | Google 中的 Kubernetes 集群 
+| Google Cloud 存储 | Google endf中的Kubernetes集群：GCP[] 
 |===
 
 
@@ -150,10 +150,26 @@ image:diagram_cloud_backup_general_k8s.png["显示 Cloud Backup 如何与备份�
 
 === 支持的存储类或访问层
 
+ifdef::aws[]
+
 * 在 AWS 中，备份从 _Standard_ 存储类开始，并在 30 天后过渡到 _Standard-Infrequent Access_ 存储类。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * 在 Azure 中，备份与 _cool_ 访问层关联。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * 在 GCP 中，备份默认与 _Standard_ 存储类相关联。
 
+
+endif::gcp[]
 
 
 

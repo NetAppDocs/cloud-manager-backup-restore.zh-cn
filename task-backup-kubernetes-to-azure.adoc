@@ -68,7 +68,7 @@ Kubernetes 集群要求::
 * 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html["了解如何发现 Kubernetes 集群"^]。
 * 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
 * 集群必须使用 Azure 上的 Cloud Volumes ONTAP 作为其后端存储。
-* Cloud Volumes ONTAP 系统必须与 Kubernetes 集群位于同一 Azure 区域，并且必须运行 ONTAP 9.7P5 或更高版本。
+* Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一Azure区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。
 +
 请注意，不支持内部位置中的 Kubernetes 集群。仅支持使用 Cloud Volumes ONTAP 系统的云部署中的 Kubernetes 集群。
 
@@ -163,7 +163,7 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 
 
 
-. 如果希望将来添加的所有卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。
+. 如果您希望所有当前卷和未来卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。
 . 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
 
 

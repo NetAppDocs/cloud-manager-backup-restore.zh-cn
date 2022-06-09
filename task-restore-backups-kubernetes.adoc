@@ -26,16 +26,16 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 
 [cols="40,40"]
 |===
-| 备份文件位置 | 目标工作环境 
+| 备份文件位置 | 目标工作环境ifdef：：AWS]] 
 
 
-| Amazon S3 | AWS 中的 Kubernetes 集群 
+| Amazon S3 | AWS内的Kubernetes集群endf：：AWS ]] ifdef：：azure[] 
 
 
-| Azure Blob | Azure 中的 Kubernetes 集群 
+| Azure Blob | Azure内的Kubernetes集群：：azure[] ifdef：：：gcp[] 
 
 
-| Google Cloud 存储 | Google 中的 Kubernetes 集群 
+| Google Cloud 存储 | Google endf中的Kubernetes集群：GCP[] 
 |===
 
 
@@ -51,7 +51,7 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 +
 image:screenshot_backup_view_k8s_backups_button.png["Kubernetes 信息板的屏幕截图，其中列出了要备份的所有 Kubernetes 集群和卷。"]
 
-. 找到要还原的卷，然后单击 image:screenshot_horizontal_more_button.gif["更多图标"]，然后是 * 卷详细信息 * 。
+. 找到要还原的卷，然后单击 image:screenshot_horizontal_more_button.gif["更多图标"]、然后单击*详细信息和备份列表*。
 +
 此时将显示该卷的所有备份文件列表以及有关源卷，目标位置和备份详细信息。
 

@@ -110,6 +110,8 @@ NOTE: 在更新工作环境详细信息之前，您不应继续操作。更新�
 +
 [role="tabbed-block"]
 ====
+ifdef::aws[]
+
 .配置 Amazon Web Services
 --
 .. 指定 AWS 帐户。
@@ -120,6 +122,10 @@ NOTE: 在更新工作环境详细信息之前，您不应继续操作。更新�
 
 
 --
+endif::aws[]
+
+ifdef::azure[]
+
 .配置 Microsoft Azure
 --
 .. 指定 Azure 订阅 ID 。
@@ -129,6 +135,12 @@ NOTE: 在更新工作环境详细信息之前，您不应继续操作。更新�
 
 
 --
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
 ====
 
 

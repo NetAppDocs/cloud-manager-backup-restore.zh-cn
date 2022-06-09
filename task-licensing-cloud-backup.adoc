@@ -39,24 +39,44 @@ Cloud Backup 30天免费试用可从云提供商市场的按需购买订阅中�
 
 对于按需购买、您需要通过一个订阅按小时为云提供商支付对象存储成本和NetApp备份许可成本。即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：
 
-* 订阅可确保在免费试用结束后不会中断服务。
-+
-试用结束后，系统会根据您备份的数据量按小时收取费用。
-
-* 如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。
-+
-例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。
-
+* 订阅可确保在免费试用结束后不会中断服务。试用结束后，系统会根据您备份的数据量按小时收取费用。
+* 如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。
 
 
 在免费试用期间，或者如果您未超过 BYOL 许可证，则不会从按需购买订阅中收取费用。
 
+有几个适用于Cloud Backup的PAYGO计划：
+
+* 一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
+* 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。ifdef：：azure[]
+
+
+endif::azure[]
+
 使用以下链接从云提供商市场订阅 Cloud Backup ：
 
+ifdef::aws[]
+
 * AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure 酒店 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP ： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["有关定价详细信息，请访问 Cloud Manager Marketplace"^]。
 
+
+endif::gcp[]
+
+ifdef::aws[]
 
 
 
@@ -76,6 +96,8 @@ Cloud Backup 30天免费试用可从云提供商市场的按需购买订阅中�
 如果要使用此选项，您可以在创建 Cloud Volumes ONTAP 工作环境时设置年度合同，而 Cloud Manager 会提示您订阅 AWS Marketplace 。
 
 
+
+endif::aws[]
 
 
 

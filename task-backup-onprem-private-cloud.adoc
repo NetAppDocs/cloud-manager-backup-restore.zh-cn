@@ -75,8 +75,6 @@ image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕�
 
 image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-请注意，此图中未显示云还原实例，因为当前使用 StorageGRID 时不支持单文件还原。
-
 
 
 === 准备 ONTAP 集群
@@ -88,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 要求::
 +
 --
-* ONTAP 9.7P5 及更高版本。
+* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。
 * SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
 +
 * 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。

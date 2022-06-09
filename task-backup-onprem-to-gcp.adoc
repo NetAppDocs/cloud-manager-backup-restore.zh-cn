@@ -67,13 +67,13 @@ image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截�
 * 专用连接—使用 VPN 或专用服务连接，并通过使用专用 IP 地址的专用 Google 访问接口路由流量。
 
 
-下图显示了公有 连接方法以及组件之间需要准备的连接：
+下图显示了*公有 connection*方法以及组件之间需要准备的连接：
 
-image:diagram_cloud_backup_onprem_google.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_onprem_google.png["显示Cloud Backup如何通过公有 连接与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-下图显示了专用连接方法以及组件之间需要准备的连接：
+下图显示了*专用连接*方法以及组件之间需要准备的连接：
 
-image:diagram_cloud_backup_onprem_google_vpc.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_onprem_google_vpc.png["显示Cloud Backup如何通过专用连接与源系统上的卷以及备份文件所在的目标存储进行通信的图表。"]
 
 
 
@@ -86,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 要求::
 +
 --
-* ONTAP 9.7P5 及更高版本。
+* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。
 * SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
 +
 * 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。

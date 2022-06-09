@@ -16,7 +16,23 @@ summary: 将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCen
 [role="lead"]
 您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。
 
-您可以将内部 ONTAP 中的 Oracle 和 Microsoft SQL 应用程序数据备份到 Amazon Web Services 或 Microsoft Azure 。
+您可以将内部ONTAP 系统中的Oracle和Microsoft SQL应用程序数据备份到以下云提供商：
+
+* Amazon Web Services
+* Microsoft Azure
+
+
+ifdef::aws[]
+
+endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
 
 
 NOTE: 您应使用 SnapCenter 软件 4.6 。

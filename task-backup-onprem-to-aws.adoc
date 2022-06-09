@@ -43,7 +43,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Ama
 <<Prepare your ONTAP cluster,了解如何使内部 ONTAP 集群做好准备。>>
 
 [role="quick-margin-para"]
-为 Connector 设置权限，以便创建和管理 S3 存储分段以及使用还原实例还原数据。并为内部部署 ONTAP 集群设置权限，以便可以将数据读写到 S3 存储分段。
+为Connector设置创建和管理S3存储分段的权限。您还需要为内部ONTAP 集群设置权限、以便其可以向S3存储分段读取和写入数据。
 
 [role="quick-margin-para"]
 或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。 <<Prepare your AWS environment,了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。>>
@@ -66,13 +66,11 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Ama
 
 下图显示了*公有 connection*方法以及组件之间需要准备的连接：
 
-image:diagram_cloud_backup_onprem_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_onprem_aws.png["显示Cloud Backup如何通过公有 连接与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
 下图显示了*专用连接*方法以及组件之间需要准备的连接：
 
-image:diagram_cloud_backup_onprem_aws_vpc.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
-
-请注意，在云中部署 Cloud Restore 实例时，它与 Connector 位于同一子网中。
+image:diagram_cloud_backup_onprem_aws_vpc.png["显示Cloud Backup如何通过专用连接与源系统上的卷以及备份文件所在的目标存储进行通信的图表。"]
 
 
 
@@ -186,7 +184,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 您需要配置两组权限：
 
-* Connector 创建和管理 S3 存储分段以及使用还原实例还原数据的权限。
+* Connector创建和管理S3存储分段的权限。
 * 内部 ONTAP 集群的权限，以便可以将数据读写到 S3 存储分段。
 
 
@@ -236,17 +234,6 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 +
 如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
 
-. 将以下 EC2 权限添加到为 Connector 提供权限的 IAM 角色中，以便它可以启动，停止和终止用于浏览和还原操作的 Cloud Restore 实例：
-+
-[source, json]
-----
-          "Action": [
-              "ec2:DescribeInstanceTypeOfferings",
-              "ec2:StartInstances",
-              "ec2:StopInstances",
-              "ec2:TerminateInstances"
-          ],
-----
 . 激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：
 +
 [source, json]
@@ -278,25 +265,6 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 
 
-=== 验证 Cloud Restore Internet 访问
-
-如果您的虚拟或物理网络使用代理服务器访问 Internet ，请确保 Cloud Restore 实例具有出站 Internet 访问权限，以便与以下端点联系。
-
-[cols="50,50"]
-|===
-| 端点 | 目的 
-
-
-| http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64 或 4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | 适用于 Cloud Restore 实例 AMI 的 CentOS 软件包。 
-
-
-| https://download.docker.com/linux/centos/docker-ce.repo | 提供 Docker 引擎软件包。 
-
-
-| http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io | Cloud Restore 实例映像存储库。 
-|===
-
-
 === 设置客户管理的AWS密钥以进行数据加密
 
 如果您要使用默认Amazon S3加密密钥对内部集群和S3存储分段之间传递的数据进行加密、则会进行全部设置、因为默认安装会使用此类型的加密。
@@ -320,7 +288,7 @@ image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组
 如果您使用端口80 (HTTP)与专用端点进行通信、则表示您已设置完毕。您现在可以在集群上启用 Cloud Backup 。
 
 +
-如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将证书添加到ONTAP 集群、如接下来的4个步骤所示。
+如果您使用端口443 (HTTPS)与专用端点进行通信、则必须从VPC S3端点复制证书并将其添加到ONTAP 集群中、如接下来的4个步骤所示。
 
 . 从 AWS 控制台获取端点的 DNS 名称。
 +
@@ -363,6 +331,9 @@ Please enter Certificate: Press <Enter> when done
 
 .步骤
 . 在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
++
+如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将集群拖动到Amazon S3工作环境中以启动设置向导。
+
 +
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
