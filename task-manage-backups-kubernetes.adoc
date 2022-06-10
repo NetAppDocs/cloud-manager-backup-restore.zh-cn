@@ -29,11 +29,11 @@ CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可�
 . 单击 * 备份和还原 * 服务。
 . 单击 * Kubernetes * 选项卡可查看 Kubernetes 系统的永久性卷列表。
 +
-image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
+image:screenshot_backup_dashboard_k8s.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
 
 
 
-如果要在某些工作环境中查找特定卷，您可以按工作环境和卷细化列表，也可以使用搜索筛选器。
+如果要在某些集群中查找特定卷、您可以按集群和卷细化此列表、也可以使用搜索筛选器。
 
 
 
@@ -127,13 +127,13 @@ image:screenshot_auto_backup_k8s.png["显示如何选择要分配给Kubernetes�
 .步骤
 . 从 * Kubernetes * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
 +
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+image:screenshot_backup_view_k8s_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
 
 +
 此时将显示所有备份文件的列表以及有关源卷，目标位置和备份详细信息。
 
 +
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+image:screenshot_backup_view_k8s_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
 
 
 
@@ -175,7 +175,7 @@ image:screenshot_delete_all_backups_k8s.png["选择删除所有备份按钮删�
 .步骤
 . 从 * Kubernetes * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
 +
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+image:screenshot_backup_view_k8s_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
 
 +
 此时将显示所有备份文件的列表。
@@ -199,7 +199,7 @@ image:screenshot_delete_we_backups.png["显示如何删除卷的所有备份文�
 .步骤
 . 从 * Kubernetes * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
 +
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+image:screenshot_backup_view_k8s_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
 
 +
 此时将显示所有备份文件的列表。
