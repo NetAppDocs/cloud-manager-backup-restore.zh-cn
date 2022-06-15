@@ -54,6 +54,9 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件。 | 卷和文件还原适用于存储在Amazon S3和Google Cloud中的备份文件 
 
 
+| 在无法访问Internet的站点中从StorageGRID 还原卷和文件 | 在非公开站点中不支持 
+
+
 | 不处理已重命名或删除的文件 | 处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件 
 
 

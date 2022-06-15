@@ -90,6 +90,12 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 
 
+=== 支持无 Internet 连接的站点
+
+Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.19)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
+
+
+
 == 成本
 
 将 Cloud Backup 与 ONTAP 系统结合使用会产生两种成本：资源费用和服务费用。
@@ -366,4 +372,5 @@ Cloud Backup 支持 FlexVol 读写卷和 SnapMirror 数据保护（ DP ）目标
 * 要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。
 * 如果在不同子网中将同一帐户与不同的 Cloud Manager 结合使用，则不支持文件级还原。
 * 如果备份文件驻留在归档存储中，则无法还原单个文件。
+* 如果Connector安装在无法访问Internet的站点(非公开站点)上、则不支持使用搜索和还原进行文件级还原。
 

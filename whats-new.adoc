@@ -18,6 +18,18 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年6月14日
+
+
+
+=== 增加了对在无法访问Internet的站点中备份内部ONTAP 集群数据的支持
+
+如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署Cloud Manager Connector (版本3.9.19或更高版本)。
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
+
+
+
 == 2022年6月8日
 
 
@@ -39,7 +51,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-da
 * 支持在内部安装Connector时从云中对文件执行浏览和还原操作
 
 
-请注意、如果您先前使用了Cloud Restore实例/VM、则该实例/VM将自动删除。
+请注意、如果您先前使用了Cloud Restore实例/VM、则该实例/VM将自动删除。Cloud Backup进程将每天运行一次、以删除所有旧的Cloud Restore实例。此更改是完全透明的—不会对数据产生任何影响、您也不会注意到备份或还原作业发生了任何更改。
 
 
 
