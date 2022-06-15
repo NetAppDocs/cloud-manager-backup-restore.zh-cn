@@ -862,7 +862,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
+    <time datetime="2022-06-15 13:17:45 +0000">06/15/2022</time>
     
   
 
@@ -973,6 +973,9 @@
 <div class="paragraph">
 <p>购买Cloud Backup许可证后、您可以通过输入Cloud Backup序列号和NSS帐户或上传NLF许可证文件在Cloud Manager中激活此许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</p>
 </div>
+<div class="paragraph">
+<p>如果您在无法访问 Internet 的内部站点上运行 Cloud Backup ，这意味着您已在脱机内部站点的主机上部署 Cloud Manager Connector ，则需要从已连接 Internet 的系统获取许可证文件。使用序列号和 NSS 帐户激活许可证不可用于脱机（非公开站点）安装。</p>
+</div>
 <div class="olist arabic">
 <div class="title">步骤</div>
 <ol class="arabic">
@@ -1025,7 +1028,7 @@
 </div>
 </li>
 <li>
-<p>如果您有备份许可证文件，请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</p>
+<p>如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_services_license_add2.png" alt="显示用于添加 Cloud Backup BYOL 许可证的页面的屏幕截图。"></span></p>
 </div>
@@ -1060,7 +1063,7 @@
 </div>
 </li>
 <li>
-<p>如果 Cloud Manager 无法自动更新许可证，则需要手动上传许可证文件。</p>
+<p>如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1116,7 +1119,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件，您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <a href="task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license">"如何更新 Cloud Backup 许可证"</a>。</p>
+<p>续订 BYOL 订阅后， Cloud Manager 会自动更新许可证。如果 Cloud Manager 无法通过安全 Internet 连接访问此许可证文件（例如，安装在非公开站点时），您可以自行获取此文件并手动将其上传到 Cloud Manager 。有关说明，请参见 <a href="task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license">"如何更新 Cloud Backup 许可证"</a>。</p>
 </div>
 <div class="paragraph">
 <p>已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统运行时没有许可证、则会停止显示警告。</p>

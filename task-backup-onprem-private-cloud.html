@@ -869,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
+    <time datetime="2022-06-15 13:17:45 +0000">06/15/2022</time>
     
   
 
@@ -915,6 +915,9 @@
 <p>您的内部安装了一个 Connector 。</p>
 <div class="ulist">
 <ul>
+<li>
+<p>无论是否可访问 Internet ，均可将 Connector 安装在站点中。</p>
+</li>
 <li>
 <p>通过为连接器建立网络，可以与 ONTAP 集群和 StorageGRID 建立出站 HTTPS 连接。</p>
 </li>
@@ -966,6 +969,9 @@
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_storagegrid.png" alt="显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
+</div>
+<div class="paragraph">
+<p>如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。</p>
 </div>
 <div class="sect2">
 <h3 id="准备-ontap-集群">准备 ONTAP 集群</h3>
@@ -1028,7 +1034,7 @@
 </div>
 </li>
 <li>
-<p>节点的集群间 LIF 能够访问对象存储。</p>
+<p>节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。</p>
 </li>
 <li>
 <p>已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"为 SVM 配置 DNS 服务"</a>。</p>
@@ -1089,7 +1095,7 @@
 <div class="sect2">
 <h3 id="创建或切换连接器">创建或切换连接器</h3>
 <div class="paragraph">
-<p>将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。</p>
+<p>将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1100,9 +1106,24 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html" target="_blank" rel="noopener">"在可访问 Internet 的 Linux 主机上安装 Connector"</a></p>
 </li>
 <li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html" target="_blank" rel="noopener">"在无法访问 Internet 的 Linux 主机上安装 Connector"</a></p>
+</li>
+<li>
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"在连接器之间切换"</a></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-backup-restore/images/note.svg" alt="注">
+</td>
+<td class="content">
+Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 <a href="whats-new.html">"Cloud Backup 新增功能"</a> 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access" target="_blank" rel="noopener">"升级 Connector 软件"</a> 希望使用新功能时。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1124,7 +1145,7 @@
 <p>通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接</p>
 </li>
 <li>
-<p>通过端口 443 与 Cloud Backup 建立出站 Internet 连接</p>
+<p>通过端口 443 与 Cloud Backup 建立出站 Internet 连接（在 " 非公开 " 站点中安装 Connector 时不需要）</p>
 </li>
 </ul>
 </div>
@@ -1181,7 +1202,7 @@
 <p>用于访问存储备份的存储分段的访问密钥和机密密钥。</p>
 </li>
 <li>
-<p>要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。</p>
+<p>要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。</p>
 <div class="paragraph">
 <p>选择正确的 IP 空间可确保 Cloud Backup 可以设置从 ONTAP 到 StorageGRID 对象存储的连接。</p>
 </div>
@@ -1232,7 +1253,7 @@
 <p>系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。</p>
 </div>
 <div class="paragraph">
-<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"从备份文件还原整个卷"</a> 到内部 ONTAP 系统上的新卷。</p>
+<p>您可以 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"启动和停止卷备份或更改备份计划"</a>。您也可以 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"从备份文件还原整个卷或单个文件"</a> 内部部署的ONTAP 系统。</p>
 </div>
 </div>
 </div>
