@@ -39,19 +39,18 @@ Cloud Backup Service 中定义了八类端点：
 .步骤
 . 从 NetApp Cloud Central 获取用户令牌。
 +
+请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。
+
++
 [source, http]
 ----
-POST https://netapp-cloud-account.auth0.com/oauth/token
-Header: Content-Type: application/json
-Body:
-{
-              "username": "<user_email>",
-              "scope": "profile",
-              "audience": "https://api.cloud.netapp.com",
-              "client_id": "<Cloud_Connector_ID>",
-              "grant_type": "password",
-              "password": "<user_password>"
-}
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token?=' \
+--header 'Content-Type: application/json' \
+-d '{
+    "grant_type": "refresh_token",
+    "refresh_token": "JxaVHn9cGkX92aPVCkhat3zxxxxxwsC9qMl_pLHkZtsVA",
+    "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
+}'
 ----
 . 获取您的NetApp Cloud Central帐户ID。
 +

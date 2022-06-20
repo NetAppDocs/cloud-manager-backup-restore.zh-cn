@@ -29,6 +29,9 @@ link:https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup �
 
 
 
+TIP: 如果Cloud Manager Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
+
+
 
 == Cloud Backup 的工作原理
 
