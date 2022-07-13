@@ -44,7 +44,7 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； R
 image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes ONTAP 系统备份到 AWS S3 时云提供商详细信息的屏幕截图。"]
 
 [role="quick-margin-para"]
-默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
+默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
 默认情况下，备份存储在 S3 标准存储中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。
@@ -79,6 +79,7 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 
 --
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
+在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 link:reference-backup-multi-account-aws.html["登录到 AWS 门户并链接这两个帐户"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
 需要 AWS 权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
 +
@@ -170,6 +171,9 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； R
 . 选择提供程序详细信息并单击 * 下一步 * ：
 +
 .. 用于存储备份的 AWS 帐户。此帐户可以与 Cloud Volumes ONTAP 系统所驻留的帐户不同。
++
+如果要使用其他 AWS 帐户进行备份，则必须使用 link:reference-backup-multi-account-aws.html["登录到 AWS 门户并链接这两个帐户"]。
+
 .. 要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。
 .. 是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的加密密钥"]）。
 +
@@ -177,8 +181,9 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes
 
 
 
-. 输入默认备份策略详细信息，然后单击 * 下一步 * 。
+. 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
+.. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
 .. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +

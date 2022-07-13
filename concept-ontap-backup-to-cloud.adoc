@@ -26,6 +26,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 * 将数据卷的独立副本备份到低成本对象存储。
 * 将单个备份策略应用于集群中的所有卷，或者将不同的备份策略分配给具有唯一恢复点目标的卷。
+* 为备份策略命名、以便轻松查看每个策略的用途。
 * 将旧备份文件分层到归档存储以节省成本(使用ONTAP 9.10.1+时支持)
 * 从云备份到云，从内部系统备份到公有或私有云。
 * 对于 Cloud Volumes ONTAP 系统，备份可以位于不同的订阅 / 帐户或不同的区域。
@@ -92,7 +93,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 === 支持无 Internet 连接的站点
 
-Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.19)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
+Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.19)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
 
 
 
@@ -141,47 +142,24 @@ endif::gcp[]
 
 == 许可
 
-Cloud Backup提供了几种许可选项：
+Cloud Backup可用于以下消费模式：
 
-* 按需购买(PAYGO)订阅
-
-
-ifdef::aws[]
-
-* AWS Marketplace的年度合同
+* * BYOL*：从NetApp购买的许可证、可用于任何云提供商。
+* * PAYGO*：从云提供商的市场按小时订阅。
+* *年度*：云提供商市场提供的年度合同。
 
 
-endif::aws[]
+[NOTE]
+====
+如果您从NetApp购买BYOL许可证、则还需要从云提供商的市场订阅PAYGO产品。您的许可证始终会先付费、但在以下情况下、您将从市场上的每小时费率中扣除费用：
 
-* 自带许可证(BYOL)
-
-
-首次注册PAYGO订阅时、您可以获得30天免费试用。
-
-
-
-=== 按需购买订阅
-
-Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
-
-link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["了解如何设置按需购买订阅"]。
-
-ifdef::aws[]
+* 超出许可容量时
+* 许可证期限到期时
 
 
+如果您从某个市场签有年度合同、则所有Cloud Backup消费均会从该合同中扣除。您不能将年度市场合同与BYOL混合搭配使用。
 
-=== 年度合同（仅限 AWS ）
-
-AWS Marketplace 提供两份年期合同，合同期限分别为 12 ， 24 或 36 个月：
-
-* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
-* 一种 "CVO 专业人员 " 计划，可用于捆绑 Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
-
-
-link:task-licensing-cloud-backup.html#subscribe-to-yearly-contracts-through-aws["了解如何设置年度 AWS 合同"]。
-
-endif::aws[]
-
+====
 
 
 === 自带许可证
@@ -191,6 +169,46 @@ BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为�
 您将收到一个序列号，您可以在 Cloud Manager 数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["Cloud Manager 帐户"^]。
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+
+
+
+=== 按需购买订阅
+
+Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
+
+link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["了解如何设置按需购买订阅"]。
+
+请注意、首次注册PAYGO订阅时、您可以获得30天免费试用。
+
+
+
+=== 年度合同
+
+ifdef::aws[]
+
+使用AWS时、可以获得两份年期合同、合同期限分别为12、24或36个月：
+
+* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
+* 一种 "CVO 专业人员 " 计划，可用于捆绑 Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 使用Azure时、您可以向NetApp申请一项私人优惠、然后在Cloud Backup激活期间从Azure Marketplace订阅时选择计划。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 使用GCP时、您可以向NetApp申请一个私人优惠、然后在Cloud Backup激活期间从Google Cloud Marketplace订阅时选择计划。
+
+
+endif::gcp[]
+
+link:task-licensing-cloud-backup.html#use-an-annual-contract["了解如何设置年度合同"]。
 
 
 
@@ -280,9 +298,9 @@ endif::gcp[]
 
 === 每个集群可自定义的备份计划和保留设置
 
-在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
+在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活备份后将这些策略分配给其他卷。
 
-您可以选择对所有卷进行每小时，每天，每周和每月备份的组合。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：
+您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：
 
 [cols="35,16,16,16,26"]
 |===
@@ -302,7 +320,7 @@ endif::gcp[]
 |===
 使用 ONTAP 系统管理器或 ONTAP 命令行界面在集群上创建的备份保护策略也会显示为选项。
 
-达到某个类别或间隔的最大备份数后，较早的备份将被删除，以便始终拥有最新的备份。
+达到某个类别或间隔的最大备份数后、较早的备份将被删除、以便始终拥有最新的备份(因此废弃的备份不会继续占用云中的空间)。
 
 请注意，您可以 link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["创建卷的按需备份"] 除了从计划的备份创建的备份文件之外，还可以随时从备份信息板访问这些备份文件。
 
@@ -331,9 +349,14 @@ TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保
 
 == 支持的卷
 
-Cloud Backup 支持 FlexVol 读写卷和 SnapMirror 数据保护（ DP ）目标卷。
+Cloud Backup支持以下类型的卷：
 
-目前不支持 FlexGroup 卷和 SnapLock 卷。
+* FlexVol 读写卷
+* SnapMirror数据保护(DP)目标卷
+* SnapLock 企业卷(需要ONTAP 9.11.1或更高版本)
+
+
+目前不支持FlexGroup 卷和SnapLock 合规性卷。
 
 
 

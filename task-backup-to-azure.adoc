@@ -43,7 +43,7 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enabl
 image:screenshot_backup_provider_settings_azure.png["显示将卷从 Cloud Volumes ONTAP 系统备份到 Azure Blob 层时云提供商详细信息的屏幕截图。"]
 
 [role="quick-margin-para"]
-默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
+默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
 默认情况下，备份存储在冷访问层中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 Azure 归档存储，以便进一步优化成本。
@@ -74,6 +74,7 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 
 --
 支持的 Azure 区域:: 所有 Azure 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。
+在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"]。
 
 
@@ -118,6 +119,9 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enabl
 . 选择提供程序详细信息并单击 * 下一步 * ：
 +
 .. 用于存储备份的 Azure 订阅。此订阅可以与 Cloud Volumes ONTAP 系统所在的订阅不同。
++
+如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
+
 .. 要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。
 .. 用于管理 Blob 容器的资源组—您可以创建新资源组或选择现有资源组。
 .. 是使用默认的 Microsoft 管理的加密密钥，还是选择您自己的客户管理的密钥来管理数据加密。 (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"]）。
@@ -126,8 +130,9 @@ image:screenshot_backup_provider_settings_azure.png["显示将卷从 Cloud Volum
 
 
 
-. 输入默认备份策略详细信息，然后单击 * 下一步 * 。
+. 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
+.. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
 .. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 Azure 归档存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +

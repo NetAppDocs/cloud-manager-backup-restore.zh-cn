@@ -26,7 +26,7 @@ CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可�
 您可以查看 Cloud Backup 当前正在备份的所有卷的列表。
 
 .步骤
-. 单击 * 备份和还原 * 服务。
+. 从Cloud Manager左侧导航菜单中、单击*备份和还原*。
 . 单击 * Kubernetes * 选项卡可查看 Kubernetes 系统的永久性卷列表。
 +
 image:screenshot_backup_dashboard_k8s.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]

@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: reference-cross-account.html 
+keywords: cross account, backup, aws, azure 
+summary: 这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。 
+---
+= 跨帐户和跨区域配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+这些主题介绍如何在使用不同的云提供商时为跨帐户配置配置 Cloud Backup 。
+
+ifdef::aws[]
+
+* link:reference-backup-multi-account-aws.html["在 AWS 中配置 Cloud Backup 以实现多帐户访问"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:reference-backup-multi-account-azure.html["在 Azure 中配置 Cloud Backup 以实现多帐户访问"]
+
+
+endif::azure[]

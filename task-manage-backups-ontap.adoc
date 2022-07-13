@@ -26,7 +26,7 @@ CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可�
 您可以在备份信息板中查看当前正在备份的所有卷的列表。
 
 .步骤
-. 单击 * 备份和还原 * 选项卡。
+. 从Cloud Manager左侧导航菜单中、单击*备份和还原*。
 . 单击 * 卷 * 选项卡可查看 Cloud Volumes ONTAP 和内部 ONTAP 系统的卷列表。
 +
 image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
@@ -99,8 +99,6 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的更多信息"]。
 
 endif::azure[]
-
-+image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
 
 +请注意、如果您停止将备份分层到归档存储、则已分层到归档存储的所有备份文件都会保留在该层中、而不会自动将这些备份移回标准层。
 

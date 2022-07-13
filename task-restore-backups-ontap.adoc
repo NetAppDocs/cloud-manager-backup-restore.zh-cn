@@ -26,7 +26,7 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 
 == 还原信息板
 
-您可以使用还原信息板执行卷和文件还原操作。要访问还原信息板，请单击 Cloud Manager 顶部的 * 备份和还原 * ，然后单击 * 还原 * 选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] > " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。
+您可以使用还原信息板执行卷和文件还原操作。要访问还原信息板、请单击Cloud Manager左侧导航菜单中的*备份和还原*、然后单击*还原*选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] > " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。
 
 
 NOTE: 必须已为至少一个工作环境激活 Cloud Backup ，并且必须存在初始备份文件。
@@ -63,10 +63,10 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 浏览公有 和私有云中的结果 | 浏览公有 云和本地 Snapshot 副本的结果 
 
 
-| 无需额外的云提供商资源 | 每个帐户需要额外的存储分段和AWS或Google资源 
+| 无需额外的云提供商资源 | 每个帐户需要额外的存储分段和公有 云提供商资源 
 
 
-| 无需额外的云提供商成本 | 扫描备份和卷以查找搜索结果时与AWS或Google资源相关的成本 
+| 无需额外的云提供商成本 | 扫描备份和卷以查找搜索结果时与公有 云提供商资源相关的成本 
 |===
 在使用任一还原方法之前，请确保已为环境配置了唯一的资源要求。以下各节将介绍这些要求。
 
@@ -117,11 +117,13 @@ endif::azure[]
 | Azure Blob | Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[] 
 
 
-| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
+| Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google中的Cloud Volumes ONTAP (^1^)内部ONTAP 系统(^1^) endf：：gcp[] 
 
 
 | NetApp StorageGRID | 内部部署 ONTAP 系统 | 内部部署 ONTAP 系统 
 |===
+(^1^)_Connector必须部署在Google Cloud Platform VPC中才能获得此支持。_
+
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 
 
@@ -396,7 +398,7 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 | Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
 
 
-| Azure Blob | 当前不支持 | endif：：azure[] ifdef：：gcp[] 
+| Azure Blob | 当前不支持 | endif：：azure[] ifdef：：azure[] endf：：azure[] ifdef：：：gcp[] 
 
 
 | Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
@@ -404,6 +406,9 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 
 | NetApp StorageGRID | 当前不支持 |  
 |===
+
+TIP: 要获得此支持、必须在云提供商平台中部署Connector。如果您的内部安装了Connector、则不支持搜索和还原。
+
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 
 
@@ -433,6 +438,10 @@ ifdef::aws[]
 
 
 endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 ifdef::gcp[]
 
@@ -483,6 +492,10 @@ ifdef::aws[]
 
 
 endif::aws[]
+
+ifdef::azure[]
+
+endif::azure[]
 
 ifdef::gcp[]
 

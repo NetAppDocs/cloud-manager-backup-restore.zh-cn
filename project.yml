@@ -112,6 +112,13 @@ sidebar:
       url: "/reference-aws-backup-tiers.html"
     - title: 支持的 Azure 归档访问层
       url: "/reference-azure-backup-tiers.html"
+    - title: 跨帐户和跨区域配置
+      url: "/reference-cross-account.html"
+      entries:
+      - title: 在 AWS 中配置备份以实现多帐户访问
+        url: "/reference-backup-multi-account-aws.html"
+      - title: 在 Azure 中配置备份以实现多帐户访问
+        url: "/reference-backup-multi-account-azure.html"
   - title: 知识和支持
     entries:
     - title: 注册以获得支持
