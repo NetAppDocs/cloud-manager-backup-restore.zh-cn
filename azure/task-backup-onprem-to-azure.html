@@ -206,7 +206,7 @@
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[将内部 ONTAP 数据备份到 Azure Blob 存储](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-onprem-to-azure.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[将内部 ONTAP 数据备份到 Azure Blob 存储](https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-onprem-to-azure.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/cloud-manager-backup-restore/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/cloud-manager-backup-restore/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -295,11 +295,13 @@
           <div id="react-search" 
           data-search-html="/zh-cn/cloud-manager-backup-restore/search.html"
           data-type="widget" 
-          data-placeholder="搜索文档" 
-          data-no-results-found="未找到与 {query} 匹配的结果。" 
-          data-did-you-mean="搜索 {suggestion}。" 
-          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
-          data-results-found="找到 {hitCount} 个结果"  
+          data-placeholder="搜索文档"
+          data-no-results-found="未找到与 {query} 匹配的结果。"
+          data-did-you-mean="搜索 {suggestion}。"
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?"
+          data-results-found="找到 {hitCount} 个结果"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor="azure"></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -378,7 +380,7 @@
   <div class="col-md-3" id="sidebar-height">
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
-    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>可用的 PDF<span>
     </span>
   </a>
 </div>
@@ -388,7 +390,7 @@
         
         
         <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/fullsite-sidebar/Cloud_Backup_文档.pdf" >
-          <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
+          <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>此文档站点的 PDF</a>
 
 
 
@@ -405,7 +407,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/入门.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             入门
           </a>
           
@@ -415,8 +417,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -436,7 +436,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/备份和还原_ONTAP_数据.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             备份和还原 ONTAP 数据
           </a>
           
@@ -450,14 +450,7 @@
 
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/cloud-manager-backup-restore/pdfs/pages/task-backup-onprem-to-azure.pdf" >
-    <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
   
 
 
@@ -469,8 +462,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -490,7 +481,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/备份和还原_Kubernetes_数据.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             备份和还原 Kubernetes 数据
           </a>
           
@@ -506,8 +497,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -527,7 +516,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/备份和还原内部应用程序数据.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             备份和还原内部应用程序数据
           </a>
           
@@ -549,7 +538,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/还原应用程序数据.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             还原应用程序数据
           </a>
           
@@ -557,8 +546,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -566,8 +553,6 @@
   
 
 
-
-          
         </li>
       </ul>
     
@@ -587,7 +572,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/备份和还原虚拟机数据.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             备份和还原虚拟机数据
           </a>
           
@@ -599,8 +584,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -622,7 +605,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/参考.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             参考
           </a>
           
@@ -631,7 +614,32 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/跨帐户和跨区域配置.pdf" 
+            
+          >
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
+            跨帐户和跨区域配置
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
         </li>
       </ul>
     
@@ -651,7 +659,7 @@
               href="/zh-cn/cloud-manager-backup-restore/pdfs/azure/sidebar/知识和支持.pdf" 
             
           >
-            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/zh-cn/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             知识和支持
           </a>
           
@@ -659,8 +667,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -669,11 +675,10 @@
 
 
 
-
 </li></ul>
   <div class="zip-pdf-link-container" style="display: none;">   
     <a href="#" id="zipPdf">
-      <img src="/zh-cn/cloud-manager-backup-restore/images/pdf-zip.png" width="16" height="16"/>
+      <img src="/zh-cn/cloud-manager-backup-restore/images/pdf-zip.png" alt="" width="16" height="16"/>
       <pre>收集单独的 PDF 文档<span class="zip-size"></span></pre>
     </a><div id="zip-link-popup" class="hide">
     <div class="inner-modal">
@@ -784,7 +789,14 @@
         支持的 AWS 归档存储层
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/azure/reference-azure-backup-tiers.html">
         支持的 Azure 归档访问层
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li><li class="subfolders "><a href="/zh-cn/cloud-manager-backup-restore/azure/reference-cross-account.html">
+        <div class="na-navbar-padding"> 跨帐户和跨区域配置</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/azure/reference-backup-multi-account-aws.html">
+        在 AWS 中配置备份以实现多帐户访问
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/azure/reference-backup-multi-account-azure.html">
+        在 Azure 中配置备份以实现多帐户访问
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/cloud-manager-backup-restore/azure/task-support-registration.html">
@@ -862,7 +874,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-09 15:50:15 +0000">06/09/2022</time>
+    <time datetime="2022-07-13 13:06:58 +0000">07/13/2022</time>
     
   
 
@@ -931,7 +943,7 @@
 <p><span class="image"><img src="./media/screenshot_backup_onprem_azure_networking.png" alt="屏幕截图显示了将卷从 ONTAP 系统备份到 Azure Blob 存储时的网络连接详细信息。"></span></p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。</p>
+<p>默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p>默认情况下，备份存储在冷访问层中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 Azure 归档存储，以便进一步优化成本。</p>
@@ -964,16 +976,16 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>下图显示了*公有 connection*方法以及组件之间需要准备的连接：</p>
+<p>下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或Azure vNet中部署的Connector。</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure.png" alt="显示Cloud Backup如何通过公有 连接与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"></span></p>
+<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure_public.png" alt="显示Cloud Backup如何通过公有 连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信的示意图。"></span></p>
 </div>
 <div class="paragraph">
-<p>下图显示了*专用连接*方法以及组件之间需要准备的连接：</p>
+<p>下图显示了*专用连接*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或Azure vNet中部署的Connector。</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure_vnet.png" alt="显示Cloud Backup如何通过专用连接与源系统上的卷以及备份文件所在的目标存储进行通信的图表。"></span></p>
+<p><span class="image"><img src="./media/diagram_cloud_backup_onprem_azure_private.png" alt="显示Cloud Backup如何通过专用连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信的图表。"></span></p>
 </div>
 <div class="sect2">
 <h3 id="准备-ontap-集群">准备 ONTAP 集群</h3>
@@ -1058,7 +1070,7 @@
 <div class="sect2">
 <h3 id="创建或切换连接器">创建或切换连接器</h3>
 <div class="paragraph">
-<p>需要使用 Connector 将数据备份到云，在将数据备份到 Azure Blob 存储时， Connector 必须位于 Azure vNet 中。您不能使用内部部署的 Connector 。您需要创建一个新的连接器，或者确保当前选定的连接器位于正确的提供程序中。</p>
+<p>如果您已在Azure vNet或内部部署了Connector、则可以完全完成。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到Azure Blob存储。您不能使用部署在其他云提供商中的Connector。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1066,10 +1078,13 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"了解连接器"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html" target="_blank" rel="noopener">"在 Azure 中创建连接器"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"连接器入门"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"在连接器之间切换"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html" target="_blank" rel="noopener">"在Azure中安装Connector"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html" target="_blank" rel="noopener">"在内部安装Connector"</a></p>
 </li>
 </ul>
 </div>
@@ -1099,7 +1114,7 @@
 </div>
 </li>
 <li>
-<p>为 Azure 存储启用 vNet 私有端点。如果从 ONTAP 集群到 vNet 具有 ExpressRoute 或 VPN 连接，并且您希望 Connector 和 Blob 存储之间的通信保持在虚拟专用网络中，则需要此选项。</p>
+<p>为 Azure 存储启用 vNet 私有端点。如果您从ONTAP 集群到vNet具有ExpressRoute或VPN连接、并且希望Connector和Blob存储之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此功能。</p>
 </li>
 </ol>
 </div>
@@ -1208,9 +1223,12 @@
 </div>
 </li>
 <li>
-<p>输入默认备份策略详细信息，然后单击 * 下一步 * 。</p>
+<p>输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>输入默认策略的名称。您无需更改名称。</p>
+</li>
 <li>
 <p>定义备份计划并选择要保留的备份数。 <a href="concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster" target="_blank" rel="noopener">"请参见您可以选择的现有策略列表"</a>。</p>
 </li>
