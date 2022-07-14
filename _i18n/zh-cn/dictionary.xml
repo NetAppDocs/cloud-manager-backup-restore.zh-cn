@@ -849,7 +849,6 @@
   <block id="da95680877c2d8ff430e738df948144e" category="paragraph">在开始将内部卷备份到 StorageGRID 之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="35a7772387f55277aaf5e7a6fe0fd1de" category="paragraph">下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：</block>
   <block id="7c9c2c9135c9dd5b2198f3d2e909e271" category="paragraph"><block ref="7c9c2c9135c9dd5b2198f3d2e909e271" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ca626f3b73b93a62c135713894e906eb" category="list-text">ONTAP 集群通过用户指定的端口从集群间 LIF 启动 HTTPS 连接到 StorageGRID ，以执行备份和还原操作。此端口可在备份设置期间进行配置。</block>
   <block id="56b804288a96913690a4b3ca49ceea54" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器必须位于您的内部。</block>
   <block id="556dad95e1ddce5110bf583aefc08e81" category="list-text">如有必要，请更新防火墙规则，以允许通过您指定的端口（通常为端口 443 ）从 ONTAP 到对象存储的 Cloud Backup Service 连接，并允许通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</block>
   <block id="6be12c1b6627a3a9bb2aa4cb185fc866" category="section-title">正在准备 StorageGRID</block>
@@ -863,12 +862,10 @@
   <block id="aa4788e27cdbd61e4d722970587d99c5" category="list-text">不能在对象存储分段上启用 StorageGRID 对象版本控制。</block>
   <block id="f9e3fe9bcf87b917aee79601ec31e206" category="inline-link">在可访问 Internet 的 Linux 主机上安装 Connector</block>
   <block id="c406c8943ff98e7dc5d56f37428c9410" category="list-text"><block ref="c406c8943ff98e7dc5d56f37428c9410" category="inline-link-rx"></block></block>
-  <block id="a3049b761ff526799f3b1881932b1c8c" category="list-text">通过端口 443 与 StorageGRID 建立 HTTPS 连接</block>
   <block id="971cb541767606cd3faa97135df94e68" category="paragraph">您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="60a2dc1fd82db84a092db92c95942712" category="admonition">将文件备份到 StorageGRID 时不支持 PAYGO 许可。</block>
   <block id="528fb0026f2e5c72059a493302f53861" category="section-title">启用云备份到 StorageGRID</block>
   <block id="293e3556f1041c0ecd0f2d1427b2521d" category="list-text">选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：</block>
-  <block id="f7589765b5ce02397beee9c13ffa0380" category="list-text">StorageGRID 服务器的 FQDN 以及 ONTAP 与 StorageGRID 进行 HTTPS 通信时应使用的端口；例如： `s3.eng.company.com:8082`</block>
   <block id="483b51851b68c242f5f73afff135794f" category="list-text">用于访问存储备份的存储分段的访问密钥和机密密钥。</block>
   <block id="f2c59c3f0d86e6b8ae01d62708bc7aec" category="paragraph">选择正确的 IP 空间可确保 Cloud Backup 可以设置从 ONTAP 到 StorageGRID 对象存储的连接。</block>
   <block id="c94955d6c55e241370d05212ca09f72b" category="inline-image-macro">显示将卷从内部集群备份到 StorageGRID 存储时云提供商详细信息的屏幕截图。</block>
@@ -1922,7 +1919,6 @@
   <block id="902e370d1248b02546dce02dd966d3df" category="list-text">输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：</block>
   <block id="9f0a90a5aa72e2d8a79c1f4913cfc4eb" category="list-text">输入默认策略的名称。您无需更改名称。</block>
   <block id="9668405dd0733ac53e813de88302e2ba" category="list-text">为备份策略命名、以便轻松查看每个策略的用途。</block>
-  <block id="5d58a047f6026134484a0fe815027c58" category="paragraph">Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.19)。请参见 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 了解详细信息。</block>
   <block id="3b4d703b29a9da1e70d08b65d53fe521" category="paragraph">Cloud Backup可用于以下消费模式：</block>
   <block id="38692e39e588de5b1294ee4cca656080" category="list-text">* BYOL*：从NetApp购买的许可证、可用于任何云提供商。</block>
   <block id="bd49b5209f967def5a92bc3d2db5e8dd" category="list-text">* PAYGO*：从云提供商的市场按小时订阅。</block>
@@ -2121,4 +2117,8 @@
   <block id="5cec8c57838d0c83b81a77b4cc1cff11" category="paragraph">例如： "AWs" ： "ARN ： AWS ： iam ：： 464262061435 ： role/cvo-instance-profile-version10-d8e-IamInstanceRole-ikjpJ1HC2E7R"</block>
   <block id="15ab165885255fcc1d504e3757e4f995" category="sidebar">在 AWS 中配置备份以实现多帐户访问</block>
   <block id="37c606e486cf867317024daab096d5c7" category="sidebar">在 Azure 中配置备份以实现多帐户访问</block>
+  <block id="3d4496d9d3224917e9bc6712e9746eb2" category="paragraph">Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.20)。请参见 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 了解详细信息。</block>
+  <block id="9aa87cabc3c16ccfd72ed13e9e2a189c" category="list-text">ONTAP 集群通过用户指定的端口从集群间LIF启动HTTPS连接到StorageGRID 网关节点、以执行备份和还原操作。此端口可在备份设置期间进行配置。</block>
+  <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">通过端口443与StorageGRID 网关节点建立HTTPS连接</block>
+  <block id="dd1011987bc4e3d65b5eae7e319c05b8" category="list-text">StorageGRID 网关节点的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口；例如：`s3.eng.company.com:8082`</block>
 </blocks>
