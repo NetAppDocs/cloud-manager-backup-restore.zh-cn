@@ -48,7 +48,12 @@ Cloud Backup 30天免费试用可从云提供商市场的按需购买订阅中�
 有几个适用于Cloud Backup的PAYGO计划：
 
 * 一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
-* 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。ifdef：：azure[]
+* 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。
+
+
+ifdef::azure[]
+
+* "CVO Edge Cache"软件包的功能与"CVO专业版"软件包相同、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["全局文件缓存"]。您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项仅可通过Azure Marketplace使用、不支持备份内部ONTAP 数据。
 
 
 endif::azure[]
@@ -105,17 +110,13 @@ endif::aws[]
 
 ifdef::azure[]
 
-使用Azure时、请联系您的NetApp销售代表以购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。
-
-在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Azure Marketplace订阅年度计划。
+使用Azure时、请联系您的NetApp销售代表以购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Azure Marketplace订阅年度计划。
 
 endif::azure[]
 
 ifdef::gcp[]
 
-使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。
-
-在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Google Cloud Marketplace订阅年度计划。
+使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Google Cloud Marketplace订阅年度计划。
 
 endif::gcp[]
 

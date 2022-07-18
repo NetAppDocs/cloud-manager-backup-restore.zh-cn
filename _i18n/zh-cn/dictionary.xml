@@ -1775,7 +1775,6 @@
   <block id="5f5358182364ef304e26de4fc2395537" category="list-text">如果备份的数据超过 BYOL 许可证允许的数量，则数据备份将通过按需购买订阅继续进行。例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。</block>
   <block id="49871198f1fc79f432cd047f40a00a48" category="paragraph">有几个适用于Cloud Backup的PAYGO计划：</block>
   <block id="20e92bedd41f67c18b032dfcce8e6443" category="list-text">一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。</block>
-  <block id="82d5e1384762b2b00baba048469a1e46" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。ifdef：：azure[]</block>
   <block id="cf8915b92cd8246fa33ede992991143a" category="summary">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
   <block id="83d4ca6f3242470b8b6011e0437e8875" category="doc">Cloud Backup API</block>
   <block id="efbb9906182277bbe4fa02293b54accb" category="paragraph">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
@@ -1965,10 +1964,6 @@
   <block id="66145e361f72b54aa011f59d543dfb08" category="section-title">使用年度合同</block>
   <block id="264c1c7d3f4ee3cdcffedb80d7ffdb90" category="paragraph">通过购买年度合同为Cloud Backup支付年度费用。</block>
   <block id="2ad823c02fc1acdb11ec531ccd53e0f5" category="paragraph">使用AWS时、可从获得两份年度合同<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> 适用于 Cloud Volumes ONTAP 和内部 ONTAP 系统。这些计划的有效期为1年、2年或3年：</block>
-  <block id="442a6a5ce0278cd99b278c1c2c67fbde" category="paragraph">使用Azure时、请联系您的NetApp销售代表以购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。</block>
-  <block id="6657c4187090950f0e8b808454af01dd" category="paragraph">在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Azure Marketplace订阅年度计划。</block>
-  <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。</block>
-  <block id="a2384c6b0e0fa211c99dda551850d3c7" category="paragraph">在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Google Cloud Marketplace订阅年度计划。</block>
   <block id="ebfefcd98f010a948a1d7251ef132972" category="list-text">从Cloud Manager左侧导航菜单中、单击*数字电子邮件*、然后选择*数据服务许可证*选项卡。</block>
   <block id="fa151cd4e924318c49ae962dc9172d21" category="paragraph">如果您已在AWS VPC或内部部署了Connector、则可以随时完成所有操作。如果没有、则需要创建一个连接器、将ONTAP 数据备份到AWS S3存储。您还需要自定义 Connector 的网络设置，以便它可以连接到 AWS S3 。</block>
   <block id="376da794bc45a0b27e3c757018f00f1c" category="paragraph">下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或AWS VPC中部署的Connector。</block>
@@ -2121,4 +2116,9 @@
   <block id="9aa87cabc3c16ccfd72ed13e9e2a189c" category="list-text">ONTAP 集群通过用户指定的端口从集群间LIF启动HTTPS连接到StorageGRID 网关节点、以执行备份和还原操作。此端口可在备份设置期间进行配置。</block>
   <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">通过端口443与StorageGRID 网关节点建立HTTPS连接</block>
   <block id="dd1011987bc4e3d65b5eae7e319c05b8" category="list-text">StorageGRID 网关节点的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口；例如：`s3.eng.company.com:8082`</block>
+  <block id="65674529f9b6a1e9b7446fe77b924332" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和云备份。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。此选项不允许您备份内部 ONTAP 数据。</block>
+  <block id="24e6e2f6171b43a847fe194a9a9b5cd0" category="inline-link">全局文件缓存</block>
+  <block id="bd61e5b31b71c94659fbad6818cbd2dd" category="list-text">"CVO Edge Cache"软件包的功能与"CVO专业版"软件包相同、但也支持<block ref="1d3288a8d4b20b4e5413a4b73f45a95b" category="inline-link-rx"></block>。您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项仅可通过Azure Marketplace使用、不支持备份内部ONTAP 数据。</block>
+  <block id="e5078960df05e3b097ebed6ba78c2f45" category="paragraph">使用Azure时、请联系您的NetApp销售代表以购买年度合同。此合同在Azure Marketplace中以私人优惠形式提供。在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Azure Marketplace订阅年度计划。</block>
+  <block id="3ae134636b7b1d4b2b9cc5b9e9bfeb40" category="paragraph">使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。在NetApp与您共享私有优惠后、您可以在Cloud Backup激活期间从Google Cloud Marketplace订阅年度计划。</block>
 </blocks>
